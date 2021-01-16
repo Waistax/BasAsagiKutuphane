@@ -5,9 +5,7 @@
  */
 package başaşağıderebeyi.kumhavuzu;
 
-/**
- * Dizeye ekleme hızlarını denemek için oluşturulmuştur.
- */
+/** Dizeye ekleme hızlarını denemek için oluşturulmuştur. */
 public class HızDeneme {
 	public static void main(String[] args) {
 		StringBuilder d1 = new StringBuilder();
