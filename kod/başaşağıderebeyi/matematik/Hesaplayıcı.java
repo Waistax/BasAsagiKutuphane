@@ -58,25 +58,25 @@ public class Hesaplayıcı {
 	}
 	
 	/**
-	 * İki ondalık sayının mesafelere göre ara değerini hesaplar.
+	 * İki ondalık sayının mesafelere göre aradeğerini hesaplar.
 	 * Mesafelerin toplamının bir olduğunu varsayar.
 	 */
-	public static float araDeğer(float sol, float sağ, float solaUzaklık, float sağaUzaklık) {
+	public static float aradeğer(float sol, float sağ, float solaUzaklık, float sağaUzaklık) {
 		return sol * sağaUzaklık + sağ * solaUzaklık;
 	}
 	
 	/**
-	 * İki tam sayının mesafelere göre ara değerini hesaplar.
+	 * İki tam sayının mesafelere göre aradeğerini hesaplar.
 	 * Mesafelerin toplamının bir olduğunu varsayar.
 	 */
-	public static int araDeğer(int sol, int sağ, float solaUzaklık, float sağaUzaklık) {
-		return (int)yuvarla(araDeğer(sol, sağ, solaUzaklık, sağaUzaklık));
+	public static int aradeğer(int sol, int sağ, float solaUzaklık, float sağaUzaklık) {
+		return (int)yuvarla(aradeğer(sol, sağ, solaUzaklık, sağaUzaklık));
 	}
 	
 	/**
 	 * İki nesneden yakın olanı döndürür.
 	 */
-	public static <T> T araDeğer(T sol, T sağ, float solaUzaklık, float sağaUzaklık) {
+	public static <T> T aradeğer(T sol, T sağ, float solaUzaklık, float sağaUzaklık) {
 		if (solaUzaklık < sağaUzaklık)
 			return sol;
 		else
