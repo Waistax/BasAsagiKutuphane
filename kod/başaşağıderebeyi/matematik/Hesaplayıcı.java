@@ -8,7 +8,7 @@
  */
 package başaşağıderebeyi.matematik;
 
-/** Ondalıklı sayılar içeren hesaplamalar sağlar.
+/** Ondalıklı ve tam sayılar döndüren hesaplamalar sağlar.
  * Buradaki yöntemlerin hespi sınıfa aittir.
  * Bu sınıfın nesnesi oluşturulmaz. */
 public class Hesaplayıcı {
@@ -69,9 +69,14 @@ public class Hesaplayıcı {
 			return sağ;
 	}
 	
-	/** Sayının karesini hesaplar. */
+	/** Ondalıklı sayının karesini hesaplar. */
 	public static float karesi(float o) {
 		return o * o;
+	}
+	
+	/** Tam sayının karesini hesaplar. */
+	public static int karesi(int t) {
+		return t * t;
 	}
 	
 	/** Sayının kökünü hesaplar. */

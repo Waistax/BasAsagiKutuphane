@@ -5,9 +5,17 @@
  */
 package başaşağıderebeyi.kumhavuzu;
 
-/** Dizeye ekleme hızlarını denemek için oluşturulmuştur. */
+import başaşağıderebeyi.matematik.yerleşim.*;
+
+/** Farklı yöntemlerin hızlarını dener. */
 public class HızDeneme {
+	/** Denemenin başlangıcıdır. */
 	public static void main(String[] args) {
+		yerleşimVerisiKomşuDenemesi();
+	}
+	
+	/** İki karakterden oluşan dizeyi birlikte ya da ayrı ayrı eklemenin hızlarını karşılaştırır. */
+	public static void dizeyeEklemeDenemesi() {
 		StringBuilder d1 = new StringBuilder();
 		StringBuilder d2 = new StringBuilder();
 		
@@ -29,5 +37,39 @@ public class HızDeneme {
 		double o2 = (double)süre2 / N;
 		
 		System.out.println("Ortalamalar: " + o1 + " / " + o2);
+	}
+	
+	/** Yerleşim verisinin komşusuna ulaşma hızını ölçer. */
+	public static void yerleşimVerisiKomşuDenemesi() {
+		int N = 10000000;
+		
+		System.out.println(YerleşimVerisi.KÜÇÜK_YATAY.komşu());
+		System.out.println(YerleşimVerisi.KÜÇÜK_DİKEY.komşu());
+		
+		long başlangıç = System.nanoTime();
+		for (int i = 0; i < N; i++) {
+			YerleşimVerisi.KÜÇÜK_DİKEY.komşu();
+		}
+		long süre = System.nanoTime() - başlangıç;
+		double o1 = süre / (double)N;
+		
+		System.out.println("Ortalama: " + o1);
+	}
+	
+	/** Yerleşim verisinin karşısına ulaşma hızını ölçer. */
+	public static void yerleşimVerisiKarşıDenemesi() {
+		int N = 10000000;
+
+		System.out.println(YerleşimVerisi.KÜÇÜK_YATAY.karşı());
+		System.out.println(YerleşimVerisi.KÜÇÜK_DİKEY.karşı());
+		
+		long başlangıç = System.nanoTime();
+		for (int i = 0; i < N; i++) {
+			YerleşimVerisi.KÜÇÜK_DİKEY.karşı();
+		}
+		long süre = System.nanoTime() - başlangıç;
+		double o1 = süre / (double)N;
+		
+		System.out.println("Ortalama: " + o1);
 	}
 }
