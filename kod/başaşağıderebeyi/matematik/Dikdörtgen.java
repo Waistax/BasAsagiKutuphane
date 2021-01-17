@@ -1,6 +1,6 @@
 /**
  * başaşağıderebeyi.matematik.Dikdörtgen.java
- * sürüm / 17 Oca 2021 / 12:08:18
+ * 0.4 / 17 Oca 2021 / 12:08:18
  * Cem GEÇGEL (BaşAşağıDerebeyi)
  * 
  * BaşAşağıMotor'dan alındı.

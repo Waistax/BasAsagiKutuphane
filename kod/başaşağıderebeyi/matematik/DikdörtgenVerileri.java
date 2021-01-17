@@ -18,6 +18,7 @@ package başaşağıderebeyi.matematik;
  * ORTA, orta nokta,
  * UZUNLUK, uzunluk. */
 public enum DikdörtgenVerileri {
+	/** KÜÇÜK, BÜYÜK, ORTA ve UZUNLUK verilerinin birleştirmeleri: */
 	KÜÇÜK_BÜYÜK,
 	KÜÇÜK_ORTA,
 	KÜÇÜK_UZUNLUK,
