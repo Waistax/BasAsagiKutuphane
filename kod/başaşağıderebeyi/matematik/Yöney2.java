@@ -8,7 +8,7 @@
  */
 package başaşağıderebeyi.matematik;
 
-/** İki boyutlu bir yöneyi temsil eder.
+/** İki boyutlu bir yöneydir.
  * Bileşenler ondalıklı sayılar olarak saklanır. */
 public class Yöney2 {
 	/** Yöneyin birinci bileşenidir. */
@@ -168,8 +168,8 @@ public class Yöney2 {
 				Hesaplayıcı.yuvarla(ö.y));
 	}
 	
-	/** Bu yöneyin bileşenlerini ayrı ayrı yuvarlar.
-	 * Bu yöneyi döndürür. */
+	/** Yöneyin bileşenlerini ayrı ayrı yuvarlar.
+	 * Yöneyi döndürür. */
 	public Yöney2 yuvarla() {
 		return yuvarla(this);
 	}
@@ -182,8 +182,8 @@ public class Yöney2 {
 				Hesaplayıcı.tavan(ö.x));
 	}
 	
-	/** Bu yöneyin bileşenlerini ayrı ayrı yukarı yuvarlar.
-	 * Bu yöneyi döndürür. */
+	/** Yöneyin bileşenlerini ayrı ayrı yukarı yuvarlar.
+	 * Yöneyi döndürür. */
 	public Yöney2 tavan() {
 		return tavan(this);
 	}
@@ -196,8 +196,8 @@ public class Yöney2 {
 				Hesaplayıcı.taban(ö.x));
 	}
 	
-	/** Bu yöneyin bileşenlerini ayrı ayrı aşağı yuvarlar.
-	 * Bu yöneyi döndürür. */
+	/** Yöneyin bileşenlerini ayrı ayrı aşağı yuvarlar.
+	 * Yöneyi döndürür. */
 	public Yöney2 taban() {
 		return taban(this);
 	}
@@ -254,7 +254,7 @@ public class Yöney2 {
 				this.y == y;
 	}
 	
-	/** Verilen yöneyin bu yöneye eşitliğini hesaplar. */
+	/** Verilen yöneyin bu yöneye eşit olup olmadığını hesaplar. */
 	public boolean eşittir(Yöney2 ö) {
 		return eşittir(
 				ö.x,

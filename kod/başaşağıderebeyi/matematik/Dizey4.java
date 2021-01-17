@@ -8,7 +8,7 @@
  */
 package başaşağıderebeyi.matematik;
 
-/** Dörde dört boyutlu bir dizeyi temsil eder.
+/** Dörde dört boyutlu bir dizeydir.
  * Elemanlar ondalıklı sayılar olarak saklanır. */
 public class Dizey4 {
 	/** Bazı işlemleri yaparkan ara bellek olarak kullanılan dizeydir.

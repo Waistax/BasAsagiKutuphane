@@ -8,7 +8,7 @@
  */
 package başaşağıderebeyi.matematik;
 
-/** Dört boyutlu bir yöneyi temsil eder.
+/** Dört boyutlu bir yöneydir.
  * Bileşenler ondalıklı sayılar olarak saklanır. */
 public class Yöney4 {
 	/** Yöneyin birinci bileşenidir. */
@@ -208,8 +208,8 @@ public class Yöney4 {
 				Hesaplayıcı.yuvarla(ö.w));
 	}
 	
-	/** Bu yöneyin bileşenlerini ayrı ayrı yuvarlar.
-	 * Bu yöneyi döndürür. */
+	/** Yöneyin bileşenlerini ayrı ayrı yuvarlar.
+	 * Yöneyi döndürür. */
 	public Yöney4 yuvarla() {
 		return yuvarla(this);
 	}
@@ -224,8 +224,8 @@ public class Yöney4 {
 				Hesaplayıcı.tavan(ö.w));
 	}
 	
-	/** Bu yöneyin bileşenlerini ayrı ayrı yukarı yuvarlar.
-	 * Bu yöneyi döndürür. */
+	/** Yöneyin bileşenlerini ayrı ayrı yukarı yuvarlar.
+	 * Yöneyi döndürür. */
 	public Yöney4 tavan() {
 		return tavan(this);
 	}
@@ -240,8 +240,8 @@ public class Yöney4 {
 				Hesaplayıcı.taban(ö.w));
 	}
 	
-	/** Bu yöneyin bileşenlerini ayrı ayrı aşağı yuvarlar.
-	 * Bu yöneyi döndürür. */
+	/** Yöneyin bileşenlerini ayrı ayrı aşağı yuvarlar.
+	 * Yöneyi döndürür. */
 	public Yöney4 taban() {
 		return taban(this);
 	}
@@ -304,7 +304,7 @@ public class Yöney4 {
 				this.w == w;
 	}
 	
-	/** Verilen yöneyin bu yöneye eşitliğini hesaplar. */
+	/** Verilen yöneyin bu yöneye eşit olup olmadığını hesaplar. */
 	public boolean eşittir(Yöney4 ö) {
 		return eşittir(
 				ö.x,

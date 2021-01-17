@@ -5,7 +5,7 @@
  */
 package başaşağıderebeyi.matematik;
 
-/** Üç boyutlu bir yöneyi temsil eder.
+/** Üç boyutlu bir yöneydir.
  * Bileşenler ondalıklı sayılar olarak saklanır. */
 public class Yöney3 {
 	/** Yöneyin birinci bileşenidir. */
@@ -185,8 +185,8 @@ public class Yöney3 {
 				Hesaplayıcı.yuvarla(ö.z));
 	}
 	
-	/** Bu yöneyin bileşenlerini ayrı ayrı yuvarlar.
-	 * Bu yöneyi döndürür. */
+	/** Yöneyin bileşenlerini ayrı ayrı yuvarlar.
+	 * Yöneyi döndürür. */
 	public Yöney3 yuvarla() {
 		return yuvarla(this);
 	}
@@ -200,8 +200,8 @@ public class Yöney3 {
 				Hesaplayıcı.tavan(ö.z));
 	}
 	
-	/** Bu yöneyin bileşenlerini ayrı ayrı yukarı yuvarlar.
-	 * Bu yöneyi döndürür. */
+	/** Yöneyin bileşenlerini ayrı ayrı yukarı yuvarlar.
+	 * Yöneyi döndürür. */
 	public Yöney3 tavan() {
 		return tavan(this);
 	}
@@ -215,8 +215,8 @@ public class Yöney3 {
 				Hesaplayıcı.taban(ö.z));
 	}
 	
-	/** Bu yöneyin bileşenlerini ayrı ayrı aşağı yuvarlar.
-	 * Bu yöneyi döndürür. */
+	/** Yöneyin bileşenlerini ayrı ayrı aşağı yuvarlar.
+	 * Yöneyi döndürür. */
 	public Yöney3 taban() {
 		return taban(this);
 	}
@@ -276,7 +276,7 @@ public class Yöney3 {
 				this.z == z;
 	}
 	
-	/** Verilen yöneyin bu yöneye eşitliğini hesaplar. */
+	/** Verilen yöneyin bu yöneye eşit olup olmadığını hesaplar. */
 	public boolean eşittir(Yöney3 ö) {
 		return eşittir(
 				ö.x,
