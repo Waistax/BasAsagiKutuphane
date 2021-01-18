@@ -8,18 +8,18 @@
  */
 package başaşağıderebeyi.matematik;
 
-/** Dikdörtgeni tanımlarken kullanılan farklı verilerinin sıralamasıdır.
+/** Dikdörtgeni tanımlarken kullanılan farklı verilerinin sıralaması.
  * Bu veriler bir nokta ya da bir uzunluk olabilir.
- * Her boyut başına dikdörtgenin iki farklı veriye ihtiyacı vardır.
+ * Her boyut başına dikdörtgenin iki farklı veriye ihtiyacı var.
  * Kalan veriler bunları kullanarak hesaplanabilir. */
 public enum DikdörtgenVerisi {
-	/** Köşelerden konumu küçük olandır. */
+	/** Köşelerden konumu küçük olan. */
 	KÜÇÜK,
-	/** Köşelerden konumu büyük olandır. */
+	/** Köşelerden konumu büyük olan. */
 	BÜYÜK,
-	/** Orta noktadır. */
+	/** Orta nokta. */
 	ORTA,
-	/** Kenar uzunluğudur. */
+	/** Kenar uzunluğu. */
 	UZUNLUK;
 	
 	/** Bilinen verileri kullanarak, dikdörtgenin yataydaki diğer verilerini hesaplar. */

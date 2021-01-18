@@ -7,7 +7,7 @@ package başaşağıderebeyi.matematik.yerleşim;
 
 import başaşağıderebeyi.matematik.*;
 
-/** Bir kuralın yerleştirdiği farklı verilerin sıralamasıdır. */
+/** Bir kuralın yerleştirdiği farklı verilerin sıralaması. */
 public enum YerleşimVerisi {
 	/** Verilerin yatay ve dikey ile birleştirmeleri: */
 	KÜÇÜK_YATAY,

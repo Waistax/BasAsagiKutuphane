@@ -9,7 +9,7 @@ import başaşağıderebeyi.matematik.yerleşim.*;
 
 /** Farklı yöntemlerin hızlarını dener. */
 public class HızDeneme {
-	/** Denemenin başlangıcıdır. */
+	/** Denemenin başlangıcı. */
 	public static void main(String[] args) {
 		yerleşimVerisiKomşuDenemesi();
 	}

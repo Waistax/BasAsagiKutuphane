@@ -8,12 +8,12 @@
  */
 package başaşağıderebeyi.matematik;
 
-/** İki boyutlu bir yöneydir.
+/** İki boyutlu bir yöney.
  * Bileşenler ondalıklı sayılar olarak saklanır. */
 public class Yöney2 {
-	/** Yöneyin birinci bileşenidir. */
+	/** Yöneyin birinci bileşeni. */
 	public float x;
-	/** Yöneyin ikinci bileşenidir. */
+	/** Yöneyin ikinci bileşeni. */
 	public float y;
 	
 	/** Sıfır yöneyi tanımlar. */

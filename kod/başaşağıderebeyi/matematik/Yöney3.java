@@ -5,14 +5,14 @@
  */
 package başaşağıderebeyi.matematik;
 
-/** Üç boyutlu bir yöneydir.
+/** Üç boyutlu bir yöney.
  * Bileşenler ondalıklı sayılar olarak saklanır. */
 public class Yöney3 {
-	/** Yöneyin birinci bileşenidir. */
+	/** Yöneyin birinci bileşeni. */
 	public float x;
-	/** Yöneyin ikinci bileşenidir. */
+	/** Yöneyin ikinci bileşeni. */
 	public float y;
-	/** Yöneyin üçüncü bileşenidir. */
+	/** Yöneyin üçüncü bileşeni. */
 	public float z;
 	
 	/** Sıfır yöneyi tanımlar. */

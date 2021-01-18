@@ -10,15 +10,15 @@ package başaşağıderebeyi.matematik.yerleşim;
 
 import başaşağıderebeyi.matematik.*;
 
-/** Anlık olarak tanımlanan bir dikdörtgendir. */
+/** Anlık olarak tanımlanan bir dikdörtgen. */
 public class YerleşikDikdörtgen {
-	/** Belirleyici, üst dikdörtgendir. */
+	/** Belirleyici, üst dikdörtgen. */
 	private final Dikdörtgen ana;
-	/** Yerleştirilecek dikdörtgendir. */
+	/** Yerleştirilecek dikdörtgen. */
 	private final Dikdörtgen hedef;
-	/** Yerleşimi belirleyen kurallardır. */
+	/** Yerleşimi belirleyen kurallar. */
 	private final YerleşimKuralı[] kurallar;
-	/** Yataydaki verilerin dikeydekilere bağlı olup olmadığıdır. */
+	/** Yataydaki verilerin dikeydekilere bağlı olup olmadığı. */
 	private boolean bağımlıYatay;
 	
 	/** Var olan bir dikdörtgenden tanımlar. */

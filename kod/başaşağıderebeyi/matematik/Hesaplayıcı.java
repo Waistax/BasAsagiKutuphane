@@ -12,10 +12,10 @@ package başaşağıderebeyi.matematik;
  * Buradaki yöntemlerin hespi sınıfa aittir.
  * Bu sınıfın nesnesi oluşturulmaz. */
 public class Hesaplayıcı {
-	/** Derece biriminden bir açı ile çarpıldığında onun radyan biriminden değerini veren sayıdır. */
+	/** Derece biriminden bir açı ile çarpıldığında onun radyan biriminden değerini veren sayı. */
 	public static final float RADYANA_ÇEVİR = (float) (Math.PI / 180.0);
 	
-	/** Radyan biriminden bir açı ile çarpıldığında onun derece biriminden değerini veren sayıdır. */
+	/** Radyan biriminden bir açı ile çarpıldığında onun derece biriminden değerini veren sayı. */
 	public static final float DERECEYE_ÇEVİR = 1 / RADYANA_ÇEVİR;
 	
 	/** İki sayıdan küçük olanı döndürür. */

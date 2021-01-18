@@ -8,16 +8,16 @@
  */
 package başaşağıderebeyi.matematik;
 
-/** İki boyutlu bir dikdörtgendir.
+/** İki boyutlu bir dikdörtgen.
  * Bileşenler ondalıklı sayılar olarak saklanır. */
 public class Dikdörtgen {
-	/** Konumunun değerleri küçük olan köşedir. */
+	/** Konumunun değerleri küçük olan köşe. */
 	public final Yöney2 k;
-	/** Konumunun değerleri büyük olan köşedir. */
+	/** Konumunun değerleri büyük olan köşe. */
 	public final Yöney2 b;
-	/** Orta noktasıdır. */
+	/** Orta noktası. */
 	public final Yöney2 o;
-	/** Kenarların uzunluklarını içeren yöneydir. */
+	/** Kenarların uzunluklarını içeren yöney. */
 	public final Yöney2 u;
 	
 	/** Sıfır dikdörtgeni tanımlar. */

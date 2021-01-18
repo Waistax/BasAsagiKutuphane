@@ -8,14 +8,14 @@
  */
 package başaşağıderebeyi.matematik;
 
-/** Dörde dört boyutlu bir dizeydir.
+/** Dörde dört boyutlu bir dizey.
  * Elemanlar ondalıklı sayılar olarak saklanır. */
 public class Dizey4 {
-	/** Bazı işlemleri yaparkan ara bellek olarak kullanılan dizeydir.
-	 * Bu dizey kullanılırken eşzamanlamaya dikkat edilmelidir. */
+	/** Bazı işlemleri yaparkan ara bellek olarak kullanılan dizey.
+	 * Bu dizey kullanılırken eşzamanlamaya dikkat edilmeli. */
 	private static final Dizey4 TAMPON = new Dizey4();
 	
-	/** Dizeyin elemanlarını içeren dizidir. */
+	/** Dizeyin elemanlarını içeren dizi. */
 	public float[] e;
 	
 	/** Sıfır dizeyi tanımlar. */
