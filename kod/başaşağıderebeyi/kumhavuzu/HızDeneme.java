@@ -15,7 +15,8 @@ public class HızDeneme {
 	}
 	
 	/** İki karakterden oluşan dizeyi birlikte ya da ayrı ayrı eklemenin hızlarını karşılaştırır. */
-	public static void dizeyeEklemeDenemesi() {
+	@SuppressWarnings("unused")
+	private static void dizeyeEklemeDenemesi() {
 		StringBuilder d1 = new StringBuilder();
 		StringBuilder d2 = new StringBuilder();
 		
@@ -40,7 +41,7 @@ public class HızDeneme {
 	}
 	
 	/** Yerleşim verisinin komşusuna ulaşma hızını ölçer. */
-	public static void yerleşimVerisiKomşuDenemesi() {
+	private static void yerleşimVerisiKomşuDenemesi() {
 		int N = 10000000;
 		
 		System.out.println(YerleşimVerisi.KÜÇÜK_YATAY.komşu());
@@ -57,7 +58,8 @@ public class HızDeneme {
 	}
 	
 	/** Yerleşim verisinin karşısına ulaşma hızını ölçer. */
-	public static void yerleşimVerisiKarşıDenemesi() {
+	@SuppressWarnings("unused")
+	private static void yerleşimVerisiKarşıDenemesi() {
 		int N = 10000000;
 
 		System.out.println(YerleşimVerisi.KÜÇÜK_YATAY.karşı());

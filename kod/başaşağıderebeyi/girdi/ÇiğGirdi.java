@@ -29,7 +29,7 @@ public class ÇiğGirdi {
 	/** Fare tekerleğinin anlık girdisi. */
 	private int tekerlekGirdisi;
 	
-	/** Tuşsuz tanımlar. */
+	/** Tuşsuz girdi tanımlar. */
 	public ÇiğGirdi() {
 		tuşTakımı = new HashMap<>();
 		fare = new HashMap<>();
