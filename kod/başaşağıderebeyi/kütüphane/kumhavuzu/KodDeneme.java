@@ -1,11 +1,11 @@
 /**
- * başaşağıderebeyi.kumhavuzu.KodDeneme.java
+ * başaşağıderebeyi.kütüphane.kumhavuzu.KodDeneme.java
  * 0.6 / 19 Oca 2021 / 08:09:17
  * Cem GEÇGEL (BaşAşağıDerebeyi)
  */
-package başaşağıderebeyi.kumhavuzu;
+package başaşağıderebeyi.kütüphane.kumhavuzu;
 
-import başaşağıderebeyi.olay.*;
+import başaşağıderebeyi.kütüphane.olay.*;
 
 import java.util.*;
 

@@ -1,12 +1,12 @@
 /**
- * başaşağıderebeyi.matematik.Dikdörtgen.java
+ * başaşağıderebeyi.kütüphane.matematik.Dikdörtgen.java
  * 0.4 / 17 Oca 2021 / 12:08:18
  * Cem GEÇGEL (BaşAşağıDerebeyi)
  * 
  * BaşAşağıMotor'dan alındı.
  * 0.13 / 8 Eyl 2020 / 09:37:00
  */
-package başaşağıderebeyi.matematik;
+package başaşağıderebeyi.kütüphane.matematik;
 
 /** İki boyutlu bir dikdörtgen.
  * Bileşenler ondalıklı sayılar olarak saklanır. */

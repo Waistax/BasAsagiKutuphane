@@ -1,12 +1,12 @@
 /**
- * başaşağıderebeyi.matematik.Matris.java
+ * başaşağıderebeyi.kütüphane.matematik.Matris.java
  * 0.3 / 16 Oca 2021 / 20:31:28
  * Cem GEÇGEL (BaşAşağıDerebeyi)
  * 
  * Waistax Framework'den biraz alındı.
  * ? / ? / ?
  */
-package başaşağıderebeyi.matematik;
+package başaşağıderebeyi.kütüphane.matematik;
 
 /** Dörde dört boyutlu bir dizey.
  * Elemanlar ondalıklı sayılar olarak saklanır. */

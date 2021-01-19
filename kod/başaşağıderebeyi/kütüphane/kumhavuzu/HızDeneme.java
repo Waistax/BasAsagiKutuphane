@@ -1,11 +1,11 @@
 /**
- * başaşağıderebeyi.kumhavuzu.HızDeneme.java
+ * başaşağıderebeyi.kütüphane.kumhavuzu.HızDeneme.java
  * 0.2 / 16 Oca 2021 / 14:05:29
  * Cem GEÇGEL (BaşAşağıDerebeyi)
  */
-package başaşağıderebeyi.kumhavuzu;
+package başaşağıderebeyi.kütüphane.kumhavuzu;
 
-import başaşağıderebeyi.matematik.yerleşim.*;
+import başaşağıderebeyi.kütüphane.matematik.yerleşim.*;
 
 /** Farklı yöntemlerin hızlarını dener. */
 public class HızDeneme {

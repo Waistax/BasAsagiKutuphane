@@ -1,12 +1,12 @@
 /**
- * başaşağıderebeyi.matematik.Hesaplayıcı.java
+ * başaşağıderebeyi.kütüphane.matematik.Hesaplayıcı.java
  * 0.1 / 16 Oca 2021 / 12:49:52
  * Cem GEÇGEL (BaşAşağıDerebeyi)
  * 
  * BaşAşağıMotor'dan alındı.
  * 0.24 / 6 Kas 2020 / 11:15:43
  */
-package başaşağıderebeyi.matematik;
+package başaşağıderebeyi.kütüphane.matematik;
 
 /** Ondalıklı ve tam sayılar döndüren hesaplamalar sağlar.
  * Buradaki yöntemlerin hespi sınıfa aittir.

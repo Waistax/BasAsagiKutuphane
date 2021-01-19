@@ -1,14 +1,14 @@
 /**
- * başaşağıderebeyi.matematik.yerleşim.YerleşikDikdörtgen.java
+ * başaşağıderebeyi.kütüphane.matematik.yerleşim.YerleşikDikdörtgen.java
  * 0.4 / 17 Oca 2021 / 16:19:40
  * Cem GEÇGEL (BaşAşağıDerebeyi)
  * 
  * BaşAşağıMotor'dan alındı.
  * 0.24 / 7 Kas 2020 / 15:28:16
  */
-package başaşağıderebeyi.matematik.yerleşim;
+package başaşağıderebeyi.kütüphane.matematik.yerleşim;
 
-import başaşağıderebeyi.matematik.*;
+import başaşağıderebeyi.kütüphane.matematik.*;
 
 /** Anlık olarak tanımlanan bir dikdörtgen. */
 public class YerleşikDikdörtgen {

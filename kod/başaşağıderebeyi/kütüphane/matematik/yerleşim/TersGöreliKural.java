@@ -1,14 +1,14 @@
 /**
- * başaşağıderebeyi.matematik.yerleşim.TersGöreliKural.java
+ * başaşağıderebeyi.kütüphane.matematik.yerleşim.TersGöreliKural.java
  * 0.4 / 18 Oca 2021 / 08:16:39
  * Cem GEÇGEL (BaşAşağıDerebeyi)
  * 
  * BaşAşağıMotor'dan alındı.
  * 0.16 / 13 Eyl 2020 / 18:52:31
  */
-package başaşağıderebeyi.matematik.yerleşim;
+package başaşağıderebeyi.kütüphane.matematik.yerleşim;
 
-import başaşağıderebeyi.matematik.*;
+import başaşağıderebeyi.kütüphane.matematik.*;
 
 /** Dikdörtgenin verisini üstün büyük verisine göre tanımlayan kural. */
 public class TersGöreliKural extends YerleşimKuralı {

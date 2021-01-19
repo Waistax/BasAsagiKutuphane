@@ -1,5 +1,5 @@
 /**
- * başaşağıderebeyi.olay.OlayDağıtıcısı.java
+ * başaşağıderebeyi.kütüphane.olay.OlayDağıtıcısı.java
  * 0.6 / 19 Oca 2021 / 08:08:05
  * Cem GEÇGEL (BaşAşağıDerebeyi)
  * 
@@ -9,7 +9,7 @@
  * Waistax Engine'den biraz alındı.
  * 1.1.? / ? Ağu 2016 / ?
  */
-package başaşağıderebeyi.olay;
+package başaşağıderebeyi.kütüphane.olay;
 
 import java.lang.reflect.*;
 import java.util.*;

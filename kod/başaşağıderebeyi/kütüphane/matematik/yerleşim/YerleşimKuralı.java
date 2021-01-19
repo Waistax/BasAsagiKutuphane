@@ -1,14 +1,14 @@
 /**
- * başaşağıderebeyi.matematik.yerleşim.YerleşimKuralı.java
+ * başaşağıderebeyi.kütüphane.matematik.yerleşim.YerleşimKuralı.java
  * 0.4 / 17 Oca 2021 / 13:18:29
  * Cem GEÇGEL (BaşAşağıDerebeyi)
  * 
  * BaşAşağıMotor'dan alındı.
  * 0.16 / 13 Eyl 2020 / 17:46:57
  */
-package başaşağıderebeyi.matematik.yerleşim;
+package başaşağıderebeyi.kütüphane.matematik.yerleşim;
 
-import başaşağıderebeyi.matematik.*;
+import başaşağıderebeyi.kütüphane.matematik.*;
 
 /** Bir dikdörtgeni üstündekine göre tanımlayan kural. */
 public abstract class YerleşimKuralı {

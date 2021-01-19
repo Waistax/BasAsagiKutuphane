@@ -1,12 +1,12 @@
 /**
- * başaşağıderebeyi.matematik.Yöney4.java
+ * başaşağıderebeyi.kütüphane.matematik.Yöney4.java
  * 0.2 / 16 Oca 2021 / 14:13:24
  * Cem GEÇGEL (BaşAşağıDerebeyi)
  * 
  * BaşAşağıMotor'dan alındı.
  * 0.22 / 4 Kas 2020 / 21:30:15
  */
-package başaşağıderebeyi.matematik;
+package başaşağıderebeyi.kütüphane.matematik;
 
 /** Dört boyutlu bir yöney.
  * Bileşenler ondalıklı sayılar olarak saklanır. */

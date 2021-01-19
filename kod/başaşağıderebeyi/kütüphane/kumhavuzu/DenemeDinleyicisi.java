@@ -1,11 +1,11 @@
 /**
- * başaşağıderebeyi.kumhavuzu.DenemeDinleyicisi.java
+ * başaşağıderebeyi.kütüphane.kumhavuzu.DenemeDinleyicisi.java
  * 0.6 / 19 Oca 2021 / 09:31:30
  * Cem GEÇGEL (BaşAşağıDerebeyi)
  */
-package başaşağıderebeyi.kumhavuzu;
+package başaşağıderebeyi.kütüphane.kumhavuzu;
 
-import başaşağıderebeyi.olay.*;
+import başaşağıderebeyi.kütüphane.olay.*;
 
 /** Dağıtıcıyı denemek için oluşturulmuş dinleyici. */
 public class DenemeDinleyicisi {

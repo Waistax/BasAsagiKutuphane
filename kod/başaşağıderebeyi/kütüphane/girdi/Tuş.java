@@ -1,12 +1,12 @@
 /**
- * başaşağıderebeyi.girdi.Tuş.java
+ * başaşağıderebeyi.kütüphane.girdi.Tuş.java
  * 0.5 / 18 Oca 2021 / 10:38:21
  * Cem GEÇGEL (BaşAşağıDerebeyi)
  * 
  * BaşAşağıMotor'dan alındı.
  * 0.20 / 1 Kas 2020 / 16:42:13
  */
-package başaşağıderebeyi.girdi;
+package başaşağıderebeyi.kütüphane.girdi;
 
 /** Tuş takımındaki ya da faredeki bir tuş. */
 public class Tuş {
