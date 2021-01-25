@@ -5,6 +5,9 @@
  */
 package başaşağıderebeyi.kütüphane.arayüz;
 
+/** Ekranda bağımsız bir öğe. */
 public class Pencere extends Levha {
-	
+	public Pencere(final Levha levha) {
+		super(levha);
+	}
 }

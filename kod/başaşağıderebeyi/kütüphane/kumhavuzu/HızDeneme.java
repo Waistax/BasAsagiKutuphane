@@ -11,68 +11,71 @@ import başaşağıderebeyi.kütüphane.matematik.yerleşim.*;
 public class HızDeneme {
 	/** Denemenin başlangıcı. */
 	public static void main(final String[] args) {
-		HızDeneme.yerleşimVerisiKomşuDenemesi();
+		HızDeneme.karşılaştır();
 	}
 	
-	/** İki karakterden oluşan dizeyi birlikte ya da ayrı ayrı eklemenin hızlarını
-	 * karşılaştırır. */
+	/** Bir yöntemin çalışma hızını ölçer. */
 	@SuppressWarnings("unused")
-	private static void dizeyeEklemeDenemesi() {
-		final StringBuilder d1 = new StringBuilder();
-		final StringBuilder d2 = new StringBuilder();
-		
-		final int N = 100000000;
-		
-		long başlangıç = System.nanoTime();
+	private static void ölç() {
+		final int N = 10000000;
+		final long başlangıç = System.nanoTime();
 		for (int i = 0; i < N; i++) {
-			d1.append(", ").setLength(0);
+			HızDeneme.yerleşimVerisininKomşusunuAl();
 		}
-		final long süre1 = System.nanoTime() - başlangıç;
-		
-		başlangıç = System.nanoTime();
+		System.out.println("Ortalama: " + (System.nanoTime() - başlangıç) / (double)N);
+	}
+	
+	/** İki yöntemin çalışma hızlarını karşılaştırır. */
+	private static void karşılaştır() {
+		final int N = 1000000000;
+		final long başlangıç1 = System.nanoTime();
 		for (int i = 0; i < N; i++) {
-			d2.append(',').append(' ').setLength(0);
+			HızDeneme.geriyeSıfıraKadarSay();
 		}
-		final long süre2 = System.nanoTime() - başlangıç;
-		
-		final double o1 = (double)süre1 / N;
-		final double o2 = (double)süre2 / N;
-		
-		System.out.println("Ortalamalar: " + o1 + " / " + o2);
+		final long süre1 = System.nanoTime() - başlangıç1;
+		System.out.println("Ortalama1: " + süre1 / (double)N);
+		final long başlangıç2 = System.nanoTime();
+		for (int i = 0; i < N; i++) {
+			HızDeneme.geriyeEksiBireKadarSay();
+		}
+		final long süre2 = System.nanoTime() - başlangıç2;
+		System.out.println("Ortalama2: " + süre2 / (double)N);
+	}
+	
+	/** İki karakterden oluşan dizeyi birlikte ekler. */
+	@SuppressWarnings("unused")
+	private static void dizeyeTekteEkle() {
+		final StringBuilder d = new StringBuilder();
+		d.append(", ");
+	}
+	
+	/** İki karakterden oluşan dizeyi ayrı ayrı ekler. */
+	@SuppressWarnings("unused")
+	private static void dizeyeÇoktaEkle() {
+		final StringBuilder d = new StringBuilder();
+		d.append(',').append(' ');
 	}
 	
 	/** Yerleşim verisinin komşusuna ulaşma hızını ölçer. */
-	private static void yerleşimVerisiKomşuDenemesi() {
-		final int N = 10000000;
-		
-		System.out.println(YerleşimVerisi.KÜÇÜK_YATAY.komşu());
-		System.out.println(YerleşimVerisi.KÜÇÜK_DİKEY.komşu());
-		
-		final long başlangıç = System.nanoTime();
-		for (int i = 0; i < N; i++) {
-			YerleşimVerisi.KÜÇÜK_DİKEY.komşu();
-		}
-		final long süre = System.nanoTime() - başlangıç;
-		final double o1 = süre / (double)N;
-		
-		System.out.println("Ortalama: " + o1);
+	private static void yerleşimVerisininKomşusunuAl() {
+		YerleşimVerisi.KÜÇÜK_DİKEY.komşu();
 	}
 	
 	/** Yerleşim verisinin karşısına ulaşma hızını ölçer. */
 	@SuppressWarnings("unused")
-	private static void yerleşimVerisiKarşıDenemesi() {
-		final int N = 10000000;
-		
-		System.out.println(YerleşimVerisi.KÜÇÜK_YATAY.karşı());
-		System.out.println(YerleşimVerisi.KÜÇÜK_DİKEY.karşı());
-		
-		final long başlangıç = System.nanoTime();
-		for (int i = 0; i < N; i++) {
-			YerleşimVerisi.KÜÇÜK_DİKEY.karşı();
+	private static void yerleşimVerisininKarşısınıAl() {
+		YerleşimVerisi.KÜÇÜK_DİKEY.karşı();
+	}
+	
+	/** Geriye doğru sıfıra kadar sayar. */
+	private static void geriyeSıfıraKadarSay() {
+		for (int i = 10; i-- > 0;) {
 		}
-		final long süre = System.nanoTime() - başlangıç;
-		final double o1 = süre / (double)N;
-		
-		System.out.println("Ortalama: " + o1);
+	}
+	
+	/** Geriye doğru eksi bire kadar sayar. */
+	private static void geriyeEksiBireKadarSay() {
+		for (int i = 10 - 1; i > -1; i--) {
+		}
 	}
 }

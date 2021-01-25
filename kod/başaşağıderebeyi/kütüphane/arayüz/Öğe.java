@@ -53,20 +53,35 @@ public abstract class Öğe {
 		}
 	}
 	
-	/**  */
+	/** Öğeyi levha dikdörtgenine yerleştirir. */
 	public void yerleştir() {
 		this.yerleşikDikdörtgen.yerleştir();
 	}
 	
+	/** Bu öğeyi odaklamak için istek belirtir. */
+	public void odakla() {
+		this.levha.odakla();
+	}
+	
+	/** Öğenin açık olup olmadığını dönderir. Bu öğe açık olsada üstü kapalıysa
+	 * kapalı dönderir. */
+	public boolean açıkMı() {
+		return this.açık && this.levha.açıkMı();
+	}
+	
+	/** Fare imlecinin öğenin üzerinde bulunup bulunmadığını hesaplar. */
 	public void üzerindeyiHesapla() {
 		this.üzerinde = this.levha.üzerinde && this.alan.içinde(this.ekran.girdi.imleç);
 	}
 	
+	/** Fare imlecinin bu öğe tarafından kullanılabilir olup olmadığını hesaplar. */
 	public void imleciHesapla() {
-		if (this.imleçte = this.üzerinde && this.ekran.girdi.imleçUygun(this))
-
+		if (this.imleçte = this.üzerinde && this.ekran.girdi.imleçUygun(this)) {
+			this.ekran.girdi.imleçHedefiYaz(this);
+		}
 	}
 	
+	/** Öğeyi günceller. */
 	public void güncelle() {
 	}
 }
