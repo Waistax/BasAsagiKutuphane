@@ -2,7 +2,7 @@
  * başaşağıderebeyi.kütüphane.matematik.yerleşim.OranlıKural.java
  * sürüm / 18 Oca 2021 / 08:23:59
  * Cem GEÇGEL (BaşAşağıDerebeyi)
- * 
+ *
  * BaşAşağıMotor'dan alındı.
  * 0.16 / 13 Eyl 2020 / 18:55:02
  */
@@ -19,21 +19,21 @@ public class OranlıKural extends YerleşimKuralı {
 	public OranlıKural() {
 		super(DikdörtgenVerisi.UZUNLUK, false, true);
 	}
-
+	
 	/** Belirli bir oranla tanımlar. */
-	public OranlıKural(float oran) {
+	public OranlıKural(final float oran) {
 		this();
-		yaz(oran);
+		this.yaz(oran);
 	}
 	
 	/** Oranı değiştirir. */
-	public OranlıKural yaz(float o) {
-		oran = o;
+	public OranlıKural yaz(final float o) {
+		this.oran = o;
 		return this;
 	}
 	
 	@Override
 	protected void yerleştir() {
-		veri.yaz(hedef, veri.komşu().uzunluk().al(hedef) * oran);
+		this.veri.yaz(this.hedef, this.veri.komşu().uzunluk().al(this.hedef) * this.oran);
 	}
 }

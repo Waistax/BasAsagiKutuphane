@@ -2,16 +2,16 @@
  * başaşağıderebeyi.kütüphane.matematik.DikdörtgenVerisi.java
  * 0.4 / 17 Oca 2021 / 12:07:23
  * Cem GEÇGEL (BaşAşağıDerebeyi)
- * 
+ *
  * BaşAşağıMotor'dan alındı.
  * 0.24 / 7 Kas 2020 / 11:15:24
  */
 package başaşağıderebeyi.kütüphane.matematik;
 
-/** Dikdörtgeni tanımlarken kullanılan farklı verilerinin sıralaması.
- * Bu veriler bir nokta ya da bir uzunluk olabilir.
- * Her boyut başına dikdörtgenin iki farklı veriye ihtiyacı var.
- * Kalan veriler bunları kullanarak hesaplanabilir. */
+/** Dikdörtgeni tanımlarken kullanılan farklı verilerinin sıralaması. Bu veriler
+ * bir nokta ya da bir uzunluk olabilir. Her boyut başına dikdörtgenin iki
+ * farklı veriye ihtiyacı var. Kalan veriler bunları kullanarak
+ * hesaplanabilir. */
 public enum DikdörtgenVerisi {
 	/** Köşelerden konumu küçük olan. */
 	KÜÇÜK,
@@ -22,8 +22,9 @@ public enum DikdörtgenVerisi {
 	/** Kenar uzunluğu. */
 	UZUNLUK;
 	
-	/** Bilinen verileri kullanarak, dikdörtgenin yataydaki diğer verilerini hesaplar. */
-	public static void yatayıHesapla(DikdörtgenVerisi v1, DikdörtgenVerisi v2, Dikdörtgen ö) {
+	/** Bilinen verileri kullanarak, dikdörtgenin yataydaki diğer verilerini
+	 * hesaplar. */
+	public static void yatayıHesapla(final DikdörtgenVerisi v1, final DikdörtgenVerisi v2, final Dikdörtgen ö) {
 		switch (v1) {
 		case KÜÇÜK:
 			switch (v2) {
@@ -45,7 +46,7 @@ public enum DikdörtgenVerisi {
 		case BÜYÜK:
 			switch (v2) {
 			case KÜÇÜK:
-				yatayıHesapla(v2, v1, ö);
+				DikdörtgenVerisi.yatayıHesapla(v2, v1, ö);
 			case BÜYÜK:
 				return;
 			case ORTA:
@@ -61,7 +62,7 @@ public enum DikdörtgenVerisi {
 			switch (v2) {
 			case KÜÇÜK:
 			case BÜYÜK:
-				yatayıHesapla(v2, v1, ö);
+				DikdörtgenVerisi.yatayıHesapla(v2, v1, ö);
 			case ORTA:
 				return;
 			case UZUNLUK:
@@ -74,15 +75,16 @@ public enum DikdörtgenVerisi {
 			case KÜÇÜK:
 			case BÜYÜK:
 			case ORTA:
-				yatayıHesapla(v2, v1, ö);
+				DikdörtgenVerisi.yatayıHesapla(v2, v1, ö);
 			case UZUNLUK:
 				return;
 			}
 		}
 	}
 	
-	/** Bilinen verileri kullanarak, dikdörtgenin dikeydeki diğer verilerini hesaplar. */
-	public static void dikeyiHesapla(DikdörtgenVerisi v1, DikdörtgenVerisi v2, Dikdörtgen ö) {
+	/** Bilinen verileri kullanarak, dikdörtgenin dikeydeki diğer verilerini
+	 * hesaplar. */
+	public static void dikeyiHesapla(final DikdörtgenVerisi v1, final DikdörtgenVerisi v2, final Dikdörtgen ö) {
 		switch (v1) {
 		case KÜÇÜK:
 			switch (v2) {
@@ -104,7 +106,7 @@ public enum DikdörtgenVerisi {
 		case BÜYÜK:
 			switch (v2) {
 			case KÜÇÜK:
-				dikeyiHesapla(v2, v1, ö);
+				DikdörtgenVerisi.dikeyiHesapla(v2, v1, ö);
 			case BÜYÜK:
 				return;
 			case ORTA:
@@ -120,7 +122,7 @@ public enum DikdörtgenVerisi {
 			switch (v2) {
 			case KÜÇÜK:
 			case BÜYÜK:
-				dikeyiHesapla(v2, v1, ö);
+				DikdörtgenVerisi.dikeyiHesapla(v2, v1, ö);
 			case ORTA:
 				return;
 			case UZUNLUK:
@@ -133,7 +135,7 @@ public enum DikdörtgenVerisi {
 			case KÜÇÜK:
 			case BÜYÜK:
 			case ORTA:
-				dikeyiHesapla(v2, v1, ö);
+				DikdörtgenVerisi.dikeyiHesapla(v2, v1, ö);
 			case UZUNLUK:
 				return;
 			}

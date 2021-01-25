@@ -2,7 +2,7 @@
  * başaşağıderebeyi.kütüphane.matematik.yerleşim.TersGöreliKural.java
  * 0.4 / 18 Oca 2021 / 08:16:39
  * Cem GEÇGEL (BaşAşağıDerebeyi)
- * 
+ *
  * BaşAşağıMotor'dan alındı.
  * 0.16 / 13 Eyl 2020 / 18:52:31
  */
@@ -16,29 +16,29 @@ public class TersGöreliKural extends YerleşimKuralı {
 	public float uzaklık;
 	
 	/** Uzaklığı sıfır olarak tanımlar. */
-	public TersGöreliKural(DikdörtgenVerisi dikdörtgenVerisi) {
+	public TersGöreliKural(final DikdörtgenVerisi dikdörtgenVerisi) {
 		super(dikdörtgenVerisi, false, false);
 	}
-
+	
 	/** Belirli bir uzaklıkla tanımlar. */
-	public TersGöreliKural(DikdörtgenVerisi dikdörtgenVerisi, float uzaklık) {
+	public TersGöreliKural(final DikdörtgenVerisi dikdörtgenVerisi, final float uzaklık) {
 		this(dikdörtgenVerisi);
-		yaz(uzaklık);
+		this.yaz(uzaklık);
 	}
 	
 	/** Uzaklığı değiştirir. */
-	public TersGöreliKural yaz(float o) {
-		uzaklık = o;
+	public TersGöreliKural yaz(final float o) {
+		this.uzaklık = o;
 		return this;
 	}
 	
 	/** Uzaklığın üzerine ekler. */
-	public TersGöreliKural ekle(float o) {
-		return yaz(uzaklık + o);
+	public TersGöreliKural ekle(final float o) {
+		return this.yaz(this.uzaklık + o);
 	}
-
+	
 	@Override
 	protected void yerleştir() {
-		veri.yaz(hedef, veri.büyük().al(ana) - uzaklık);
+		this.veri.yaz(this.hedef, this.veri.büyük().al(this.ana) - this.uzaklık);
 	}
 }

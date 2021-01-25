@@ -2,7 +2,7 @@
  * başaşağıderebeyi.kütüphane.matematik.yerleşim.OrtalıKural.java
  * sürüm / 18 Oca 2021 / 08:29:01
  * Cem GEÇGEL (BaşAşağıDerebeyi)
- * 
+ *
  * BaşAşağıMotor'dan alındı.
  * 0.16 / 13 Eyl 2020 / 19:43:35
  */
@@ -16,9 +16,9 @@ public class OrtalıKural extends YerleşimKuralı {
 	public OrtalıKural() {
 		super(DikdörtgenVerisi.ORTA, false, false);
 	}
-
+	
 	@Override
 	protected void yerleştir() {
-		veri.yaz(hedef, veri.al(ana));
+		this.veri.yaz(this.hedef, this.veri.al(this.ana));
 	}
 }

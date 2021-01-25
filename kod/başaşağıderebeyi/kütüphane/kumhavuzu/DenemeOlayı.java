@@ -11,9 +11,9 @@ import başaşağıderebeyi.kütüphane.olay.*;
 public class DenemeOlayı extends Olay {
 	/** Olayın iletisi. */
 	public final String ileti;
-
+	
 	/** Bir ileti ile tanımlar. */
-	public DenemeOlayı(String ileti) {
+	public DenemeOlayı(final String ileti) {
 		this.ileti = ileti;
 	}
 }
