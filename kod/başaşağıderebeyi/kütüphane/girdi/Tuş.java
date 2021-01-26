@@ -21,7 +21,7 @@ public class Tuş {
 	/** Tuşun anlık girdisi. */
 	boolean girdi;
 	/** Tuşun girdisini işleyen. */
-	private Object hedef;
+	public Object hedef;
 	
 	/** Tuşu tanımlar. */
 	Tuş(final int kod) {
@@ -33,7 +33,7 @@ public class Tuş {
 		this.basma = !this.aşağı && this.girdi;
 		this.salma = this.aşağı && !this.girdi;
 		this.aşağı = this.girdi;
-		this.hedefYaz(null);
+		this.hedef = null;
 	}
 	
 	/** Tuş şu anda basılıysa doğru döndürür. */
@@ -49,11 +49,6 @@ public class Tuş {
 	/** Tuş şu anda bırakıldıysa doğru döndürür. */
 	public boolean salma() {
 		return this.salma;
-	}
-	
-	/** Hedefi değiştirir. */
-	public void hedefYaz(final Object hedef) {
-		this.hedef = hedef;
 	}
 	
 	/** Tuşun uygun olup olmadığını döndürür. */

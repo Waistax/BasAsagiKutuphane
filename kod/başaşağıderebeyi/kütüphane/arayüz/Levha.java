@@ -10,7 +10,7 @@ import java.util.*;
 /** İçinde öğe barındırabilen öğe. */
 public class Levha extends Öğe {
 	/** İçindeki öğeler. */
-	public final List<Öğe> içerik;
+	protected final List<Öğe> içerik;
 	
 	/** Levhanın içinde tanımlar. */
 	public Levha(final Levha levha) {
@@ -27,25 +27,29 @@ public class Levha extends Öğe {
 	}
 	
 	@Override
-	public void üzerindeyiHesapla() {
-		super.üzerindeyiHesapla();
+	public boolean üzerindekindenMi() {
 		for (final Öğe öğe : this.içerik) {
-			öğe.üzerindeyiHesapla();
+			if (öğe.üzerindekindenMi()) {
+				return true;
+			}
 		}
+		return super.üzerindekindenMi();
 	}
 	
 	@Override
-	public void imleciHesapla() {
-		for (int i = this.içerik.size() - 1; i > -1; i--) {
-			this.içerik.get(i).imleciHesapla();
+	protected void hesaplaÜzerindeMi() {
+		final ListIterator<Öğe> yineleme = this.içerik.listIterator(this.içerik.size());
+		while (yineleme.hasPrevious()) {
+			yineleme.previous().hesaplaÜzerindeMi();
 		}
-		super.imleciHesapla();
+		super.hesaplaÜzerindeMi();
 	}
 	
 	@Override
 	public void güncelle() {
-		for (int i = this.içerik.size() - 1; i > -1; i--) {
-			this.içerik.get(i).güncelle();
+		final ListIterator<Öğe> yineleme = this.içerik.listIterator(this.içerik.size());
+		while (yineleme.hasPrevious()) {
+			yineleme.previous().güncelle();
 		}
 	}
 }

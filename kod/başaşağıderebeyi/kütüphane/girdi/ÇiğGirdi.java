@@ -29,9 +29,9 @@ public class ÇiğGirdi {
 	/** Fare tekerleğinin anlık girdisi. */
 	private int tekerlekGirdisi;
 	/** Fare imlecinin girdisini işleyen. */
-	private Object imleçHedefi;
+	public Object imleçHedefi;
 	/** Fare tekerleğinin girdisini işleyen. */
-	private Object tekerlekHedefi;
+	public Object tekerlekHedefi;
 	
 	/** Tuşsuz girdi tanımlar. */
 	public ÇiğGirdi() {
@@ -54,8 +54,8 @@ public class ÇiğGirdi {
 		for (final Tuş tuş : this.fare.values()) {
 			tuş.güncelle();
 		}
-		this.imleçHedefiYaz(null);
-		this.tekerlekHedefiYaz(null);
+		this.imleçHedefi = null;
+		this.tekerlekHedefi = null;
 	}
 	
 	/** Tuş takımı tuşu ekler. */
@@ -79,57 +79,47 @@ public class ÇiğGirdi {
 	}
 	
 	/** Fare tuşu ekler. */
-	public void fareTuşuEkle(final int kod) {
+	public void ekleFareTuşu(final int kod) {
 		if (!this.fare.containsKey(kod)) {
 			this.fare.put(kod, new Tuş(kod));
 		}
 	}
 	
 	/** Fare tuşu döndürür. */
-	public Tuş fareTuşuAl(final int kod) {
+	public Tuş alFareTuşu(final int kod) {
 		return this.fare.get(kod);
 	}
 	
 	/** Fare tuşunun girdisini yazar. */
-	public void fareGirdisi(final int kod, final boolean girdi) {
-		final Tuş tuş = this.fareTuşuAl(kod);
+	public void yazFareGirdisi(final int kod, final boolean girdi) {
+		final Tuş tuş = this.alFareTuşu(kod);
 		if (tuş != null) {
 			tuş.girdi = girdi;
 		}
 	}
 	
 	/** İmleç girdisi yazar. */
-	public void imleçGirdisi(final float x, final float y) {
+	public void yazİmleçGirdisi(final float x, final float y) {
 		this.imleçGirdisi.yaz(x, y);
 	}
 	
 	/** Tekerlek devrini döndürür. */
-	public int tekerlekDevriniAl() {
+	public int alTekerlekDevri() {
 		return this.tekerlekDevri;
 	}
 	
 	/** Tekerlek devrini ekler. */
-	public void tekerlekGirdisi(final int devir) {
+	public void yazTekerlekGirdisi(final int devir) {
 		this.tekerlekGirdisi += devir;
 	}
 	
-	/** İmlecin hedefini değiştirir. */
-	public void imleçHedefiYaz(final Object imleçHedefi) {
-		this.imleçHedefi = imleçHedefi;
-	}
-	
 	/** İmlecin uygun olup olmadığını döndürür. */
-	public boolean imleçUygun(final Object nesne) {
+	public boolean imleçUygunMu(final Object nesne) {
 		return this.imleçHedefi == null || this.imleçHedefi == nesne;
 	}
 	
-	/** Tekerlek hedefini değiştirir. */
-	public void tekerlekHedefiYaz(final Object tekerlekHedefi) {
-		this.tekerlekHedefi = tekerlekHedefi;
-	}
-	
 	/** Tekerleğin uygun olup olmadığını döndürür. */
-	public boolean tekerlekUygun(final Object nesne) {
+	public boolean tekerlekUygunMu(final Object nesne) {
 		return this.tekerlekHedefi == null || this.tekerlekHedefi == nesne;
 	}
 }

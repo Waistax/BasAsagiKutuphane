@@ -6,21 +6,63 @@
 package başaşağıderebeyi.kütüphane.arayüz;
 
 import başaşağıderebeyi.kütüphane.girdi.*;
+import başaşağıderebeyi.kütüphane.matematik.*;
+import başaşağıderebeyi.kütüphane.matematik.yerleşim.*;
+
+import java.util.*;
 
 /** Arayüzün içinde bulunduğu ekran. */
 public class Ekran extends Levha {
-	public static final int SOL_TIK = 1;
-	
+	/** Arayüzün girdisi. */
 	final ÇiğGirdi girdi;
-	public final float genişlik;
-	public final float yükseklik;
+	/** Sol fare tuşu. */
 	public final Tuş solTık;
+	/** Önceki güncellemede fare sol tuşunun hedefi. */
+	private Object öncekiİmleçHedefi;
 	
-	public Ekran(final Levha levha, final ÇiğGirdi girdi, float genişlik, float yükseklik) {
-		super(levha);
+	/** Bir girdi ve boyut ile tanımlar. */
+	public Ekran(final ÇiğGirdi girdi, final float ortaX, final float ortaY, final float genişlik,
+			final float yükseklik, final int solTık) {
+		super(null);
 		this.girdi = girdi;
-		this.genişlik = genişlik;
-		this.yükseklik = yükseklik;
-		this.solTık = girdi.fareTuşuAl(SOL_TIK);
+		this.solTık = girdi.alFareTuşu(solTık);
+		this.yerleşikDikdörtgen.kurallar(new SerbestKural(DikdörtgenVerisi.ORTA, ortaX),
+				new SerbestKural(DikdörtgenVerisi.UZUNLUK, genişlik), new SerbestKural(DikdörtgenVerisi.ORTA, ortaY),
+				new SerbestKural(DikdörtgenVerisi.UZUNLUK, yükseklik)).yerleştir();
+	}
+	
+	@Override
+	public void odakla() {
+		// Ekran kendini odaklamaz.
+		// Ekranın üstü yok.
+	}
+	
+	@Override
+	public boolean açıkMı() {
+		// Ekranın üstü yok.
+		return this.açık;
+	}
+	
+	@Override
+	protected void hesaplaÜzerindeMi() {
+		final ListIterator<Öğe> yineleme = this.içerik.listIterator(this.içerik.size());
+		while (yineleme.hasPrevious()) {
+			yineleme.previous().hesaplaÜzerindeMi();
+		}
+		this.üzerinde = this.alan.içinde(this.girdi.imleç);
+	}
+	
+	@Override
+	public void güncelle() {
+		this.yerleştir();
+		if (this.girdi.imleçHedefi == null && this.solTık.aşağı()) {
+			this.girdi.imleçHedefi = this.öncekiİmleçHedefi;
+		}
+		this.hesaplaÜzerindeMi();
+		this.öncekiİmleçHedefi = this.girdi.imleçHedefi;
+		if (!(this.öncekiİmleçHedefi instanceof Öğe)) {
+			this.öncekiİmleçHedefi = null;
+		}
+		super.güncelle();
 	}
 }

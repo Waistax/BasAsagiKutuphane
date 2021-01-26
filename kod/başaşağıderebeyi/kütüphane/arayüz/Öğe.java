@@ -14,27 +14,19 @@ import başaşağıderebeyi.kütüphane.matematik.yerleşim.*;
 /** Arayüzündeki her bir öğe. */
 public abstract class Öğe {
 	/** Öğenin içinde bulunduğu öğe. */
-	public final Levha levha;
+	protected final Levha levha;
 	/** Öğenin içinde bulunduğu pencere. */
-	public final Pencere pencere;
+	protected final Pencere pencere;
 	/** Öğenin içinde bulunduğu ekran. */
-	public final Ekran ekran;
+	protected final Ekran ekran;
 	/** Öğenin kapladığı alan. */
 	public final Dikdörtgen alan;
 	/** Alanı anlık olarak tanımlayan nesne. */
 	public final YerleşikDikdörtgen yerleşikDikdörtgen;
 	/** Öğenin kullanılabilir olup olmadığı. */
-	public boolean açık;
-	/** Fare imlecinin öğenin üzerinde bulunup bulunmadığı. Bu koşul birden fazla
-	 * öğe için aynı anda doğru olabilir. Bu koşul hangi öğenin görünür ya da üstte
-	 * olduğuna bakmaz. */
-	public boolean üzerinde;
-	/** Fare imlecinin bu öğe tarafından kullanılabilir olup olmadığı. Bu koşul
-	 * yalnızca tek bir öğe için doğru olur. */
-	public boolean imleçte;
-	/** Bu öğenin görünümünü belirleyen nesne. Bu nesneye öğe tarafından hiçbir
-	 * şekilde erişilmez. */
-	public Object görünüm;
+	protected boolean açık;
+	/** Fare imlecinin öğenin üzerinde bulunup bulunmadığı. */
+	protected boolean üzerinde;
 	
 	/** Levhanın içinde tanımlar. */
 	public Öğe(final Levha levha) {
@@ -63,25 +55,35 @@ public abstract class Öğe {
 		this.levha.odakla();
 	}
 	
-	/** Öğenin açık olup olmadığını dönderir. Bu öğe açık olsada üstü kapalıysa
-	 * kapalı dönderir. */
+	/** Öğenin açık olup olmadığını döndürür. Bu öğe açık olsa da üstü kapalıysa
+	 * kapalı sayılır. */
 	public boolean açıkMı() {
 		return this.açık && this.levha.açıkMı();
 	}
 	
-	/** Fare imlecinin öğenin üzerinde bulunup bulunmadığını hesaplar. */
-	public void üzerindeyiHesapla() {
-		this.üzerinde = this.levha.üzerinde && this.alan.içinde(this.ekran.girdi.imleç);
+	/** Öğenin açık olup olmadığını değiştirir. */
+	public void yazAçıkMı(final boolean açık) {
+		this.açık = açık;
 	}
 	
-	/** Fare imlecinin bu öğe tarafından kullanılabilir olup olmadığını hesaplar. */
-	public void imleciHesapla() {
-		if (this.imleçte = this.üzerinde && this.ekran.girdi.imleçUygun(this)) {
-			this.ekran.girdi.imleçHedefiYaz(this);
+	/** Fare imlecinin öğenin üzerinde olup olmadığını döndürür. */
+	public boolean üzerindeMi() {
+		return this.üzerinde;
+	}
+	
+	/** Fare imlecinin bu öğenin ya da alt öğelerinden birinin üzerinde olup
+	 * olmadığını döndürür. */
+	public boolean üzerindekindenMi() {
+		return this.üzerindeMi();
+	}
+	
+	/** Fare imlecinin öğenin üzerinde bulunup bulunmadığını hesaplar. */
+	protected void hesaplaÜzerindeMi() {
+		if (this.üzerinde = this.alan.içinde(this.ekran.girdi.imleç) && this.ekran.girdi.imleçUygunMu(this)) {
+			this.ekran.girdi.imleçHedefi = null;
 		}
 	}
 	
 	/** Öğeyi günceller. */
-	public void güncelle() {
-	}
+	public abstract void güncelle();
 }
