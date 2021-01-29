@@ -14,11 +14,11 @@ import başaşağıderebeyi.kütüphane.matematik.yerleşim.*;
 /** Arayüzündeki her bir öğe. */
 public abstract class Öğe {
 	/** Öğenin içinde bulunduğu öğe. */
-	protected final Levha levha;
+	public final Levha levha;
 	/** Öğenin içinde bulunduğu pencere. */
-	protected final Pencere pencere;
+	public final Pencere pencere;
 	/** Öğenin içinde bulunduğu ekran. */
-	protected final Ekran ekran;
+	public final Ekran ekran;
 	/** Öğenin kapladığı alan. */
 	public final Dikdörtgen alan;
 	/** Alanı anlık olarak tanımlayan nesne. */
@@ -28,21 +28,23 @@ public abstract class Öğe {
 	/** Fare imlecinin öğenin üzerinde bulunup bulunmadığı. */
 	protected boolean üzerinde;
 	
-	/** Levhanın içinde tanımlar. */
-	public Öğe(final Levha levha) {
+	/** Verilen öğelerin içinde tanımlar. */
+	public Öğe(final Levha levha, final Pencere pencere, final Ekran ekran) {
 		this.alan = new Dikdörtgen();
+		this.levha = levha;
 		if (levha == null) {
-			this.levha = null;
-			this.pencere = null;
-			this.ekran = null;
 			this.yerleşikDikdörtgen = new YerleşikDikdörtgen(null, this.alan);
 		} else {
-			this.levha = levha;
-			this.pencere = levha.pencere;
-			this.ekran = levha.ekran;
 			this.yerleşikDikdörtgen = new YerleşikDikdörtgen(levha.alan, this.alan);
 			levha.içerik.add(this);
 		}
+		this.pencere = pencere;
+		this.ekran = ekran;
+	}
+	
+	/** Levhadan tanımlar. */
+	public Öğe(final Levha levha) {
+		this(levha, levha.pencere, levha.ekran);
 	}
 	
 	/** Öğeyi levha dikdörtgenine yerleştirir. */

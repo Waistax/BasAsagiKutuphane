@@ -2,6 +2,9 @@
  * başaşağıderebeyi.kütüphane.arayüz.Ekran.java
  * 0.7 / 19 Oca 2021 / 12:49:54
  * Cem GEÇGEL (BaşAşağıDerebeyi)
+ * 
+ * BaşAşağıMotor'dan alındı.
+ * 0.16 / 14 Eyl 2020 / 13:29:10
  */
 package başaşağıderebeyi.kütüphane.arayüz;
 
@@ -23,7 +26,7 @@ public class Ekran extends Levha {
 	/** Bir girdi ve boyut ile tanımlar. */
 	public Ekran(final ÇiğGirdi girdi, final float ortaX, final float ortaY, final float genişlik,
 			final float yükseklik, final int solTık) {
-		super(null);
+		super(null, null, null);
 		this.girdi = girdi;
 		this.solTık = girdi.alFareTuşu(solTık);
 		this.yerleşikDikdörtgen.kurallar(new SerbestKural(DikdörtgenVerisi.ORTA, ortaX),
@@ -64,5 +67,12 @@ public class Ekran extends Levha {
 			this.öncekiİmleçHedefi = null;
 		}
 		super.güncelle();
+	}
+	
+	public boolean üstteMi(final Öğe öğe) {
+		if (this.içerik.size() == 0) {
+			return false;
+		}
+		return this.içerik.get(this.içerik.size() - 1).equals(öğe);
 	}
 }

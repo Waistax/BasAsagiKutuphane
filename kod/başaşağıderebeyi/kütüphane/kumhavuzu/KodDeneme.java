@@ -13,7 +13,7 @@ import java.util.*;
 public class KodDeneme {
 	/** Denemenin başlangıcı. */
 	public static void main(final String[] args) {
-		KodDeneme.olayDenemesi();
+		new ArayüzDeneme();
 	}
 	
 	/** Sınıf nesnesinin hangi sınıf olduğunun kontrol edilip edilemeyeceğini
@@ -43,6 +43,7 @@ public class KodDeneme {
 	}
 	
 	/** Olayların ve dağıtıcının çalışmasını dener. */
+	@SuppressWarnings("unused")
 	private static void olayDenemesi() {
 		final OlayYöneticisi dağıtıcı = new OlayYöneticisi();
 		final DenemeDinleyicisi dinleyici = new DenemeDinleyicisi();

@@ -113,4 +113,24 @@ public class YerleşikDikdörtgen {
 			final YerleşimKuralı d2) {
 		return this.yatayKural(y1).yatayKural(y2).dikeyKural(d1).dikeyKural(d2);
 	}
+	
+	/** Yataydaki ilk kuralı döndürür. */
+	public YerleşimKuralı yatayKural() {
+		return this.kurallar[0];
+	}
+	
+	/** Yataydaki ikinci kuralı döndürür. */
+	public YerleşimKuralı ikincilYatayKural() {
+		return this.kurallar[1];
+	}
+	
+	/** Dikeydeki ilk kuralı döndürür. */
+	public YerleşimKuralı dikeyKural() {
+		return this.kurallar[2];
+	}
+	
+	/** Dikeydeki ikinci kuralı döndürür. */
+	public YerleşimKuralı ikincilDikeyKural() {
+		return this.kurallar[3];
+	}
 }

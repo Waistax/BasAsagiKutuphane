@@ -2,6 +2,9 @@
  * başaşağıderebeyi.kütüphane.arayüz.Pencere.java
  * 0.7 / 19 Oca 2021 / 12:50:22
  * Cem GEÇGEL (BaşAşağıDerebeyi)
+ * 
+ * BaşAşağıMotor'dan alındı.
+ * 0.16 / 13 Eyl 2020 / 21:51:31
  */
 package başaşağıderebeyi.kütüphane.arayüz;
 
@@ -19,12 +22,23 @@ public class Pencere extends Levha {
 	
 	/** Ekranın en üstünde tanımlar. */
 	public Pencere(final Ekran ekran, final String başlık, final float genişlik, final float yükseklik) {
-		super(ekran);
+		super(ekran, null, ekran);
 		this.başlık = başlık;
 		this.yerleşikDikdörtgen.kurallar(new SerbestKural(DikdörtgenVerisi.ORTA, ekran.alan.o.x),
 				new SerbestKural(DikdörtgenVerisi.UZUNLUK, genişlik),
 				new SerbestKural(DikdörtgenVerisi.ORTA, ekran.alan.o.y),
-				new SerbestKural(DikdörtgenVerisi.UZUNLUK, genişlik));
-		
+				new SerbestKural(DikdörtgenVerisi.UZUNLUK, yükseklik));
+		new PencereÇubuğu(this);
+		new Düğme(this, "X", new PencereyiKapat(this)).yerleşikDikdörtgen.kurallar(
+				new TersGöreliKural(DikdörtgenVerisi.BÜYÜK),
+				new SerbestKural(DikdörtgenVerisi.UZUNLUK, Pencere.ÇARPI_GENİŞLİĞİ),
+				new GöreliKural(DikdörtgenVerisi.KÜÇÜK),
+				new SerbestKural(DikdörtgenVerisi.UZUNLUK, Pencere.ÇUBUK_KALINLIĞI));
+	}
+	
+	@Override
+	public void odakla() {
+		this.ekran.içerik.remove(this);
+		this.ekran.içerik.add(this);
 	}
 }
