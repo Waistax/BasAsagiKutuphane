@@ -43,7 +43,7 @@ public class Yöney2 {
 	
 	/** Yöneyin bileşenlerini değiştirir. Yöneyi döndürür. */
 	public Yöney2 yaz(final float x, final float y) {
-		return this.yazX(x).yazY(y);
+		return yazX(x).yazY(y);
 	}
 	
 	/** Verilen yöneyi buna yazar. Bu yöneyi döndürür. */
@@ -174,17 +174,17 @@ public class Yöney2 {
 	
 	/** Verilen yöneyle bu yöneyin nokta çarpımını hesaplar. */
 	public float nokta(final Yöney2 ö) {
-		return this.x * ö.x + this.y * ö.y;
+		return x * ö.x + y * ö.y;
 	}
 	
 	/** Yöneyin uzunluğunun karesini hesaplar. */
 	public float uzunluğunKaresi() {
-		return this.nokta(this);
+		return nokta(this);
 	}
 	
 	/** Yöneyin uzunluğu hesaplar. */
 	public float uzunluk() {
-		return Hesaplayıcı.kökü(this.uzunluğunKaresi());
+		return Hesaplayıcı.kökü(uzunluğunKaresi());
 	}
 	
 	/** Verilen yöneyin doğrultusunu (birim yöneyini) buna yazar. Bu yöneyi
@@ -195,7 +195,7 @@ public class Yöney2 {
 	
 	/** Yöneyin doğrultusunu (birim yöneyini) hesaplar. Bu yöneyi döndürür. */
 	public Yöney2 doğrultu() {
-		return this.böl(this.uzunluk());
+		return this.böl(uzunluk());
 	}
 	
 	/** Verilen bileşenlerin yöneyinkilere eşitliğini hesaplar. */
@@ -210,7 +210,7 @@ public class Yöney2 {
 	
 	/** Yöneyi dizeye ekler. */
 	public StringBuilder dize(final StringBuilder dize) {
-		return dize.append('(').append(this.x).append(", ").append(this.y).append(')');
+		return dize.append('(').append(x).append(", ").append(y).append(')');
 	}
 	
 	/** Yöneyi dizeye çevirir. */

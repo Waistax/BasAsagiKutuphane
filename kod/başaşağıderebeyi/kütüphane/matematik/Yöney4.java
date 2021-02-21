@@ -59,7 +59,7 @@ public class Yöney4 {
 	
 	/** Yöneyin bileşenlerini değiştirir. Yöneyi döndürür. */
 	public Yöney4 yaz(final float x, final float y, final float z, final float w) {
-		return this.yazX(x).yazY(y).yazZ(z).yazW(w);
+		return yazX(x).yazY(y).yazZ(z).yazW(w);
 	}
 	
 	/** Verilen yöneyi buna yazar. Bu yöneyi döndürür. */
@@ -196,17 +196,17 @@ public class Yöney4 {
 	
 	/** Verilen yöneyle bu yöneyin nokta çarpımını hesaplar. */
 	public float nokta(final Yöney4 ö) {
-		return this.x * ö.x + this.y * ö.y + this.z * ö.z + this.w * ö.w;
+		return x * ö.x + y * ö.y + z * ö.z + w * ö.w;
 	}
 	
 	/** Yöneyin uzunluğunun karesini hesaplar. */
 	public float uzunluğunKaresi() {
-		return this.nokta(this);
+		return nokta(this);
 	}
 	
 	/** Yöneyin uzunluğu hesaplar. */
 	public float uzunluk() {
-		return Hesaplayıcı.kökü(this.uzunluğunKaresi());
+		return Hesaplayıcı.kökü(uzunluğunKaresi());
 	}
 	
 	/** Verilen yöneyin doğrultusunu (birim yöneyini) buna yazar. Bu yöneyi
@@ -217,7 +217,7 @@ public class Yöney4 {
 	
 	/** Yöneyin doğrultusunu (birim yöneyini) hesaplar. Bu yöneyi döndürür. */
 	public Yöney4 doğrultu() {
-		return this.böl(this.uzunluk());
+		return this.böl(uzunluk());
 	}
 	
 	/** Verilen bileşenlerin yöneyinkilere eşitliğini hesaplar. */
@@ -232,8 +232,8 @@ public class Yöney4 {
 	
 	/** Yöneyi dizeye ekler. */
 	public StringBuilder dize(final StringBuilder dize) {
-		return dize.append('(').append(this.x).append(", ").append(this.y).append(", ").append(this.z).append(", ")
-				.append(this.w).append(')');
+		return dize.append('(').append(x).append(", ").append(y).append(", ").append(z).append(", ").append(w)
+				.append(')');
 	}
 	
 	/** Yöneyi dizeye çevirir. */

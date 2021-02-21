@@ -25,12 +25,12 @@ public class AWTDinleyici implements KeyListener, MouseListener, MouseWheelListe
 	
 	@Override
 	public void keyPressed(final KeyEvent e) {
-		this.girdi.tuşTakımıGirdisi(e.getKeyCode(), true);
+		girdi.tuşTakımıGirdisi(e.getKeyCode(), true);
 	}
 	
 	@Override
 	public void keyReleased(final KeyEvent e) {
-		this.girdi.tuşTakımıGirdisi(e.getKeyCode(), false);
+		girdi.tuşTakımıGirdisi(e.getKeyCode(), false);
 	}
 	
 	@Override
@@ -39,12 +39,12 @@ public class AWTDinleyici implements KeyListener, MouseListener, MouseWheelListe
 	
 	@Override
 	public void mousePressed(final MouseEvent e) {
-		this.girdi.yazFareGirdisi(e.getButton(), true);
+		girdi.yazFareGirdisi(e.getButton(), true);
 	}
 	
 	@Override
 	public void mouseReleased(final MouseEvent e) {
-		this.girdi.yazFareGirdisi(e.getButton(), false);
+		girdi.yazFareGirdisi(e.getButton(), false);
 	}
 	
 	@Override
@@ -57,16 +57,16 @@ public class AWTDinleyici implements KeyListener, MouseListener, MouseWheelListe
 	
 	@Override
 	public void mouseWheelMoved(final MouseWheelEvent e) {
-		this.girdi.yazTekerlekGirdisi(e.getWheelRotation());
+		girdi.yazTekerlekGirdisi(e.getWheelRotation());
 	}
 	
 	@Override
 	public void mouseDragged(final MouseEvent e) {
-		this.girdi.yazİmleçGirdisi(e.getX(), e.getY());
+		girdi.yazİmleçGirdisi(e.getX(), e.getY());
 	}
 	
 	@Override
 	public void mouseMoved(final MouseEvent e) {
-		this.girdi.yazİmleçGirdisi(e.getX(), e.getY());
+		girdi.yazİmleçGirdisi(e.getX(), e.getY());
 	}
 }

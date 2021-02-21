@@ -19,9 +19,8 @@ public class HızDeneme {
 	private static void ölç() {
 		final int N = 10000000;
 		final long başlangıç = System.nanoTime();
-		for (int i = 0; i < N; i++) {
+		for (int i = 0; i < N; i++)
 			HızDeneme.yerleşimVerisininKomşusunuAl();
-		}
 		System.out.println("Ortalama: " + (System.nanoTime() - başlangıç) / (double)N);
 	}
 	
@@ -29,15 +28,13 @@ public class HızDeneme {
 	private static void karşılaştır() {
 		final int N = 1000000000;
 		final long başlangıç1 = System.nanoTime();
-		for (int i = 0; i < N; i++) {
+		for (int i = 0; i < N; i++)
 			HızDeneme.geriyeSıfıraKadarSay();
-		}
 		final long süre1 = System.nanoTime() - başlangıç1;
 		System.out.println("Ortalama1: " + süre1 / (double)N);
 		final long başlangıç2 = System.nanoTime();
-		for (int i = 0; i < N; i++) {
+		for (int i = 0; i < N; i++)
 			HızDeneme.geriyeEksiBireKadarSay();
-		}
 		final long süre2 = System.nanoTime() - başlangıç2;
 		System.out.println("Ortalama2: " + süre2 / (double)N);
 	}

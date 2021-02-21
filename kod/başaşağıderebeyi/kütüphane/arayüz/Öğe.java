@@ -30,12 +30,12 @@ public abstract class Öğe {
 	
 	/** Verilen öğelerin içinde tanımlar. */
 	public Öğe(final Levha levha, final Pencere pencere, final Ekran ekran) {
-		this.alan = new Dikdörtgen();
+		alan = new Dikdörtgen();
 		this.levha = levha;
-		if (levha == null) {
-			this.yerleşikDikdörtgen = new YerleşikDikdörtgen(null, this.alan);
-		} else {
-			this.yerleşikDikdörtgen = new YerleşikDikdörtgen(levha.alan, this.alan);
+		if (levha == null)
+			yerleşikDikdörtgen = new YerleşikDikdörtgen(null, alan);
+		else {
+			yerleşikDikdörtgen = new YerleşikDikdörtgen(levha.alan, alan);
 			levha.içerik.add(this);
 		}
 		this.pencere = pencere;
@@ -49,18 +49,18 @@ public abstract class Öğe {
 	
 	/** Öğeyi levha dikdörtgenine yerleştirir. */
 	public void yerleştir() {
-		this.yerleşikDikdörtgen.yerleştir();
+		yerleşikDikdörtgen.yerleştir();
 	}
 	
 	/** Bu öğeyi odaklamak için istek belirtir. */
 	public void odakla() {
-		this.levha.odakla();
+		levha.odakla();
 	}
 	
 	/** Öğenin açık olup olmadığını döndürür. Bu öğe açık olsa da üstü kapalıysa
 	 * kapalı sayılır. */
 	public boolean açıkMı() {
-		return this.açık && this.levha.açıkMı();
+		return açık && levha.açıkMı();
 	}
 	
 	/** Öğenin açık olup olmadığını değiştirir. */
@@ -70,20 +70,19 @@ public abstract class Öğe {
 	
 	/** Fare imlecinin öğenin üzerinde olup olmadığını döndürür. */
 	public boolean üzerindeMi() {
-		return this.üzerinde;
+		return üzerinde;
 	}
 	
 	/** Fare imlecinin bu öğenin ya da alt öğelerinden birinin üzerinde olup
 	 * olmadığını döndürür. */
 	public boolean üzerindekindenMi() {
-		return this.üzerindeMi();
+		return üzerindeMi();
 	}
 	
 	/** Fare imlecinin öğenin üzerinde bulunup bulunmadığını hesaplar. */
 	protected void hesaplaÜzerindeMi() {
-		if (this.üzerinde = this.alan.içinde(this.ekran.girdi.imleç) && this.ekran.girdi.imleçUygunMu(this)) {
-			this.ekran.girdi.imleçHedefi = this;
-		}
+		if (üzerinde = alan.içinde(ekran.girdi.imleç) && ekran.girdi.imleçUygunMu(this))
+			ekran.girdi.imleçHedefi = this;
 	}
 	
 	/** Öğeyi günceller. */

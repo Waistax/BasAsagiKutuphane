@@ -34,40 +34,40 @@ public class AWTMotor {
 	
 	/** Motoru başlatarak tanımlar. */
 	public AWTMotor(final AWTGüncelleyici güncelleyici) {
-		this.çerçeve = new JFrame("BaşAşağıKütüphane Deneme");
-		this.tuval = new Canvas();
-		this.girdi = new ÇiğGirdi();
-		this.dinleyici = new AWTDinleyici(this.girdi);
+		çerçeve = new JFrame("BaşAşağıKütüphane Deneme");
+		tuval = new Canvas();
+		girdi = new ÇiğGirdi();
+		dinleyici = new AWTDinleyici(girdi);
 		final Dimension boyut = new Dimension(1280, 720);
-		this.tuval.setMaximumSize(boyut);
-		this.tuval.setMinimumSize(boyut);
-		this.tuval.setPreferredSize(boyut);
-		this.çerçeve.add(this.tuval);
-		this.çerçeve.pack();
-		this.çerçeve.setResizable(false);
-		this.çerçeve.setLocationRelativeTo(null);
-		this.çerçeve.setVisible(true);
-		this.çerçeve.addWindowListener(new WindowAdapter() {
+		tuval.setMaximumSize(boyut);
+		tuval.setMinimumSize(boyut);
+		tuval.setPreferredSize(boyut);
+		çerçeve.add(tuval);
+		çerçeve.pack();
+		çerçeve.setResizable(false);
+		çerçeve.setLocationRelativeTo(null);
+		çerçeve.setVisible(true);
+		çerçeve.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(final WindowEvent e) {
 				AWTMotor.this.kapat();
 			}
 		});
-		this.girdi.ekleFareTuşu(MouseEvent.BUTTON1);
-		this.girdi.ekleFareTuşu(MouseEvent.BUTTON2);
-		this.girdi.ekleFareTuşu(MouseEvent.BUTTON3);
-		this.tuval.addKeyListener(this.dinleyici);
-		this.tuval.addMouseListener(this.dinleyici);
-		this.tuval.addMouseWheelListener(this.dinleyici);
-		this.tuval.addMouseMotionListener(this.dinleyici);
-		this.çerçeve.requestFocus();
-		this.tuval.requestFocus();
-		this.tuval.setBackground(Color.BLACK);
-		this.tuval.createBufferStrategy(2);
-		this.tampon = this.tuval.getBufferStrategy();
-		this.çizer = (Graphics2D)this.tampon.getDrawGraphics();
-		this.çizer.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-		this.çizer.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+		girdi.ekleFareTuşu(MouseEvent.BUTTON1);
+		girdi.ekleFareTuşu(MouseEvent.BUTTON2);
+		girdi.ekleFareTuşu(MouseEvent.BUTTON3);
+		tuval.addKeyListener(dinleyici);
+		tuval.addMouseListener(dinleyici);
+		tuval.addMouseWheelListener(dinleyici);
+		tuval.addMouseMotionListener(dinleyici);
+		çerçeve.requestFocus();
+		tuval.requestFocus();
+		tuval.setBackground(Color.BLACK);
+		tuval.createBufferStrategy(2);
+		tampon = tuval.getBufferStrategy();
+		çizer = (Graphics2D)tampon.getDrawGraphics();
+		çizer.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+		çizer.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 		this.güncelleyici = güncelleyici;
 	}
 	
@@ -76,8 +76,8 @@ public class AWTMotor {
 		float öncekiZaman = System.nanoTime();
 		float saniyeSayacı = 0.0F;
 		int tıklar = 0;
-		this.çalışıyor = true;
-		while (this.çalışıyor) {
+		çalışıyor = true;
+		while (çalışıyor) {
 			float geçenZaman = System.nanoTime() - öncekiZaman;
 			öncekiZaman += geçenZaman;
 			geçenZaman /= 1000000000.0F;
@@ -92,15 +92,15 @@ public class AWTMotor {
 				e1.printStackTrace();
 			}
 			tıklar++;
-			this.güncelleyici.güncelle();
-			this.tampon.show();
-			this.çizer.clearRect(0, 0, 1280, 720);
+			güncelleyici.güncelle();
+			tampon.show();
+			çizer.clearRect(0, 0, 1280, 720);
 		}
 		System.exit(0);
 	}
 	
 	/** Motoru kapatır. */
 	public void kapat() {
-		this.çalışıyor = false;
+		çalışıyor = false;
 	}
 }

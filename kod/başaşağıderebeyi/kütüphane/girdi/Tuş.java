@@ -30,29 +30,29 @@ public class Tuş {
 	
 	/** Tuşu günceller. */
 	void güncelle() {
-		this.basma = !this.aşağı && this.girdi;
-		this.salma = this.aşağı && !this.girdi;
-		this.aşağı = this.girdi;
-		this.hedef = null;
+		basma = !aşağı && girdi;
+		salma = aşağı && !girdi;
+		aşağı = girdi;
+		hedef = null;
 	}
 	
 	/** Tuş şu anda basılıysa doğru döndürür. */
 	public boolean aşağı() {
-		return this.aşağı;
+		return aşağı;
 	}
 	
 	/** Tuş şu anda basılmaya başlandıysa doğru döndürür. */
 	public boolean basma() {
-		return this.basma;
+		return basma;
 	}
 	
 	/** Tuş şu anda bırakıldıysa doğru döndürür. */
 	public boolean salma() {
-		return this.salma;
+		return salma;
 	}
 	
 	/** Tuşun uygun olup olmadığını döndürür. */
 	public boolean uygun(final Object nesne) {
-		return this.hedef == null || this.hedef == nesne;
+		return hedef == null || hedef == nesne;
 	}
 }

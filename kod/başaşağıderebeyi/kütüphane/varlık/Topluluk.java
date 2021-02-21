@@ -18,20 +18,20 @@ public class Topluluk {
 		varlıklar = new HashSet<>();
 		soylar = new HashSet<>();
 	}
-
+	
 	public void güncelle() {
-		for (Soy soy : soylar)
+		for (final Soy soy : soylar)
 			soy.güncelle();
 	}
 	
 	public void çiz() {
-		for (Soy soy : soylar)
+		for (final Soy soy : soylar)
 			soy.çiz();
 	}
 	
-	public void çıkar(Varlık varlık) {
+	public void çıkar(final Varlık varlık) {
 		if (varlıklar.remove(varlık))
-			for (Soy soy : soylar)
+			for (final Soy soy : soylar)
 				soy.çıkar(varlık);
 	}
 }

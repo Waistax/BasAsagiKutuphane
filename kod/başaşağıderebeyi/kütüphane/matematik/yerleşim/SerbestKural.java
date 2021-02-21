@@ -23,22 +23,22 @@ public class SerbestKural extends YerleşimKuralı {
 	/** Belirli bir değerle tanımlar. */
 	public SerbestKural(final DikdörtgenVerisi dikdörtgenVerisi, final float değer) {
 		this(dikdörtgenVerisi);
-		this.yaz(değer);
+		yaz(değer);
 	}
 	
 	/** Değeri değiştirir. */
 	public SerbestKural yaz(final float o) {
-		this.değer = o;
+		değer = o;
 		return this;
 	}
 	
 	/** Değerin üzerine ekler. */
 	public SerbestKural ekle(final float o) {
-		return this.yaz(this.değer + o);
+		return yaz(değer + o);
 	}
 	
 	@Override
 	protected void yerleştir() {
-		this.veri.yaz(this.hedef, this.değer);
+		veri.yaz(hedef, değer);
 	}
 }

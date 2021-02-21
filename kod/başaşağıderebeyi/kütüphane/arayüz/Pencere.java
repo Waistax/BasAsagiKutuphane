@@ -24,7 +24,7 @@ public class Pencere extends Levha {
 	public Pencere(final Ekran ekran, final String başlık, final float genişlik, final float yükseklik) {
 		super(ekran, null, ekran);
 		this.başlık = başlık;
-		this.yerleşikDikdörtgen.kurallar(new SerbestKural(DikdörtgenVerisi.ORTA, ekran.alan.o.x),
+		yerleşikDikdörtgen.kurallar(new SerbestKural(DikdörtgenVerisi.ORTA, ekran.alan.o.x),
 				new SerbestKural(DikdörtgenVerisi.UZUNLUK, genişlik),
 				new SerbestKural(DikdörtgenVerisi.ORTA, ekran.alan.o.y),
 				new SerbestKural(DikdörtgenVerisi.UZUNLUK, yükseklik));
@@ -38,7 +38,7 @@ public class Pencere extends Levha {
 	
 	@Override
 	public void odakla() {
-		this.ekran.içerik.remove(this);
-		this.ekran.içerik.add(this);
+		ekran.içerik.remove(this);
+		ekran.içerik.add(this);
 	}
 }

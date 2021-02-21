@@ -26,25 +26,23 @@ public class Düğme extends Öğe {
 	
 	@Override
 	public void güncelle() {
-		if (!this.açıkMı()) {
+		if (!açıkMı())
 			return;
-		}
-		if (this.üzerinde) {
-			if (this.ekran.solTık.basma()) {
-				this.odakla();
-				this.basılı = true;
-			} else if (this.basılı && this.ekran.solTık.salma()) {
-				this.odakla();
-				this.çalıştırılabilir.run();
-				this.basılı = false;
+		if (üzerinde) {
+			if (ekran.solTık.basma()) {
+				odakla();
+				basılı = true;
+			} else if (basılı && ekran.solTık.salma()) {
+				odakla();
+				çalıştırılabilir.run();
+				basılı = false;
 			}
-		} else {
-			this.basılı = false;
-		}
+		} else
+			basılı = false;
 	}
 	
 	/** Düğmenin basılıp basılmadığını döndürür. */
 	public boolean basılıMı() {
-		return this.basılı;
+		return basılı;
 	}
 }

@@ -16,36 +16,36 @@ public class Soy {
 	public final Class<? extends Bileşen>[] gerekliSınıflar;
 	
 	@SuppressWarnings("unchecked")
-	public Soy(Topluluk topluluk, Class<?>... gerekliSınıflar) {
+	public Soy(final Topluluk topluluk, final Class<?>... gerekliSınıflar) {
 		this.topluluk = topluluk;
 		varlıklar = new HashSet<>();
 		this.gerekliSınıflar = (Class<? extends Bileşen>[])gerekliSınıflar;
 		topluluk.soylar.add(this);
-		for (Varlık varlık : topluluk.varlıklar)
+		for (final Varlık varlık : topluluk.varlıklar)
 			ekle(varlık);
 	}
 	
-	public boolean karşılıyorMu(Varlık varlık) {
-		for (Class<? extends Bileşen> sınıf : gerekliSınıflar)
+	public boolean karşılıyorMu(final Varlık varlık) {
+		for (final Class<? extends Bileşen> sınıf : gerekliSınıflar)
 			if (varlık.bileşen(sınıf) == null)
 				return false;
 		return true;
 	}
 	
-	public void ekle(Varlık varlık) {
+	public void ekle(final Varlık varlık) {
 		if (karşılıyorMu(varlık) && varlıklar.add(varlık))
 			eklendi(varlık);
 	}
 	
-	public void çıkar(Varlık varlık) {
+	public void çıkar(final Varlık varlık) {
 		if (varlıklar.remove(varlık))
 			çıkarıldı(varlık);
 	}
-
-	public void eklendi(Varlık varlık) {
+	
+	public void eklendi(final Varlık varlık) {
 	}
 	
-	public void çıkarıldı(Varlık varlık) {
+	public void çıkarıldı(final Varlık varlık) {
 	}
 	
 	public void güncelle() {

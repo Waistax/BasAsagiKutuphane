@@ -17,7 +17,7 @@ public class Takım<T> implements Runnable {
 	protected Iterator<T> yineleyici;
 	
 	/** Boş tanımlar. */
-	public Takım(Dağıtıcı<T> dağıtıcı) {
+	public Takım(final Dağıtıcı<T> dağıtıcı) {
 		this.dağıtıcı = dağıtıcı;
 		nesneler = new HashSet<>();
 	}

@@ -18,9 +18,8 @@ public class DenemeDinleyicisi {
 	/** Kaldırılmış olayları da alacak yöntem. */
 	@Dinleyici(kaldırılmışlarıDinler = true)
 	public void denemeOlayıOlduKaldırılmış(final DenemeOlayı olay) {
-		if (olay.kaldırılmış) {
+		if (olay.kaldırılmış)
 			System.out.println("Susturulmuş ileti: " + olay.ileti);
-		}
 	}
 	
 	/** Yüzeysel seviyede olayları alacak yöntem. */

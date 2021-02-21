@@ -65,11 +65,10 @@ public class Hesaplayıcı {
 	
 	/** İki nesneden yakın olanı döndürür. */
 	public static <T> T aradeğer(final T sol, final T sağ, final float solaUzaklık, final float sağaUzaklık) {
-		if (solaUzaklık < sağaUzaklık) {
+		if (solaUzaklık < sağaUzaklık)
 			return sol;
-		} else {
+		else
 			return sağ;
-		}
 	}
 	
 	/** Ondalıklı sayının karesini hesaplar. */

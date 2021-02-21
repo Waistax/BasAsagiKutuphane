@@ -37,9 +37,8 @@ public class KodDeneme {
 		küme.add("mükemmel");
 		küme.add("birisidir.");
 		final Iterator<String> yineleyici = küme.iterator();
-		while (yineleyici.hasNext()) {
+		while (yineleyici.hasNext())
 			System.out.print(yineleyici.next());
-		}
 	}
 	
 	/** Olayların ve dağıtıcının çalışmasını dener. */

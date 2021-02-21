@@ -19,6 +19,6 @@ public class OrtalıKural extends YerleşimKuralı {
 	
 	@Override
 	protected void yerleştir() {
-		this.veri.yaz(this.hedef, this.veri.al(this.ana));
+		veri.yaz(hedef, veri.al(ana));
 	}
 }

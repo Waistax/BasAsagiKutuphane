@@ -25,7 +25,7 @@ public class YerleşikDikdörtgen {
 	public YerleşikDikdörtgen(final Dikdörtgen ana, final Dikdörtgen hedef) {
 		this.ana = ana;
 		this.hedef = hedef;
-		this.kurallar = new YerleşimKuralı[4];
+		kurallar = new YerleşimKuralı[4];
 	}
 	
 	/** Yeni bir dikdörtgenden tanımlar. */
@@ -35,64 +35,61 @@ public class YerleşikDikdörtgen {
 	
 	/** Dikdörtgeni yatay boyutta tanımlar. */
 	private void yataydaYerleştir() {
-		this.kurallar[0].yerleştir();
-		this.kurallar[1].yerleştir();
-		DikdörtgenVerisi.yatayıHesapla(this.kurallar[0].dikdörtgenVerisi, this.kurallar[1].dikdörtgenVerisi,
-				this.hedef);
+		kurallar[0].yerleştir();
+		kurallar[1].yerleştir();
+		DikdörtgenVerisi.yatayıHesapla(kurallar[0].dikdörtgenVerisi, kurallar[1].dikdörtgenVerisi, hedef);
 	}
 	
 	/** Dikdörtgeni dikey boyutta tanımlar. */
 	private void dikeydeYerleştir() {
-		this.kurallar[2].yerleştir();
-		this.kurallar[3].yerleştir();
-		DikdörtgenVerisi.dikeyiHesapla(this.kurallar[2].dikdörtgenVerisi, this.kurallar[3].dikdörtgenVerisi,
-				this.hedef);
+		kurallar[2].yerleştir();
+		kurallar[3].yerleştir();
+		DikdörtgenVerisi.dikeyiHesapla(kurallar[2].dikdörtgenVerisi, kurallar[3].dikdörtgenVerisi, hedef);
 	}
 	
 	/** Dikdörtgeni tanımlar. */
 	public void yerleştir() {
-		if (this.bağımlıYatay) {
-			this.dikeydeYerleştir();
-			this.yataydaYerleştir();
+		if (bağımlıYatay) {
+			dikeydeYerleştir();
+			yataydaYerleştir();
 		} else {
-			this.yataydaYerleştir();
-			this.dikeydeYerleştir();
+			yataydaYerleştir();
+			dikeydeYerleştir();
 		}
 	}
 	
 	/** Kuralları temizler. */
 	public YerleşikDikdörtgen temizle() {
-		this.kurallar[0] = null;
-		this.kurallar[2] = null;
-		this.bağımlıYatay = false;
+		kurallar[0] = null;
+		kurallar[2] = null;
+		bağımlıYatay = false;
 		return this;
 	}
 	
 	/** Kurallara yeni bir kuralı ekler. */
 	public YerleşikDikdörtgen kuralEkle(final YerleşimKuralı kural, final boolean yatay) {
-		kural.ana = this.ana;
-		kural.hedef = this.hedef;
+		kural.ana = ana;
+		kural.hedef = hedef;
 		kural.veri = YerleşimVerisi.al(kural.dikdörtgenVerisi, yatay);
 		
 		int kaçıklık = 2;
 		
 		if (yatay) {
 			kaçıklık = 0;
-			this.bağımlıYatay = this.bağımlıYatay || kural.bağımlı;
+			bağımlıYatay = bağımlıYatay || kural.bağımlı;
 		}
 		
-		if (this.kurallar[kaçıklık] == null) {
-			if (kural.ikincil) {
-				this.kurallar[kaçıklık + 1] = kural;
-			} else {
-				this.kurallar[kaçıklık] = kural;
-				if (this.kurallar[kaçıklık + 1] != null) {
-					this.kurallar[kaçıklık + 1].birincilVeri = kural.veri;
-				}
+		if (kurallar[kaçıklık] == null) {
+			if (kural.ikincil)
+				kurallar[kaçıklık + 1] = kural;
+			else {
+				kurallar[kaçıklık] = kural;
+				if (kurallar[kaçıklık + 1] != null)
+					kurallar[kaçıklık + 1].birincilVeri = kural.veri;
 			}
 		} else {
-			this.kurallar[kaçıklık + 1] = kural;
-			kural.birincilVeri = this.kurallar[kaçıklık].veri;
+			kurallar[kaçıklık + 1] = kural;
+			kural.birincilVeri = kurallar[kaçıklık].veri;
 		}
 		
 		return this;
@@ -100,12 +97,12 @@ public class YerleşikDikdörtgen {
 	
 	/** Yatayda bir kural ekler. */
 	public YerleşikDikdörtgen yatayKural(final YerleşimKuralı kural) {
-		return this.kuralEkle(kural, true);
+		return kuralEkle(kural, true);
 	}
 	
 	/** Dikeyde bir kural ekler. */
 	public YerleşikDikdörtgen dikeyKural(final YerleşimKuralı kural) {
-		return this.kuralEkle(kural, false);
+		return kuralEkle(kural, false);
 	}
 	
 	/** Dört kuralı da birden ekler. */
@@ -116,21 +113,21 @@ public class YerleşikDikdörtgen {
 	
 	/** Yataydaki ilk kuralı döndürür. */
 	public YerleşimKuralı yatayKural() {
-		return this.kurallar[0];
+		return kurallar[0];
 	}
 	
 	/** Yataydaki ikinci kuralı döndürür. */
 	public YerleşimKuralı ikincilYatayKural() {
-		return this.kurallar[1];
+		return kurallar[1];
 	}
 	
 	/** Dikeydeki ilk kuralı döndürür. */
 	public YerleşimKuralı dikeyKural() {
-		return this.kurallar[2];
+		return kurallar[2];
 	}
 	
 	/** Dikeydeki ikinci kuralı döndürür. */
 	public YerleşimKuralı ikincilDikeyKural() {
-		return this.kurallar[3];
+		return kurallar[3];
 	}
 }

@@ -23,22 +23,22 @@ public class TersGöreliKural extends YerleşimKuralı {
 	/** Belirli bir uzaklıkla tanımlar. */
 	public TersGöreliKural(final DikdörtgenVerisi dikdörtgenVerisi, final float uzaklık) {
 		this(dikdörtgenVerisi);
-		this.yaz(uzaklık);
+		yaz(uzaklık);
 	}
 	
 	/** Uzaklığı değiştirir. */
 	public TersGöreliKural yaz(final float o) {
-		this.uzaklık = o;
+		uzaklık = o;
 		return this;
 	}
 	
 	/** Uzaklığın üzerine ekler. */
 	public TersGöreliKural ekle(final float o) {
-		return this.yaz(this.uzaklık + o);
+		return yaz(uzaklık + o);
 	}
 	
 	@Override
 	protected void yerleştir() {
-		this.veri.yaz(this.hedef, this.veri.büyük().al(this.ana) - this.uzaklık);
+		veri.yaz(hedef, veri.büyük().al(ana) - uzaklık);
 	}
 }

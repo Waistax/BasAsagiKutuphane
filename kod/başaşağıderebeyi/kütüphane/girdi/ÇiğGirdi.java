@@ -35,91 +35,85 @@ public class ÇiğGirdi {
 	
 	/** Tuşsuz girdi tanımlar. */
 	public ÇiğGirdi() {
-		this.tuşTakımı = new HashMap<>();
-		this.fare = new HashMap<>();
-		this.imleç = new Yöney2();
-		this.sürükleme = new Yöney2();
-		this.imleçGirdisi = new Yöney2();
+		tuşTakımı = new HashMap<>();
+		fare = new HashMap<>();
+		imleç = new Yöney2();
+		sürükleme = new Yöney2();
+		imleçGirdisi = new Yöney2();
 	}
 	
 	/** Bütün girdileri günceller. */
 	public void güncelle() {
-		this.tekerlekDevri = this.tekerlekGirdisi;
-		this.tekerlekGirdisi = 0;
-		this.sürükleme.çıkar(this.imleçGirdisi, this.imleç);
-		this.imleç.yaz(this.imleçGirdisi);
-		for (final Tuş tuş : this.tuşTakımı.values()) {
+		tekerlekDevri = tekerlekGirdisi;
+		tekerlekGirdisi = 0;
+		sürükleme.çıkar(imleçGirdisi, imleç);
+		imleç.yaz(imleçGirdisi);
+		for (final Tuş tuş : tuşTakımı.values())
 			tuş.güncelle();
-		}
-		for (final Tuş tuş : this.fare.values()) {
+		for (final Tuş tuş : fare.values())
 			tuş.güncelle();
-		}
-		this.imleçHedefi = null;
-		this.tekerlekHedefi = null;
+		imleçHedefi = null;
+		tekerlekHedefi = null;
 	}
 	
 	/** Tuş takımı tuşu ekler. */
 	public void tuşTakımıTuşuEkle(final int kod) {
-		if (!this.tuşTakımı.containsKey(kod)) {
-			this.tuşTakımı.put(kod, new Tuş(kod));
-		}
+		if (!tuşTakımı.containsKey(kod))
+			tuşTakımı.put(kod, new Tuş(kod));
 	}
 	
 	/** Tuş takımı tuşu döndürür. */
 	public Tuş tuşTakımıTuşuAl(final int kod) {
-		return this.tuşTakımı.get(kod);
+		return tuşTakımı.get(kod);
 	}
 	
 	/** Tuş takımı tuşunun girdisini yazar. */
 	public void tuşTakımıGirdisi(final int kod, final boolean girdi) {
-		final Tuş tuş = this.tuşTakımıTuşuAl(kod);
-		if (tuş != null) {
+		final Tuş tuş = tuşTakımıTuşuAl(kod);
+		if (tuş != null)
 			tuş.girdi = girdi;
-		}
 	}
 	
 	/** Fare tuşu ekler. */
 	public void ekleFareTuşu(final int kod) {
-		if (!this.fare.containsKey(kod)) {
-			this.fare.put(kod, new Tuş(kod));
-		}
+		if (!fare.containsKey(kod))
+			fare.put(kod, new Tuş(kod));
 	}
 	
 	/** Fare tuşu döndürür. */
 	public Tuş alFareTuşu(final int kod) {
-		return this.fare.get(kod);
+		return fare.get(kod);
 	}
 	
 	/** Fare tuşunun girdisini yazar. */
 	public void yazFareGirdisi(final int kod, final boolean girdi) {
-		final Tuş tuş = this.alFareTuşu(kod);
-		if (tuş != null) {
+		final Tuş tuş = alFareTuşu(kod);
+		if (tuş != null)
 			tuş.girdi = girdi;
-		}
 	}
 	
 	/** İmleç girdisi yazar. */
 	public void yazİmleçGirdisi(final float x, final float y) {
-		this.imleçGirdisi.yaz(x, y);
+		imleçGirdisi.yaz(x, y);
 	}
 	
 	/** Tekerlek devrini döndürür. */
 	public int alTekerlekDevri() {
-		return this.tekerlekDevri;
+		return tekerlekDevri;
 	}
 	
 	/** Tekerlek devrini ekler. */
 	public void yazTekerlekGirdisi(final int devir) {
-		this.tekerlekGirdisi += devir;
+		tekerlekGirdisi += devir;
 	}
 	
 	/** İmlecin uygun olup olmadığını döndürür. */
 	public boolean imleçUygunMu(final Object nesne) {
-		return this.imleçHedefi == null || this.imleçHedefi == nesne;
+		return imleçHedefi == null || imleçHedefi == nesne;
 	}
 	
 	/** Tekerleğin uygun olup olmadığını döndürür. */
 	public boolean tekerlekUygunMu(final Object nesne) {
-		return this.tekerlekHedefi == null || this.tekerlekHedefi == nesne;
+		return tekerlekHedefi == null || tekerlekHedefi == nesne;
 	}
 }

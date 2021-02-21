@@ -9,14 +9,14 @@ package başaşağıderebeyi.kütüphane.yürütücü;
 public class YürütücüSağlayıcısı {
 	/** Genel yürütücü. */
 	private static Yürütücü yürütücü = new BoşYürütücü();
-
+	
 	/** Verilen yürütücüyü genel yürütücü olarak ayarlar. */
-	public static void değiştir(Yürütücü yürütücü) {
+	public static void değiştir(final Yürütücü yürütücü) {
 		YürütücüSağlayıcısı.yürütücü = yürütücü;
 	}
 	
 	/** Genel yürütücüyü döndürür. */
 	public static Yürütücü sağla() {
-		return yürütücü;
+		return YürütücüSağlayıcısı.yürütücü;
 	}
 }

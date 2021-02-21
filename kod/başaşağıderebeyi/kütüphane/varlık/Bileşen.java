@@ -12,14 +12,14 @@ public abstract class Bileşen {
 	public final Varlık varlık;
 	
 	@SuppressWarnings("unchecked")
-	public Bileşen(Varlık varlık) {
+	public Bileşen(final Varlık varlık) {
 		this.varlık = varlık;
 		Class<? extends Bileşen> sınıf = this.getClass();
 		do {
 			varlık.bileşenler.put(sınıf, this);
 			sınıf = (Class<? extends Bileşen>)sınıf.getSuperclass();
 		} while (sınıf != Bileşen.class);
-		for (Soy soy : varlık.topluluk.soylar)
+		for (final Soy soy : varlık.topluluk.soylar)
 			soy.ekle(varlık);
 	}
 }

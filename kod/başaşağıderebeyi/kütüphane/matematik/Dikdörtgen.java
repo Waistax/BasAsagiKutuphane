@@ -21,10 +21,10 @@ public class Dikdörtgen {
 	
 	/** Sıfır dikdörtgeni tanımlar. */
 	public Dikdörtgen() {
-		this.k = new Yöney2();
-		this.b = new Yöney2();
-		this.o = new Yöney2();
-		this.u = new Yöney2();
+		k = new Yöney2();
+		b = new Yöney2();
+		o = new Yöney2();
+		u = new Yöney2();
 	}
 	
 	/** Küçük olan köşeyi değiştirir. Dikdörtgeni döndürür. */
@@ -53,16 +53,16 @@ public class Dikdörtgen {
 	
 	/** Verilen dikdörtgeni buna yazar. Bu dikdörtgeni döndürür. */
 	public Dikdörtgen yaz(final Dikdörtgen ö) {
-		return this.yazK(ö.k).yazB(ö.b).yazO(ö.o).yazU(ö.u);
+		return yazK(ö.k).yazB(ö.b).yazO(ö.o).yazU(ö.u);
 	}
 	
 	/** Verilen dikdörtgenin verilerini ayrı ayrı yuvarlayıp buna yazar. Bu
 	 * dikdörtgeni döndürür. */
 	public Dikdörtgen yuvarla(final Dikdörtgen ö) {
-		this.k.yuvarla(ö.k);
-		this.b.yuvarla(ö.b);
-		this.o.yuvarla(ö.o);
-		this.u.yuvarla(ö.u);
+		k.yuvarla(ö.k);
+		b.yuvarla(ö.b);
+		o.yuvarla(ö.o);
+		u.yuvarla(ö.u);
 		return this;
 	}
 	
@@ -74,10 +74,10 @@ public class Dikdörtgen {
 	/** Verilen dikdörtgenin verilerini ayrı ayrı yukarı yuvarlayıp buna yazar. Bu
 	 * dikdörtgeni döndürür. */
 	public Dikdörtgen tavan(final Dikdörtgen ö) {
-		this.k.tavan(ö.k);
-		this.b.tavan(ö.b);
-		this.o.tavan(ö.o);
-		this.u.tavan(ö.u);
+		k.tavan(ö.k);
+		b.tavan(ö.b);
+		o.tavan(ö.o);
+		u.tavan(ö.u);
 		return this;
 	}
 	
@@ -89,10 +89,10 @@ public class Dikdörtgen {
 	/** Verilen dikdörtgenin verilerini ayrı ayrı aşağı yuvarlayıp buna yazar. Bu
 	 * dikdörtgeni döndürür. */
 	public Dikdörtgen taban(final Dikdörtgen ö) {
-		this.k.taban(ö.k);
-		this.b.taban(ö.b);
-		this.o.taban(ö.o);
-		this.u.taban(ö.u);
+		k.taban(ö.k);
+		b.taban(ö.b);
+		o.taban(ö.o);
+		u.taban(ö.u);
 		return this;
 	}
 	
@@ -105,10 +105,10 @@ public class Dikdörtgen {
 	 * Mesafelerin toplamının bir olduğunu varsayar. */
 	public Dikdörtgen aradeğer(final Dikdörtgen sol, final Dikdörtgen sağ, final float solaUzaklık,
 			final float sağaUzaklık) {
-		this.k.aradeğer(sol.k, sağ.k, solaUzaklık, sağaUzaklık);
-		this.b.aradeğer(sol.b, sağ.b, solaUzaklık, sağaUzaklık);
-		this.o.aradeğer(sol.o, sağ.o, solaUzaklık, sağaUzaklık);
-		this.u.aradeğer(sol.u, sağ.u, solaUzaklık, sağaUzaklık);
+		k.aradeğer(sol.k, sağ.k, solaUzaklık, sağaUzaklık);
+		b.aradeğer(sol.b, sağ.b, solaUzaklık, sağaUzaklık);
+		o.aradeğer(sol.o, sağ.o, solaUzaklık, sağaUzaklık);
+		u.aradeğer(sol.u, sağ.u, solaUzaklık, sağaUzaklık);
 		return this;
 	}
 	
@@ -120,18 +120,18 @@ public class Dikdörtgen {
 	
 	/** Verilen dikdörtgenin bu dikdörtgene eşit olup olmadığını hesaplar. */
 	public boolean eşittir(final Dikdörtgen ö) {
-		return this.k.eşittir(ö.k) && this.b.eşittir(ö.b) && this.o.eşittir(ö.o) && this.u.eşittir(ö.u);
+		return k.eşittir(ö.k) && b.eşittir(ö.b) && o.eşittir(ö.o) && u.eşittir(ö.u);
 	}
 	
 	/** Yöneyin dikdörtgenin içinde olup olmadığını hesaplar. */
 	public boolean içinde(final Yöney2 ö) {
-		return this.k.x <= ö.x && this.k.y <= ö.y && this.b.x >= ö.x && this.b.y >= ö.y;
+		return k.x <= ö.x && k.y <= ö.y && b.x >= ö.x && b.y >= ö.y;
 	}
 	
 	/** Dikdörtgeni dizeye ekler. */
 	public StringBuilder dize(final StringBuilder dize) {
-		return dize.append('[').append(this.k).append(", ").append(this.b).append(", ").append(this.o).append(", ")
-				.append(this.u).append(']');
+		return dize.append('[').append(k).append(", ").append(b).append(", ").append(o).append(", ").append(u)
+				.append(']');
 	}
 	
 	/** Dikdörtgeni dizeye çevirir. */
@@ -141,7 +141,7 @@ public class Dikdörtgen {
 	
 	@Override
 	public boolean equals(final Object obj) {
-		return this.eşittir((Dikdörtgen)obj);
+		return eşittir((Dikdörtgen)obj);
 	}
 	
 	@Override

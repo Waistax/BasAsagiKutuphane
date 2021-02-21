@@ -23,17 +23,17 @@ public class OranlıKural extends YerleşimKuralı {
 	/** Belirli bir oranla tanımlar. */
 	public OranlıKural(final float oran) {
 		this();
-		this.yaz(oran);
+		yaz(oran);
 	}
 	
 	/** Oranı değiştirir. */
 	public OranlıKural yaz(final float o) {
-		this.oran = o;
+		oran = o;
 		return this;
 	}
 	
 	@Override
 	protected void yerleştir() {
-		this.veri.yaz(this.hedef, this.veri.komşu().uzunluk().al(this.hedef) * this.oran);
+		veri.yaz(hedef, veri.komşu().uzunluk().al(hedef) * oran);
 	}
 }

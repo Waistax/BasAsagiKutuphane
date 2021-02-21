@@ -16,7 +16,7 @@ public class PencereÇubuğu extends Öğe {
 	/** Pencerede tanımlar. */
 	public PencereÇubuğu(final Pencere pencere) {
 		super(pencere, pencere, pencere.ekran);
-		this.yerleşikDikdörtgen.kurallar(new GöreliKural(DikdörtgenVerisi.KÜÇÜK),
+		yerleşikDikdörtgen.kurallar(new GöreliKural(DikdörtgenVerisi.KÜÇÜK),
 				new TersGöreliKural(DikdörtgenVerisi.BÜYÜK, Pencere.ÇARPI_GENİŞLİĞİ),
 				new GöreliKural(DikdörtgenVerisi.KÜÇÜK),
 				new SerbestKural(DikdörtgenVerisi.UZUNLUK, Pencere.ÇUBUK_KALINLIĞI));
@@ -24,11 +24,11 @@ public class PencereÇubuğu extends Öğe {
 	
 	@Override
 	public void güncelle() {
-		if (this.üzerinde && this.ekran.solTık.aşağı()) {
-			this.odakla();
-			((SerbestKural)this.levha.yerleşikDikdörtgen.yatayKural()).ekle(this.ekran.girdi.sürükleme.x);
-			((SerbestKural)this.levha.yerleşikDikdörtgen.dikeyKural()).ekle(this.ekran.girdi.sürükleme.y);
-			this.yerleştir();
+		if (üzerinde && ekran.solTık.aşağı()) {
+			odakla();
+			((SerbestKural)levha.yerleşikDikdörtgen.yatayKural()).ekle(ekran.girdi.sürükleme.x);
+			((SerbestKural)levha.yerleşikDikdörtgen.dikeyKural()).ekle(ekran.girdi.sürükleme.y);
+			yerleştir();
 		}
 	}
 }

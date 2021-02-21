@@ -29,66 +29,64 @@ public class OlayYöneticisi implements OlayDağıtıcısı {
 	
 	/** Boş dağıtıcı tanımlar. */
 	public OlayYöneticisi() {
-		this.dinleyiciler = new HashMap<>();
-		this.olaySırası = new ArrayList<>();
-		this.işlenenOlaylar = new ArrayList<>();
-		this.eklenecekler = new HashSet<>();
-		this.çıkarılacaklar = new HashSet<>();
+		dinleyiciler = new HashMap<>();
+		olaySırası = new ArrayList<>();
+		işlenenOlaylar = new ArrayList<>();
+		eklenecekler = new HashSet<>();
+		çıkarılacaklar = new HashSet<>();
 	}
 	
 	@Override
 	public void olayEkle(final Olay olay) {
-		synchronized (this.olaySırası) {
-			this.olaySırası.add(olay);
+		synchronized (olaySırası) {
+			olaySırası.add(olay);
 		}
 	}
 	
 	@Override
 	public void dinleyiciEkle(final Object nesne) {
-		synchronized (this.olaySırası) {
-			this.eklenecekler.add(nesne);
+		synchronized (olaySırası) {
+			eklenecekler.add(nesne);
 		}
 	}
 	
 	@Override
 	public void dinleyiciÇıkar(final Object nesne) {
-		synchronized (this.çıkarılacaklar) {
-			this.çıkarılacaklar.add(nesne);
+		synchronized (çıkarılacaklar) {
+			çıkarılacaklar.add(nesne);
 		}
 	}
 	
 	@Override
 	public void güncelle() {
-		synchronized (this.eklenecekler) {
-			this.eklenecekler.forEach(this::dinleyiciEklemeİşlemi);
-			this.eklenecekler.clear();
+		synchronized (eklenecekler) {
+			eklenecekler.forEach(this::dinleyiciEklemeİşlemi);
+			eklenecekler.clear();
 		}
-		synchronized (this.çıkarılacaklar) {
-			this.çıkarılacaklar.forEach(this::dinleyiciÇıkarmaİşlemi);
-			this.çıkarılacaklar.clear();
+		synchronized (çıkarılacaklar) {
+			çıkarılacaklar.forEach(this::dinleyiciÇıkarmaİşlemi);
+			çıkarılacaklar.clear();
 		}
-		synchronized (this.olaySırası) {
-			this.işlenenOlaylar.addAll(this.olaySırası);
-			this.olaySırası.clear();
+		synchronized (olaySırası) {
+			işlenenOlaylar.addAll(olaySırası);
+			olaySırası.clear();
 		}
-		this.işlenenOlaylar.forEach(this::olayıİşle);
-		this.işlenenOlaylar.clear();
+		işlenenOlaylar.forEach(this::olayıİşle);
+		işlenenOlaylar.clear();
 	}
 	
 	/** Olayı işler. */
 	private void olayıİşle(final Olay olay) {
-		final Map<Öncelik, Set<DinleyiciBilgisi>> sınıfHaritası = this.dinleyiciler.get(olay.getClass());
-		if (sınıfHaritası == null) {
+		final Map<Öncelik, Set<DinleyiciBilgisi>> sınıfHaritası = dinleyiciler.get(olay.getClass());
+		if (sınıfHaritası == null)
 			return;
-		}
 		for (final Öncelik öncelik : Öncelik.values()) {
 			final Set<DinleyiciBilgisi> öncelikKümesi = sınıfHaritası.get(öncelik);
 			final Iterator<DinleyiciBilgisi> yineleyici = öncelikKümesi.iterator();
 			while (yineleyici.hasNext()) {
 				final DinleyiciBilgisi bilgi = yineleyici.next();
-				if (olay.kaldırılmış && !bilgi.kaldırılmışlarıDinler) {
+				if (olay.kaldırılmış && !bilgi.kaldırılmışlarıDinler)
 					continue;
-				}
 				try {
 					bilgi.yöntem.invoke(bilgi.nesne, olay);
 				} catch (final Exception e) {
@@ -101,23 +99,20 @@ public class OlayYöneticisi implements OlayDağıtıcısı {
 	/** Dinleyiciyi ekler. */
 	private void dinleyiciEklemeİşlemi(final Object nesne) {
 		for (final Method yöntem : nesne.getClass().getMethods()) {
-			if (!yöntem.isAnnotationPresent(Dinleyici.class)) {
+			if (!yöntem.isAnnotationPresent(Dinleyici.class))
 				continue;
-			}
 			final Class<?>[] etkenler = yöntem.getParameterTypes();
-			if (etkenler.length != 1) {
+			if (etkenler.length != 1)
 				throw new RuntimeException("Dinleyici tek bir olay almalıdır!");
-			}
 			@SuppressWarnings("unchecked")
 			final Class<? extends Olay> sınıf = (Class<? extends Olay>)etkenler[0];
 			final Dinleyici dinleyici = yöntem.getAnnotation(Dinleyici.class);
-			Map<Öncelik, Set<DinleyiciBilgisi>> sınıfHaritası = this.dinleyiciler.get(sınıf);
+			Map<Öncelik, Set<DinleyiciBilgisi>> sınıfHaritası = dinleyiciler.get(sınıf);
 			if (sınıfHaritası == null) {
 				sınıfHaritası = new HashMap<>();
-				for (final Öncelik öncelik : Öncelik.values()) {
+				for (final Öncelik öncelik : Öncelik.values())
 					sınıfHaritası.put(öncelik, new HashSet<>());
-				}
-				this.dinleyiciler.put(sınıf, sınıfHaritası);
+				dinleyiciler.put(sınıf, sınıfHaritası);
 			}
 			sınıfHaritası.get(dinleyici.öncelik())
 					.add(new DinleyiciBilgisi(nesne, yöntem, dinleyici.kaldırılmışlarıDinler()));
@@ -126,15 +121,12 @@ public class OlayYöneticisi implements OlayDağıtıcısı {
 	
 	/** Dinleyiciyi çıkarır. */
 	private void dinleyiciÇıkarmaİşlemi(final Object nesne) {
-		for (final Map<Öncelik, Set<DinleyiciBilgisi>> sınıfHaritası : this.dinleyiciler.values()) {
+		for (final Map<Öncelik, Set<DinleyiciBilgisi>> sınıfHaritası : dinleyiciler.values())
 			for (final Öncelik öncelik : Öncelik.values()) {
 				final Iterator<DinleyiciBilgisi> yineleyici = sınıfHaritası.get(öncelik).iterator();
-				while (yineleyici.hasNext()) {
-					if (yineleyici.next().nesne == nesne) {
+				while (yineleyici.hasNext())
+					if (yineleyici.next().nesne == nesne)
 						yineleyici.remove();
-					}
-				}
 			}
-		}
 	}
 }

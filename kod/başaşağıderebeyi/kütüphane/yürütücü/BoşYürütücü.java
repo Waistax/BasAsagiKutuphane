@@ -12,9 +12,9 @@ public class BoşYürütücü implements Yürütücü {
 		// Çağıran işlem.
 		return 1;
 	}
-
+	
 	@Override
-	public void yürüt(Runnable yürütme) {
+	public void yürüt(final Runnable yürütme) {
 		// Çağıran işlemin üzerinde yürüt.
 		yürütme.run();
 	}

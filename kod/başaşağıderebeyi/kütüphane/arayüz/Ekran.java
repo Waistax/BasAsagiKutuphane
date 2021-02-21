@@ -29,7 +29,7 @@ public class Ekran extends Levha {
 		super(null, null, null);
 		this.girdi = girdi;
 		this.solTık = girdi.alFareTuşu(solTık);
-		this.yerleşikDikdörtgen.kurallar(new SerbestKural(DikdörtgenVerisi.ORTA, ortaX),
+		yerleşikDikdörtgen.kurallar(new SerbestKural(DikdörtgenVerisi.ORTA, ortaX),
 				new SerbestKural(DikdörtgenVerisi.UZUNLUK, genişlik), new SerbestKural(DikdörtgenVerisi.ORTA, ortaY),
 				new SerbestKural(DikdörtgenVerisi.UZUNLUK, yükseklik)).yerleştir();
 	}
@@ -43,36 +43,32 @@ public class Ekran extends Levha {
 	@Override
 	public boolean açıkMı() {
 		// Ekranın üstü yok.
-		return this.açık;
+		return açık;
 	}
 	
 	@Override
 	protected void hesaplaÜzerindeMi() {
-		final ListIterator<Öğe> yineleme = this.içerik.listIterator(this.içerik.size());
-		while (yineleme.hasPrevious()) {
+		final ListIterator<Öğe> yineleme = içerik.listIterator(içerik.size());
+		while (yineleme.hasPrevious())
 			yineleme.previous().hesaplaÜzerindeMi();
-		}
-		this.üzerinde = this.alan.içinde(this.girdi.imleç);
+		üzerinde = alan.içinde(girdi.imleç);
 	}
 	
 	@Override
 	public void güncelle() {
-		this.yerleştir();
-		if (this.girdi.imleçHedefi == null && this.solTık.aşağı()) {
-			this.girdi.imleçHedefi = this.öncekiİmleçHedefi;
-		}
-		this.hesaplaÜzerindeMi();
-		this.öncekiİmleçHedefi = this.girdi.imleçHedefi;
-		if (!(this.öncekiİmleçHedefi instanceof Öğe)) {
-			this.öncekiİmleçHedefi = null;
-		}
+		yerleştir();
+		if (girdi.imleçHedefi == null && solTık.aşağı())
+			girdi.imleçHedefi = öncekiİmleçHedefi;
+		hesaplaÜzerindeMi();
+		öncekiİmleçHedefi = girdi.imleçHedefi;
+		if (!(öncekiİmleçHedefi instanceof Öğe))
+			öncekiİmleçHedefi = null;
 		super.güncelle();
 	}
 	
 	public boolean üstteMi(final Öğe öğe) {
-		if (this.içerik.size() == 0) {
+		if (içerik.size() == 0)
 			return false;
-		}
-		return this.içerik.get(this.içerik.size() - 1).equals(öğe);
+		return içerik.get(içerik.size() - 1).equals(öğe);
 	}
 }
