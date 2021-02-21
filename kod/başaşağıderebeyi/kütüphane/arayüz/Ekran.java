@@ -16,28 +16,44 @@ import java.util.*;
 
 /** Arayüzün içinde bulunduğu ekran. */
 public class Ekran extends Levha {
+	/** Önceki güncellemede fare sol tuşunun hedefi. */
+	private Object öncekiİmleçHedefi;
 	/** Arayüzün girdisi. */
 	final ÇiğGirdi girdi;
 	/** Sol fare tuşu. */
 	public final Tuş solTık;
-	/** Önceki güncellemede fare sol tuşunun hedefi. */
-	private Object öncekiİmleçHedefi;
 	
 	/** Bir girdi ve boyut ile tanımlar. */
-	public Ekran(final ÇiğGirdi girdi, final float ortaX, final float ortaY, final float genişlik,
-			final float yükseklik, final int solTık) {
+	public Ekran(	final ÇiğGirdi girdi,
+					final int solTık,
+					final float ortaX,
+					final float ortaY,
+					final float genişlik,
+					final float yükseklik) {
 		super(null, null, null);
 		this.girdi = girdi;
 		this.solTık = girdi.alFareTuşu(solTık);
-		yerleşikDikdörtgen.kurallar(new SerbestKural(DikdörtgenVerisi.ORTA, ortaX),
-				new SerbestKural(DikdörtgenVerisi.UZUNLUK, genişlik), new SerbestKural(DikdörtgenVerisi.ORTA, ortaY),
-				new SerbestKural(DikdörtgenVerisi.UZUNLUK, yükseklik)).yerleştir();
+		
+		// Verilen boyutları kullanarak ekranı yerleştir.
+		yerleşikDikdörtgen	.kurallar(	new SerbestKural(	DikdörtgenVerisi.ORTA,
+															ortaX),
+										new SerbestKural(	DikdörtgenVerisi.UZUNLUK,
+															genişlik),
+										new SerbestKural(	DikdörtgenVerisi.ORTA,
+															ortaY),
+										new SerbestKural(	DikdörtgenVerisi.UZUNLUK,
+															yükseklik))
+							.yerleştir();
 	}
 	
 	@Override
-	public void odakla() {
-		// Ekran kendini odaklamaz.
-		// Ekranın üstü yok.
+	protected void hesaplaÜzerindeMi() {
+		// Pencerelerde en sondan başa doğru dön.
+		final ListIterator<Öğe> yineleme = içerik.listIterator(içerik.size());
+		while (yineleme.hasPrevious())
+			yineleme.previous().hesaplaÜzerindeMi();
+		
+		üzerinde = alan.içinde(girdi.imleç);
 	}
 	
 	@Override
@@ -47,28 +63,32 @@ public class Ekran extends Levha {
 	}
 	
 	@Override
-	protected void hesaplaÜzerindeMi() {
-		final ListIterator<Öğe> yineleme = içerik.listIterator(içerik.size());
-		while (yineleme.hasPrevious())
-			yineleme.previous().hesaplaÜzerindeMi();
-		üzerinde = alan.içinde(girdi.imleç);
-	}
-	
-	@Override
 	public void güncelle() {
 		yerleştir();
+		
 		if (girdi.imleçHedefi == null && solTık.aşağı())
 			girdi.imleçHedefi = öncekiİmleçHedefi;
+		
 		hesaplaÜzerindeMi();
+		
 		öncekiİmleçHedefi = girdi.imleçHedefi;
+		
 		if (!(öncekiİmleçHedefi instanceof Öğe))
 			öncekiİmleçHedefi = null;
+		
 		super.güncelle();
 	}
 	
+	@Override
+	public void odakla() {
+		// Bir şeyi odaklama, ekranın üstü yok.
+	}
+	
+	/** Verilen pencerenin en üstte olup olmadığını döndürür. */
 	public boolean üstteMi(final Öğe öğe) {
 		if (içerik.size() == 0)
 			return false;
+		
 		return içerik.get(içerik.size() - 1).equals(öğe);
 	}
 }

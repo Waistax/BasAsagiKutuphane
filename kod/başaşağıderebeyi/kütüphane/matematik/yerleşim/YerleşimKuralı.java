@@ -12,24 +12,26 @@ import başaşağıderebeyi.kütüphane.matematik.*;
 
 /** Bir dikdörtgeni üstündekine göre tanımlayan kural. */
 public abstract class YerleşimKuralı {
-	/** Yerleştirdiği veri. */
-	final DikdörtgenVerisi dikdörtgenVerisi;
-	/** Eşinden sonra gelip gelmediği. */
-	final boolean ikincil;
-	/** Diğer boyutun sonucuna bağlı olup olmadığı. */
-	final boolean bağımlı;
 	/** Belirleyici, üst dikdörtgen. */
 	protected Dikdörtgen ana;
+	/** Eşinin yerleştirdiği veri ve boyut birleştirmesi. Eğer eşinin
+	 * sıralaması önemli değilse boş bırakılır. */
+	protected YerleşimVerisi birincilVeri;
 	/** Yerleştirilecek dikdörtgen. */
 	protected Dikdörtgen hedef;
 	/** Yerleştirdiği veri ve boyut birleştirmesi. */
 	protected YerleşimVerisi veri;
-	/** Eşinin yerleştirdiği veri ve boyut birleştirmesi. Eğer eşinin sıralaması
-	 * önemli değilse boş bırakılır. */
-	protected YerleşimVerisi birincilVeri;
+	/** Diğer boyutun sonucuna bağlı olup olmadığı. */
+	final boolean bağımlı;
+	/** Yerleştirdiği veri. */
+	final DikdörtgenVerisi dikdörtgenVerisi;
+	/** Eşinden sonra gelip gelmediği. */
+	final boolean ikincil;
 	
 	/** Kuralı tanımlar. */
-	protected YerleşimKuralı(final DikdörtgenVerisi dikdörtgenVerisi, final boolean ikincil, final boolean bağımlı) {
+	protected YerleşimKuralı(	final DikdörtgenVerisi dikdörtgenVerisi,
+								final boolean ikincil,
+								final boolean bağımlı) {
 		this.dikdörtgenVerisi = dikdörtgenVerisi;
 		this.ikincil = ikincil;
 		this.bağımlı = bağımlı;

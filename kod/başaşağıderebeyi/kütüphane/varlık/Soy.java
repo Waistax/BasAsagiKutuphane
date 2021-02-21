@@ -11,12 +11,13 @@ package başaşağıderebeyi.kütüphane.varlık;
 import java.util.*;
 
 public class Soy {
+	public final Class<? extends Bileşen>[] gerekliSınıflar;
 	public final Topluluk topluluk;
 	public final Set<Varlık> varlıklar;
-	public final Class<? extends Bileşen>[] gerekliSınıflar;
 	
 	@SuppressWarnings("unchecked")
-	public Soy(final Topluluk topluluk, final Class<?>... gerekliSınıflar) {
+	public Soy(	final Topluluk topluluk,
+				final Class<?>... gerekliSınıflar) {
 		this.topluluk = topluluk;
 		varlıklar = new HashSet<>();
 		this.gerekliSınıflar = (Class<? extends Bileşen>[])gerekliSınıflar;
@@ -25,11 +26,15 @@ public class Soy {
 			ekle(varlık);
 	}
 	
-	public boolean karşılıyorMu(final Varlık varlık) {
-		for (final Class<? extends Bileşen> sınıf : gerekliSınıflar)
-			if (varlık.bileşen(sınıf) == null)
-				return false;
-		return true;
+	public void çıkar(final Varlık varlık) {
+		if (varlıklar.remove(varlık))
+			çıkarıldı(varlık);
+	}
+	
+	public void çıkarıldı(final Varlık varlık) {
+	}
+	
+	public void çiz() {
 	}
 	
 	public void ekle(final Varlık varlık) {
@@ -37,20 +42,16 @@ public class Soy {
 			eklendi(varlık);
 	}
 	
-	public void çıkar(final Varlık varlık) {
-		if (varlıklar.remove(varlık))
-			çıkarıldı(varlık);
-	}
-	
 	public void eklendi(final Varlık varlık) {
-	}
-	
-	public void çıkarıldı(final Varlık varlık) {
 	}
 	
 	public void güncelle() {
 	}
 	
-	public void çiz() {
+	public boolean karşılıyorMu(final Varlık varlık) {
+		for (final Class<? extends Bileşen> sınıf : gerekliSınıflar)
+			if (varlık.bileşen(sınıf) == null)
+				return false;
+		return true;
 	}
 }

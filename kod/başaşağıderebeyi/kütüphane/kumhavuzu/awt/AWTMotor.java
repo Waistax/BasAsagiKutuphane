@@ -15,22 +15,22 @@ import javax.swing.*;
 
 /** Java AWT kütüphanesini çalıştıran basit bir motor. */
 public class AWTMotor {
-	/** Ekrandaki pencere. */
-	private final JFrame çerçeve;
-	/** Üzerine çizim yapılan AWT nesnesi. */
-	private final Canvas tuval;
-	/** Motorun girdisi. */
-	public final ÇiğGirdi girdi;
-	/** AWT girdilerini dinleyen nesne. */
-	private final AWTDinleyici dinleyici;
 	/** Motorun çalışıp çalışmadığı. */
 	private boolean çalışıyor;
-	/** Çizimin yapıldığı tampon. */
-	private final BufferStrategy tampon;
-	/** Çizim yapmaya yarayan araç. */
-	public final Graphics2D çizer;
+	/** Ekrandaki pencere. */
+	private final JFrame çerçeve;
+	/** AWT girdilerini dinleyen nesne. */
+	private final AWTDinleyici dinleyici;
 	/** Motorun çalıştırdığı güncelleyici. */
 	private final AWTGüncelleyici güncelleyici;
+	/** Çizimin yapıldığı tampon. */
+	private final BufferStrategy tampon;
+	/** Üzerine çizim yapılan AWT nesnesi. */
+	private final Canvas tuval;
+	/** Çizim yapmaya yarayan araç. */
+	public final Graphics2D çizer;
+	/** Motorun girdisi. */
+	public final ÇiğGirdi girdi;
 	
 	/** Motoru başlatarak tanımlar. */
 	public AWTMotor(final AWTGüncelleyici güncelleyici) {
@@ -66,8 +66,10 @@ public class AWTMotor {
 		tuval.createBufferStrategy(2);
 		tampon = tuval.getBufferStrategy();
 		çizer = (Graphics2D)tampon.getDrawGraphics();
-		çizer.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-		çizer.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+		çizer.setRenderingHint(	RenderingHints.KEY_ANTIALIASING,
+								RenderingHints.VALUE_ANTIALIAS_ON);
+		çizer.setRenderingHint(	RenderingHints.KEY_TEXT_ANTIALIASING,
+								RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 		this.güncelleyici = güncelleyici;
 	}
 	

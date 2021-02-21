@@ -8,20 +8,67 @@
  */
 package başaşağıderebeyi.kütüphane.matematik;
 
-/** Ondalıklı ve tam sayılar döndüren hesaplamalar sağlar. Buradaki yöntemlerin
- * hespi sınıfa aittir. Bu sınıfın nesnesi oluşturulmaz. */
+/** Ondalıklı ve tam sayılar döndüren hesaplamalar sağlar. Buradaki
+ * yöntemlerin hespi sınıfa aittir. Bu sınıfın nesnesi
+ * oluşturulmaz. */
 public class Hesaplayıcı {
-	/** Derece biriminden bir açı ile çarpıldığında onun radyan biriminden değerini
-	 * veren sayı. */
-	public static final float RADYANA_ÇEVİR = (float)(Math.PI / 180.0);
+	/** Radyan biriminden bir açı ile çarpıldığında onun derece
+	 * biriminden değerini veren sayı. */
+	public static final float DERECEYE_ÇEVİR = 1 /
+												Hesaplayıcı.RADYANA_ÇEVİR;
+	/** Derece biriminden bir açı ile çarpıldığında onun radyan
+	 * biriminden değerini veren sayı. */
+	public static final float RADYANA_ÇEVİR = (float)(Math.PI /
+														180.0);
 	
-	/** Radyan biriminden bir açı ile çarpıldığında onun derece biriminden değerini
-	 * veren sayı. */
-	public static final float DERECEYE_ÇEVİR = 1 / Hesaplayıcı.RADYANA_ÇEVİR;
+	/** Cosinüs değerini veren açının radyan biriminden değerini
+	 * hesaplar. */
+	public static float acos(final float o) {
+		return (float)Math.acos(o);
+	}
 	
-	/** İki sayıdan küçük olanı döndürür. */
-	public static float küçüktür(final float sol, final float sağ) {
-		return sol < sağ ? sol : sağ;
+	/** İki ondalık sayının mesafelere göre aradeğerini hesaplar.
+	 * Mesafelerin toplamının bir olduğunu varsayar. */
+	public static float aradeğer(	final float sol,
+									final float sağ,
+									final float solaUzaklık,
+									final float sağaUzaklık) {
+		return sol * sağaUzaklık + sağ * solaUzaklık;
+	}
+	
+	/** İki tam sayının mesafelere göre aradeğerini hesaplar.
+	 * Mesafelerin toplamının bir olduğunu varsayar. */
+	public static int aradeğer(	final int sol,
+								final int sağ,
+								final float solaUzaklık,
+								final float sağaUzaklık) {
+		return (int)Hesaplayıcı.yuvarla(Hesaplayıcı.aradeğer(	sol,
+																sağ,
+																solaUzaklık,
+																sağaUzaklık));
+	}
+	
+	/** İki nesneden yakın olanı döndürür. */
+	public static <T> T aradeğer(	final T sol,
+									final T sağ,
+									final float solaUzaklık,
+									final float sağaUzaklık) {
+		if (solaUzaklık < sağaUzaklık)
+			return sol;
+		else
+			return sağ;
+	}
+	
+	/** Sinüs değerini veren açının radyan biriminden değerini
+	 * hesaplar. */
+	public static float asin(final float o) {
+		return (float)Math.asin(o);
+	}
+	
+	/** Tanjant değerini veren açının radyan biriminden değerini
+	 * hesaplar. */
+	public static float atan(final float o) {
+		return (float)Math.atan(o);
 	}
 	
 	/** İki sayıdan büyük olanı döndürür. */
@@ -29,46 +76,15 @@ public class Hesaplayıcı {
 		return sol > sağ ? sol : sağ;
 	}
 	
-	/** Sayıyı aralıkta olacak şekilde döndürür. Sayı eğer aralıktaysa onu, alt
-	 * değerin altındaysa alt değeri ve üst değerin üstündeyse üst değeri
-	 * döndürür. */
-	public static float sıkıştır(final float o, final float alt, final float üst) {
-		return Hesaplayıcı.küçüktür(Hesaplayıcı.büyüktür(0, alt), üst);
+	/** Radyan biriminden açının cosinüs değerini hesaplar. */
+	public static float cos(final float o) {
+		return (float)Math.cos(o);
 	}
 	
-	/** Ondalık sayıya en yakın tam sayıyı döndürür. */
-	public static float yuvarla(final float o) {
-		return Math.round(o);
-	}
-	
-	/** Ondalık sayıdan büyük en yakın tam sayıyı döndürür. */
-	public static float tavan(final float o) {
-		return (float)Math.ceil(o);
-	}
-	
-	/** Ondalık sayıdan küçük en yakın tam sayıyı döndürür. */
-	public static float taban(final float o) {
-		return (float)Math.floor(o);
-	}
-	
-	/** İki ondalık sayının mesafelere göre aradeğerini hesaplar. Mesafelerin
-	 * toplamının bir olduğunu varsayar. */
-	public static float aradeğer(final float sol, final float sağ, final float solaUzaklık, final float sağaUzaklık) {
-		return sol * sağaUzaklık + sağ * solaUzaklık;
-	}
-	
-	/** İki tam sayının mesafelere göre aradeğerini hesaplar. Mesafelerin toplamının
-	 * bir olduğunu varsayar. */
-	public static int aradeğer(final int sol, final int sağ, final float solaUzaklık, final float sağaUzaklık) {
-		return (int)Hesaplayıcı.yuvarla(Hesaplayıcı.aradeğer(sol, sağ, solaUzaklık, sağaUzaklık));
-	}
-	
-	/** İki nesneden yakın olanı döndürür. */
-	public static <T> T aradeğer(final T sol, final T sağ, final float solaUzaklık, final float sağaUzaklık) {
-		if (solaUzaklık < sağaUzaklık)
-			return sol;
-		else
-			return sağ;
+	/** Radyan biriminden açının derece biriminden değerini
+	 * hesaplar. */
+	public static float derece(final float o) {
+		return o * Hesaplayıcı.DERECEYE_ÇEVİR;
 	}
 	
 	/** Ondalıklı sayının karesini hesaplar. */
@@ -86,14 +102,25 @@ public class Hesaplayıcı {
 		return (float)Math.sqrt(o);
 	}
 	
-	/** Derece biriminden açının radyan biriminden değerini hesaplar. */
+	/** İki sayıdan küçük olanı döndürür. */
+	public static float küçüktür(final float sol, final float sağ) {
+		return sol < sağ ? sol : sağ;
+	}
+	
+	/** Derece biriminden açının radyan biriminden değerini
+	 * hesaplar. */
 	public static float radyan(final float o) {
 		return o * Hesaplayıcı.RADYANA_ÇEVİR;
 	}
 	
-	/** Radyan biriminden açının derece biriminden değerini hesaplar. */
-	public static float derece(final float o) {
-		return o * Hesaplayıcı.DERECEYE_ÇEVİR;
+	/** Sayıyı aralıkta olacak şekilde döndürür. Sayı eğer aralıktaysa
+	 * onu, alt değerin altındaysa alt değeri ve üst değerin
+	 * üstündeyse üst değeri döndürür. */
+	public static float sıkıştır(	final float o,
+									final float alt,
+									final float üst) {
+		return Hesaplayıcı.küçüktür(Hesaplayıcı.büyüktür(0, alt),
+									üst);
 	}
 	
 	/** Radyan biriminden açının sinüs değerini hesaplar. */
@@ -101,9 +128,9 @@ public class Hesaplayıcı {
 		return (float)Math.sin(o);
 	}
 	
-	/** Radyan biriminden açının cosinüs değerini hesaplar. */
-	public static float cos(final float o) {
-		return (float)Math.cos(o);
+	/** Ondalık sayıdan küçük en yakın tam sayıyı döndürür. */
+	public static float taban(final float o) {
+		return (float)Math.floor(o);
 	}
 	
 	/** Radyan biriminden açının tanjant değerini hesaplar. */
@@ -111,19 +138,14 @@ public class Hesaplayıcı {
 		return (float)Math.tan(o);
 	}
 	
-	/** Sinüs değerini veren açının radyan biriminden değerini hesaplar. */
-	public static float asin(final float o) {
-		return (float)Math.asin(o);
+	/** Ondalık sayıdan büyük en yakın tam sayıyı döndürür. */
+	public static float tavan(final float o) {
+		return (float)Math.ceil(o);
 	}
 	
-	/** Cosinüs değerini veren açının radyan biriminden değerini hesaplar. */
-	public static float acos(final float o) {
-		return (float)Math.acos(o);
-	}
-	
-	/** Tanjant değerini veren açının radyan biriminden değerini hesaplar. */
-	public static float atan(final float o) {
-		return (float)Math.atan(o);
+	/** Ondalık sayıya en yakın tam sayıyı döndürür. */
+	public static float yuvarla(final float o) {
+		return Math.round(o);
 	}
 	
 	/** Gizli yazılarak oluşturucuya erişim engellenmiştir. */

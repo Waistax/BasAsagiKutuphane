@@ -26,14 +26,14 @@ public class OranlıKural extends YerleşimKuralı {
 		yaz(oran);
 	}
 	
+	@Override
+	protected void yerleştir() {
+		veri.yaz(hedef, veri.komşu().uzunluk().al(hedef) * oran);
+	}
+	
 	/** Oranı değiştirir. */
 	public OranlıKural yaz(final float o) {
 		oran = o;
 		return this;
-	}
-	
-	@Override
-	protected void yerleştir() {
-		veri.yaz(hedef, veri.komşu().uzunluk().al(hedef) * oran);
 	}
 }

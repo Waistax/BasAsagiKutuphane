@@ -10,8 +10,6 @@ package başaşağıderebeyi.kütüphane.girdi;
 
 /** Tuş takımındaki ya da faredeki bir tuş. */
 public class Tuş {
-	/** Tuşu temsil eden sayı kodu. */
-	public final int kod;
 	/** Tuşun şu anda basılı olup olmadığı. */
 	private boolean aşağı;
 	/** Tuşun şu anda basılmaya başlanıp başlanmadığı. */
@@ -22,6 +20,8 @@ public class Tuş {
 	boolean girdi;
 	/** Tuşun girdisini işleyen. */
 	public Object hedef;
+	/** Tuşu temsil eden sayı kodu. */
+	public final int kod;
 	
 	/** Tuşu tanımlar. */
 	Tuş(final int kod) {

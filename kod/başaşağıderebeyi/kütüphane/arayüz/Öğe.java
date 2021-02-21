@@ -13,59 +13,69 @@ import başaşağıderebeyi.kütüphane.matematik.yerleşim.*;
 
 /** Arayüzündeki her bir öğe. */
 public abstract class Öğe {
-	/** Öğenin içinde bulunduğu öğe. */
-	public final Levha levha;
-	/** Öğenin içinde bulunduğu pencere. */
-	public final Pencere pencere;
-	/** Öğenin içinde bulunduğu ekran. */
-	public final Ekran ekran;
-	/** Öğenin kapladığı alan. */
-	public final Dikdörtgen alan;
-	/** Alanı anlık olarak tanımlayan nesne. */
-	public final YerleşikDikdörtgen yerleşikDikdörtgen;
 	/** Öğenin kullanılabilir olup olmadığı. */
 	protected boolean açık;
 	/** Fare imlecinin öğenin üzerinde bulunup bulunmadığı. */
 	protected boolean üzerinde;
-	
-	/** Verilen öğelerin içinde tanımlar. */
-	public Öğe(final Levha levha, final Pencere pencere, final Ekran ekran) {
-		alan = new Dikdörtgen();
-		this.levha = levha;
-		if (levha == null)
-			yerleşikDikdörtgen = new YerleşikDikdörtgen(null, alan);
-		else {
-			yerleşikDikdörtgen = new YerleşikDikdörtgen(levha.alan, alan);
-			levha.içerik.add(this);
-		}
-		this.pencere = pencere;
-		this.ekran = ekran;
-	}
+	/** Öğenin kapladığı alan. */
+	public final Dikdörtgen alan;
+	/** Öğenin içinde bulunduğu ekran. */
+	public final Ekran ekran;
+	/** Öğenin içinde bulunduğu öğe. */
+	public final Levha levha;
+	/** Öğenin içinde bulunduğu pencere. */
+	public final Pencere pencere;
+	/** Alanı anlık olarak tanımlayan nesne. */
+	public final YerleşikDikdörtgen yerleşikDikdörtgen;
 	
 	/** Levhadan tanımlar. */
 	public Öğe(final Levha levha) {
 		this(levha, levha.pencere, levha.ekran);
 	}
 	
-	/** Öğeyi levha dikdörtgenine yerleştirir. */
-	public void yerleştir() {
-		yerleşikDikdörtgen.yerleştir();
+	/** Verilen öğelerin içinde tanımlar. */
+	public Öğe(	final Levha levha,
+				final Pencere pencere,
+				final Ekran ekran) {
+		alan = new Dikdörtgen();
+		this.levha = levha;
+		if (levha == null)
+			yerleşikDikdörtgen = new YerleşikDikdörtgen(null, alan);
+		else {
+			yerleşikDikdörtgen = new YerleşikDikdörtgen(levha.alan,
+														alan);
+			levha.içerik.add(this);
+		}
+		this.pencere = pencere;
+		this.ekran = ekran;
 	}
+	
+	/** Fare imlecinin öğenin üzerinde bulunup bulunmadığını
+	 * hesaplar. */
+	protected void hesaplaÜzerindeMi() {
+		if (üzerinde = alan.içinde(ekran.girdi.imleç) &&
+						ekran.girdi.imleçUygunMu(this))
+			ekran.girdi.imleçHedefi = this;
+	}
+	
+	/** Öğenin açık olup olmadığını döndürür. Bu öğe açık olsa da üstü
+	 * kapalıysa kapalı sayılır. */
+	public boolean açıkMı() {
+		return açık && levha.açıkMı();
+	}
+	
+	/** Öğeyi günceller. */
+	public abstract void güncelle();
 	
 	/** Bu öğeyi odaklamak için istek belirtir. */
 	public void odakla() {
 		levha.odakla();
 	}
 	
-	/** Öğenin açık olup olmadığını döndürür. Bu öğe açık olsa da üstü kapalıysa
-	 * kapalı sayılır. */
-	public boolean açıkMı() {
-		return açık && levha.açıkMı();
-	}
-	
-	/** Öğenin açık olup olmadığını değiştirir. */
-	public void yazAçıkMı(final boolean açık) {
-		this.açık = açık;
+	/** Fare imlecinin bu öğenin ya da alt öğelerinden birinin
+	 * üzerinde olup olmadığını döndürür. */
+	public boolean üzerindekindenMi() {
+		return üzerindeMi();
 	}
 	
 	/** Fare imlecinin öğenin üzerinde olup olmadığını döndürür. */
@@ -73,18 +83,13 @@ public abstract class Öğe {
 		return üzerinde;
 	}
 	
-	/** Fare imlecinin bu öğenin ya da alt öğelerinden birinin üzerinde olup
-	 * olmadığını döndürür. */
-	public boolean üzerindekindenMi() {
-		return üzerindeMi();
+	/** Öğenin açık olup olmadığını değiştirir. */
+	public void yazAçıkMı(final boolean açık) {
+		this.açık = açık;
 	}
 	
-	/** Fare imlecinin öğenin üzerinde bulunup bulunmadığını hesaplar. */
-	protected void hesaplaÜzerindeMi() {
-		if (üzerinde = alan.içinde(ekran.girdi.imleç) && ekran.girdi.imleçUygunMu(this))
-			ekran.girdi.imleçHedefi = this;
+	/** Öğeyi levha dikdörtgenine yerleştirir. */
+	public void yerleştir() {
+		yerleşikDikdörtgen.yerleştir();
 	}
-	
-	/** Öğeyi günceller. */
-	public abstract void güncelle();
 }

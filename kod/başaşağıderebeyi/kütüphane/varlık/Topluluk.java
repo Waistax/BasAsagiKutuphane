@@ -11,17 +11,18 @@ package başaşağıderebeyi.kütüphane.varlık;
 import java.util.*;
 
 public class Topluluk {
-	public final Set<Varlık> varlıklar;
 	public final Set<Soy> soylar;
+	public final Set<Varlık> varlıklar;
 	
 	public Topluluk() {
 		varlıklar = new HashSet<>();
 		soylar = new HashSet<>();
 	}
 	
-	public void güncelle() {
-		for (final Soy soy : soylar)
-			soy.güncelle();
+	public void çıkar(final Varlık varlık) {
+		if (varlıklar.remove(varlık))
+			for (final Soy soy : soylar)
+				soy.çıkar(varlık);
 	}
 	
 	public void çiz() {
@@ -29,9 +30,8 @@ public class Topluluk {
 			soy.çiz();
 	}
 	
-	public void çıkar(final Varlık varlık) {
-		if (varlıklar.remove(varlık))
-			for (final Soy soy : soylar)
-				soy.çıkar(varlık);
+	public void güncelle() {
+		for (final Soy soy : soylar)
+			soy.güncelle();
 	}
 }

@@ -14,22 +14,22 @@ import java.util.*;
 
 /** Anlamlandırılmamış, farklı türlerde girdiler. */
 public class ÇiğGirdi {
-	/** Tuş takımındaki tuşlar. */
-	private final Map<Integer, Tuş> tuşTakımı;
 	/** Faredeki tuşlar. */
 	private final Map<Integer, Tuş> fare;
-	/** Fare imlecinin ekrandaki konumu. */
-	public final Yöney2 imleç;
-	/** Fare imlecinin konumundaki değişim. */
-	public final Yöney2 sürükleme;
 	/** Fare imlecinin anlık girdisi. */
 	private final Yöney2 imleçGirdisi;
 	/** Fare tekerleğinin dönüş devri. */
 	private int tekerlekDevri;
 	/** Fare tekerleğinin anlık girdisi. */
 	private int tekerlekGirdisi;
+	/** Tuş takımındaki tuşlar. */
+	private final Map<Integer, Tuş> tuşTakımı;
+	/** Fare imlecinin ekrandaki konumu. */
+	public final Yöney2 imleç;
 	/** Fare imlecinin girdisini işleyen. */
 	public Object imleçHedefi;
+	/** Fare imlecinin konumundaki değişim. */
+	public final Yöney2 sürükleme;
 	/** Fare tekerleğinin girdisini işleyen. */
 	public Object tekerlekHedefi;
 	
@@ -40,6 +40,22 @@ public class ÇiğGirdi {
 		imleç = new Yöney2();
 		sürükleme = new Yöney2();
 		imleçGirdisi = new Yöney2();
+	}
+	
+	/** Fare tuşu döndürür. */
+	public Tuş alFareTuşu(final int kod) {
+		return fare.get(kod);
+	}
+	
+	/** Tekerlek devrini döndürür. */
+	public int alTekerlekDevri() {
+		return tekerlekDevri;
+	}
+	
+	/** Fare tuşu ekler. */
+	public void ekleFareTuşu(final int kod) {
+		if (!fare.containsKey(kod))
+			fare.put(kod, new Tuş(kod));
 	}
 	
 	/** Bütün girdileri günceller. */
@@ -56,15 +72,14 @@ public class ÇiğGirdi {
 		tekerlekHedefi = null;
 	}
 	
-	/** Tuş takımı tuşu ekler. */
-	public void tuşTakımıTuşuEkle(final int kod) {
-		if (!tuşTakımı.containsKey(kod))
-			tuşTakımı.put(kod, new Tuş(kod));
+	/** İmlecin uygun olup olmadığını döndürür. */
+	public boolean imleçUygunMu(final Object nesne) {
+		return imleçHedefi == null || imleçHedefi == nesne;
 	}
 	
-	/** Tuş takımı tuşu döndürür. */
-	public Tuş tuşTakımıTuşuAl(final int kod) {
-		return tuşTakımı.get(kod);
+	/** Tekerleğin uygun olup olmadığını döndürür. */
+	public boolean tekerlekUygunMu(final Object nesne) {
+		return tekerlekHedefi == null || tekerlekHedefi == nesne;
 	}
 	
 	/** Tuş takımı tuşunun girdisini yazar. */
@@ -74,15 +89,15 @@ public class ÇiğGirdi {
 			tuş.girdi = girdi;
 	}
 	
-	/** Fare tuşu ekler. */
-	public void ekleFareTuşu(final int kod) {
-		if (!fare.containsKey(kod))
-			fare.put(kod, new Tuş(kod));
+	/** Tuş takımı tuşu döndürür. */
+	public Tuş tuşTakımıTuşuAl(final int kod) {
+		return tuşTakımı.get(kod);
 	}
 	
-	/** Fare tuşu döndürür. */
-	public Tuş alFareTuşu(final int kod) {
-		return fare.get(kod);
+	/** Tuş takımı tuşu ekler. */
+	public void tuşTakımıTuşuEkle(final int kod) {
+		if (!tuşTakımı.containsKey(kod))
+			tuşTakımı.put(kod, new Tuş(kod));
 	}
 	
 	/** Fare tuşunun girdisini yazar. */
@@ -97,23 +112,8 @@ public class ÇiğGirdi {
 		imleçGirdisi.yaz(x, y);
 	}
 	
-	/** Tekerlek devrini döndürür. */
-	public int alTekerlekDevri() {
-		return tekerlekDevri;
-	}
-	
 	/** Tekerlek devrini ekler. */
 	public void yazTekerlekGirdisi(final int devir) {
 		tekerlekGirdisi += devir;
-	}
-	
-	/** İmlecin uygun olup olmadığını döndürür. */
-	public boolean imleçUygunMu(final Object nesne) {
-		return imleçHedefi == null || imleçHedefi == nesne;
-	}
-	
-	/** Tekerleğin uygun olup olmadığını döndürür. */
-	public boolean tekerlekUygunMu(final Object nesne) {
-		return tekerlekHedefi == null || tekerlekHedefi == nesne;
 	}
 }

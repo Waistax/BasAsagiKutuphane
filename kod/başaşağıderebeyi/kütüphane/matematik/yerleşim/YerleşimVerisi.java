@@ -9,42 +9,21 @@ import başaşağıderebeyi.kütüphane.matematik.*;
 
 /** Bir kuralın yerleştirdiği farklı verilerin sıralaması. */
 public enum YerleşimVerisi {
+	BÜYÜK_DİKEY,
+	BÜYÜK_YATAY,
+	KÜÇÜK_DİKEY,
 	/** Verilerin yatay ve dikey ile birleştirmeleri: */
-	KÜÇÜK_YATAY, KÜÇÜK_DİKEY, BÜYÜK_YATAY, BÜYÜK_DİKEY, ORTA_YATAY, ORTA_DİKEY, UZUNLUK_YATAY, UZUNLUK_DİKEY;
+	KÜÇÜK_YATAY,
+	ORTA_DİKEY,
+	ORTA_YATAY,
+	UZUNLUK_DİKEY,
+	UZUNLUK_YATAY;
 	
 	/** Dikdörtgen verisinden belli bir boyuttakini verir. */
-	public static YerleşimVerisi al(final DikdörtgenVerisi veri, final boolean yatay) {
-		return YerleşimVerisi.values()[veri.ordinal() * 2 + (yatay ? 0 : 1)];
-	}
-	
-	/** Aynı boyuttaki karşı veriyi verir. */
-	public YerleşimVerisi karşı() {
-		return YerleşimVerisi.values()[ordinal() - ordinal() % 2 * 2 + 1];
-	}
-	
-	/** Diğer boyuttaki aynı veridir. */
-	public YerleşimVerisi komşu() {
-		return YerleşimVerisi.values()[ordinal() - ordinal() % 2 + (ordinal() + 1) % 2];
-	}
-	
-	/** Aynı boyuttaki KÜÇÜK veriyi verir. */
-	public YerleşimVerisi küçük() {
-		return YerleşimVerisi.values()[DikdörtgenVerisi.KÜÇÜK.ordinal() * 2 + ordinal() % 2];
-	}
-	
-	/** Aynı boyuttaki BÜYÜK veriyi verir. */
-	public YerleşimVerisi büyük() {
-		return YerleşimVerisi.values()[DikdörtgenVerisi.BÜYÜK.ordinal() * 2 + ordinal() % 2];
-	}
-	
-	/** Aynı boyuttaki ORTA veriyi verir. */
-	public YerleşimVerisi orta() {
-		return YerleşimVerisi.values()[DikdörtgenVerisi.ORTA.ordinal() * 2 + ordinal() % 2];
-	}
-	
-	/** Aynı boyuttaki UZUNLUK veriyi verir. */
-	public YerleşimVerisi uzunluk() {
-		return YerleşimVerisi.values()[DikdörtgenVerisi.UZUNLUK.ordinal() * 2 + ordinal() % 2];
+	public static YerleşimVerisi al(final DikdörtgenVerisi veri,
+									final boolean yatay) {
+		return YerleşimVerisi.values()[veri.ordinal() * 2 +
+										(yatay ? 0 : 1)];
 	}
 	
 	/** Yerleştirdiği veriyi verir. */
@@ -69,6 +48,48 @@ public enum YerleşimVerisi {
 		default:
 			return 0.0F;
 		}
+	}
+	
+	/** Aynı boyuttaki BÜYÜK veriyi verir. */
+	public YerleşimVerisi büyük() {
+		return YerleşimVerisi.values()[DikdörtgenVerisi.BÜYÜK.ordinal() *
+										2 +
+										ordinal() % 2];
+	}
+	
+	/** Aynı boyuttaki karşı veriyi verir. */
+	public YerleşimVerisi karşı() {
+		return YerleşimVerisi.values()[ordinal() -
+										ordinal() % 2 * 2 +
+										1];
+	}
+	
+	/** Diğer boyuttaki aynı veridir. */
+	public YerleşimVerisi komşu() {
+		return YerleşimVerisi.values()[ordinal() -
+										ordinal() % 2 +
+										(ordinal() + 1) % 2];
+	}
+	
+	/** Aynı boyuttaki KÜÇÜK veriyi verir. */
+	public YerleşimVerisi küçük() {
+		return YerleşimVerisi.values()[DikdörtgenVerisi.KÜÇÜK.ordinal() *
+										2 +
+										ordinal() % 2];
+	}
+	
+	/** Aynı boyuttaki ORTA veriyi verir. */
+	public YerleşimVerisi orta() {
+		return YerleşimVerisi.values()[DikdörtgenVerisi.ORTA.ordinal() *
+										2 +
+										ordinal() % 2];
+	}
+	
+	/** Aynı boyuttaki UZUNLUK veriyi verir. */
+	public YerleşimVerisi uzunluk() {
+		return YerleşimVerisi.values()[DikdörtgenVerisi.UZUNLUK.ordinal() *
+										2 +
+										ordinal() % 2];
 	}
 	
 	/** Yerleştirdiği veriyi değiştirir. */

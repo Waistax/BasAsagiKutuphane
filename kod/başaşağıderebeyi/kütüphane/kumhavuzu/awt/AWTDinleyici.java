@@ -10,17 +10,17 @@ import başaşağıderebeyi.kütüphane.girdi.*;
 import java.awt.event.*;
 
 /** Java AWT kütüphanesinden gelen girdileri dinler. */
-public class AWTDinleyici implements KeyListener, MouseListener, MouseWheelListener, MouseMotionListener {
+public class AWTDinleyici implements
+		KeyListener,
+		MouseListener,
+		MouseWheelListener,
+		MouseMotionListener {
 	/** Dinlenen girdilerin hedefi. */
 	private final ÇiğGirdi girdi;
 	
 	/** Girdi ile tanımlar. */
 	public AWTDinleyici(final ÇiğGirdi girdi) {
 		this.girdi = girdi;
-	}
-	
-	@Override
-	public void keyTyped(final KeyEvent e) {
 	}
 	
 	@Override
@@ -34,7 +34,29 @@ public class AWTDinleyici implements KeyListener, MouseListener, MouseWheelListe
 	}
 	
 	@Override
+	public void keyTyped(final KeyEvent e) {
+	}
+	
+	@Override
 	public void mouseClicked(final MouseEvent e) {
+	}
+	
+	@Override
+	public void mouseDragged(final MouseEvent e) {
+		girdi.yazİmleçGirdisi(e.getX(), e.getY());
+	}
+	
+	@Override
+	public void mouseEntered(final MouseEvent e) {
+	}
+	
+	@Override
+	public void mouseExited(final MouseEvent e) {
+	}
+	
+	@Override
+	public void mouseMoved(final MouseEvent e) {
+		girdi.yazİmleçGirdisi(e.getX(), e.getY());
 	}
 	
 	@Override
@@ -48,25 +70,7 @@ public class AWTDinleyici implements KeyListener, MouseListener, MouseWheelListe
 	}
 	
 	@Override
-	public void mouseEntered(final MouseEvent e) {
-	}
-	
-	@Override
-	public void mouseExited(final MouseEvent e) {
-	}
-	
-	@Override
 	public void mouseWheelMoved(final MouseWheelEvent e) {
 		girdi.yazTekerlekGirdisi(e.getWheelRotation());
-	}
-	
-	@Override
-	public void mouseDragged(final MouseEvent e) {
-		girdi.yazİmleçGirdisi(e.getX(), e.getY());
-	}
-	
-	@Override
-	public void mouseMoved(final MouseEvent e) {
-		girdi.yazİmleçGirdisi(e.getX(), e.getY());
 	}
 }

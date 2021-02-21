@@ -9,33 +9,22 @@ import java.util.*;
 
 /** Nesneleri takımlara eşit dağıtır ve onları aynı anda yürütür. */
 public class Dağıtıcı<T> {
+	/** Toplam dağıtılmış nesne sayısı. Bu sayı her takıma kaç eleman
+	 * düşeceğini hesaplamada kullanılır. */
+	private int nesneSayısı;
 	/** Nesneleri içeren takımlar. */
 	private final Set<Takım<T>> takımlar;
-	/** Toplam dağıtılmış nesne sayısı. Bu sayı her takıma kaç eleman düşeceğini
-	 * hesaplamada kullanılır. */
-	private int nesneSayısı;
 	/** Kullanılan yürütme. */
 	private Yürütme<T> yürütme;
 	
 	/** Boş tanımlar. */
 	public Dağıtıcı() {
 		// İşlem sayısı kadar takım oluştur.
-		final int işlemSayısı = YürütücüSağlayıcısı.sağla().işlemSayısı();
+		final int işlemSayısı = YürütücüSağlayıcısı	.sağla()
+													.işlemSayısı();
 		takımlar = new HashSet<>(işlemSayısı);
 		for (int i = 0; i < işlemSayısı; i++)
 			takımlar.add(new Takım<>(this));
-	}
-	
-	/** Kullanılan yürütmeyi değiştirir. */
-	public void yürütmeyiDeğiştir(final Yürütme<T> yürütme) {
-		this.yürütme = yürütme;
-	}
-	
-	/** Bütün takımları temizler. */
-	public void temizle() {
-		nesneSayısı = 0;
-		for (final Takım<T> takım : takımlar)
-			takım.nesneler.clear();
 	}
 	
 	/** Nesneyi eleman sayısını geçmemiş bir takıma ekler. */
@@ -48,25 +37,9 @@ public class Dağıtıcı<T> {
 			}
 	}
 	
-	/** Nesneyi uygun bir takıma ekler. */
-	public void dağıt(final T nesne) {
-		// Yeni eleman sayısını hesapla.
-		nesneSayısı++;
-		final int işlemSayısı = YürütücüSağlayıcısı.sağla().işlemSayısı();
-		final int elemanSayısı = nesneSayısı / işlemSayısı;
-		
-		ekle(nesne, elemanSayısı);
-	}
-	
-	/** Nesneleri takımlara dağıtır. */
-	public void hepsiniDağıt(final Collection<T> nesneler) {
-		// Yeni eleman sayısını hesapla.
-		nesneSayısı += nesneler.size();
-		final int işlemSayısı = YürütücüSağlayıcısı.sağla().işlemSayısı();
-		final int elemanSayısı = nesneSayısı / işlemSayısı;
-		
-		for (final T nesne : nesneler)
-			ekle(nesne, elemanSayısı);
+	/** Nesneyi yürüt. Bütün nesneler aynı anda yürütülür. */
+	protected void yürüt(final T nesne) {
+		yürütme.yürüt(nesne);
 	}
 	
 	/** Varsa nesneyi takımlardan çıkarır. */
@@ -79,10 +52,40 @@ public class Dağıtıcı<T> {
 			}
 	}
 	
+	/** Nesneyi uygun bir takıma ekler. */
+	public void dağıt(final T nesne) {
+		// Yeni eleman sayısını hesapla.
+		nesneSayısı++;
+		final int işlemSayısı = YürütücüSağlayıcısı	.sağla()
+													.işlemSayısı();
+		final int elemanSayısı = nesneSayısı / işlemSayısı;
+		
+		ekle(nesne, elemanSayısı);
+	}
+	
 	/** Varlarsa nesneleri takımlardan çıkarır. */
 	public void hepsiniÇıkar(final Collection<T> nesneler) {
 		for (final T nesne : nesneler)
 			çıkar(nesne);
+	}
+	
+	/** Nesneleri takımlara dağıtır. */
+	public void hepsiniDağıt(final Collection<T> nesneler) {
+		// Yeni eleman sayısını hesapla.
+		nesneSayısı += nesneler.size();
+		final int işlemSayısı = YürütücüSağlayıcısı	.sağla()
+													.işlemSayısı();
+		final int elemanSayısı = nesneSayısı / işlemSayısı;
+		
+		for (final T nesne : nesneler)
+			ekle(nesne, elemanSayısı);
+	}
+	
+	/** Bütün takımları temizler. */
+	public void temizle() {
+		nesneSayısı = 0;
+		for (final Takım<T> takım : takımlar)
+			takım.nesneler.clear();
 	}
 	
 	/** Bütün takımları aynı anda yürütür. */
@@ -104,8 +107,8 @@ public class Dağıtıcı<T> {
 		} while (bitmemişTakımVar);
 	}
 	
-	/** Nesneyi yürüt. Bütün nesneler aynı anda yürütülür. */
-	protected void yürüt(final T nesne) {
-		yürütme.yürüt(nesne);
+	/** Kullanılan yürütmeyi değiştirir. */
+	public void yürütmeyiDeğiştir(final Yürütme<T> yürütme) {
+		this.yürütme = yürütme;
 	}
 }

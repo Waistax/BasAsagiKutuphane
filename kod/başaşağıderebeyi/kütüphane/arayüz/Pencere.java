@@ -13,27 +13,37 @@ import başaşağıderebeyi.kütüphane.matematik.yerleşim.*;
 
 /** Ekranda bağımsız bir öğe. */
 public class Pencere extends Levha {
-	/** Pencerenin üstündeki çubuğun kalınlığı. */
-	public static final float ÇUBUK_KALINLIĞI = 30.0F;
 	/** Pencereyi kapatma tuşunun genişliği. */
 	public static final float ÇARPI_GENİŞLİĞİ = 50.0F;
+	/** Pencerenin üstündeki çubuğun kalınlığı. */
+	public static final float ÇUBUK_KALINLIĞI = 30.0F;
 	/** Pencerenin başlığı. */
 	public final String başlık;
 	
 	/** Ekranın en üstünde tanımlar. */
-	public Pencere(final Ekran ekran, final String başlık, final float genişlik, final float yükseklik) {
+	public Pencere(	final Ekran ekran,
+					final String başlık,
+					final float genişlik,
+					final float yükseklik) {
 		super(ekran, null, ekran);
 		this.başlık = başlık;
-		yerleşikDikdörtgen.kurallar(new SerbestKural(DikdörtgenVerisi.ORTA, ekran.alan.o.x),
-				new SerbestKural(DikdörtgenVerisi.UZUNLUK, genişlik),
-				new SerbestKural(DikdörtgenVerisi.ORTA, ekran.alan.o.y),
-				new SerbestKural(DikdörtgenVerisi.UZUNLUK, yükseklik));
+		yerleşikDikdörtgen.kurallar(new SerbestKural(	DikdörtgenVerisi.ORTA,
+														ekran.alan.o.x),
+									new SerbestKural(	DikdörtgenVerisi.UZUNLUK,
+														genişlik),
+									new SerbestKural(	DikdörtgenVerisi.ORTA,
+														ekran.alan.o.y),
+									new SerbestKural(	DikdörtgenVerisi.UZUNLUK,
+														yükseklik));
 		new PencereÇubuğu(this);
-		new Düğme(this, "X", new PencereyiKapat(this)).yerleşikDikdörtgen.kurallar(
-				new TersGöreliKural(DikdörtgenVerisi.BÜYÜK),
-				new SerbestKural(DikdörtgenVerisi.UZUNLUK, Pencere.ÇARPI_GENİŞLİĞİ),
-				new GöreliKural(DikdörtgenVerisi.KÜÇÜK),
-				new SerbestKural(DikdörtgenVerisi.UZUNLUK, Pencere.ÇUBUK_KALINLIĞI));
+		new Düğme(	this,
+					"X",
+					new PencereyiKapat(this)).yerleşikDikdörtgen.kurallar(	new TersGöreliKural(DikdörtgenVerisi.BÜYÜK),
+																			new SerbestKural(	DikdörtgenVerisi.UZUNLUK,
+																								Pencere.ÇARPI_GENİŞLİĞİ),
+																			new GöreliKural(DikdörtgenVerisi.KÜÇÜK),
+																			new SerbestKural(	DikdörtgenVerisi.UZUNLUK,
+																								Pencere.ÇUBUK_KALINLIĞI));
 	}
 	
 	@Override

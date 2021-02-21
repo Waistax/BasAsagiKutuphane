@@ -11,13 +11,13 @@ public class İşlemliYürütücü implements Yürütücü {
 	private final int işlemSayısı;
 	private final ExecutorService yürütmeHizmeti;
 	
+	public İşlemliYürütücü() {
+		this(Runtime.getRuntime().availableProcessors());
+	}
+	
 	public İşlemliYürütücü(final int işlemSayısı) {
 		this.işlemSayısı = işlemSayısı;
 		yürütmeHizmeti = Executors.newFixedThreadPool(işlemSayısı);
-	}
-	
-	public İşlemliYürütücü() {
-		this(Runtime.getRuntime().availableProcessors());
 	}
 	
 	@Override

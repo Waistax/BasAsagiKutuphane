@@ -9,10 +9,10 @@ import başaşağıderebeyi.kütüphane.olay.*;
 
 /** Dağıtıcıyı denemek için oluşturulmuş dinleyici. */
 public class DenemeDinleyicisi {
-	/** İlk önce olayı alacak dinleyici yöntem. */
-	@Dinleyici(öncelik = Öncelik.TEMEL)
-	public void denemeOlayıOlduTemel(final DenemeOlayı olay) {
-		olay.kaldırılmış = olay.ileti.contains("Cem kötü");
+	/** Yüzeysel seviyede olayları alacak yöntem. */
+	@Dinleyici
+	public void denemeOlayıOldu(final DenemeOlayı olay) {
+		System.out.println("İleti: " + olay.ileti);
 	}
 	
 	/** Kaldırılmış olayları da alacak yöntem. */
@@ -22,9 +22,9 @@ public class DenemeDinleyicisi {
 			System.out.println("Susturulmuş ileti: " + olay.ileti);
 	}
 	
-	/** Yüzeysel seviyede olayları alacak yöntem. */
-	@Dinleyici
-	public void denemeOlayıOldu(final DenemeOlayı olay) {
-		System.out.println("İleti: " + olay.ileti);
+	/** İlk önce olayı alacak dinleyici yöntem. */
+	@Dinleyici(öncelik = Öncelik.TEMEL)
+	public void denemeOlayıOlduTemel(final DenemeOlayı olay) {
+		olay.kaldırılmış = olay.ileti.contains("Cem kötü");
 	}
 }

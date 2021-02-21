@@ -8,7 +8,7 @@ package başaşağıderebeyi.kütüphane.olay;
 /** Olayları ve dinleyicileri yok sayar. */
 public class EtkisizOlayDağıtıcısı implements OlayDağıtıcısı {
 	@Override
-	public void olayEkle(final Olay olay) {
+	public void dinleyiciÇıkar(final Object nesne) {
 	}
 	
 	@Override
@@ -16,10 +16,10 @@ public class EtkisizOlayDağıtıcısı implements OlayDağıtıcısı {
 	}
 	
 	@Override
-	public void dinleyiciÇıkar(final Object nesne) {
+	public void güncelle() {
 	}
 	
 	@Override
-	public void güncelle() {
+	public void olayEkle(final Olay olay) {
 	}
 }

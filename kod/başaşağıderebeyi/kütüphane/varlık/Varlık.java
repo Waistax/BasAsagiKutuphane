@@ -11,8 +11,8 @@ package başaşağıderebeyi.kütüphane.varlık;
 import java.util.*;
 
 public class Varlık {
-	public final Topluluk topluluk;
 	public final Map<Class<? extends Bileşen>, Bileşen> bileşenler;
+	public final Topluluk topluluk;
 	
 	public Varlık(final Topluluk topluluk) {
 		this.topluluk = topluluk;

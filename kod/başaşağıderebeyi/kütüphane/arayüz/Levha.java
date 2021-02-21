@@ -23,24 +23,11 @@ public class Levha extends Öğe {
 	}
 	
 	/** Verilen öğelerin içinde tanımlar. */
-	public Levha(final Levha levha, final Pencere pencere, final Ekran ekran) {
+	public Levha(	final Levha levha,
+					final Pencere pencere,
+					final Ekran ekran) {
 		super(levha, pencere, ekran);
 		içerik = new ArrayList<>();
-	}
-	
-	@Override
-	public void yerleştir() {
-		super.yerleştir();
-		for (final Öğe öğe : içerik)
-			öğe.yerleştir();
-	}
-	
-	@Override
-	public boolean üzerindekindenMi() {
-		for (final Öğe öğe : içerik)
-			if (öğe.üzerindekindenMi())
-				return true;
-		return super.üzerindekindenMi();
 	}
 	
 	@Override
@@ -61,5 +48,20 @@ public class Levha extends Öğe {
 	/** Her öğe için verilen görevi yapar. */
 	public void herÖğeİçin(final Consumer<Öğe> görev) {
 		içerik.forEach(görev);
+	}
+	
+	@Override
+	public boolean üzerindekindenMi() {
+		for (final Öğe öğe : içerik)
+			if (öğe.üzerindekindenMi())
+				return true;
+		return super.üzerindekindenMi();
+	}
+	
+	@Override
+	public void yerleştir() {
+		super.yerleştir();
+		for (final Öğe öğe : içerik)
+			öğe.yerleştir();
 	}
 }

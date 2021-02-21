@@ -12,15 +12,18 @@ import java.lang.reflect.*;
 
 /** Dinleyicinin kayıtlı bilgileri. */
 class DinleyiciBilgisi {
+	/** Kaydedilen dinleyicinin kaldırılmış olayları dinleyip
+	 * dinlemediği. */
+	final boolean kaldırılmışlarıDinler;
 	/** Kaydedilen nesne. */
 	final Object nesne;
 	/** Kaydedilen yöntem. */
 	final Method yöntem;
-	/** Kaydedilen dinleyicinin kaldırılmış olayları dinleyip dinlemediği. */
-	final boolean kaldırılmışlarıDinler;
 	
 	/** Kaydı tanımlar. */
-	DinleyiciBilgisi(final Object nesne, final Method yöntem, final boolean kaldırılmışlarıDinler) {
+	DinleyiciBilgisi(	final Object nesne,
+						final Method yöntem,
+						final boolean kaldırılmışlarıDinler) {
 		this.nesne = nesne;
 		this.yöntem = yöntem;
 		this.kaldırılmışlarıDinler = kaldırılmışlarıDinler;

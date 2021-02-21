@@ -7,15 +7,15 @@ package başaşağıderebeyi.kütüphane.olay;
 
 /** Olayları dinleyicilere dağıtır. */
 public interface OlayDağıtıcısı {
-	/** Olayı sıraya ekler. */
-	void olayEkle(Olay olay);
+	/** Dinleyiciyi çıkarma sırasına koyar. */
+	void dinleyiciÇıkar(Object nesne);
 	
 	/** Dinleyiciyi ekleme sırasına koyar. */
 	void dinleyiciEkle(Object nesne);
 	
-	/** Dinleyiciyi çıkarma sırasına koyar. */
-	void dinleyiciÇıkar(Object nesne);
-	
 	/** Dinleyicileri günceller, olayları işler. */
 	void güncelle();
+	
+	/** Olayı sıraya ekler. */
+	void olayEkle(Olay olay);
 }

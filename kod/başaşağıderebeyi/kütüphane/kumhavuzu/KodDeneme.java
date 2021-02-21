@@ -11,21 +11,33 @@ import java.util.*;
 
 /** Farklı yöntemlerin çalışıp çalışmadığını dener. */
 public class KodDeneme {
-	/** Denemenin başlangıcı. */
-	public static void main(final String[] args) {
-		new ArayüzDeneme();
+	/** Olayların ve dağıtıcının çalışmasını dener. */
+	@SuppressWarnings("unused")
+	private static void olayDenemesi() {
+		final OlayYöneticisi dağıtıcı = new OlayYöneticisi();
+		final DenemeDinleyicisi dinleyici = new DenemeDinleyicisi();
+		dağıtıcı.dinleyiciEkle(dinleyici);
+		dağıtıcı.olayEkle(new DenemeOlayı("Merhaba ben Cem!"));
+		dağıtıcı.olayEkle(new DenemeOlayı("Bu Cem kötüdür!"));
+		dağıtıcı.güncelle();
+		dağıtıcı.dinleyiciÇıkar(dinleyici);
+		dağıtıcı.olayEkle(new DenemeOlayı("Cem çok iyi birisidir!"));
+		dağıtıcı.güncelle();
 	}
 	
-	/** Sınıf nesnesinin hangi sınıf olduğunun kontrol edilip edilemeyeceğini
-	 * dener. */
+	/** Sınıf nesnesinin hangi sınıf olduğunun kontrol edilip
+	 * edilemeyeceğini dener. */
 	@SuppressWarnings("unused")
 	private static void sınıfTürüKontrolüDenemesi() {
 		/*
-		 * HATA: Cannot perform instanceof check against parameterized type Class<?
-		 * extends Olay>. Use the form Class<?> instead since further generic type
-		 * information will be erased at runtime
+		 * HATA: Cannot perform instanceof check against parameterized
+		 * type Class<? extends Olay>. Use the form Class<?> instead
+		 * since further generic type information will be erased at
+		 * runtime
 		 */
-		// System.out.println(KodDeneme.class instanceof Class<? extends Olay>);
+		// System.out.println(KodDeneme.class instanceof Class<?
+		// extends
+		// Olay>);
 	}
 	
 	/** Yineleyici nesnesinin nasıl ilerlediğini dener. */
@@ -41,17 +53,8 @@ public class KodDeneme {
 			System.out.print(yineleyici.next());
 	}
 	
-	/** Olayların ve dağıtıcının çalışmasını dener. */
-	@SuppressWarnings("unused")
-	private static void olayDenemesi() {
-		final OlayYöneticisi dağıtıcı = new OlayYöneticisi();
-		final DenemeDinleyicisi dinleyici = new DenemeDinleyicisi();
-		dağıtıcı.dinleyiciEkle(dinleyici);
-		dağıtıcı.olayEkle(new DenemeOlayı("Merhaba ben Cem!"));
-		dağıtıcı.olayEkle(new DenemeOlayı("Bu Cem kötüdür!"));
-		dağıtıcı.güncelle();
-		dağıtıcı.dinleyiciÇıkar(dinleyici);
-		dağıtıcı.olayEkle(new DenemeOlayı("Cem çok iyi birisidir!"));
-		dağıtıcı.güncelle();
+	/** Denemenin başlangıcı. */
+	public static void main(final String[] args) {
+		new ArayüzDeneme();
 	}
 }
