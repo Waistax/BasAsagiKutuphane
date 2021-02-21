@@ -45,7 +45,7 @@ public class YerleşikDikdörtgen {
 	private void dikeydeYerleştir() {
 		this.kurallar[2].yerleştir();
 		this.kurallar[3].yerleştir();
-		DikdörtgenVerisi.yatayıHesapla(this.kurallar[2].dikdörtgenVerisi, this.kurallar[3].dikdörtgenVerisi,
+		DikdörtgenVerisi.dikeyiHesapla(this.kurallar[2].dikdörtgenVerisi, this.kurallar[3].dikdörtgenVerisi,
 				this.hedef);
 	}
 	

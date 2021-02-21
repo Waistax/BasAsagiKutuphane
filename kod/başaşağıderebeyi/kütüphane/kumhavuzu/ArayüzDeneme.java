@@ -23,7 +23,7 @@ public class ArayüzDeneme implements AWTGüncelleyici {
 	public ArayüzDeneme() {
 		this.motor = new AWTMotor(this);
 		this.ekran = new Ekran(this.motor.girdi, 640.0F, 360.0F, 1280.0F, 720.0F, MouseEvent.BUTTON1);
-		new Pencere(this.ekran, "Deneme", 100, 100);
+		new Pencere(this.ekran, "Deneme", 300, 200);
 		this.motor.başlat();
 	}
 	

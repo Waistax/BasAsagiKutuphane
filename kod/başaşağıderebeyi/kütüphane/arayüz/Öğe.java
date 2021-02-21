@@ -82,7 +82,7 @@ public abstract class Öğe {
 	/** Fare imlecinin öğenin üzerinde bulunup bulunmadığını hesaplar. */
 	protected void hesaplaÜzerindeMi() {
 		if (this.üzerinde = this.alan.içinde(this.ekran.girdi.imleç) && this.ekran.girdi.imleçUygunMu(this)) {
-			this.ekran.girdi.imleçHedefi = null;
+			this.ekran.girdi.imleçHedefi = this;
 		}
 	}
 	
