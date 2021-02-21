@@ -65,8 +65,7 @@ public class Dağıtıcı<T> {
 	
 	/** Varlarsa nesneleri takımlardan çıkarır. */
 	public void hepsiniÇıkar(final Collection<T> nesneler) {
-		for (final T nesne : nesneler)
-			çıkar(nesne);
+		nesneler.forEach(this::çıkar);
 	}
 	
 	/** Nesneleri takımlara dağıtır. */
@@ -76,24 +75,18 @@ public class Dağıtıcı<T> {
 		final int işlemSayısı = YürütücüSağlayıcısı	.sağla()
 													.işlemSayısı();
 		final int elemanSayısı = nesneSayısı / işlemSayısı;
-		
-		for (final T nesne : nesneler)
-			ekle(nesne, elemanSayısı);
+		nesneler.forEach(nesne -> ekle(nesne, elemanSayısı));
 	}
 	
 	/** Bütün takımları temizler. */
 	public void temizle() {
 		nesneSayısı = 0;
-		for (final Takım<T> takım : takımlar)
-			takım.nesneler.clear();
+		takımlar.forEach(takım -> takım.nesneler.clear());
 	}
 	
 	/** Bütün takımları aynı anda yürütür. */
 	public void yürüt() {
-		final Yürütücü yürütücü = YürütücüSağlayıcısı.sağla();
-		
-		for (final Takım<T> takım : takımlar)
-			yürütücü.yürüt(takım);
+		takımlar.forEach(YürütücüSağlayıcısı.sağla()::yürüt);
 		
 		// Bütün takımlar bitene kadar dön.
 		boolean bitmemişTakımVar;
