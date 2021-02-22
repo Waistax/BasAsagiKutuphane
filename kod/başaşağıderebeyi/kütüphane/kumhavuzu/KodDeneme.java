@@ -55,6 +55,6 @@ public class KodDeneme {
 	
 	/** Denemenin başlangıcı. */
 	public static void main(final String[] args) {
-		new ArayüzDeneme();
+		olayDenemesi();
 	}
 }

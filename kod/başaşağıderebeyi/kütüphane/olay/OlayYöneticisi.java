@@ -30,6 +30,19 @@ public class OlayYöneticisi implements OlayDağıtıcısı {
 		bekleyenİşlemler = new ArrayList<>();
 	}
 	
+	@SuppressWarnings("unchecked")
+	private Class<? extends Olay> dinlediğiSınıfıBul(final Method yöntem) {
+		final Class<?> sınıf = yöntem.getParameterTypes()[0];
+		return sınıf.isInstance(Olay.class) ?
+				(Class<? extends Olay>)sınıf :
+				null;
+	}
+	
+	private boolean dinleyenYöntemMi(final Method yöntem) {
+		return yöntem.isAnnotationPresent(Dinleyici.class) &&
+				yöntem.getParameterTypes().length == 1;
+	}
+	
 	/** Dinleyiciyi çıkarır. */
 	private void dinleyiciÇıkarmaİşlemi(final Object nesne) {
 		// Bütün olay sınıflarını ve öncelikleri tara.
@@ -45,34 +58,19 @@ public class OlayYöneticisi implements OlayDağıtıcısı {
 	
 	/** Dinleyiciyi ekler. */
 	private void dinleyiciEklemeİşlemi(final Object nesne) {
-		// Verilen nesnenin bütün yöntemlerini tara.
 		for (final Method yöntem : nesne.getClass().getMethods()) {
-			// Eğer dinleyici değilse geç.
-			if (!yöntem.isAnnotationPresent(Dinleyici.class))
+			if (!dinleyenYöntemMi(yöntem))
 				continue;
 			
-			// Etkenden dinlediği olayın sınıfını al.
-			final Class<?>[] etkenler = yöntem.getParameterTypes();
-			if (etkenler.length != 1)
-				throw new RuntimeException("Dinleyici tek bir olay almalıdır!");
-			@SuppressWarnings("unchecked")
-			final Class<? extends Olay> sınıf = (Class<? extends Olay>)etkenler[0];
+			final Class<? extends Olay> sınıf = dinlediğiSınıfıBul(yöntem);
+			if (sınıf == null)
+				continue;
 			
 			final Dinleyici dinleyici = yöntem.getAnnotation(Dinleyici.class);
-			Map<Öncelik, Set<DinleyiciBilgisi>> sınıfHaritası = dinleyiciler.get(sınıf);
-			
-			// Olay sınıfı için harita yoksa yeni bir tane oluştur.
-			if (sınıfHaritası == null) {
-				sınıfHaritası = new HashMap<>();
-				for (final Öncelik öncelik : Öncelik.values())
-					sınıfHaritası.put(öncelik, new HashSet<>());
-				dinleyiciler.put(sınıf, sınıfHaritası);
-			}
-			
-			sınıfHaritası	.get(dinleyici.öncelik())
-							.add(new DinleyiciBilgisi(	nesne,
-														yöntem,
-														dinleyici.kaldırılmışlarıDinler()));
+			sınıfHaritasınıAl(sınıf).get(dinleyici.öncelik())
+									.add(new DinleyiciBilgisi(	nesne,
+																yöntem,
+																dinleyici.kaldırılmışlarıDinler()));
 		}
 	}
 	
@@ -101,6 +99,20 @@ public class OlayYöneticisi implements OlayDağıtıcısı {
 					}
 			}
 		}
+	}
+	
+	private Map<Öncelik, Set<DinleyiciBilgisi>> sınıfHaritasınıAl(final Class<? extends Olay> sınıf) {
+		Map<Öncelik, Set<DinleyiciBilgisi>> sınıfHaritası = dinleyiciler.get(sınıf);
+		
+		// Olay sınıfı için harita yoksa yeni bir tane oluştur.
+		if (sınıfHaritası == null) {
+			sınıfHaritası = new HashMap<>();
+			for (final Öncelik öncelik : Öncelik.values())
+				sınıfHaritası.put(öncelik, new HashSet<>());
+			dinleyiciler.put(sınıf, sınıfHaritası);
+		}
+		
+		return sınıfHaritası;
 	}
 	
 	@Override
