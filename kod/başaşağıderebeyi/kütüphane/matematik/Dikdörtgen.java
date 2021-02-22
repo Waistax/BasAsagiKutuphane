@@ -76,10 +76,10 @@ public class Dikdörtgen {
 	/** Verilen dikdörtgenin bu dikdörtgene eşit olup olmadığını
 	 * hesaplar. */
 	public boolean eşittir(final Dikdörtgen ö) {
-		return k.eşittir(ö.k) &&
-				b.eşittir(ö.b) &&
-				o.eşittir(ö.o) &&
-				u.eşittir(ö.u);
+		return k.eşitMi(ö.k) &&
+				b.eşitMi(ö.b) &&
+				o.eşitMi(ö.o) &&
+				u.eşitMi(ö.u);
 	}
 	
 	/** Yöneyin dikdörtgenin içinde olup olmadığını hesaplar. */
@@ -131,25 +131,25 @@ public class Dikdörtgen {
 	
 	/** Büyük olan köşeyi değiştirir. Dikdörtgeni döndürür. */
 	public Dikdörtgen yazB(final Yöney2 b) {
-		this.b.yaz(b);
+		this.b.değiştir(b);
 		return this;
 	}
 	
 	/** Küçük olan köşeyi değiştirir. Dikdörtgeni döndürür. */
 	public Dikdörtgen yazK(final Yöney2 k) {
-		this.k.yaz(k);
+		this.k.değiştir(k);
 		return this;
 	}
 	
 	/** Orta noktayı değiştirir. Dikdörtgeni döndürür. */
 	public Dikdörtgen yazO(final Yöney2 o) {
-		this.o.yaz(o);
+		this.o.değiştir(o);
 		return this;
 	}
 	
 	/** Uzunluğu değiştirir. Dikdörtgeni döndürür. */
 	public Dikdörtgen yazU(final Yöney2 u) {
-		this.u.yaz(u);
+		this.u.değiştir(u);
 		return this;
 	}
 	

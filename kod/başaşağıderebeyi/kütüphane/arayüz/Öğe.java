@@ -72,12 +72,6 @@ public abstract class Öğe {
 		levha.odakla();
 	}
 	
-	/** Fare imlecinin bu öğenin ya da alt öğelerinden birinin
-	 * üzerinde olup olmadığını döndürür. */
-	public boolean üzerindekindenMi() {
-		return üzerindeMi();
-	}
-	
 	/** Fare imlecinin öğenin üzerinde olup olmadığını döndürür. */
 	public boolean üzerindeMi() {
 		return üzerinde;

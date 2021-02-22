@@ -63,7 +63,7 @@ public class ÇiğGirdi {
 		tekerlekDevri = tekerlekGirdisi;
 		tekerlekGirdisi = 0;
 		sürükleme.çıkar(imleçGirdisi, imleç);
-		imleç.yaz(imleçGirdisi);
+		imleç.değiştir(imleçGirdisi);
 		for (final Tuş tuş : tuşTakımı.values())
 			tuş.güncelle();
 		for (final Tuş tuş : fare.values())
@@ -109,7 +109,7 @@ public class ÇiğGirdi {
 	
 	/** İmleç girdisi yazar. */
 	public void yazİmleçGirdisi(final float x, final float y) {
-		imleçGirdisi.yaz(x, y);
+		imleçGirdisi.değiştir(x, y);
 	}
 	
 	/** Tekerlek devrini ekler. */
