@@ -24,7 +24,7 @@ public class PencereÇubuğu extends Öğe {
 	
 	@Override
 	public void güncelle() {
-		if (üzerinde && ekran.solTık.aşağı()) {
+		if (üzerinde && ekran.solTık.basılıMı()) {
 			odakla();
 			((SerbestKural)levha.yerleşikDikdörtgen.yatayKural()).ekle(ekran.girdi.sürükleme.x);
 			((SerbestKural)levha.yerleşikDikdörtgen.dikeyKural()).ekle(ekran.girdi.sürükleme.y);

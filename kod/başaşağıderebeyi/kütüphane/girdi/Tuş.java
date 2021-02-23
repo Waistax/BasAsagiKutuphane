@@ -8,51 +8,59 @@
  */
 package başaşağıderebeyi.kütüphane.girdi;
 
-/** Tuş takımındaki ya da faredeki bir tuş. */
+/** Bilgisayarda basılabilien bir tuş. */
 public class Tuş {
-	/** Tuşun şu anda basılı olup olmadığı. */
-	private boolean aşağı;
-	/** Tuşun şu anda basılmaya başlanıp başlanmadığı. */
-	private boolean basma;
-	/** Tuşun şu anda bırakılıp bırakılmadığı. */
-	private boolean salma;
-	/** Tuşun anlık girdisi. */
-	boolean girdi;
-	/** Tuşun girdisini işleyen. */
-	public Object hedef;
 	/** Tuşu temsil eden sayı kodu. */
-	public final int kod;
+	public final int kodu;
+	/** Tuşun eşzamansız olarak aşağıda olup olmadığı. */
+	private volatile boolean aşağı;
+	
+	/** Tuşun şu anda basılı olup olmadığı. */
+	private boolean basılı;
+	/** Tuşun şu anda basılmaya başlanıp başlanmadığı. */
+	private boolean basıldı;
+	/** Tuşun şu anda bırakılıp bırakılmadığı. */
+	private boolean salındı;
+	
+	/** Tuşun girdisini işleyen nesne. */
+	public Object hedefi;
 	
 	/** Tuşu tanımlar. */
-	Tuş(final int kod) {
-		this.kod = kod;
+	public Tuş(final int kodu) {
+		this.kodu = kodu;
 	}
 	
-	/** Tuşu günceller. */
-	void güncelle() {
-		basma = !aşağı && girdi;
-		salma = aşağı && !girdi;
-		aşağı = girdi;
-		hedef = null;
+	/** Tuşun anlık durumunu günceller. */
+	public void güncelle() {
+		basıldı = !basılı && aşağı;
+		salındı = basılı && !aşağı;
+		basılı = aşağı;
+		
+		hedefi = null;
+	}
+	
+	/** Tuşun eşzamansız olarak aşağıda olup olmadığını değiştirir. */
+	public void aşağıOlduğunuDeğiştir(boolean aşağı) {
+		this.aşağı = aşağı;
 	}
 	
 	/** Tuş şu anda basılıysa doğru döndürür. */
-	public boolean aşağı() {
-		return aşağı;
+	public boolean basılıMı() {
+		return basılı;
 	}
 	
 	/** Tuş şu anda basılmaya başlandıysa doğru döndürür. */
-	public boolean basma() {
-		return basma;
+	public boolean basıldıMı() {
+		return basıldı;
 	}
 	
 	/** Tuş şu anda bırakıldıysa doğru döndürür. */
-	public boolean salma() {
-		return salma;
+	public boolean salındıMı() {
+		return salındı;
 	}
 	
 	/** Tuşun uygun olup olmadığını döndürür. */
-	public boolean uygun(final Object nesne) {
-		return hedef == null || hedef == nesne;
+	public boolean uygunMu(final Object nesne) {
+		return hedefi == null || hedefi == nesne;
 	}
 }

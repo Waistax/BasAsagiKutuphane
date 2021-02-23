@@ -10,8 +10,6 @@ package başaşağıderebeyi.kütüphane.arayüz;
 
 /** Sol fare tuşuyla basılabilen öğe. */
 public class Düğme extends Öğe {
-	/** Düğmenin bu güncellemede basılı olup olmadığı. */
-	private boolean basılı;
 	/** Düğmenin çalıştırdığı kod. */
 	private final Runnable çalıştırılabilir;
 	/** Düğmenin yazısı. */
@@ -24,25 +22,16 @@ public class Düğme extends Öğe {
 		this.çalıştırılabilir = çalıştırılabilir;
 	}
 	
-	/** Düğmenin basılıp basılmadığını döndürür. */
-	public boolean basılıMı() {
-		return basılı;
-	}
-	
 	@Override
 	public void güncelle() {
 		if (!açıkMı())
 			return;
-		
+
 		if (üzerinde) {
-			if (ekran.solTık.basma()) {
-				// İmleç düğmenin üzerindeyken tuş basılmışsa hazıra
-				// geç.
+			if (ekran.solTık.basıldıMı()) {
 				odakla();
 				basılı = true;
-			} else if (basılı && ekran.solTık.salma()) {
-				// İmleç düğmenin üzerindeyken tuş salınmışsa
-				// çalıştır.
+			} else if (basılı && ekran.solTık.salındıMı()) {
 				odakla();
 				çalıştırılabilir.run();
 				basılı = false;

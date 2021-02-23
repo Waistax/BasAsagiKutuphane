@@ -53,9 +53,9 @@ public class AWTMotor {
 				AWTMotor.this.kapat();
 			}
 		});
-		girdi.ekleFareTuşu(MouseEvent.BUTTON1);
-		girdi.ekleFareTuşu(MouseEvent.BUTTON2);
-		girdi.ekleFareTuşu(MouseEvent.BUTTON3);
+		girdi.fareTuşuEkle(MouseEvent.BUTTON1);
+		girdi.fareTuşuEkle(MouseEvent.BUTTON2);
+		girdi.fareTuşuEkle(MouseEvent.BUTTON3);
 		tuval.addKeyListener(dinleyici);
 		tuval.addMouseListener(dinleyici);
 		tuval.addMouseWheelListener(dinleyici);

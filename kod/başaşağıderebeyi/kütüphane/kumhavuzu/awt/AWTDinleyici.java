@@ -21,12 +21,12 @@ public class AWTDinleyici implements KeyListener, MouseListener, MouseWheelListe
 	
 	@Override
 	public void keyPressed(final KeyEvent e) {
-		girdi.tuşTakımıGirdisi(e.getKeyCode(), true);
+		girdi.klavyeTuşununAşağıOlduğunuDeğiştir(e.getKeyCode(), true);
 	}
 	
 	@Override
 	public void keyReleased(final KeyEvent e) {
-		girdi.tuşTakımıGirdisi(e.getKeyCode(), false);
+		girdi.klavyeTuşununAşağıOlduğunuDeğiştir(e.getKeyCode(), false);
 	}
 	
 	@Override
@@ -57,12 +57,12 @@ public class AWTDinleyici implements KeyListener, MouseListener, MouseWheelListe
 	
 	@Override
 	public void mousePressed(final MouseEvent e) {
-		girdi.yazFareGirdisi(e.getButton(), true);
+		girdi.fareTuşununAşağıOlduğunuDeğiştir(e.getButton(), true);
 	}
 	
 	@Override
 	public void mouseReleased(final MouseEvent e) {
-		girdi.yazFareGirdisi(e.getButton(), false);
+		girdi.fareTuşununAşağıOlduğunuDeğiştir(e.getButton(), false);
 	}
 	
 	@Override
