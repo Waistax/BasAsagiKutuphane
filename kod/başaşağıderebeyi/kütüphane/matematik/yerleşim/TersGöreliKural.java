@@ -10,8 +10,7 @@ package başaşağıderebeyi.kütüphane.matematik.yerleşim;
 
 import başaşağıderebeyi.kütüphane.matematik.*;
 
-/** Dikdörtgenin verisini üstün büyük verisine göre tanımlayan
- * kural. */
+/** Dikdörtgenin verisini üstün büyük verisine göre tanımlayan kural. */
 public class TersGöreliKural extends YerleşimKuralı {
 	/** Üst dikdörtgenin büyük verisine olan ters uzaklık. */
 	public float uzaklık;
@@ -22,8 +21,7 @@ public class TersGöreliKural extends YerleşimKuralı {
 	}
 	
 	/** Belirli bir uzaklıkla tanımlar. */
-	public TersGöreliKural(	final DikdörtgenVerisi dikdörtgenVerisi,
-							final float uzaklık) {
+	public TersGöreliKural(final DikdörtgenVerisi dikdörtgenVerisi, final float uzaklık) {
 		this(dikdörtgenVerisi);
 		yaz(uzaklık);
 	}

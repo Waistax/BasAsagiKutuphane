@@ -16,8 +16,7 @@ public class Soy {
 	public final Set<Varlık> varlıklar;
 	
 	@SuppressWarnings("unchecked")
-	public Soy(	final Topluluk topluluk,
-				final Class<?>... gerekliSınıflar) {
+	public Soy(final Topluluk topluluk, final Class<?>... gerekliSınıflar) {
 		this.topluluk = topluluk;
 		varlıklar = new HashSet<>();
 		this.gerekliSınıflar = (Class<? extends Bileşen>[])gerekliSınıflar;

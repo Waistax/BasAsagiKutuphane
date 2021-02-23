@@ -10,11 +10,7 @@ import başaşağıderebeyi.kütüphane.girdi.*;
 import java.awt.event.*;
 
 /** Java AWT kütüphanesinden gelen girdileri dinler. */
-public class AWTDinleyici implements
-		KeyListener,
-		MouseListener,
-		MouseWheelListener,
-		MouseMotionListener {
+public class AWTDinleyici implements KeyListener, MouseListener, MouseWheelListener, MouseMotionListener {
 	/** Dinlenen girdilerin hedefi. */
 	private final ÇiğGirdi girdi;
 	

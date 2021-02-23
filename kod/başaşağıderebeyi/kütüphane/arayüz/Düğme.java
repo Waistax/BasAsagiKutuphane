@@ -18,9 +18,7 @@ public class Düğme extends Öğe {
 	public final String yazı;
 	
 	/** Tanımlar. */
-	public Düğme(	final Levha levha,
-					final String yazı,
-					final Runnable çalıştırılabilir) {
+	public Düğme(final Levha levha, final String yazı, final Runnable çalıştırılabilir) {
 		super(levha);
 		this.yazı = yazı;
 		this.çalıştırılabilir = çalıştırılabilir;

@@ -33,14 +33,11 @@ public class OlayYöneticisi implements OlayDağıtıcısı {
 	@SuppressWarnings("unchecked")
 	private Class<? extends Olay> dinlediğiSınıfıBul(final Method yöntem) {
 		final Class<?> sınıf = yöntem.getParameterTypes()[0];
-		return sınıf.isInstance(Olay.class) ?
-				(Class<? extends Olay>)sınıf :
-				null;
+		return sınıf.isInstance(Olay.class) ? (Class<? extends Olay>)sınıf : null;
 	}
 	
 	private boolean dinleyenYöntemMi(final Method yöntem) {
-		return yöntem.isAnnotationPresent(Dinleyici.class) &&
-				yöntem.getParameterTypes().length == 1;
+		return yöntem.isAnnotationPresent(Dinleyici.class) && yöntem.getParameterTypes().length == 1;
 	}
 	
 	/** Dinleyiciyi çıkarır. */
@@ -48,8 +45,7 @@ public class OlayYöneticisi implements OlayDağıtıcısı {
 		// Bütün olay sınıflarını ve öncelikleri tara.
 		for (final Map<Öncelik, Set<DinleyiciBilgisi>> sınıfHaritası : dinleyiciler.values())
 			for (final Öncelik öncelik : Öncelik.values()) {
-				final Iterator<DinleyiciBilgisi> yineleyici = sınıfHaritası	.get(öncelik)
-																			.iterator();
+				final Iterator<DinleyiciBilgisi> yineleyici = sınıfHaritası.get(öncelik).iterator();
 				while (yineleyici.hasNext())
 					if (yineleyici.next().nesne == nesne)
 						yineleyici.remove();
@@ -68,9 +64,7 @@ public class OlayYöneticisi implements OlayDağıtıcısı {
 			
 			final Dinleyici dinleyici = yöntem.getAnnotation(Dinleyici.class);
 			sınıfHaritasınıAl(sınıf).get(dinleyici.öncelik())
-									.add(new DinleyiciBilgisi(	nesne,
-																yöntem,
-																dinleyici.kaldırılmışlarıDinler()));
+									.add(new DinleyiciBilgisi(nesne, yöntem, dinleyici.kaldırılmışlarıDinler()));
 		}
 	}
 	
@@ -94,8 +88,7 @@ public class OlayYöneticisi implements OlayDağıtıcısı {
 					try {
 						bilgi.yöntem.invoke(bilgi.nesne, olay);
 					} catch (final Exception e) {
-						new Exception(	"Olay işlenirken bir hata oluştu!",
-										e).printStackTrace();
+						new Exception("Olay işlenirken bir hata oluştu!", e).printStackTrace();
 					}
 			}
 		}

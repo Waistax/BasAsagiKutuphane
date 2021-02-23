@@ -23,19 +23,17 @@ public class Levha extends Öğe {
 	}
 	
 	/** Verilen öğelerin içinde tanımlar. */
-	public Levha(	final Levha levha,
-					final Pencere pencere,
-					final Ekran ekran) {
+	public Levha(final Levha levha, final Pencere pencere, final Ekran ekran) {
 		super(levha, pencere, ekran);
 		içerik = new ArrayList<>();
 	}
 	
 	@Override
-	protected void hesaplaÜzerindeMi() {
+	protected void üzerindeBulunmasınıHesapla() {
 		final ListIterator<Öğe> yineleme = içerik.listIterator(içerik.size());
 		while (yineleme.hasPrevious())
-			yineleme.previous().hesaplaÜzerindeMi();
-		super.hesaplaÜzerindeMi();
+			yineleme.previous().üzerindeBulunmasınıHesapla();
+		super.üzerindeBulunmasınıHesapla();
 	}
 	
 	@Override
@@ -50,12 +48,10 @@ public class Levha extends Öğe {
 		içerik.forEach(görev);
 	}
 	
-	/** Fare imlecinin bu öğenin ya da alt öğelerinden birinin
-	 * üzerinde olup olmadığını döndürür. */
+	/** Fare imlecinin bu öğenin ya da alt öğelerinden birinin üzerinde olup olmadığını döndürür. */
 	public boolean üzerindekindenMi() {
 		for (final Öğe öğe : içerik)
-			if (öğe instanceof Levha &&
-				((Levha)öğe).üzerindekindenMi())
+			if (öğe instanceof Levha && ((Levha)öğe).üzerindekindenMi())
 				return true;
 		return üzerinde;
 	}

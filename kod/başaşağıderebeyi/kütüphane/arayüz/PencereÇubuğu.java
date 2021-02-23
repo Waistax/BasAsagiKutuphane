@@ -17,11 +17,9 @@ public class PencereÇubuğu extends Öğe {
 	public PencereÇubuğu(final Pencere pencere) {
 		super(pencere, pencere, pencere.ekran);
 		yerleşikDikdörtgen.kurallar(new GöreliKural(DikdörtgenVerisi.KÜÇÜK),
-									new TersGöreliKural(DikdörtgenVerisi.BÜYÜK,
-														Pencere.ÇARPI_GENİŞLİĞİ),
+									new TersGöreliKural(DikdörtgenVerisi.BÜYÜK, Pencere.ÇARPI_GENİŞLİĞİ),
 									new GöreliKural(DikdörtgenVerisi.KÜÇÜK),
-									new SerbestKural(	DikdörtgenVerisi.UZUNLUK,
-														Pencere.ÇUBUK_KALINLIĞI));
+									new SerbestKural(DikdörtgenVerisi.UZUNLUK, Pencere.ÇUBUK_KALINLIĞI));
 	}
 	
 	@Override

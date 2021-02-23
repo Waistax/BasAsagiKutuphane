@@ -9,8 +9,7 @@ import java.util.*;
 
 /** Nesneleri takımlara eşit dağıtır ve onları aynı anda yürütür. */
 public class Dağıtıcı<T> {
-	/** Toplam dağıtılmış nesne sayısı. Bu sayı her takıma kaç eleman
-	 * düşeceğini hesaplamada kullanılır. */
+	/** Toplam dağıtılmış nesne sayısı. Bu sayı her takıma kaç eleman düşeceğini hesaplamada kullanılır. */
 	private int nesneSayısı;
 	/** Nesneleri içeren takımlar. */
 	private final Set<Takım<T>> takımlar;
@@ -20,8 +19,7 @@ public class Dağıtıcı<T> {
 	/** Boş tanımlar. */
 	public Dağıtıcı() {
 		// İşlem sayısı kadar takım oluştur.
-		final int işlemSayısı = YürütücüSağlayıcısı	.sağla()
-													.işlemSayısı();
+		final int işlemSayısı = YürütücüSağlayıcısı.sağla().işlemSayısı();
 		takımlar = new HashSet<>(işlemSayısı);
 		for (int i = 0; i < işlemSayısı; i++)
 			takımlar.add(new Takım<>(this));
@@ -56,8 +54,7 @@ public class Dağıtıcı<T> {
 	public void dağıt(final T nesne) {
 		// Yeni eleman sayısını hesapla.
 		nesneSayısı++;
-		final int işlemSayısı = YürütücüSağlayıcısı	.sağla()
-													.işlemSayısı();
+		final int işlemSayısı = YürütücüSağlayıcısı.sağla().işlemSayısı();
 		final int elemanSayısı = nesneSayısı / işlemSayısı;
 		
 		ekle(nesne, elemanSayısı);
@@ -72,8 +69,7 @@ public class Dağıtıcı<T> {
 	public void hepsiniDağıt(final Collection<T> nesneler) {
 		// Yeni eleman sayısını hesapla.
 		nesneSayısı += nesneler.size();
-		final int işlemSayısı = YürütücüSağlayıcısı	.sağla()
-													.işlemSayısı();
+		final int işlemSayısı = YürütücüSağlayıcısı.sağla().işlemSayısı();
 		final int elemanSayısı = nesneSayısı / işlemSayısı;
 		nesneler.forEach(nesne -> ekle(nesne, elemanSayısı));
 	}

@@ -27,8 +27,7 @@ public class YerleşikDikdörtgen {
 	}
 	
 	/** Var olan bir dikdörtgenden tanımlar. */
-	public YerleşikDikdörtgen(	final Dikdörtgen ana,
-								final Dikdörtgen hedef) {
+	public YerleşikDikdörtgen(final Dikdörtgen ana, final Dikdörtgen hedef) {
 		this.ana = ana;
 		this.hedef = hedef;
 		kurallar = new YerleşimKuralı[4];
@@ -38,18 +37,14 @@ public class YerleşikDikdörtgen {
 	private void dikeydeYerleştir() {
 		kurallar[2].yerleştir();
 		kurallar[3].yerleştir();
-		DikdörtgenVerisi.dikeyiHesapla(	kurallar[2].dikdörtgenVerisi,
-										kurallar[3].dikdörtgenVerisi,
-										hedef);
+		DikdörtgenVerisi.dikeyiHesapla(kurallar[2].dikdörtgenVerisi, kurallar[3].dikdörtgenVerisi, hedef);
 	}
 	
 	/** Dikdörtgeni yatay boyutta tanımlar. */
 	private void yataydaYerleştir() {
 		kurallar[0].yerleştir();
 		kurallar[1].yerleştir();
-		DikdörtgenVerisi.yatayıHesapla(	kurallar[0].dikdörtgenVerisi,
-										kurallar[1].dikdörtgenVerisi,
-										hedef);
+		DikdörtgenVerisi.yatayıHesapla(kurallar[0].dikdörtgenVerisi, kurallar[1].dikdörtgenVerisi, hedef);
 	}
 	
 	/** Dikeydeki ilk kuralı döndürür. */
@@ -73,8 +68,7 @@ public class YerleşikDikdörtgen {
 	}
 	
 	/** Kurallara yeni bir kuralı ekler. */
-	public YerleşikDikdörtgen kuralEkle(final YerleşimKuralı kural,
-										final boolean yatay) {
+	public YerleşikDikdörtgen kuralEkle(final YerleşimKuralı kural, final boolean yatay) {
 		kural.ana = ana;
 		kural.hedef = hedef;
 		kural.veri = YerleşimVerisi.al(kural.dikdörtgenVerisi, yatay);
@@ -107,10 +101,7 @@ public class YerleşikDikdörtgen {
 										final YerleşimKuralı y2,
 										final YerleşimKuralı d1,
 										final YerleşimKuralı d2) {
-		return this	.yatayKural(y1)
-					.yatayKural(y2)
-					.dikeyKural(d1)
-					.dikeyKural(d2);
+		return this.yatayKural(y1).yatayKural(y2).dikeyKural(d1).dikeyKural(d2);
 	}
 	
 	/** Kuralları temizler. */

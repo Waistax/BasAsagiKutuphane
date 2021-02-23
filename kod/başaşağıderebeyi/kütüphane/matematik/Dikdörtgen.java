@@ -8,8 +8,7 @@
  */
 package başaşağıderebeyi.kütüphane.matematik;
 
-/** İki boyutlu bir dikdörtgen. Bileşenler ondalıklı sayılar olarak
- * saklanır. */
+/** İki boyutlu bir dikdörtgen. Bileşenler ondalıklı sayılar olarak saklanır. */
 public class Dikdörtgen {
 	/** Konumunun değerleri büyük olan köşe. */
 	public final Yöney2 b;
@@ -28,8 +27,8 @@ public class Dikdörtgen {
 		u = new Yöney2();
 	}
 	
-	/** Verilen dikdörtgenlerin aradeğerini buna yazar. Bu dikdörtgeni
-	 * döndürür. Mesafelerin toplamının bir olduğunu varsayar. */
+	/** Verilen dikdörtgenlerin aradeğerini buna yazar. Bu dikdörtgeni döndürür. Mesafelerin toplamının bir olduğunu
+	 * varsayar. */
 	public Dikdörtgen aradeğer(	final Dikdörtgen sol,
 								final Dikdörtgen sağ,
 								final float solaUzaklık,
@@ -41,12 +40,9 @@ public class Dikdörtgen {
 		return this;
 	}
 	
-	/** Verilen dikdörtgenle bu yöneyin aradeğerini buna yazar. Bu
-	 * dikdörtgeni döndürür. Mesafelerin toplamının bir olduğunu
-	 * varsayar. */
-	public Dikdörtgen aradeğer(	final Dikdörtgen ö,
-								final float uzaklık,
-								final float yakınlık) {
+	/** Verilen dikdörtgenle bu yöneyin aradeğerini buna yazar. Bu dikdörtgeni döndürür. Mesafelerin toplamının bir
+	 * olduğunu varsayar. */
+	public Dikdörtgen aradeğer(final Dikdörtgen ö, final float uzaklık, final float yakınlık) {
 		return this.aradeğer(this, ö, uzaklık, yakınlık);
 	}
 	
@@ -73,13 +69,9 @@ public class Dikdörtgen {
 		return eşittir((Dikdörtgen)obj);
 	}
 	
-	/** Verilen dikdörtgenin bu dikdörtgene eşit olup olmadığını
-	 * hesaplar. */
+	/** Verilen dikdörtgenin bu dikdörtgene eşit olup olmadığını hesaplar. */
 	public boolean eşittir(final Dikdörtgen ö) {
-		return k.eşitMi(ö.k) &&
-				b.eşitMi(ö.b) &&
-				o.eşitMi(ö.o) &&
-				u.eşitMi(ö.u);
+		return k.eşitMi(ö.k) && b.eşitMi(ö.b) && o.eşitMi(ö.o) && u.eşitMi(ö.u);
 	}
 	
 	/** Yöneyin dikdörtgenin içinde olup olmadığını hesaplar. */
@@ -87,14 +79,12 @@ public class Dikdörtgen {
 		return k.x <= ö.x && k.y <= ö.y && b.x >= ö.x && b.y >= ö.y;
 	}
 	
-	/** Dikdörtgenin verilerini ayrı ayrı aşağı yuvarlar. Dikdörtgeni
-	 * döndürür. */
+	/** Dikdörtgenin verilerini ayrı ayrı aşağı yuvarlar. Dikdörtgeni döndürür. */
 	public Dikdörtgen taban() {
 		return this.taban(this);
 	}
 	
-	/** Verilen dikdörtgenin verilerini ayrı ayrı aşağı yuvarlayıp
-	 * buna yazar. Bu dikdörtgeni döndürür. */
+	/** Verilen dikdörtgenin verilerini ayrı ayrı aşağı yuvarlayıp buna yazar. Bu dikdörtgeni döndürür. */
 	public Dikdörtgen taban(final Dikdörtgen ö) {
 		k.taban(ö.k);
 		b.taban(ö.b);
@@ -103,14 +93,12 @@ public class Dikdörtgen {
 		return this;
 	}
 	
-	/** Dikdörtgenin verilerini ayrı ayrı yukarı yuvarlar. Dikdörtgeni
-	 * döndürür. */
+	/** Dikdörtgenin verilerini ayrı ayrı yukarı yuvarlar. Dikdörtgeni döndürür. */
 	public Dikdörtgen tavan() {
 		return this.tavan(this);
 	}
 	
-	/** Verilen dikdörtgenin verilerini ayrı ayrı yukarı yuvarlayıp
-	 * buna yazar. Bu dikdörtgeni döndürür. */
+	/** Verilen dikdörtgenin verilerini ayrı ayrı yukarı yuvarlayıp buna yazar. Bu dikdörtgeni döndürür. */
 	public Dikdörtgen tavan(final Dikdörtgen ö) {
 		k.tavan(ö.k);
 		b.tavan(ö.b);
@@ -153,14 +141,12 @@ public class Dikdörtgen {
 		return this;
 	}
 	
-	/** Dikdörtgenin verilerini ayrı ayrı yuvarlar. Dikdörtgeni
-	 * döndürür. */
+	/** Dikdörtgenin verilerini ayrı ayrı yuvarlar. Dikdörtgeni döndürür. */
 	public Dikdörtgen yuvarla() {
 		return this.yuvarla(this);
 	}
 	
-	/** Verilen dikdörtgenin verilerini ayrı ayrı yuvarlayıp buna
-	 * yazar. Bu dikdörtgeni döndürür. */
+	/** Verilen dikdörtgenin verilerini ayrı ayrı yuvarlayıp buna yazar. Bu dikdörtgeni döndürür. */
 	public Dikdörtgen yuvarla(final Dikdörtgen ö) {
 		k.yuvarla(ö.k);
 		b.yuvarla(ö.b);

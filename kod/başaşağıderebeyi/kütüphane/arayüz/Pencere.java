@@ -21,20 +21,13 @@ public class Pencere extends Levha {
 	public final String başlık;
 	
 	/** Ekranın en üstünde tanımlar. */
-	public Pencere(	final Ekran ekran,
-					final String başlık,
-					final float genişlik,
-					final float yükseklik) {
+	public Pencere(final Ekran ekran, final String başlık, final float genişlik, final float yükseklik) {
 		super(ekran, null, ekran);
 		this.başlık = başlık;
-		yerleşikDikdörtgen.kurallar(new SerbestKural(	DikdörtgenVerisi.ORTA,
-														ekran.alan.o.x),
-									new SerbestKural(	DikdörtgenVerisi.UZUNLUK,
-														genişlik),
-									new SerbestKural(	DikdörtgenVerisi.ORTA,
-														ekran.alan.o.y),
-									new SerbestKural(	DikdörtgenVerisi.UZUNLUK,
-														yükseklik));
+		yerleşikDikdörtgen.kurallar(new SerbestKural(DikdörtgenVerisi.ORTA, ekran.alan.o.x),
+									new SerbestKural(DikdörtgenVerisi.UZUNLUK, genişlik),
+									new SerbestKural(DikdörtgenVerisi.ORTA, ekran.alan.o.y),
+									new SerbestKural(DikdörtgenVerisi.UZUNLUK, yükseklik));
 		new PencereÇubuğu(this);
 		new Düğme(	this,
 					"X",

@@ -109,7 +109,7 @@ public class ÇiğGirdi {
 	
 	/** İmleç girdisi yazar. */
 	public void yazİmleçGirdisi(final float x, final float y) {
-		imleçGirdisi.değiştir(x, y);
+		imleçGirdisi.bileşenleriDeğiştir(x, y);
 	}
 	
 	/** Tekerlek devrini ekler. */
