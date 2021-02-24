@@ -43,21 +43,23 @@ public class ArayüzDeneme implements AWTGüncelleyici {
 //		final float yükseklik = yazıSonu + ölçü.getDescent();
 		if (öğe instanceof Levha) {
 			if (öğe instanceof Pencere)
-				kutuÇiz(öğe.alan, Color.LIGHT_GRAY, ekran.üstteMi(öğe));
+				kutuÇiz(öğe.alanı, Color.LIGHT_GRAY, ekran.üstteMi(öğe));
 			((Levha)öğe).herÖğeİçin(this::öğeÇiz);
 		} else if (öğe instanceof Düğme) {
-			kutuÇiz(öğe.alan, öğe.üzerindeMi() ? Color.RED : ((Düğme)öğe).basılıMı() ? Color.GRAY : Color.WHITE, false);
+			kutuÇiz(öğe.alanı,
+					öğe.üzerindeMi() ? Color.RED : ((Düğme)öğe).basılıOlmasınıEdin() ? Color.GRAY : Color.WHITE,
+					false);
 			motor.çizer.setColor(öğe.üzerindeMi() ? Color.white : Color.black);
 			final String yazı = ((Düğme)öğe).yazı;
 			motor.çizer.drawString(	yazı,
-									(öğe.alan.b.x + öğe.alan.k.x - ölçü.stringWidth(yazı)) / 2.0F,
-									(öğe.alan.b.y + öğe.alan.k.y + yazıSonu) / 2.0F);
+									(öğe.alanı.b.x + öğe.alanı.k.x - ölçü.stringWidth(yazı)) / 2.0F,
+									(öğe.alanı.b.y + öğe.alanı.k.y + yazıSonu) / 2.0F);
 		} else if (öğe instanceof PencereÇubuğu) {
-			kutuÇiz(öğe.alan, Color.WHITE, false);
+			kutuÇiz(öğe.alanı, Color.WHITE, false);
 			motor.çizer.setColor(Color.black);
-			motor.çizer.drawString(	öğe.pencere.başlık,
-									öğe.alan.k.x + ölçü.charWidth(' '),
-									(öğe.alan.b.y + öğe.alan.k.y + yazıSonu) / 2.0F);
+			motor.çizer.drawString(	öğe.üstündekiPencere.başlık,
+									öğe.alanı.k.x + ölçü.charWidth(' '),
+									(öğe.alanı.b.y + öğe.alanı.k.y + yazıSonu) / 2.0F);
 		}
 	}
 	

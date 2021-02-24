@@ -26,12 +26,12 @@ public class Düğme extends Öğe {
 	public void güncelle() {
 		if (!açıkMı())
 			return;
-
-		if (üzerinde) {
-			if (ekran.solTık.basıldıMı()) {
+		
+		if (imlecinAltındaOlması) {
+			if (üstündekiEkranı.solTık.basılmasınıEdin()) {
 				odakla();
 				basılı = true;
-			} else if (basılı && ekran.solTık.salındıMı()) {
+			} else if (basılı && üstündekiEkranı.solTık.salınmasınıEdin()) {
 				odakla();
 				çalıştırılabilir.run();
 				basılı = false;

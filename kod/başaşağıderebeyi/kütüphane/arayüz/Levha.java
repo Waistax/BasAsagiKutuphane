@@ -53,7 +53,7 @@ public class Levha extends Öğe {
 		for (final Öğe öğe : içerik)
 			if (öğe instanceof Levha && ((Levha)öğe).üzerindekindenMi())
 				return true;
-		return üzerinde;
+		return imlecinAltındaOlması;
 	}
 	
 	@Override

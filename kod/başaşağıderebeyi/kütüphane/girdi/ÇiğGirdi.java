@@ -44,7 +44,7 @@ public class ÇiğGirdi {
 		fare = new HashMap<>();
 		
 		tuşDağıtıcısı = new Dağıtıcı<>();
-		tuşDağıtıcısı.yürütmeyiDeğiştir(tuş -> tuş.güncelle());
+		tuşDağıtıcısı.yürütmeyiDeğiştir(Tuş::güncelle);
 		
 		imleç = new Yöney2();
 		sürükleme = new Yöney2();
@@ -54,11 +54,11 @@ public class ÇiğGirdi {
 	/** Bütün girdileri günceller. */
 	public void güncelle() {
 		tuşDağıtıcısı.yürüt();
-
+		
 		sürükleme.çıkar(imleçGirdisi, imleç);
 		imleç.değiştir(imleçGirdisi);
 		imleçHedefi = null;
-
+		
 		tekerlekDevri = tekerlekGirdisi;
 		tekerlekGirdisi = 0;
 		tekerlekHedefi = null;
@@ -73,13 +73,13 @@ public class ÇiğGirdi {
 	public void klavyeTuşununAşağıOlduğunuDeğiştir(final int tuşKodu, final boolean aşağı) {
 		final Tuş tuş = klavyeTuşunuEdin(tuşKodu);
 		if (tuş != null)
-			tuş.aşağıOlduğunuDeğiştir(aşağı);
+			tuş.aşağıOlmasınıDeğiştir(aşağı);
 	}
 	
 	/** Tuş takımı tuşu ekler. */
 	public void klavyeTuşuEkle(final int tuşKodu) {
 		if (!klavye.containsKey(tuşKodu)) {
-			Tuş tuş = new Tuş(tuşKodu);
+			final Tuş tuş = new Tuş(tuşKodu);
 			klavye.put(tuşKodu, tuş);
 			tuşDağıtıcısı.dağıt(tuş);
 		}
@@ -93,7 +93,7 @@ public class ÇiğGirdi {
 	/** Fare tuşu ekler. */
 	public void fareTuşuEkle(final int tuşKodu) {
 		if (!fare.containsKey(tuşKodu)) {
-			Tuş tuş = new Tuş(tuşKodu);
+			final Tuş tuş = new Tuş(tuşKodu);
 			fare.put(tuşKodu, tuş);
 			tuşDağıtıcısı.dağıt(tuş);
 		}
@@ -103,7 +103,7 @@ public class ÇiğGirdi {
 	public void fareTuşununAşağıOlduğunuDeğiştir(final int tuşKodu, final boolean aşağı) {
 		final Tuş tuş = fareTuşuEdin(tuşKodu);
 		if (tuş != null)
-			tuş.aşağıOlduğunuDeğiştir(aşağı);
+			tuş.aşağıOlmasınıDeğiştir(aşağı);
 	}
 	
 	/** Tekerlek devrini döndürür. */
