@@ -14,7 +14,8 @@ import başaşağıderebeyi.kütüphane.matematik.*;
 public abstract class YerleşimKuralı {
 	/** Belirleyici, üst dikdörtgen. */
 	protected Dikdörtgen ana;
-	/** Eşinin yerleştirdiği veri ve boyut birleştirmesi. Eğer eşinin sıralaması önemli değilse boş bırakılır. */
+	/** Eşinin yerleştirdiği veri ve boyut birleştirmesi. Eğer eşinin sıralaması önemli değilse boş
+	 * bırakılır. */
 	protected YerleşimVerisi birincilVeri;
 	/** Yerleştirilecek dikdörtgen. */
 	protected Dikdörtgen hedef;
@@ -28,7 +29,9 @@ public abstract class YerleşimKuralı {
 	final boolean ikincil;
 	
 	/** Kuralı tanımlar. */
-	protected YerleşimKuralı(final DikdörtgenVerisi dikdörtgenVerisi, final boolean ikincil, final boolean bağımlı) {
+	protected YerleşimKuralı(	final DikdörtgenVerisi dikdörtgenVerisi,
+								final boolean ikincil,
+								final boolean bağımlı) {
 		this.dikdörtgenVerisi = dikdörtgenVerisi;
 		this.ikincil = ikincil;
 		this.bağımlı = bağımlı;

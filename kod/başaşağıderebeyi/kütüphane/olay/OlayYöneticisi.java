@@ -64,7 +64,9 @@ public class OlayYöneticisi implements OlayDağıtıcısı {
 			
 			final Dinleyici dinleyici = yöntem.getAnnotation(Dinleyici.class);
 			sınıfHaritasınıAl(sınıf).get(dinleyici.öncelik())
-									.add(new DinleyiciBilgisi(nesne, yöntem, dinleyici.kaldırılmışlarıDinler()));
+									.add(new DinleyiciBilgisi(	nesne,
+																yöntem,
+																dinleyici.kaldırılmışlarıDinler()));
 		}
 	}
 	

@@ -32,10 +32,10 @@ public class Ekran extends Levha {
 					final float yükseklik) {
 		super(null, null, null);
 		this.girdi = girdi;
-		this.solTık = girdi.fareTuşuEdin(solTık);
+		this.solTık = girdi.faresininTuşunuEdin(solTık);
 		
 		// Verilen boyutları kullanarak ekranı yerleştir.
-		yerleşikDikdörtgeni.kurallar(	new SerbestKural(DikdörtgenVerisi.ORTA, ortaX),
+		yerleşikDikdörtgeni	.kurallar(	new SerbestKural(DikdörtgenVerisi.ORTA, ortaX),
 										new SerbestKural(DikdörtgenVerisi.UZUNLUK, genişlik),
 										new SerbestKural(DikdörtgenVerisi.ORTA, ortaY),
 										new SerbestKural(DikdörtgenVerisi.UZUNLUK, yükseklik))
@@ -48,7 +48,7 @@ public class Ekran extends Levha {
 		while (tersineYineleme.hasPrevious())
 			tersineYineleme.previous().üzerindeBulunmasınıHesapla();
 		
-		imlecinAltındaOlması = alanı.içinde(girdi.imleç);
+		imlecinAltındaOlması = alanı.içinde(girdi.imlecininKonumu);
 	}
 	
 	@Override
@@ -61,12 +61,12 @@ public class Ekran extends Levha {
 	public void güncelle() {
 		yerleştir();
 		
-		if (girdi.imleçHedefi == null && solTık.basılıOlmasınıEdin())
-			girdi.imleçHedefi = öncekiİmleçHedefi;
+		if (girdi.imlecininHedefi == null && solTık.basılıOlmasınıEdin())
+			girdi.imlecininHedefi = öncekiİmleçHedefi;
 		
 		üzerindeBulunmasınıHesapla();
 		
-		öncekiİmleçHedefi = girdi.imleçHedefi;
+		öncekiİmleçHedefi = girdi.imlecininHedefi;
 		
 		if (!(öncekiİmleçHedefi instanceof Öğe))
 			öncekiİmleçHedefi = null;

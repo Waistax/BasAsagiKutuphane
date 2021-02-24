@@ -29,8 +29,8 @@ public class KodDeneme {
 	@SuppressWarnings("unused")
 	private static void sınıfTürüKontrolüDenemesi() {
 		/*
-		 * HATA: Cannot perform instanceof check against parameterized type Class<? extends Olay>. Use the form Class<?>
-		 * instead since further generic type information will be erased at runtime
+		 * HATA: Cannot perform instanceof check against parameterized type Class<? extends Olay>. Use
+		 * the form Class<?> instead since further generic type information will be erased at runtime
 		 */
 		// System.out.println(KodDeneme.class instanceof Class<?
 		// extends

@@ -8,8 +8,9 @@
  */
 package başaşağıderebeyi.kütüphane.matematik;
 
-/** Dikdörtgeni tanımlarken kullanılan farklı verilerinin sıralaması. Bu veriler bir nokta ya da bir uzunluk olabilir.
- * Her boyut başına dikdörtgenin iki farklı veriye ihtiyacı var. Kalan veriler bunları kullanarak hesaplanabilir. */
+/** Dikdörtgeni tanımlarken kullanılan farklı verilerinin sıralaması. Bu veriler bir nokta ya da bir
+ * uzunluk olabilir. Her boyut başına dikdörtgenin iki farklı veriye ihtiyacı var. Kalan veriler bunları
+ * kullanarak hesaplanabilir. */
 public enum DikdörtgenVerisi {
 	/** Köşelerden konumu büyük olan. */
 	BÜYÜK,
@@ -21,7 +22,9 @@ public enum DikdörtgenVerisi {
 	UZUNLUK;
 	
 	/** Bilinen verileri kullanarak, dikdörtgenin dikeydeki diğer verilerini hesaplar. */
-	public static void dikeyiHesapla(final DikdörtgenVerisi v1, final DikdörtgenVerisi v2, final Dikdörtgen ö) {
+	public static void dikeyiHesapla(	final DikdörtgenVerisi v1,
+										final DikdörtgenVerisi v2,
+										final Dikdörtgen ö) {
 		switch (v1) {
 		case KÜÇÜK:
 			switch (v2) {
@@ -80,7 +83,9 @@ public enum DikdörtgenVerisi {
 	}
 	
 	/** Bilinen verileri kullanarak, dikdörtgenin yataydaki diğer verilerini hesaplar. */
-	public static void yatayıHesapla(final DikdörtgenVerisi v1, final DikdörtgenVerisi v2, final Dikdörtgen ö) {
+	public static void yatayıHesapla(	final DikdörtgenVerisi v1,
+										final DikdörtgenVerisi v2,
+										final Dikdörtgen ö) {
 		switch (v1) {
 		case KÜÇÜK:
 			switch (v2) {

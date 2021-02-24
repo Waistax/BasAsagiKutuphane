@@ -49,14 +49,18 @@ public class Yöney4 {
 		değiştir(ö);
 	}
 	
-	/** Verilen yöneyle bu yöneyin aradeğerini buna yazar. Bu yöneyi döndürür. Mesafelerin toplamının bir olduğunu
-	 * varsayar. */
+	/** Verilen yöneyle bu yöneyin aradeğerini buna yazar. Bu yöneyi döndürür. Mesafelerin toplamının bir
+	 * olduğunu varsayar. */
 	public Yöney4 aradeğer(final Yöney4 ö, final float uzaklık, final float yakınlık) {
 		return this.aradeğer(this, ö, uzaklık, yakınlık);
 	}
 	
-	/** Verilen yöneylerin aradeğerini buna yazar. Bu yöneyi döndürür. Mesafelerin toplamının bir olduğunu varsayar. */
-	public Yöney4 aradeğer(final Yöney4 sol, final Yöney4 sağ, final float solaUzaklık, final float sağaUzaklık) {
+	/** Verilen yöneylerin aradeğerini buna yazar. Bu yöneyi döndürür. Mesafelerin toplamının bir
+	 * olduğunu varsayar. */
+	public Yöney4 aradeğer(	final Yöney4 sol,
+							final Yöney4 sağ,
+							final float solaUzaklık,
+							final float sağaUzaklık) {
 		return bileşenleriDeğiştir(	Hesaplayıcı.aradeğer(sol.x, sağ.x, solaUzaklık, sağaUzaklık),
 									Hesaplayıcı.aradeğer(sol.y, sağ.y, solaUzaklık, sağaUzaklık),
 									Hesaplayıcı.aradeğer(sol.z, sağ.z, solaUzaklık, sağaUzaklık),
@@ -65,7 +69,9 @@ public class Yöney4 {
 	
 	/** Yöneyin bileşenlerini değiştirir. Yöneyi döndürür. */
 	public Yöney4 bileşenleriDeğiştir(final float x, final float y, final float z, final float w) {
-		return xBileşeniniDeğiştir(x).yBileşeniniDeğiştir(y).zBileşeniniDeğiştir(z).wBileşeniniDeğiştir(w);
+		return xBileşeniniDeğiştir(x)	.yBileşeniniDeğiştir(y)
+										.zBileşeniniDeğiştir(z)
+										.wBileşeniniDeğiştir(w);
 	}
 	
 	/** Yöneyi sayıya böler. Yöneyi döndürür. */

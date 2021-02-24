@@ -8,8 +8,8 @@
  */
 package başaşağıderebeyi.kütüphane.matematik;
 
-/** Ondalıklı ve tam sayılar döndüren hesaplamalar sağlar. Buradaki yöntemlerin hespi sınıfa aittir. Bu sınıfın nesnesi
- * oluşturulmaz. */
+/** Ondalıklı ve tam sayılar döndüren hesaplamalar sağlar. Buradaki yöntemlerin hespi sınıfa aittir. Bu
+ * sınıfın nesnesi oluşturulmaz. */
 public class Hesaplayıcı {
 	/** Radyan biriminden bir açı ile çarpıldığında onun derece biriminden değerini veren sayı. */
 	public static final float DERECEYE_ÇEVİR = 1 / Hesaplayıcı.RADYANA_ÇEVİR;
@@ -21,18 +21,29 @@ public class Hesaplayıcı {
 		return (float)Math.acos(o);
 	}
 	
-	/** İki ondalık sayının mesafelere göre aradeğerini hesaplar. Mesafelerin toplamının bir olduğunu varsayar. */
-	public static float aradeğer(final float sol, final float sağ, final float solaUzaklık, final float sağaUzaklık) {
+	/** İki ondalık sayının mesafelere göre aradeğerini hesaplar. Mesafelerin toplamının bir olduğunu
+	 * varsayar. */
+	public static float aradeğer(	final float sol,
+									final float sağ,
+									final float solaUzaklık,
+									final float sağaUzaklık) {
 		return sol * sağaUzaklık + sağ * solaUzaklık;
 	}
 	
-	/** İki tam sayının mesafelere göre aradeğerini hesaplar. Mesafelerin toplamının bir olduğunu varsayar. */
-	public static int aradeğer(final int sol, final int sağ, final float solaUzaklık, final float sağaUzaklık) {
+	/** İki tam sayının mesafelere göre aradeğerini hesaplar. Mesafelerin toplamının bir olduğunu
+	 * varsayar. */
+	public static int aradeğer(	final int sol,
+								final int sağ,
+								final float solaUzaklık,
+								final float sağaUzaklık) {
 		return (int)Hesaplayıcı.yuvarla(Hesaplayıcı.aradeğer(sol, sağ, solaUzaklık, sağaUzaklık));
 	}
 	
 	/** İki nesneden yakın olanı döndürür. */
-	public static <T> T aradeğer(final T sol, final T sağ, final float solaUzaklık, final float sağaUzaklık) {
+	public static <T> T aradeğer(	final T sol,
+									final T sağ,
+									final float solaUzaklık,
+									final float sağaUzaklık) {
 		if (solaUzaklık < sağaUzaklık)
 			return sol;
 		else
@@ -89,8 +100,8 @@ public class Hesaplayıcı {
 		return o * Hesaplayıcı.RADYANA_ÇEVİR;
 	}
 	
-	/** Sayıyı aralıkta olacak şekilde döndürür. Sayı eğer aralıktaysa onu, alt değerin altındaysa alt değeri ve üst
-	 * değerin üstündeyse üst değeri döndürür. */
+	/** Sayıyı aralıkta olacak şekilde döndürür. Sayı eğer aralıktaysa onu, alt değerin altındaysa alt
+	 * değeri ve üst değerin üstündeyse üst değeri döndürür. */
 	public static float sıkıştır(final float o, final float alt, final float üst) {
 		return Hesaplayıcı.küçüktür(Hesaplayıcı.büyüktür(0, alt), üst);
 	}

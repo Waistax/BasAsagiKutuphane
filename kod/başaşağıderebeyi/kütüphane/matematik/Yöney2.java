@@ -38,14 +38,18 @@ public class Yöney2 {
 		değiştir(ö);
 	}
 	
-	/** Verilen yöneyle bu yöneyin aradeğerini buna yazar. Bu yöneyi döndürür. Mesafelerin toplamının bir olduğunu
-	 * varsayar. */
+	/** Verilen yöneyle bu yöneyin aradeğerini buna yazar. Bu yöneyi döndürür. Mesafelerin toplamının bir
+	 * olduğunu varsayar. */
 	public Yöney2 aradeğer(final Yöney2 ö, final float uzaklık, final float yakınlık) {
 		return this.aradeğer(this, ö, uzaklık, yakınlık);
 	}
 	
-	/** Verilen yöneylerin aradeğerini buna yazar. Bu yöneyi döndürür. Mesafelerin toplamının bir olduğunu varsayar. */
-	public Yöney2 aradeğer(final Yöney2 sol, final Yöney2 sağ, final float solaUzaklık, final float sağaUzaklık) {
+	/** Verilen yöneylerin aradeğerini buna yazar. Bu yöneyi döndürür. Mesafelerin toplamının bir
+	 * olduğunu varsayar. */
+	public Yöney2 aradeğer(	final Yöney2 sol,
+							final Yöney2 sağ,
+							final float solaUzaklık,
+							final float sağaUzaklık) {
 		return bileşenleriDeğiştir(	Hesaplayıcı.aradeğer(sol.x, sağ.x, solaUzaklık, sağaUzaklık),
 									Hesaplayıcı.aradeğer(sol.y, sağ.y, solaUzaklık, sağaUzaklık));
 	}
@@ -72,7 +76,8 @@ public class Yöney2 {
 	
 	/** Verilen yöneylerin bileşenlerinden büyük olanlarını buna yazar. Bu yöneyi döndürür. */
 	public Yöney2 büyüktür(final Yöney2 sol, final Yöney2 sağ) {
-		return bileşenleriDeğiştir(Hesaplayıcı.büyüktür(sol.x, sağ.x), Hesaplayıcı.büyüktür(sol.y, sağ.y));
+		return bileşenleriDeğiştir(	Hesaplayıcı.büyüktür(sol.x, sağ.x),
+									Hesaplayıcı.büyüktür(sol.y, sağ.y));
 	}
 	
 	/** Yöneyi sayıyla çarpar. Yöneyi döndürür. */
@@ -142,7 +147,8 @@ public class Yöney2 {
 	
 	/** Verilen yöneylerin bileşenlerinden küçük olanlarını buna yazar. Bu yöneyi döndürür. */
 	public Yöney2 küçüktür(final Yöney2 sol, final Yöney2 sağ) {
-		return bileşenleriDeğiştir(Hesaplayıcı.küçüktür(sol.x, sağ.x), Hesaplayıcı.küçüktür(sol.y, sağ.y));
+		return bileşenleriDeğiştir(	Hesaplayıcı.küçüktür(sol.x, sağ.x),
+									Hesaplayıcı.küçüktür(sol.y, sağ.y));
 	}
 	
 	/** Verilen yöneyle bu yöneyin nokta çarpımını hesaplar. */
@@ -157,7 +163,8 @@ public class Yöney2 {
 	
 	/** Verilen yöneyin bileşenlerini ayrı ayrı sıkıştırıp buna yazar. Bu yöneyi döndürür. */
 	public Yöney2 sıkıştır(final Yöney2 ö, final Yöney2 alt, final Yöney2 üst) {
-		return bileşenleriDeğiştir(Hesaplayıcı.sıkıştır(ö.x, alt.x, üst.x), Hesaplayıcı.sıkıştır(ö.y, alt.y, üst.y));
+		return bileşenleriDeğiştir(	Hesaplayıcı.sıkıştır(ö.x, alt.x, üst.x),
+									Hesaplayıcı.sıkıştır(ö.y, alt.y, üst.y));
 	}
 	
 	/** Yöneyin bileşenlerini ayrı ayrı aşağı yuvarlar. Yöneyi döndürür. */

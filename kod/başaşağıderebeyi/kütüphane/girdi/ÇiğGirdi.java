@@ -13,121 +13,120 @@ import başaşağıderebeyi.kütüphane.yürütücü.*;
 
 import java.util.*;
 
-/** Anlamlandırılmamış, farklı türlerde girdiler. */
+/** Bilgisayara veri girmede kullanılan farklı türlerde girdilerin, anlamlandırılmadan işlenmeye hazır
+ * hale getirilmesini sağlayan bir yardımcı. */
 public class ÇiğGirdi {
-	/** Klavyedeki tuşlar. */
-	private final Map<Integer, Tuş> klavye;
-	/** Faredeki tuşlar. */
-	private final Map<Integer, Tuş> fare;
-	/** Tuşları aynı anda güncellenebilmeleri için dağıtan. */
-	private final Dağıtıcı<Tuş> tuşDağıtıcısı;
+	private final Map<Integer, Tuş> klavyesininTuşları;
+	private final Map<Integer, Tuş> faresininTuşları;
+	private final Dağıtıcı<Tuş> tuşlarınınDağıtıcısı;
 	
-	/** Fare imlecinin anlık girdisi. */
-	private final Yöney2 imleçGirdisi;
-	/** Fare imlecinin ekrandaki konumu. */
-	public final Yöney2 imleç;
-	/** Fare imlecinin konumundaki değişim. */
-	public final Yöney2 sürükleme;
-	/** Fare imlecinin girdisini işleyen. */
-	public Object imleçHedefi;
+	private final Yöney2 imlecininEşzamansızKonumu;
 	
-	/** Fare tekerleğinin eşzamansız dönüşlerinin toplamı. */
-	private volatile int tekerlekGirdisi;
-	/** Fare tekerleğinin dönüş devri. */
-	private int tekerlekDevri;
-	/** Fare tekerleğinin girdisini işleyen. */
-	public Object tekerlekHedefi;
+	/** Bu girdiye sağlanan imlecin ekrandaki konumu. */
+	public final Yöney2 imlecininKonumu;
 	
-	/** Tuşsuz girdi tanımlar. */
+	/** Bu girdiye sağlanan imlecin konumundaki değişim. */
+	public final Yöney2 imlecininSürüklenmesi;
+	
+	/** Bu girdiye sağlanan fare imlecinin girdisini kullanan (dinleyen ve işleyen) nesne. İmlecin
+	 * girdisini kullanmadan önce uygun olup olmadığına bakılmalı ve kullanıldıktan sonra bu nesne
+	 * değiştirilmelidir. */
+	public Object imlecininHedefi;
+	
+	private volatile int tekerleğininEşzamansızDevirlerininToplamı;
+	private int tekerleğininDevri;
+	
+	/** Bu girdiye sağlanan fare tekerleğinin girdisini kullanan (dinleyen ve işleyen) nesne. Tekerleğin
+	 * girdisini kullanmadan önce uygun olup olmadığına bakılmalı ve kullanıldıktan sonra bu nesne
+	 * değiştirilmelidir. */
+	public Object tekerleğininHedefi;
+	
 	public ÇiğGirdi() {
-		klavye = new HashMap<>();
-		fare = new HashMap<>();
+		klavyesininTuşları = new HashMap<>();
+		faresininTuşları = new HashMap<>();
+		tuşlarınınDağıtıcısı = new Dağıtıcı<>();
+		tuşlarınınDağıtıcısı.yürütmeyiDeğiştir(Tuş::güncelle);
 		
-		tuşDağıtıcısı = new Dağıtıcı<>();
-		tuşDağıtıcısı.yürütmeyiDeğiştir(Tuş::güncelle);
-		
-		imleç = new Yöney2();
-		sürükleme = new Yöney2();
-		imleçGirdisi = new Yöney2();
+		imlecininKonumu = new Yöney2();
+		imlecininSürüklenmesi = new Yöney2();
+		imlecininEşzamansızKonumu = new Yöney2();
 	}
 	
-	/** Bütün girdileri günceller. */
+	/** Bütün girdilerin anlık durumunu günceller. */
 	public void güncelle() {
-		tuşDağıtıcısı.yürüt();
+		tuşlarınınDağıtıcısı.yürüt();
 		
-		sürükleme.çıkar(imleçGirdisi, imleç);
-		imleç.değiştir(imleçGirdisi);
-		imleçHedefi = null;
+		imlecininSürüklenmesi.çıkar(imlecininEşzamansızKonumu, imlecininKonumu);
+		imlecininKonumu.değiştir(imlecininEşzamansızKonumu);
+		imlecininHedefi = null;
 		
-		tekerlekDevri = tekerlekGirdisi;
-		tekerlekGirdisi = 0;
-		tekerlekHedefi = null;
+		tekerleğininDevri = tekerleğininEşzamansızDevirlerininToplamı;
+		tekerleğininEşzamansızDevirlerininToplamı = 0;
+		tekerleğininHedefi = null;
 	}
 	
-	/** Tuş takımı tuşu döndürür. */
-	public Tuş klavyeTuşunuEdin(final int tuşKodu) {
-		return klavye.get(tuşKodu);
+	/** Verilen tuş koduna denk gelen klavye tuşunu döndürür. Eğer denk bir tuş yoksa null döndürür. */
+	public Tuş klavyesininTuşunuEdin(final int tuşunKodu) {
+		return klavyesininTuşları.get(tuşunKodu);
 	}
 	
-	/** Tuş takımı tuşunun girdisini yazar. */
-	public void klavyeTuşununAşağıOlduğunuDeğiştir(final int tuşKodu, final boolean aşağı) {
-		final Tuş tuş = klavyeTuşunuEdin(tuşKodu);
-		if (tuş != null)
-			tuş.aşağıOlmasınıDeğiştir(aşağı);
-	}
-	
-	/** Tuş takımı tuşu ekler. */
-	public void klavyeTuşuEkle(final int tuşKodu) {
-		if (!klavye.containsKey(tuşKodu)) {
-			final Tuş tuş = new Tuş(tuşKodu);
-			klavye.put(tuşKodu, tuş);
-			tuşDağıtıcısı.dağıt(tuş);
+	/** Eğer verilen tuş koduna denk gelen bir klavye tuşu yoksa yeni bir temsili tuş oluşturur. */
+	public void klavyesininTuşunuEkle(final int tuşunKodu) {
+		if (!klavyesininTuşları.containsKey(tuşunKodu)) {
+			final Tuş tuş = new Tuş(tuşunKodu);
+			klavyesininTuşları.put(tuşunKodu, tuş);
+			tuşlarınınDağıtıcısı.dağıt(tuş);
 		}
 	}
 	
-	/** Fare tuşu döndürür. */
-	public Tuş fareTuşuEdin(final int tuşKodu) {
-		return fare.get(tuşKodu);
+	/** Verilen tuş koduna denk gelen fare tuşunu döndürür. Eğer denk bir tuş yoksa null döndürür. */
+	public Tuş faresininTuşunuEdin(final int tuşunKodu) {
+		return faresininTuşları.get(tuşunKodu);
 	}
 	
-	/** Fare tuşu ekler. */
-	public void fareTuşuEkle(final int tuşKodu) {
-		if (!fare.containsKey(tuşKodu)) {
+	/** Eğer verilen tuş koduna denk gelen bir fare tuşu yoksa yeni bir temsili tuş oluşturur. */
+	public void faresininTuşunuEkle(final int tuşKodu) {
+		if (!faresininTuşları.containsKey(tuşKodu)) {
 			final Tuş tuş = new Tuş(tuşKodu);
-			fare.put(tuşKodu, tuş);
-			tuşDağıtıcısı.dağıt(tuş);
+			faresininTuşları.put(tuşKodu, tuş);
+			tuşlarınınDağıtıcısı.dağıt(tuş);
 		}
 	}
 	
-	/** Fare tuşunun girdisini yazar. */
-	public void fareTuşununAşağıOlduğunuDeğiştir(final int tuşKodu, final boolean aşağı) {
-		final Tuş tuş = fareTuşuEdin(tuşKodu);
-		if (tuş != null)
-			tuş.aşağıOlmasınıDeğiştir(aşağı);
+	/** Fare imlecinin eşzamansız olarak ekrandaki konumunu bildirir. */
+	public void imlecininKonumunuBildir(final float x, final float y) {
+		imlecininEşzamansızKonumu.bileşenleriDeğiştir(x, y);
 	}
 	
-	/** Tekerlek devrini döndürür. */
-	public int alTekerlekDevri() {
-		return tekerlekDevri;
+	/** Fare imlecinin verilen nesne tarafından kullanılmaya uygun olup olmadığını döndürür. Uygunsa
+	 * imlecin hedefini verilen nesneyle değiştirirek imleci kullanılmış olarak işaretler. */
+	public boolean imleciniKullanmayıDene(final Object nesne) {
+		if (imlecininHedefi == null) {
+			imlecininHedefi = nesne;
+			return true;
+		}
+		
+		return imlecininHedefi == nesne;
 	}
 	
-	/** İmlecin uygun olup olmadığını döndürür. */
-	public boolean imleçUygunMu(final Object nesne) {
-		return imleçHedefi == null || imleçHedefi == nesne;
+	/** Fare tekerleğinin eşzamansız olarak ekrandaki konumunu bildirir. */
+	public void tekerleğininDevriniBildir(final int tekerleğininDevri) {
+		tekerleğininEşzamansızDevirlerininToplamı += tekerleğininDevri;
 	}
 	
-	/** Tekerleğin uygun olup olmadığını döndürür. */
-	public boolean tekerlekUygunMu(final Object nesne) {
-		return tekerlekHedefi == null || tekerlekHedefi == nesne;
+	/** Fare tekerleğinin şu andaki devrini döndürür. */
+	public int tekerleğininDevriniEdin() {
+		return tekerleğininDevri;
 	}
 	
-	/** İmleç girdisi yazar. */
-	public void yazİmleçGirdisi(final float x, final float y) {
-		imleçGirdisi.bileşenleriDeğiştir(x, y);
-	}
-	
-	/** Tekerlek devrini ekler. */
-	public void yazTekerlekGirdisi(final int devir) {
-		tekerlekGirdisi += devir;
+	/** Fare tekerleğinin verilen nesne tarafından kullanılmaya uygun olup olmadığını döndürür. Uygunsa
+	 * tekerleğin hedefini verilen nesneyle değiştirirek tekerleği kullanılmış olarak işaretler. */
+	public boolean tekerleğiniKullanmayıDene(final Object nesne) {
+		if (tekerleğininHedefi == null) {
+			tekerleğininHedefi = nesne;
+			return true;
+		}
+		
+		return tekerleğininHedefi == nesne;
 	}
 }

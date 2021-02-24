@@ -47,7 +47,8 @@ public class ArayüzDeneme implements AWTGüncelleyici {
 			((Levha)öğe).herÖğeİçin(this::öğeÇiz);
 		} else if (öğe instanceof Düğme) {
 			kutuÇiz(öğe.alanı,
-					öğe.üzerindeMi() ? Color.RED : ((Düğme)öğe).basılıOlmasınıEdin() ? Color.GRAY : Color.WHITE,
+					öğe.üzerindeMi() ? Color.RED :
+							((Düğme)öğe).basılıOlmasınıEdin() ? Color.GRAY : Color.WHITE,
 					false);
 			motor.çizer.setColor(öğe.üzerindeMi() ? Color.white : Color.black);
 			final String yazı = ((Düğme)öğe).yazı;

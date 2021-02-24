@@ -66,9 +66,9 @@ public abstract class Öğe {
 	
 	/** Fare imlecinin öğenin üzerinde bulunup bulunmadığını hesaplar. */
 	protected void üzerindeBulunmasınıHesapla() {
-		if (imlecinAltındaOlması = alanı.içinde(üstündekiEkranı.girdi.imleç) &&
+		if (imlecinAltındaOlması = alanı.içinde(üstündekiEkranı.girdi.imlecininKonumu) &&
 									üstündekiEkranı.girdi.imleçUygunMu(this))
-			üstündekiEkranı.girdi.imleçHedefi = this;
+			üstündekiEkranı.girdi.imlecininHedefi = this;
 	}
 	
 	/** Bu öğeyi odaklamak için istek belirtir. */

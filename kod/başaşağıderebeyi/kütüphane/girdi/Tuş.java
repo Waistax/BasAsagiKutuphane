@@ -13,13 +13,13 @@ public class Tuş {
 	/** Tuşu temsil eden sayı kodu. */
 	public final int kodu;
 	
-	private volatile boolean aşağıOlması;
+	private volatile boolean eşzamansızBasılıOlması;
 	private boolean basılıOlması;
 	private boolean basılması;
 	private boolean salınması;
 	
-	/** Tuşun girdisini kullanan (dinleyen ve işleyen) nesne. Tuş girdisini kullanmadan önce uygun olup olmadığına
-	 * bakılmalı ve kullandıktan sonra bu nesne değiştirilmelidir. */
+	/** Tuşun girdisini kullanan (dinleyen ve işleyen) nesne. Tuş girdisini kullanmadan önce uygun olup
+	 * olmadığına bakılmalı ve kullanıldıktan sonra bu nesne değiştirilmelidir. */
 	public Object hedefi;
 	
 	public Tuş(final int kodu) {
@@ -28,7 +28,7 @@ public class Tuş {
 	
 	/** Tuşun anlık durumunu günceller. */
 	public void güncelle() {
-		final boolean sonrakiDurumdaBasılıOlması = aşağıOlması;
+		final boolean sonrakiDurumdaBasılıOlması = eşzamansızBasılıOlması;
 		
 		basılması = !basılıOlması && sonrakiDurumdaBasılıOlması;
 		salınması = basılıOlması && !sonrakiDurumdaBasılıOlması;
@@ -37,28 +37,28 @@ public class Tuş {
 		hedefi = null;
 	}
 	
-	/** Tuşun eşzamansız olarak aşağıda olup olmadığını değiştirir. */
-	public void aşağıOlmasınıDeğiştir(final boolean aşağıOlması) {
-		this.aşağıOlması = aşağıOlması;
+	/** Tuşun eşzamansız olarak basılı olup olmadığını bildirir. */
+	public void basılıOlmasınıBildir(final boolean basılıOlması) {
+		eşzamansızBasılıOlması = basılıOlması;
 	}
 	
-	/** Tuş şu anda basılıysa doğru döndürür. */
+	/** Tuşun şu anda basılı olup olmadığını döndür. */
 	public boolean basılıOlmasınıEdin() {
 		return basılıOlması;
 	}
 	
-	/** Tuş şu anda basılmaya başlandıysa doğru döndürür. */
+	/** Tuşun şu anda basılmaya başlanıp başlanmadığını döndürür. */
 	public boolean basılmasınıEdin() {
 		return basılması;
 	}
 	
-	/** Tuş şu anda bırakıldıysa doğru döndürür. */
+	/** Tuşun şu anda bırakılıp bırakılmadığını döndürür. */
 	public boolean salınmasınıEdin() {
 		return salınması;
 	}
 	
-	/** Tuşun verilen nesne tarafından dinlenilmeye uygun olup olmadığını döndürür. Ayrıca uygunsa tuşu kullanılmış
-	 * olarak verilen nesneyle işaretler. */
+	/** Tuşun verilen nesne tarafından kullanılmaya uygun olup olmadığını döndürür. Uygunsa tuşun
+	 * hedefini verilen nesneyle değiştirirek tuşu kullanılmış olarak işaretler. */
 	public boolean kullanmayıDene(final Object nesne) {
 		if (hedefi == null) {
 			hedefi = nesne;

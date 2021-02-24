@@ -10,7 +10,11 @@ import başaşağıderebeyi.kütüphane.girdi.*;
 import java.awt.event.*;
 
 /** Java AWT kütüphanesinden gelen girdileri dinler. */
-public class AWTDinleyici implements KeyListener, MouseListener, MouseWheelListener, MouseMotionListener {
+public class AWTDinleyici implements
+		KeyListener,
+		MouseListener,
+		MouseWheelListener,
+		MouseMotionListener {
 	/** Dinlenen girdilerin hedefi. */
 	private final ÇiğGirdi girdi;
 	
@@ -39,7 +43,7 @@ public class AWTDinleyici implements KeyListener, MouseListener, MouseWheelListe
 	
 	@Override
 	public void mouseDragged(final MouseEvent e) {
-		girdi.yazİmleçGirdisi(e.getX(), e.getY());
+		girdi.imlecininKonumunuBildir(e.getX(), e.getY());
 	}
 	
 	@Override
@@ -52,7 +56,7 @@ public class AWTDinleyici implements KeyListener, MouseListener, MouseWheelListe
 	
 	@Override
 	public void mouseMoved(final MouseEvent e) {
-		girdi.yazİmleçGirdisi(e.getX(), e.getY());
+		girdi.imlecininKonumunuBildir(e.getX(), e.getY());
 	}
 	
 	@Override
@@ -67,6 +71,6 @@ public class AWTDinleyici implements KeyListener, MouseListener, MouseWheelListe
 	
 	@Override
 	public void mouseWheelMoved(final MouseWheelEvent e) {
-		girdi.yazTekerlekGirdisi(e.getWheelRotation());
+		girdi.tekerleğininDevriniBildir(e.getWheelRotation());
 	}
 }

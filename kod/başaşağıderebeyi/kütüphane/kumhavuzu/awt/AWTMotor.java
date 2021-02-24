@@ -53,9 +53,9 @@ public class AWTMotor {
 				AWTMotor.this.kapat();
 			}
 		});
-		girdi.fareTuşuEkle(MouseEvent.BUTTON1);
-		girdi.fareTuşuEkle(MouseEvent.BUTTON2);
-		girdi.fareTuşuEkle(MouseEvent.BUTTON3);
+		girdi.faresininTuşunuEkle(MouseEvent.BUTTON1);
+		girdi.faresininTuşunuEkle(MouseEvent.BUTTON2);
+		girdi.faresininTuşunuEkle(MouseEvent.BUTTON3);
 		tuval.addKeyListener(dinleyici);
 		tuval.addMouseListener(dinleyici);
 		tuval.addMouseWheelListener(dinleyici);
@@ -67,7 +67,8 @@ public class AWTMotor {
 		tampon = tuval.getBufferStrategy();
 		çizer = (Graphics2D)tampon.getDrawGraphics();
 		çizer.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-		çizer.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+		çizer.setRenderingHint(	RenderingHints.KEY_TEXT_ANTIALIASING,
+								RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 		this.güncelleyici = güncelleyici;
 	}
 	

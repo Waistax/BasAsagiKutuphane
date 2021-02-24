@@ -8,7 +8,9 @@ package başaşağıderebeyi.kütüphane.matematik;
 /** Üç boyutlu bir yöney. Bileşenler ondalıklı sayılar olarak saklanır. */
 public class Yöney3 {
 	/** Her eksende bir uzunluğunda olan yöney. */
-	public static final Yöney3 BİR = new Yöney3().topla(Yöney3.X_EKSENİ).topla(Yöney3.Y_EKSENİ).topla(Yöney3.Z_EKSENİ);
+	public static final Yöney3 BİR = new Yöney3()	.topla(Yöney3.X_EKSENİ)
+													.topla(Yöney3.Y_EKSENİ)
+													.topla(Yöney3.Z_EKSENİ);
 	/** Uzunluğu ve bileşenleri sıfır olan yöney. */
 	public static final Yöney3 SIFIR = new Yöney3();
 	/** X eksenini temsil eden yöney. */
@@ -39,14 +41,18 @@ public class Yöney3 {
 		değiştir(ö);
 	}
 	
-	/** Verilen yöneyle bu yöneyin aradeğerini buna yazar. Bu yöneyi döndürür. Mesafelerin toplamının bir olduğunu
-	 * öarsayar. */
+	/** Verilen yöneyle bu yöneyin aradeğerini buna yazar. Bu yöneyi döndürür. Mesafelerin toplamının bir
+	 * olduğunu öarsayar. */
 	public Yöney3 aradeğer(final Yöney3 ö, final float uzaklık, final float yakınlık) {
 		return this.aradeğer(this, ö, uzaklık, yakınlık);
 	}
 	
-	/** Verilen yöneylerin aradeğerini buna yazar. Bu yöneyi döndürür. Mesafelerin toplamının bir olduğunu öarsayar. */
-	public Yöney3 aradeğer(final Yöney3 sol, final Yöney3 sağ, final float solaUzaklık, final float sağaUzaklık) {
+	/** Verilen yöneylerin aradeğerini buna yazar. Bu yöneyi döndürür. Mesafelerin toplamının bir
+	 * olduğunu öarsayar. */
+	public Yöney3 aradeğer(	final Yöney3 sol,
+							final Yöney3 sağ,
+							final float solaUzaklık,
+							final float sağaUzaklık) {
 		return bileşenleriDeğiştir(	Hesaplayıcı.aradeğer(sol.x, sağ.x, solaUzaklık, sağaUzaklık),
 									Hesaplayıcı.aradeğer(sol.y, sağ.y, solaUzaklık, sağaUzaklık),
 									Hesaplayıcı.aradeğer(sol.z, sağ.z, solaUzaklık, sağaUzaklık));
@@ -111,7 +117,13 @@ public class Yöney3 {
 	
 	/** Yöneyi verilen dize oluşturucusuna ekler. Oluşturucuyu döndürür. */
 	public StringBuilder dizeOluşturucusunaYaz(final StringBuilder dizeOluşturucusu) {
-		return dizeOluşturucusu.append('(').append(x).append(", ").append(y).append(", ").append(z).append(')');
+		return dizeOluşturucusu	.append('(')
+								.append(x)
+								.append(", ")
+								.append(y)
+								.append(", ")
+								.append(z)
+								.append(')');
 	}
 	
 	/** Yöneyin doğrultusunu (birim yöneyini) hesaplar. Bu yöneyi döndürür. */
@@ -175,7 +187,9 @@ public class Yöney3 {
 	
 	/** Verilen yöneyin bileşenlerini ayrı ayrı aşağı yuvarlayıp buna yazar. Bu yöneyi döndürür. */
 	public Yöney3 taban(final Yöney3 ö) {
-		return bileşenleriDeğiştir(Hesaplayıcı.taban(ö.x), Hesaplayıcı.taban(ö.y), Hesaplayıcı.taban(ö.z));
+		return bileşenleriDeğiştir(	Hesaplayıcı.taban(ö.x),
+									Hesaplayıcı.taban(ö.y),
+									Hesaplayıcı.taban(ö.z));
 	}
 	
 	/** Yöneyin bileşenlerini ayrı ayrı yukarı yuvarlar. Yöneyi döndürür. */
@@ -185,7 +199,9 @@ public class Yöney3 {
 	
 	/** Verilen yöneyin bileşenlerini ayrı ayrı yukarı yuvarlayıp buna yazar. Bu yöneyi döndürür. */
 	public Yöney3 tavan(final Yöney3 ö) {
-		return bileşenleriDeğiştir(Hesaplayıcı.tavan(ö.x), Hesaplayıcı.tavan(ö.y), Hesaplayıcı.tavan(ö.z));
+		return bileşenleriDeğiştir(	Hesaplayıcı.tavan(ö.x),
+									Hesaplayıcı.tavan(ö.y),
+									Hesaplayıcı.tavan(ö.z));
 	}
 	
 	/** Verilen yöneyi bu yöneye ekler. Bu yöneyi döndürür. */
@@ -232,7 +248,9 @@ public class Yöney3 {
 	
 	/** Verilen yöneyin bileşenlerini ayrı ayrı yuvarlayıp buna yazar. Bu yöneyi döndürür. */
 	public Yöney3 yuvarla(final Yöney3 ö) {
-		return bileşenleriDeğiştir(Hesaplayıcı.yuvarla(ö.x), Hesaplayıcı.yuvarla(ö.y), Hesaplayıcı.yuvarla(ö.z));
+		return bileşenleriDeğiştir(	Hesaplayıcı.yuvarla(ö.x),
+									Hesaplayıcı.yuvarla(ö.y),
+									Hesaplayıcı.yuvarla(ö.z));
 	}
 	
 	/** Yöneyin üçüncü bileşenini değiştirir. Yöneyi döndürür. */

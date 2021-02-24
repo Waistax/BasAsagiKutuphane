@@ -27,8 +27,8 @@ public class Dikdörtgen {
 		u = new Yöney2();
 	}
 	
-	/** Verilen dikdörtgenlerin aradeğerini buna yazar. Bu dikdörtgeni döndürür. Mesafelerin toplamının bir olduğunu
-	 * varsayar. */
+	/** Verilen dikdörtgenlerin aradeğerini buna yazar. Bu dikdörtgeni döndürür. Mesafelerin toplamının
+	 * bir olduğunu varsayar. */
 	public Dikdörtgen aradeğer(	final Dikdörtgen sol,
 								final Dikdörtgen sağ,
 								final float solaUzaklık,
@@ -40,8 +40,8 @@ public class Dikdörtgen {
 		return this;
 	}
 	
-	/** Verilen dikdörtgenle bu yöneyin aradeğerini buna yazar. Bu dikdörtgeni döndürür. Mesafelerin toplamının bir
-	 * olduğunu varsayar. */
+	/** Verilen dikdörtgenle bu yöneyin aradeğerini buna yazar. Bu dikdörtgeni döndürür. Mesafelerin
+	 * toplamının bir olduğunu varsayar. */
 	public Dikdörtgen aradeğer(final Dikdörtgen ö, final float uzaklık, final float yakınlık) {
 		return this.aradeğer(this, ö, uzaklık, yakınlık);
 	}
@@ -84,7 +84,8 @@ public class Dikdörtgen {
 		return this.taban(this);
 	}
 	
-	/** Verilen dikdörtgenin verilerini ayrı ayrı aşağı yuvarlayıp buna yazar. Bu dikdörtgeni döndürür. */
+	/** Verilen dikdörtgenin verilerini ayrı ayrı aşağı yuvarlayıp buna yazar. Bu dikdörtgeni
+	 * döndürür. */
 	public Dikdörtgen taban(final Dikdörtgen ö) {
 		k.taban(ö.k);
 		b.taban(ö.b);
@@ -98,7 +99,8 @@ public class Dikdörtgen {
 		return this.tavan(this);
 	}
 	
-	/** Verilen dikdörtgenin verilerini ayrı ayrı yukarı yuvarlayıp buna yazar. Bu dikdörtgeni döndürür. */
+	/** Verilen dikdörtgenin verilerini ayrı ayrı yukarı yuvarlayıp buna yazar. Bu dikdörtgeni
+	 * döndürür. */
 	public Dikdörtgen tavan(final Dikdörtgen ö) {
 		k.tavan(ö.k);
 		b.tavan(ö.b);

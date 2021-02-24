@@ -37,14 +37,18 @@ public class YerleşikDikdörtgen {
 	private void dikeydeYerleştir() {
 		kurallar[2].yerleştir();
 		kurallar[3].yerleştir();
-		DikdörtgenVerisi.dikeyiHesapla(kurallar[2].dikdörtgenVerisi, kurallar[3].dikdörtgenVerisi, hedef);
+		DikdörtgenVerisi.dikeyiHesapla(	kurallar[2].dikdörtgenVerisi,
+										kurallar[3].dikdörtgenVerisi,
+										hedef);
 	}
 	
 	/** Dikdörtgeni yatay boyutta tanımlar. */
 	private void yataydaYerleştir() {
 		kurallar[0].yerleştir();
 		kurallar[1].yerleştir();
-		DikdörtgenVerisi.yatayıHesapla(kurallar[0].dikdörtgenVerisi, kurallar[1].dikdörtgenVerisi, hedef);
+		DikdörtgenVerisi.yatayıHesapla(	kurallar[0].dikdörtgenVerisi,
+										kurallar[1].dikdörtgenVerisi,
+										hedef);
 	}
 	
 	/** Dikeydeki ilk kuralı döndürür. */
