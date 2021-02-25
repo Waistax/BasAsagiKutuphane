@@ -33,10 +33,10 @@ public class Dikdörtgen {
 								final Dikdörtgen sağ,
 								final float solaUzaklık,
 								final float sağaUzaklık) {
-		k.aradeğer(sol.k, sağ.k, solaUzaklık, sağaUzaklık);
-		b.aradeğer(sol.b, sağ.b, solaUzaklık, sağaUzaklık);
-		o.aradeğer(sol.o, sağ.o, solaUzaklık, sağaUzaklık);
-		u.aradeğer(sol.u, sağ.u, solaUzaklık, sağaUzaklık);
+		k.aradeğerleriniBul(sol.k, sağ.k, solaUzaklık, sağaUzaklık);
+		b.aradeğerleriniBul(sol.b, sağ.b, solaUzaklık, sağaUzaklık);
+		o.aradeğerleriniBul(sol.o, sağ.o, solaUzaklık, sağaUzaklık);
+		u.aradeğerleriniBul(sol.u, sağ.u, solaUzaklık, sağaUzaklık);
 		return this;
 	}
 	
@@ -73,7 +73,10 @@ public class Dikdörtgen {
 	
 	/** Verilen dikdörtgenin bu dikdörtgene eşit olup olmadığını hesaplar. */
 	public boolean eşittir(final Dikdörtgen ö) {
-		return k.eşitMi(ö.k) && b.eşitMi(ö.b) && o.eşitMi(ö.o) && u.eşitMi(ö.u);
+		return k.eşitOlmalarınıBul(ö.k) &&
+				b.eşitOlmalarınıBul(ö.b) &&
+				o.eşitOlmalarınıBul(ö.o) &&
+				u.eşitOlmalarınıBul(ö.u);
 	}
 	
 	/** Yöneyin dikdörtgenin içinde olup olmadığını hesaplar. */
@@ -92,10 +95,10 @@ public class Dikdörtgen {
 	/** Verilen dikdörtgenin verilerini ayrı ayrı aşağı yuvarlayıp buna yazar. Bu dikdörtgeni
 	 * döndürür. */
 	public Dikdörtgen taban(final Dikdörtgen ö) {
-		k.taban(ö.k);
-		b.taban(ö.b);
-		o.taban(ö.o);
-		u.taban(ö.u);
+		k.aşağıYuvarla(ö.k);
+		b.aşağıYuvarla(ö.b);
+		o.aşağıYuvarla(ö.o);
+		u.aşağıYuvarla(ö.u);
 		return this;
 	}
 	
@@ -107,10 +110,10 @@ public class Dikdörtgen {
 	/** Verilen dikdörtgenin verilerini ayrı ayrı yukarı yuvarlayıp buna yazar. Bu dikdörtgeni
 	 * döndürür. */
 	public Dikdörtgen tavan(final Dikdörtgen ö) {
-		k.tavan(ö.k);
-		b.tavan(ö.b);
-		o.tavan(ö.o);
-		u.tavan(ö.u);
+		k.yukarıYuvarla(ö.k);
+		b.yukarıYuvarla(ö.b);
+		o.yukarıYuvarla(ö.o);
+		u.yukarıYuvarla(ö.u);
 		return this;
 	}
 	

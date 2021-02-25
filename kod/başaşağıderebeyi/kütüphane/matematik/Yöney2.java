@@ -28,198 +28,213 @@ public class Yöney2 {
 	public Yöney2() {
 	}
 	
-	/** Bileşenlerle tanımlar. */
+	/** Verilen bileşenlerle tanımlar. */
 	public Yöney2(final float birinciBileşeni, final float ikinciBileşeni) {
 		bileşenleriDeğiştir(birinciBileşeni, ikinciBileşeni);
 	}
 	
-	/** Verilenle aynı tanımlar. */
-	public Yöney2(final Yöney2 öbürü) {
-		değiştir(öbürü);
+	/** Verilen yöneyle aynı tanımlar. */
+	public Yöney2(final Yöney2 öbürYöney) {
+		değiştir(öbürYöney);
 	}
 	
-	/** Bu yöney ile verilenin denk sayılıp sayılmadığını döndürür. */
-	public boolean denkSayılmalarınıBul(final Yöney2 öbürü) {
-		return MatematikAracı.denkSayılmalarınıBul(uzunluğunKaresi(), öbürü.uzunluğunKaresi());
+	/** Verilen yöneyle bu yöneyin denk sayılıp sayılmadığını döndürür. */
+	public boolean denkSayılmalarınıBul(final Yöney2 öbürYöney) {
+		return MatematikAracı.denkSayılmalarınıBul(	uzunluğununKaresiniBul(),
+													öbürYöney.uzunluğununKaresiniBul());
 	}
 	
 	@Override
-	public boolean equals(final Object obj) {
-		if (obj instanceof Yöney2 ö)
-			return eşitMi(ö);
+	public boolean equals(final Object öbürü) {
+		if (öbürü instanceof Yöney2 öbürYöney)
+			return eşitOlmalarınıBul(öbürYöney);
 		return false;
 	}
 	
-	/** Verilen bileşenlerin yöneyinkilere eşitliğini hesaplar. */
-	public boolean eşitMi(final float x, final float y) {
-		return birinciBileşeni == x && ikinciBileşeni == y;
+	/** Verilen yöneyin bu yöneye eşit olup olmadığını döndürür. */
+	public boolean eşitOlmalarınıBul(final Yöney2 öbürYöney) {
+		return eşitOlmalarınıBul(öbürYöney.birinciBileşeni, öbürYöney.ikinciBileşeni);
 	}
 	
-	/** Verilen yöneyin bu yöneye eşit olup olmadığını hesaplar. */
-	public boolean eşitMi(final Yöney2 ö) {
-		return this.eşitMi(ö.birinciBileşeni, ö.ikinciBileşeni);
+	/** Verilen bileşenlerin yöneyinkilere eşit olup olmadığını döndürür. */
+	public boolean eşitOlmalarınıBul(final float birinciBileşen, final float ikinciBileşen) {
+		return birinciBileşeni == birinciBileşen && ikinciBileşeni == ikinciBileşen;
 	}
 	
-	/** Yöneyin doğrultusunu (birim yöneyini) hesaplar. Bu yöneyi döndürür. */
-	public Yöney2 doğrultu() {
-		return doğrultu(this);
+	/** Yöneyin doğrultusunu (birim yöneyini) bulup, yöneyi ona değiştirir. Yöneyi döndürür. */
+	public Yöney2 doğrultusunuBul() {
+		return doğrultusunuBul(this);
 	}
 	
-	/** Verilen yöneyin doğrultusunu (birim yöneyini) buna yazar. Bu yöneyi döndürür. */
-	public Yöney2 doğrultu(final Yöney2 ö) {
-		return this.böl(ö, ö.uzunluk());
+	/** Verilen yöneyin doğrultusunu (birim yöneyini) bulup, bu yöneyi ona değiştirir. Bu yöneyi
+	 * döndürür. */
+	public Yöney2 doğrultusunuBul(final Yöney2 öbürYöney) {
+		return böl(öbürYöney, öbürYöney.uzunluğunuBul());
 	}
 	
-	/** Verilen yöneyi bu yöneye ekler. Bu yöneyi döndürür. */
-	public Yöney2 topla(final Yöney2 ö) {
-		return this.topla(this, ö);
+	/** Bu yöneye verilen yöneyi ekler. Bu yöneyi döndürür. */
+	public Yöney2 topla(final Yöney2 öbürYöney) {
+		return topla(this, öbürYöney);
 	}
 	
-	/** Verilen yöneyleri toplayıp buna yazar. Bu yöneyi döndürür. */
-	public Yöney2 topla(final Yöney2 sol, final Yöney2 sağ) {
-		return bileşenleriDeğiştir(	sol.birinciBileşeni +	sağ.birinciBileşeni,
-									sol.ikinciBileşeni + sağ.ikinciBileşeni);
+	/** Bu yöneyi verilen yöneylerin toplamına değiştirir. Bu yöneyi döndürür. */
+	public Yöney2 topla(final Yöney2 soldakiYöney, final Yöney2 sağdakiYöney) {
+		return bileşenleriDeğiştir(	soldakiYöney.birinciBileşeni +	sağdakiYöney.birinciBileşeni,
+									soldakiYöney.ikinciBileşeni + sağdakiYöney.ikinciBileşeni);
 	}
 	
-	/** Verilen yöneyi bu yöneyden çıkarır. Bu yöneyi döndürür. */
-	public Yöney2 çıkar(final Yöney2 ö) {
-		return this.çıkar(this, ö);
+	/** Bu yöneyden verilen yöneyi çıkarır. Bu yöneyi döndürür. */
+	public Yöney2 çıkar(final Yöney2 öbürYöney) {
+		return çıkar(this, öbürYöney);
 	}
 	
-	/** Verilen yöneyleri çıkarıp buna yazar. Bu yöneyi döndürür. */
-	public Yöney2 çıkar(final Yöney2 sol, final Yöney2 sağ) {
-		return bileşenleriDeğiştir(	sol.birinciBileşeni -	sağ.birinciBileşeni,
-									sol.ikinciBileşeni - sağ.ikinciBileşeni);
+	/** Bu yöneyi verilen yöneylerin farkına değiştirir. Bu yöneyi döndürür. */
+	public Yöney2 çıkar(final Yöney2 soldakiYöney, final Yöney2 sağdakiYöney) {
+		return bileşenleriDeğiştir(	soldakiYöney.birinciBileşeni -	sağdakiYöney.birinciBileşeni,
+									soldakiYöney.ikinciBileşeni - sağdakiYöney.ikinciBileşeni);
 	}
 	
-	/** Yöneyi sayıyla çarpar. Yöneyi döndürür. */
-	public Yöney2 çarp(final float o) {
-		return this.çarp(this, o);
+	/** Yöneyi verilen sayıyla çarpar. Yöneyi döndürür. */
+	public Yöney2 çarp(final float sayı) {
+		return çarp(this, sayı);
 	}
 	
-	/** Verilen yöneyi sayıyla çarpıp buna yazar. Bu yöneyi döndürür. */
-	public Yöney2 çarp(final Yöney2 sol, final float sağ) {
-		return bileşenleriDeğiştir(sol.birinciBileşeni * sağ, sol.ikinciBileşeni * sağ);
+	/** Bu yöneyi verilen yöneyin verilen sayıyla çarpımına değiştirir. Bu yöneyi döndürür. */
+	public Yöney2 çarp(final Yöney2 öbürYöney, final float sayı) {
+		return bileşenleriDeğiştir(öbürYöney.birinciBileşeni * sayı, öbürYöney.ikinciBileşeni * sayı);
 	}
 	
-	/** Yöneyi sayıya böler. Yöneyi döndürür. */
-	public Yöney2 böl(final float o) {
-		return this.böl(this, o);
+	/** Yöneyi verilen sayıya böler. Yöneyi döndürür. */
+	public Yöney2 böl(final float sayı) {
+		return böl(this, sayı);
 	}
 	
-	/** Verilen yöneyi sayıya bölüp buna yazar. Bu yöneyi döndürür. */
-	public Yöney2 böl(final Yöney2 sol, final float sağ) {
-		return bileşenleriDeğiştir(sol.birinciBileşeni / sağ, sol.ikinciBileşeni / sağ);
+	/** Bu yöneyi verilen yöneyin verilen sayıya bölümüne değiştirir. Bu yöneyi döndürür. */
+	public Yöney2 böl(final Yöney2 öbürYöney, final float sayı) {
+		return bileşenleriDeğiştir(öbürYöney.birinciBileşeni / sayı, öbürYöney.ikinciBileşeni / sayı);
 	}
 	
 	/** Bu yöneyin bileşenlerini ayrı ayrı sıkıştırır. Bu yöneyi döndürür. */
-	public Yöney2 sıkıştır(final Yöney2 alt, final Yöney2 üst) {
-		return this.sıkıştır(this, alt, üst);
+	public Yöney2 sıkıştır(final Yöney2 tabanYöney, final Yöney2 tavanYöney) {
+		return sıkıştır(this, tabanYöney, tavanYöney);
 	}
 	
-	/** Verilen yöneyin bileşenlerini ayrı ayrı sıkıştırıp buna yazar. Bu yöneyi döndürür. */
-	public Yöney2 sıkıştır(final Yöney2 ö, final Yöney2 alt, final Yöney2 üst) {
-		return bileşenleriDeğiştir(	MatematikAracı.sıkıştır(ö.birinciBileşeni,
-															alt.birinciBileşeni,
-															üst.birinciBileşeni),
-									MatematikAracı.sıkıştır(ö.ikinciBileşeni,
-															alt.ikinciBileşeni,
-															üst.ikinciBileşeni));
+	/** Bu yöneyi verilen yöneyin sıkıştırılmışına değiştirir. Bu yöneyi döndürür. */
+	public Yöney2 sıkıştır(final Yöney2 öbürYöney, final Yöney2 tabanYöney, final Yöney2 tavanYöney) {
+		return bileşenleriDeğiştir(	MatematikAracı.sıkıştır(öbürYöney.birinciBileşeni,
+															tabanYöney.birinciBileşeni,
+															tavanYöney.birinciBileşeni),
+									MatematikAracı.sıkıştır(öbürYöney.ikinciBileşeni,
+															tabanYöney.ikinciBileşeni,
+															tavanYöney.ikinciBileşeni));
 	}
 	
-	/** Verilen yöneyin bileşenlerinden küçük olanlarını yazar. Bu yöneyi döndürür. */
-	public Yöney2 küçüktür(final Yöney2 ö) {
-		return this.küçüktür(this, ö);
+	/** Bu yöneyin bileşenleri ile verilen yöneyin karşılık gelen bileşenlerini karşılaştırır. Bu yöneyin
+	 * bileşenlerini içlerinden küçük olana değiştirir. Bu yöneyi döndürür. */
+	public Yöney2 küçüğüBul(final Yöney2 öbürYöney) {
+		return küçüğüBul(this, öbürYöney);
 	}
 	
-	/** Verilen yöneylerin bileşenlerinden küçük olanlarını buna yazar. Bu yöneyi döndürür. */
-	public Yöney2 küçüktür(final Yöney2 sol, final Yöney2 sağ) {
-		return bileşenleriDeğiştir(	MatematikAracı.küçüğüBul(sol.birinciBileşeni, sağ.birinciBileşeni),
-									MatematikAracı.küçüğüBul(sol.ikinciBileşeni, sağ.ikinciBileşeni));
+	/** Verilen yöneylerin karşılık gelen bileşenlerini karşılaştırır. Bu yöneyin bileşenlerini
+	 * içlerinden küçük olana değiştirir. Bu yöneyi döndürür. */
+	public Yöney2 küçüğüBul(final Yöney2 soldakiYöney, final Yöney2 sağdakiYöney) {
+		return bileşenleriDeğiştir(	MatematikAracı.küçüğüBul(	soldakiYöney.birinciBileşeni,
+																sağdakiYöney.birinciBileşeni),
+									MatematikAracı.küçüğüBul(	soldakiYöney.ikinciBileşeni,
+																sağdakiYöney.ikinciBileşeni));
 	}
 	
-	/** Verilen yöneyin bileşenlerinden büyük olanlarını yazar. Bu yöneyi döndürür. */
-	public Yöney2 büyüktür(final Yöney2 ö) {
-		return this.büyüktür(this, ö);
+	/** Bu yöneyin bileşenleri ile verilen yöneyin karşılık gelen bileşenlerini karşılaştırır. Bu yöneyin
+	 * bileşenlerini içlerinden büyük olana değiştirir. Bu yöneyi döndürür. */
+	public Yöney2 büyüğüBul(final Yöney2 öbürYöney) {
+		return büyüğüBul(this, öbürYöney);
 	}
 	
-	/** Verilen yöneylerin bileşenlerinden büyük olanlarını buna yazar. Bu yöneyi döndürür. */
-	public Yöney2 büyüktür(final Yöney2 sol, final Yöney2 sağ) {
-		return bileşenleriDeğiştir(	MatematikAracı.büyüğüBul(sol.birinciBileşeni, sağ.birinciBileşeni),
-									MatematikAracı.büyüğüBul(sol.ikinciBileşeni, sağ.ikinciBileşeni));
+	/** Verilen yöneylerin karşılık gelen bileşenlerini karşılaştırır. Bu yöneyin bileşenlerini
+	 * içlerinden büyük olana değiştirir. Bu yöneyi döndürür. */
+	public Yöney2 büyüğüBul(final Yöney2 soldakiYöney, final Yöney2 sağdakiYöney) {
+		return bileşenleriDeğiştir(	MatematikAracı.büyüğüBul(	soldakiYöney.birinciBileşeni,
+																sağdakiYöney.birinciBileşeni),
+									MatematikAracı.büyüğüBul(	soldakiYöney.ikinciBileşeni,
+																sağdakiYöney.ikinciBileşeni));
 	}
 	
 	/** Yöneyin bileşenlerini ayrı ayrı yuvarlar. Yöneyi döndürür. */
 	public Yöney2 yuvarla() {
-		return this.yuvarla(this);
+		return yuvarla(this);
 	}
 	
-	/** Verilen yöneyin bileşenlerini ayrı ayrı yuvarlayıp buna yazar. Bu yöneyi döndürür. */
-	public Yöney2 yuvarla(final Yöney2 ö) {
-		return bileşenleriDeğiştir(	MatematikAracı.yuvarla(ö.birinciBileşeni),
-									MatematikAracı.yuvarla(ö.ikinciBileşeni));
-	}
-	
-	/** Yöneyin bileşenlerini ayrı ayrı yukarı yuvarlar. Yöneyi döndürür. */
-	public Yöney2 tavan() {
-		return this.tavan(this);
-	}
-	
-	/** Verilen yöneyin bileşenlerini ayrı ayrı yukarı yuvarlayıp buna yazar. Bu yöneyi döndürür. */
-	public Yöney2 tavan(final Yöney2 ö) {
-		return bileşenleriDeğiştir(	MatematikAracı.yukarıYuvarla(ö.birinciBileşeni),
-									MatematikAracı.yukarıYuvarla(ö.birinciBileşeni));
+	/** Bu yöneyi verilen yöneyin yuvarlanmışına değiştirir. Bu yöneyi döndürür. */
+	public Yöney2 yuvarla(final Yöney2 öbürYöney) {
+		return bileşenleriDeğiştir(	MatematikAracı.yuvarla(öbürYöney.birinciBileşeni),
+									MatematikAracı.yuvarla(öbürYöney.ikinciBileşeni));
 	}
 	
 	/** Yöneyin bileşenlerini ayrı ayrı aşağı yuvarlar. Yöneyi döndürür. */
-	public Yöney2 taban() {
-		return this.taban(this);
+	public Yöney2 aşağıYuvarla() {
+		return aşağıYuvarla(this);
 	}
 	
-	/** Verilen yöneyin bileşenlerini ayrı ayrı aşağı yuvarlayıp buna yazar. Bu yöneyi döndürür. */
-	public Yöney2 taban(final Yöney2 ö) {
-		return bileşenleriDeğiştir(	MatematikAracı.aşağıYuvarla(ö.birinciBileşeni),
-									MatematikAracı.aşağıYuvarla(ö.birinciBileşeni));
+	/** Bu yöneyi verilen yöneyin aşağı yuvarlanmışına değiştirir. Bu yöneyi döndürür. */
+	public Yöney2 aşağıYuvarla(final Yöney2 öbürYöney) {
+		return bileşenleriDeğiştir(	MatematikAracı.aşağıYuvarla(öbürYöney.birinciBileşeni),
+									MatematikAracı.aşağıYuvarla(öbürYöney.birinciBileşeni));
 	}
 	
-	/** Verilen yöneyle bu yöneyin aradeğerini buna yazar. Bu yöneyi döndürür. Mesafelerin toplamının bir
-	 * olduğunu varsayar. */
-	public Yöney2 aradeğer(final Yöney2 ö, final float uzaklık, final float yakınlık) {
-		return this.aradeğer(this, ö, uzaklık, yakınlık);
+	/** Yöneyin bileşenlerini ayrı ayrı yukarı yuvarlar. Yöneyi döndürür. */
+	public Yöney2 yukarıYuvarla() {
+		return yukarıYuvarla(this);
 	}
 	
-	/** Verilen yöneylerin aradeğerini buna yazar. Bu yöneyi döndürür. Mesafelerin toplamının bir
-	 * olduğunu varsayar. */
-	public Yöney2 aradeğer(	final Yöney2 sol,
-							final Yöney2 sağ,
-							final float solaUzaklık,
-							final float sağaUzaklık) {
-		return bileşenleriDeğiştir(	MatematikAracı.aradeğerleriniBul(	sol.birinciBileşeni,
-																		sağ.birinciBileşeni,
-																		solaUzaklık,
-																		sağaUzaklık),
-									MatematikAracı.aradeğerleriniBul(	sol.ikinciBileşeni,
-																		sağ.ikinciBileşeni,
-																		solaUzaklık,
-																		sağaUzaklık));
+	/** Bu yöneyi verilen yöneyin yukarı yuvarlanmışına değiştirir. Bu yöneyi döndürür. */
+	public Yöney2 yukarıYuvarla(final Yöney2 öbürYöney) {
+		return bileşenleriDeğiştir(	MatematikAracı.yukarıYuvarla(öbürYöney.birinciBileşeni),
+									MatematikAracı.yukarıYuvarla(öbürYöney.birinciBileşeni));
 	}
 	
-	/** Yöneyin uzunluğu hesaplar. */
-	public float uzunluk() {
-		return MatematikAracı.kökünüBul(uzunluğunKaresi());
+	/** Bu yöneyi verilen yöneyle bu yöneyin verilen mesafelere göre aradeğerine değiştirir. Bu yöneyi
+	 * döndürür. Mesafelerin toplamının bir olduğunu varsayar. */
+	public Yöney2 aradeğerleriniBul(final Yöney2 öbürYöney, final float uzaklık, final float yakınlık) {
+		return aradeğerleriniBul(this, öbürYöney, uzaklık, yakınlık);
 	}
 	
-	/** Yöneyin uzunluğunun karesini hesaplar. */
-	public float uzunluğunKaresi() {
-		return nokta(this);
+	/** Bu yöneyi verilen yöneylerin verilen mesafelere göre aradeğerine değiştirir. Bu yöneyi döndürür.
+	 * Mesafelerin toplamının bir olduğunu varsayar. */
+	public Yöney2 aradeğerleriniBul(final Yöney2 soldakiYöney,
+									final Yöney2 sağdakiYöney,
+									final float soldakineOlanUzaklık,
+									final float sağdakineOlanUzaklık) {
+		return bileşenleriDeğiştir(	MatematikAracı.aradeğerleriniBul(	soldakiYöney.birinciBileşeni,
+																		sağdakiYöney.birinciBileşeni,
+																		soldakineOlanUzaklık,
+																		sağdakineOlanUzaklık),
+									MatematikAracı.aradeğerleriniBul(	soldakiYöney.ikinciBileşeni,
+																		sağdakiYöney.ikinciBileşeni,
+																		soldakineOlanUzaklık,
+																		sağdakineOlanUzaklık));
 	}
 	
-	/** Verilen yöneyle bu yöneyin nokta çarpımını hesaplar. */
-	public float nokta(final Yöney2 ö) {
-		return birinciBileşeni * ö.birinciBileşeni + ikinciBileşeni * ö.ikinciBileşeni;
+	/** Yöneyin uzunluğunu döndürür. */
+	public float uzunluğunuBul() {
+		return MatematikAracı.kökünüBul(uzunluğununKaresiniBul());
 	}
 	
-	/** Yöneyi dizeye çevirir. */
+	/** Yöneyin uzunluğunun karesini döndürür. */
+	public float uzunluğununKaresiniBul() {
+		return noktaÇarp(this);
+	}
+	
+	/** Verilen yöneyle bu yöneyin nokta çarpımını döndürür. */
+	public float noktaÇarp(final Yöney2 öbürü) {
+		return birinciBileşeni * öbürü.birinciBileşeni + ikinciBileşeni * öbürü.ikinciBileşeni;
+	}
+	
+	/** Verilen yöneyle bu yöneyin çapraz çarpımını döndürür. */
+	public float çaprazÇarp(final Yöney2 öbürü) {
+		return birinciBileşeni * öbürü.ikinciBileşeni - ikinciBileşeni * öbürü.birinciBileşeni;
+	}
+	
+	/** Yöneyi dize olarak döndürür. */
 	public String dizeOlarakEdin() {
 		return dizeOluşturucusunaEkle(new StringBuilder()).toString();
 	}
@@ -238,25 +253,25 @@ public class Yöney2 {
 		return dizeOlarakEdin();
 	}
 	
-	/** Verilen yöneyi buna yazar. Bu yöneyi döndürür. */
-	public Yöney2 değiştir(final Yöney2 ö) {
-		return bileşenleriDeğiştir(ö.birinciBileşeni, ö.ikinciBileşeni);
+	/** Bu yöneyi verilen yöneye değiştirir. Bu yöneyi döndürür. */
+	public Yöney2 değiştir(final Yöney2 öbürü) {
+		return bileşenleriDeğiştir(öbürü.birinciBileşeni, öbürü.ikinciBileşeni);
 	}
 	
 	/** Yöneyin bileşenlerini değiştirir. Yöneyi döndürür. */
-	public Yöney2 bileşenleriDeğiştir(final float x, final float y) {
-		return xBileşeniniDeğiştir(x).yBileşeniniDeğiştir(y);
+	public Yöney2 bileşenleriDeğiştir(final float birinciBileşen, final float ikinciBileşen) {
+		return birinciBileşeniniDeğiştir(birinciBileşen).ikinciBileşeniniDeğiştir(ikinciBileşen);
 	}
 	
 	/** Yöneyin birinci bileşenini değiştirir. Yöneyi döndürür. */
-	public Yöney2 xBileşeniniDeğiştir(final float x) {
-		birinciBileşeni = x;
+	public Yöney2 birinciBileşeniniDeğiştir(final float birinciBileşen) {
+		birinciBileşeni = birinciBileşen;
 		return this;
 	}
 	
 	/** Yöneyin ikinci bileşenini değiştirir. Yöneyi döndürür. */
-	public Yöney2 yBileşeniniDeğiştir(final float y) {
-		ikinciBileşeni = y;
+	public Yöney2 ikinciBileşeniniDeğiştir(final float ikinciBileşen) {
+		ikinciBileşeni = ikinciBileşen;
 		return this;
 	}
 }
