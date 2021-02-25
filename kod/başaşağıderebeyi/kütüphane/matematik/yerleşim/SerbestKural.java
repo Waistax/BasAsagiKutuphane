@@ -21,7 +21,9 @@ public class SerbestKural extends YerleşimKuralı {
 	}
 	
 	/** Belirli bir değerle tanımlar. */
-	public SerbestKural(final DikdörtgenVerisi dikdörtgenVerisi, final float değer) {
+	public SerbestKural(
+		final DikdörtgenVerisi dikdörtgenVerisi,
+		final float değer) {
 		this(dikdörtgenVerisi);
 		yaz(değer);
 	}

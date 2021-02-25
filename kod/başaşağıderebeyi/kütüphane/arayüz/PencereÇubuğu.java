@@ -16,20 +16,26 @@ public class PencereÇubuğu extends Öğe {
 	/** Pencerede tanımlar. */
 	public PencereÇubuğu(final Pencere pencere) {
 		super(pencere, pencere, pencere.içerenEkran);
-		yerleşikDikdörtgeni.kurallar(	new GöreliKural(DikdörtgenVerisi.KÜÇÜK),
-										new TersGöreliKural(DikdörtgenVerisi.BÜYÜK,
-															Pencere.ÇARPI_GENİŞLİĞİ),
-										new GöreliKural(DikdörtgenVerisi.KÜÇÜK),
-										new SerbestKural(	DikdörtgenVerisi.UZUNLUK,
-															Pencere.ÇUBUK_KALINLIĞI));
+		yerleşikDikdörtgeni
+			.kurallar(
+				new GöreliKural(DikdörtgenVerisi.KÜÇÜK),
+				new TersGöreliKural(
+					DikdörtgenVerisi.BÜYÜK,
+					Pencere.ÇARPI_GENİŞLİĞİ),
+				new GöreliKural(DikdörtgenVerisi.KÜÇÜK),
+				new SerbestKural(
+					DikdörtgenVerisi.UZUNLUK,
+					Pencere.ÇUBUK_KALINLIĞI));
 	}
 	
 	@Override
 	public void güncelle() {
 		if (imlecinAltındaOlması && içerenEkran.solTık.basılıOlmasınıEdin()) {
 			odakla();
-			((SerbestKural)içerenLevha.yerleşikDikdörtgeni.yatayKural()).ekle(içerenEkran.girdi.imlecininSürüklenmesi.birinciBileşeni);
-			((SerbestKural)içerenLevha.yerleşikDikdörtgeni.dikeyKural()).ekle(içerenEkran.girdi.imlecininSürüklenmesi.ikinciBileşeni);
+			((SerbestKural)içerenLevha.yerleşikDikdörtgeni.yatayKural())
+				.ekle(içerenEkran.girdi.imlecininSürüklenmesi.birinciBileşeni);
+			((SerbestKural)içerenLevha.yerleşikDikdörtgeni.dikeyKural())
+				.ekle(içerenEkran.girdi.imlecininSürüklenmesi.ikinciBileşeni);
 			yerleştir();
 		}
 	}

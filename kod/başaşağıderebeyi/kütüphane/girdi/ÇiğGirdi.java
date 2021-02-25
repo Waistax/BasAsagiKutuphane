@@ -13,8 +13,9 @@ import başaşağıderebeyi.kütüphane.yürütücü.*;
 
 import java.util.*;
 
-/** Bilgisayara veri girmede kullanılan farklı türlerde girdilerin, anlamlandırılmadan işlenmeye hazır
- * hale getirilmesini sağlayan bir yardımcı. */
+/** Bilgisayara veri girmede kullanılan farklı türlerde girdilerin,
+ * anlamlandırılmadan işlenmeye hazır hale getirilmesini sağlayan bir
+ * yardımcı. */
 public class ÇiğGirdi {
 	private final Map<Integer, Tuş> klavyesininTuşları;
 	private final Map<Integer, Tuş> faresininTuşları;
@@ -28,16 +29,17 @@ public class ÇiğGirdi {
 	/** Bu girdiye sağlanan imlecin konumundaki değişim. */
 	public final Yöney2 imlecininSürüklenmesi;
 	
-	/** Bu girdiye sağlanan fare imlecinin girdisini kullanan (dinleyen ve işleyen) nesne. İmlecin
-	 * girdisini kullanmadan önce uygun olup olmadığına bakılmalı ve kullanıldıktan sonra bu nesne
-	 * değiştirilmelidir. */
+	/** Bu girdiye sağlanan fare imlecinin girdisini kullanan (dinleyen ve
+	 * işleyen) nesne. İmlecin girdisini kullanmadan önce uygun olup olmadığına
+	 * bakılmalı ve kullanıldıktan sonra bu nesne değiştirilmelidir. */
 	public Object imlecininHedefi;
 	
 	private volatile int tekerleğininEşzamansızDevirlerininToplamı;
 	private int tekerleğininDevri;
 	
-	/** Bu girdiye sağlanan fare tekerleğinin girdisini kullanan (dinleyen ve işleyen) nesne. Tekerleğin
-	 * girdisini kullanmadan önce uygun olup olmadığına bakılmalı ve kullanıldıktan sonra bu nesne
+	/** Bu girdiye sağlanan fare tekerleğinin girdisini kullanan (dinleyen ve
+	 * işleyen) nesne. Tekerleğin girdisini kullanmadan önce uygun olup
+	 * olmadığına bakılmalı ve kullanıldıktan sonra bu nesne
 	 * değiştirilmelidir. */
 	public Object tekerleğininHedefi;
 	
@@ -65,12 +67,14 @@ public class ÇiğGirdi {
 		tekerleğininHedefi = null;
 	}
 	
-	/** Verilen tuş koduna denk gelen klavye tuşunu döndürür. Eğer denk bir tuş yoksa null döndürür. */
+	/** Verilen tuş koduna denk gelen klavye tuşunu döndürür. Eğer denk bir tuş
+	 * yoksa null döndürür. */
 	public Tuş klavyesininTuşunuEdin(final int tuşunKodu) {
 		return klavyesininTuşları.get(tuşunKodu);
 	}
 	
-	/** Eğer verilen tuş koduna denk gelen bir klavye tuşu yoksa yeni bir temsili tuş oluşturur. */
+	/** Eğer verilen tuş koduna denk gelen bir klavye tuşu yoksa yeni bir
+	 * temsili tuş oluşturur. */
 	public void klavyesininTuşunuEkle(final int tuşunKodu) {
 		if (!klavyesininTuşları.containsKey(tuşunKodu)) {
 			final Tuş tuş = new Tuş(tuşunKodu);
@@ -79,12 +83,14 @@ public class ÇiğGirdi {
 		}
 	}
 	
-	/** Verilen tuş koduna denk gelen fare tuşunu döndürür. Eğer denk bir tuş yoksa null döndürür. */
+	/** Verilen tuş koduna denk gelen fare tuşunu döndürür. Eğer denk bir tuş
+	 * yoksa null döndürür. */
 	public Tuş faresininTuşunuEdin(final int tuşunKodu) {
 		return faresininTuşları.get(tuşunKodu);
 	}
 	
-	/** Eğer verilen tuş koduna denk gelen bir fare tuşu yoksa yeni bir temsili tuş oluşturur. */
+	/** Eğer verilen tuş koduna denk gelen bir fare tuşu yoksa yeni bir temsili
+	 * tuş oluşturur. */
 	public void faresininTuşunuEkle(final int tuşKodu) {
 		if (!faresininTuşları.containsKey(tuşKodu)) {
 			final Tuş tuş = new Tuş(tuşKodu);
@@ -98,8 +104,9 @@ public class ÇiğGirdi {
 		imlecininEşzamansızKonumu.bileşenleriDeğiştir(x, y);
 	}
 	
-	/** Fare imlecinin verilen nesne tarafından kullanılmaya uygun olup olmadığını döndürür. Uygunsa
-	 * imlecin hedefini verilen nesneyle değiştirirek imleci kullanılmış olarak işaretler. */
+	/** Fare imlecinin verilen nesne tarafından kullanılmaya uygun olup
+	 * olmadığını döndürür. Uygunsa imlecin hedefini verilen nesneyle
+	 * değiştirirek imleci kullanılmış olarak işaretler. */
 	public boolean imleciniKullanmayıDene(final Object nesne) {
 		if (imlecininHedefi == null) {
 			imlecininHedefi = nesne;
@@ -119,8 +126,9 @@ public class ÇiğGirdi {
 		return tekerleğininDevri;
 	}
 	
-	/** Fare tekerleğinin verilen nesne tarafından kullanılmaya uygun olup olmadığını döndürür. Uygunsa
-	 * tekerleğin hedefini verilen nesneyle değiştirirek tekerleği kullanılmış olarak işaretler. */
+	/** Fare tekerleğinin verilen nesne tarafından kullanılmaya uygun olup
+	 * olmadığını döndürür. Uygunsa tekerleğin hedefini verilen nesneyle
+	 * değiştirirek tekerleği kullanılmış olarak işaretler. */
 	public boolean tekerleğiniKullanmayıDene(final Object nesne) {
 		if (tekerleğininHedefi == null) {
 			tekerleğininHedefi = nesne;

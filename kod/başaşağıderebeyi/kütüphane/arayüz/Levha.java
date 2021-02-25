@@ -48,7 +48,8 @@ public class Levha extends Öğe {
 		içerik.forEach(görev);
 	}
 	
-	/** Fare imlecinin bu öğenin ya da alt öğelerinden birinin üzerinde olup olmadığını döndürür. */
+	/** Fare imlecinin bu öğenin ya da alt öğelerinden birinin üzerinde olup
+	 * olmadığını döndürür. */
 	public boolean üzerindekindenMi() {
 		for (final Öğe öğe : içerik)
 			if (öğe instanceof Levha && ((Levha)öğe).üzerindekindenMi())

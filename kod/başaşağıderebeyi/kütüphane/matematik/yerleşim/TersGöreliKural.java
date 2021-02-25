@@ -21,7 +21,9 @@ public class TersGöreliKural extends YerleşimKuralı {
 	}
 	
 	/** Belirli bir uzaklıkla tanımlar. */
-	public TersGöreliKural(final DikdörtgenVerisi dikdörtgenVerisi, final float uzaklık) {
+	public TersGöreliKural(
+		final DikdörtgenVerisi dikdörtgenVerisi,
+		final float uzaklık) {
 		this(dikdörtgenVerisi);
 		yaz(uzaklık);
 	}

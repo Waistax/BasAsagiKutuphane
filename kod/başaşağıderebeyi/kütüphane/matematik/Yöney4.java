@@ -11,10 +11,11 @@ package başaşağıderebeyi.kütüphane.matematik;
 /** Dört boyutlu bir yöney. Bileşenler ondalıklı sayılar olarak saklanır. */
 public class Yöney4 {
 	/** Her eksende bir uzunluğunda olan yöney. */
-	public static final Yöney4 BİR = new Yöney4()	.topla(Yöney4.X_EKSENİ)
-													.topla(Yöney4.Y_EKSENİ)
-													.topla(Yöney4.Z_EKSENİ)
-													.topla(Yöney4.W_EKSENİ);
+	public static final Yöney4 BİR = new Yöney4()
+		.topla(Yöney4.X_EKSENİ)
+		.topla(Yöney4.Y_EKSENİ)
+		.topla(Yöney4.Z_EKSENİ)
+		.topla(Yöney4.W_EKSENİ);
 	/** Uzunluğu ve bileşenleri sıfır olan yöney. */
 	public static final Yöney4 SIFIR = new Yöney4();
 	/** W eksenini temsil eden yöney. */
@@ -49,41 +50,41 @@ public class Yöney4 {
 		değiştir(ö);
 	}
 	
-	/** Verilen yöneyle bu yöneyin aradeğerini buna yazar. Bu yöneyi döndürür. Mesafelerin toplamının bir
-	 * olduğunu varsayar. */
-	public Yöney4 aradeğer(final Yöney4 ö, final float uzaklık, final float yakınlık) {
+	/** Verilen yöneyle bu yöneyin aradeğerini buna yazar. Bu yöneyi döndürür.
+	 * Mesafelerin toplamının bir olduğunu varsayar. */
+	public Yöney4
+		aradeğer(final Yöney4 ö, final float uzaklık, final float yakınlık) {
 		return this.aradeğer(this, ö, uzaklık, yakınlık);
 	}
 	
-	/** Verilen yöneylerin aradeğerini buna yazar. Bu yöneyi döndürür. Mesafelerin toplamının bir
-	 * olduğunu varsayar. */
-	public Yöney4 aradeğer(	final Yöney4 sol,
-							final Yöney4 sağ,
-							final float solaUzaklık,
-							final float sağaUzaklık) {
-		return bileşenleriDeğiştir(	MatematikAracı.aradeğerleriniBul(	sol.x,
-																		sağ.x,
-																		solaUzaklık,
-																		sağaUzaklık),
-									MatematikAracı.aradeğerleriniBul(	sol.y,
-																		sağ.y,
-																		solaUzaklık,
-																		sağaUzaklık),
-									MatematikAracı.aradeğerleriniBul(	sol.z,
-																		sağ.z,
-																		solaUzaklık,
-																		sağaUzaklık),
-									MatematikAracı.aradeğerleriniBul(	sol.w,
-																		sağ.w,
-																		solaUzaklık,
-																		sağaUzaklık));
+	/** Verilen yöneylerin aradeğerini buna yazar. Bu yöneyi döndürür.
+	 * Mesafelerin toplamının bir olduğunu varsayar. */
+	public Yöney4 aradeğer(
+		final Yöney4 sol,
+		final Yöney4 sağ,
+		final float solaUzaklık,
+		final float sağaUzaklık) {
+		return bileşenleriDeğiştir(
+			MatematikAracı
+				.aradeğerleriniBul(sol.x, sağ.x, solaUzaklık, sağaUzaklık),
+			MatematikAracı
+				.aradeğerleriniBul(sol.y, sağ.y, solaUzaklık, sağaUzaklık),
+			MatematikAracı
+				.aradeğerleriniBul(sol.z, sağ.z, solaUzaklık, sağaUzaklık),
+			MatematikAracı
+				.aradeğerleriniBul(sol.w, sağ.w, solaUzaklık, sağaUzaklık));
 	}
 	
 	/** Yöneyin bileşenlerini değiştirir. Yöneyi döndürür. */
-	public Yöney4 bileşenleriDeğiştir(final float x, final float y, final float z, final float w) {
-		return xBileşeniniDeğiştir(x)	.yBileşeniniDeğiştir(y)
-										.zBileşeniniDeğiştir(z)
-										.wBileşeniniDeğiştir(w);
+	public Yöney4 bileşenleriDeğiştir(
+		final float x,
+		final float y,
+		final float z,
+		final float w) {
+		return xBileşeniniDeğiştir(x)
+			.yBileşeniniDeğiştir(y)
+			.zBileşeniniDeğiştir(z)
+			.wBileşeniniDeğiştir(w);
 	}
 	
 	/** Yöneyi sayıya böler. Yöneyi döndürür. */
@@ -93,20 +94,27 @@ public class Yöney4 {
 	
 	/** Verilen yöneyi sayıya bölüp buna yazar. Bu yöneyi döndürür. */
 	public Yöney4 böl(final Yöney4 sol, final float sağ) {
-		return bileşenleriDeğiştir(sol.x / sağ, sol.y / sağ, sol.z / sağ, sol.w / sağ);
+		return bileşenleriDeğiştir(
+			sol.x / sağ,
+			sol.y / sağ,
+			sol.z / sağ,
+			sol.w / sağ);
 	}
 	
-	/** Verilen yöneyin bileşenlerinden büyük olanlarını yazar. Bu yöneyi döndürür. */
+	/** Verilen yöneyin bileşenlerinden büyük olanlarını yazar. Bu yöneyi
+	 * döndürür. */
 	public Yöney4 büyüktür(final Yöney4 ö) {
 		return this.büyüktür(this, ö);
 	}
 	
-	/** Verilen yöneylerin bileşenlerinden büyük olanlarını buna yazar. Bu yöneyi döndürür. */
+	/** Verilen yöneylerin bileşenlerinden büyük olanlarını buna yazar. Bu
+	 * yöneyi döndürür. */
 	public Yöney4 büyüktür(final Yöney4 sol, final Yöney4 sağ) {
-		return bileşenleriDeğiştir(	MatematikAracı.büyüğüBul(sol.x, sağ.x),
-									MatematikAracı.büyüğüBul(sol.y, sağ.y),
-									MatematikAracı.büyüğüBul(sol.z, sağ.z),
-									MatematikAracı.büyüğüBul(sol.w, sağ.w));
+		return bileşenleriDeğiştir(
+			MatematikAracı.büyüğüBul(sol.x, sağ.x),
+			MatematikAracı.büyüğüBul(sol.y, sağ.y),
+			MatematikAracı.büyüğüBul(sol.z, sağ.z),
+			MatematikAracı.büyüğüBul(sol.w, sağ.w));
 	}
 	
 	/** Yöneyi sayıyla çarpar. Yöneyi döndürür. */
@@ -116,7 +124,11 @@ public class Yöney4 {
 	
 	/** Verilen yöneyi sayıyla çarpıp buna yazar. Bu yöneyi döndürür. */
 	public Yöney4 çarp(final Yöney4 sol, final float sağ) {
-		return bileşenleriDeğiştir(sol.x * sağ, sol.y * sağ, sol.z * sağ, sol.w * sağ);
+		return bileşenleriDeğiştir(
+			sol.x * sağ,
+			sol.y * sağ,
+			sol.z * sağ,
+			sol.w * sağ);
 	}
 	
 	/** Verilen yöneyi bu yöneyden çıkarır. Bu yöneyi döndürür. */
@@ -126,7 +138,11 @@ public class Yöney4 {
 	
 	/** Verilen yöneylerin çıkarıp buna yazar. Bu yöneyi döndürür. */
 	public Yöney4 çıkar(final Yöney4 sol, final Yöney4 sağ) {
-		return bileşenleriDeğiştir(sol.x - sağ.x, sol.y - sağ.y, sol.z - sağ.z, sol.w - sağ.w);
+		return bileşenleriDeğiştir(
+			sol.x - sağ.x,
+			sol.y - sağ.y,
+			sol.z - sağ.z,
+			sol.w - sağ.w);
 	}
 	
 	/** Verilen yöneyi buna yazar. Bu yöneyi döndürür. */
@@ -140,16 +156,18 @@ public class Yöney4 {
 	}
 	
 	/** Yöneyi verilen dize oluşturucusuna ekler. Oluşturucuyu döndürür. */
-	public StringBuilder dizeOluşturucusunaYaz(final StringBuilder dizeOluşturucusu) {
-		return dizeOluşturucusu	.append('(')
-								.append(x)
-								.append(", ")
-								.append(y)
-								.append(", ")
-								.append(z)
-								.append(", ")
-								.append(w)
-								.append(')');
+	public StringBuilder
+		dizeOluşturucusunaYaz(final StringBuilder dizeOluşturucusu) {
+		return dizeOluşturucusu
+			.append('(')
+			.append(x)
+			.append(", ")
+			.append(y)
+			.append(", ")
+			.append(z)
+			.append(", ")
+			.append(w)
+			.append(')');
 	}
 	
 	/** Yöneyin doğrultusunu (birim yöneyini) hesaplar. Bu yöneyi döndürür. */
@@ -157,7 +175,8 @@ public class Yöney4 {
 		return this.böl(uzunluk());
 	}
 	
-	/** Verilen yöneyin doğrultusunu (birim yöneyini) buna yazar. Bu yöneyi döndürür. */
+	/** Verilen yöneyin doğrultusunu (birim yöneyini) buna yazar. Bu yöneyi
+	 * döndürür. */
 	public Yöney4 doğrultu(final Yöney4 ö) {
 		return this.böl(ö, ö.uzunluk());
 	}
@@ -170,7 +189,8 @@ public class Yöney4 {
 	}
 	
 	/** Verilen bileşenlerin yöneyinkilere eşitliğini hesaplar. */
-	public boolean eşitMi(final float x, final float y, final float z, final float w) {
+	public boolean
+		eşitMi(final float x, final float y, final float z, final float w) {
 		return this.x == x && this.y == y && this.z == z && this.w == w;
 	}
 	
@@ -179,17 +199,20 @@ public class Yöney4 {
 		return this.eşitMi(ö.x, ö.y, ö.z, ö.w);
 	}
 	
-	/** Verilen yöneyin bileşenlerinden küçük olanlarını yazar. Bu yöneyi döndürür. */
+	/** Verilen yöneyin bileşenlerinden küçük olanlarını yazar. Bu yöneyi
+	 * döndürür. */
 	public Yöney4 küçüktür(final Yöney4 ö) {
 		return this.küçüktür(this, ö);
 	}
 	
-	/** Verilen yöneylerin bileşenlerinden küçük olanlarını buna yazar. Bu yöneyi döndürür. */
+	/** Verilen yöneylerin bileşenlerinden küçük olanlarını buna yazar. Bu
+	 * yöneyi döndürür. */
 	public Yöney4 küçüktür(final Yöney4 sol, final Yöney4 sağ) {
-		return bileşenleriDeğiştir(	MatematikAracı.küçüğüBul(sol.x, sağ.x),
-									MatematikAracı.küçüğüBul(sol.y, sağ.y),
-									MatematikAracı.küçüğüBul(sol.z, sağ.z),
-									MatematikAracı.küçüğüBul(sol.w, sağ.w));
+		return bileşenleriDeğiştir(
+			MatematikAracı.küçüğüBul(sol.x, sağ.x),
+			MatematikAracı.küçüğüBul(sol.y, sağ.y),
+			MatematikAracı.küçüğüBul(sol.z, sağ.z),
+			MatematikAracı.küçüğüBul(sol.w, sağ.w));
 	}
 	
 	/** Verilen yöneyle bu yöneyin nokta çarpımını hesaplar. */
@@ -202,12 +225,14 @@ public class Yöney4 {
 		return this.sıkıştır(this, alt, üst);
 	}
 	
-	/** Verilen yöneyin bileşenlerini ayrı ayrı sıkıştırıp buna yazar. Bu yöneyi döndürür. */
+	/** Verilen yöneyin bileşenlerini ayrı ayrı sıkıştırıp buna yazar. Bu yöneyi
+	 * döndürür. */
 	public Yöney4 sıkıştır(final Yöney4 ö, final Yöney4 alt, final Yöney4 üst) {
-		return bileşenleriDeğiştir(	MatematikAracı.sıkıştır(ö.x, alt.x, üst.x),
-									MatematikAracı.sıkıştır(ö.y, alt.y, üst.y),
-									MatematikAracı.sıkıştır(ö.z, alt.z, üst.z),
-									MatematikAracı.sıkıştır(ö.w, alt.w, üst.w));
+		return bileşenleriDeğiştir(
+			MatematikAracı.sıkıştır(ö.x, alt.x, üst.x),
+			MatematikAracı.sıkıştır(ö.y, alt.y, üst.y),
+			MatematikAracı.sıkıştır(ö.z, alt.z, üst.z),
+			MatematikAracı.sıkıştır(ö.w, alt.w, üst.w));
 	}
 	
 	/** Yöneyin bileşenlerini ayrı ayrı aşağı yuvarlar. Yöneyi döndürür. */
@@ -215,12 +240,14 @@ public class Yöney4 {
 		return this.taban(this);
 	}
 	
-	/** Verilen yöneyin bileşenlerini ayrı ayrı aşağı yuvarlayıp buna yazar. Bu yöneyi döndürür. */
+	/** Verilen yöneyin bileşenlerini ayrı ayrı aşağı yuvarlayıp buna yazar. Bu
+	 * yöneyi döndürür. */
 	public Yöney4 taban(final Yöney4 ö) {
-		return bileşenleriDeğiştir(	MatematikAracı.aşağıYuvarla(ö.x),
-									MatematikAracı.aşağıYuvarla(ö.y),
-									MatematikAracı.aşağıYuvarla(ö.z),
-									MatematikAracı.aşağıYuvarla(ö.w));
+		return bileşenleriDeğiştir(
+			MatematikAracı.aşağıYuvarla(ö.x),
+			MatematikAracı.aşağıYuvarla(ö.y),
+			MatematikAracı.aşağıYuvarla(ö.z),
+			MatematikAracı.aşağıYuvarla(ö.w));
 	}
 	
 	/** Yöneyin bileşenlerini ayrı ayrı yukarı yuvarlar. Yöneyi döndürür. */
@@ -228,12 +255,14 @@ public class Yöney4 {
 		return this.tavan(this);
 	}
 	
-	/** Verilen yöneyin bileşenlerini ayrı ayrı yukarı yuvarlayıp buna yazar. Bu yöneyi döndürür. */
+	/** Verilen yöneyin bileşenlerini ayrı ayrı yukarı yuvarlayıp buna yazar. Bu
+	 * yöneyi döndürür. */
 	public Yöney4 tavan(final Yöney4 ö) {
-		return bileşenleriDeğiştir(	MatematikAracı.yukarıYuvarla(ö.x),
-									MatematikAracı.yukarıYuvarla(ö.y),
-									MatematikAracı.yukarıYuvarla(ö.z),
-									MatematikAracı.yukarıYuvarla(ö.w));
+		return bileşenleriDeğiştir(
+			MatematikAracı.yukarıYuvarla(ö.x),
+			MatematikAracı.yukarıYuvarla(ö.y),
+			MatematikAracı.yukarıYuvarla(ö.z),
+			MatematikAracı.yukarıYuvarla(ö.w));
 	}
 	
 	/** Verilen yöneyi bu yöneye ekler. Bu yöneyi döndürür. */
@@ -243,7 +272,11 @@ public class Yöney4 {
 	
 	/** Verilen yöneyleri toplayıp buna yazar. Bu yöneyi döndürür. */
 	public Yöney4 topla(final Yöney4 sol, final Yöney4 sağ) {
-		return bileşenleriDeğiştir(sol.x + sağ.x, sol.y + sağ.y, sol.z + sağ.z, sol.w + sağ.w);
+		return bileşenleriDeğiştir(
+			sol.x + sağ.x,
+			sol.y + sağ.y,
+			sol.z + sağ.z,
+			sol.w + sağ.w);
 	}
 	
 	@Override
@@ -284,12 +317,14 @@ public class Yöney4 {
 		return this.yuvarla(this);
 	}
 	
-	/** Verilen yöneyin bileşenlerini ayrı ayrı yuvarlayıp buna yazar. Bu yöneyi döndürür. */
+	/** Verilen yöneyin bileşenlerini ayrı ayrı yuvarlayıp buna yazar. Bu yöneyi
+	 * döndürür. */
 	public Yöney4 yuvarla(final Yöney4 ö) {
-		return bileşenleriDeğiştir(	MatematikAracı.yuvarla(ö.x),
-									MatematikAracı.yuvarla(ö.y),
-									MatematikAracı.yuvarla(ö.z),
-									MatematikAracı.yuvarla(ö.w));
+		return bileşenleriDeğiştir(
+			MatematikAracı.yuvarla(ö.x),
+			MatematikAracı.yuvarla(ö.y),
+			MatematikAracı.yuvarla(ö.z),
+			MatematikAracı.yuvarla(ö.w));
 	}
 	
 	/** Yöneyin üçüncü bileşenini değiştirir. Yöneyi döndürür. */

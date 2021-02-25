@@ -21,24 +21,34 @@ public class Pencere extends Levha {
 	public final String başlık;
 	
 	/** Ekranın en üstünde tanımlar. */
-	public Pencere(final Ekran ekran, final String başlık, final float genişlik, final float yükseklik) {
+	public Pencere(
+		final Ekran ekran,
+		final String başlık,
+		final float genişlik,
+		final float yükseklik) {
 		super(ekran, null, ekran);
 		this.başlık = başlık;
-		yerleşikDikdörtgeni.kurallar(	new SerbestKural(	DikdörtgenVerisi.ORTA,
-															ekran.alanı.o.birinciBileşeni),
-										new SerbestKural(DikdörtgenVerisi.UZUNLUK, genişlik),
-										new SerbestKural(	DikdörtgenVerisi.ORTA,
-															ekran.alanı.o.ikinciBileşeni),
-										new SerbestKural(DikdörtgenVerisi.UZUNLUK, yükseklik));
+		yerleşikDikdörtgeni
+			.kurallar(
+				new SerbestKural(
+					DikdörtgenVerisi.ORTA,
+					ekran.alanı.o.birinciBileşeni),
+				new SerbestKural(DikdörtgenVerisi.UZUNLUK, genişlik),
+				new SerbestKural(
+					DikdörtgenVerisi.ORTA,
+					ekran.alanı.o.ikinciBileşeni),
+				new SerbestKural(DikdörtgenVerisi.UZUNLUK, yükseklik));
 		new PencereÇubuğu(this);
-		new Düğme(	this,
-					"X",
-					new PencereyiKapat(this)).yerleşikDikdörtgeni.kurallar(	new TersGöreliKural(DikdörtgenVerisi.BÜYÜK),
-																			new SerbestKural(	DikdörtgenVerisi.UZUNLUK,
-																								Pencere.ÇARPI_GENİŞLİĞİ),
-																			new GöreliKural(DikdörtgenVerisi.KÜÇÜK),
-																			new SerbestKural(	DikdörtgenVerisi.UZUNLUK,
-																								Pencere.ÇUBUK_KALINLIĞI));
+		new Düğme(this, "X", new PencereyiKapat(this)).yerleşikDikdörtgeni
+			.kurallar(
+				new TersGöreliKural(DikdörtgenVerisi.BÜYÜK),
+				new SerbestKural(
+					DikdörtgenVerisi.UZUNLUK,
+					Pencere.ÇARPI_GENİŞLİĞİ),
+				new GöreliKural(DikdörtgenVerisi.KÜÇÜK),
+				new SerbestKural(
+					DikdörtgenVerisi.UZUNLUK,
+					Pencere.ÇUBUK_KALINLIĞI));
 	}
 	
 	@Override

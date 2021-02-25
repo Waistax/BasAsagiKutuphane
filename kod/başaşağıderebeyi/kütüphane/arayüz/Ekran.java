@@ -24,27 +24,31 @@ public class Ekran extends Levha {
 	public final Tuş solTık;
 	
 	/** Bir girdi ve boyut ile tanımlar. */
-	public Ekran(	final ÇiğGirdi girdi,
-					final int solTık,
-					final float ortaX,
-					final float ortaY,
-					final float genişlik,
-					final float yükseklik) {
+	public Ekran(
+		final ÇiğGirdi girdi,
+		final int solTık,
+		final float ortaX,
+		final float ortaY,
+		final float genişlik,
+		final float yükseklik) {
 		super(null, null, null);
 		this.girdi = girdi;
 		this.solTık = girdi.faresininTuşunuEdin(solTık);
 		
 		// Verilen boyutları kullanarak ekranı yerleştir.
-		yerleşikDikdörtgeni	.kurallar(	new SerbestKural(DikdörtgenVerisi.ORTA, ortaX),
-										new SerbestKural(DikdörtgenVerisi.UZUNLUK, genişlik),
-										new SerbestKural(DikdörtgenVerisi.ORTA, ortaY),
-										new SerbestKural(DikdörtgenVerisi.UZUNLUK, yükseklik))
-							.yerleştir();
+		yerleşikDikdörtgeni
+			.kurallar(
+				new SerbestKural(DikdörtgenVerisi.ORTA, ortaX),
+				new SerbestKural(DikdörtgenVerisi.UZUNLUK, genişlik),
+				new SerbestKural(DikdörtgenVerisi.ORTA, ortaY),
+				new SerbestKural(DikdörtgenVerisi.UZUNLUK, yükseklik))
+			.yerleştir();
 	}
 	
 	@Override
 	protected void üzerindeBulunmasınıHesapla() {
-		final ListIterator<Öğe> tersineYineleme = içerik.listIterator(içerik.size());
+		final ListIterator<
+			Öğe> tersineYineleme = içerik.listIterator(içerik.size());
 		while (tersineYineleme.hasPrevious())
 			tersineYineleme.previous().üzerindeBulunmasınıHesapla();
 		

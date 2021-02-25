@@ -22,24 +22,35 @@ public class ArayüzDeneme implements AWTGüncelleyici {
 	/** Tanımlar. */
 	public ArayüzDeneme() {
 		motor = new AWTMotor(this);
-		ekran = new Ekran(motor.girdi, MouseEvent.BUTTON1, 640.0F, 360.0F, 1280.0F, 720.0F);
+		ekran = new Ekran(
+			motor.girdi,
+			MouseEvent.BUTTON1,
+			640.0F,
+			360.0F,
+			1280.0F,
+			720.0F);
 		new Pencere(ekran, "Deneme", 300, 200);
 		motor.başlat();
 	}
 	
 	/** Verilen dikdörtgeni ekrana kutu olarak çizer. */
-	private void kutuÇiz(final Dikdörtgen d, final Color renk, final boolean kalın) {
+	private void
+		kutuÇiz(final Dikdörtgen d, final Color renk, final boolean kalın) {
 		motor.çizer.setColor(renk);
 		motor.çizer.setStroke(new BasicStroke(kalın ? 2.0F : 0.5F));
-		motor.çizer.fillRect(	(int)d.k.birinciBileşeni,
-								(int)d.k.ikinciBileşeni,
-								(int)(d.b.birinciBileşeni - d.k.birinciBileşeni),
-								(int)(d.b.ikinciBileşeni - d.k.ikinciBileşeni));
+		motor.çizer
+			.fillRect(
+				(int)d.k.birinciBileşeni,
+				(int)d.k.ikinciBileşeni,
+				(int)(d.b.birinciBileşeni - d.k.birinciBileşeni),
+				(int)(d.b.ikinciBileşeni - d.k.ikinciBileşeni));
 		motor.çizer.setColor(Color.black);
-		motor.çizer.drawRect(	(int)d.k.birinciBileşeni,
-								(int)d.k.ikinciBileşeni,
-								(int)(d.b.birinciBileşeni - d.k.birinciBileşeni),
-								(int)(d.b.ikinciBileşeni - d.k.ikinciBileşeni));
+		motor.çizer
+			.drawRect(
+				(int)d.k.birinciBileşeni,
+				(int)d.k.ikinciBileşeni,
+				(int)(d.b.birinciBileşeni - d.k.birinciBileşeni),
+				(int)(d.b.ikinciBileşeni - d.k.ikinciBileşeni));
 	}
 	
 	/** Verilen öğeyi çizer. */
@@ -52,27 +63,35 @@ public class ArayüzDeneme implements AWTGüncelleyici {
 				kutuÇiz(öğe.alanı, Color.LIGHT_GRAY, ekran.üstteMi(öğe));
 			((Levha)öğe).herÖğeİçin(this::öğeÇiz);
 		} else if (öğe instanceof Düğme) {
-			kutuÇiz(öğe.alanı,
-					öğe.üzerindeMi() ? Color.RED :
-							((Düğme)öğe).basılıOlmasınıEdin() ? Color.GRAY : Color.WHITE,
-					false);
+			kutuÇiz(
+				öğe.alanı,
+				öğe.üzerindeMi() ?
+					Color.RED :
+					((Düğme)öğe).basılıOlmasınıEdin() ?
+						Color.GRAY :
+						Color.WHITE,
+				false);
 			motor.çizer.setColor(öğe.üzerindeMi() ? Color.white : Color.black);
 			final String yazı = ((Düğme)öğe).yazı;
-			motor.çizer.drawString(	yazı,
-									(öğe.alanı.b.birinciBileşeni +
-										öğe.alanı.k.birinciBileşeni -
-										ölçü.stringWidth(yazı)) / 2.0F,
-									(öğe.alanı.b.ikinciBileşeni +
-										öğe.alanı.k.ikinciBileşeni +
-										yazıSonu) / 2.0F);
+			motor.çizer
+				.drawString(
+					yazı,
+					(öğe.alanı.b.birinciBileşeni +
+						öğe.alanı.k.birinciBileşeni -
+						ölçü.stringWidth(yazı)) / 2.0F,
+					(öğe.alanı.b.ikinciBileşeni +
+						öğe.alanı.k.ikinciBileşeni +
+						yazıSonu) / 2.0F);
 		} else if (öğe instanceof PencereÇubuğu) {
 			kutuÇiz(öğe.alanı, Color.WHITE, false);
 			motor.çizer.setColor(Color.black);
-			motor.çizer.drawString(	öğe.içerenPencere.başlık,
-									öğe.alanı.k.birinciBileşeni + ölçü.charWidth(' '),
-									(öğe.alanı.b.ikinciBileşeni +
-										öğe.alanı.k.ikinciBileşeni +
-										yazıSonu) / 2.0F);
+			motor.çizer
+				.drawString(
+					öğe.içerenPencere.başlık,
+					öğe.alanı.k.birinciBileşeni + ölçü.charWidth(' '),
+					(öğe.alanı.b.ikinciBileşeni +
+						öğe.alanı.k.ikinciBileşeni +
+						yazıSonu) / 2.0F);
 		}
 	}
 	

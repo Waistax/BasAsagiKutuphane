@@ -10,10 +10,10 @@ package başaşağıderebeyi.kütüphane.olay;
 
 /** Dinleyici önceliği sıralaması. */
 public enum Öncelik {
-	/** İkinci olarak işleyecekler. */
-	ARA,
-	/** En önce işleyecekler. */
-	TEMEL,
-	/** En son sırada işleyecekler. */
-	YÜZEY;
+		/** İkinci olarak işleyecekler. */
+		ARA,
+		/** En önce işleyecekler. */
+		TEMEL,
+		/** En son sırada işleyecekler. */
+		YÜZEY;
 }

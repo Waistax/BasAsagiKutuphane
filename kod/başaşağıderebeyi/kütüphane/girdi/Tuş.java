@@ -18,8 +18,9 @@ public class Tuş {
 	private boolean basılması;
 	private boolean salınması;
 	
-	/** Tuşun girdisini kullanan (dinleyen ve işleyen) nesne. Tuş girdisini kullanmadan önce uygun olup
-	 * olmadığına bakılmalı ve kullanıldıktan sonra bu nesne değiştirilmelidir. */
+	/** Tuşun girdisini kullanan (dinleyen ve işleyen) nesne. Tuş girdisini
+	 * kullanmadan önce uygun olup olmadığına bakılmalı ve kullanıldıktan sonra
+	 * bu nesne değiştirilmelidir. */
 	public Object hedefi;
 	
 	public Tuş(final int kodu) {
@@ -57,8 +58,9 @@ public class Tuş {
 		return salınması;
 	}
 	
-	/** Tuşun verilen nesne tarafından kullanılmaya uygun olup olmadığını döndürür. Uygunsa tuşun
-	 * hedefini verilen nesneyle değiştirirek tuşu kullanılmış olarak işaretler. */
+	/** Tuşun verilen nesne tarafından kullanılmaya uygun olup olmadığını
+	 * döndürür. Uygunsa tuşun hedefini verilen nesneyle değiştirirek tuşu
+	 * kullanılmış olarak işaretler. */
 	public boolean kullanmayıDene(final Object nesne) {
 		if (hedefi == null) {
 			hedefi = nesne;

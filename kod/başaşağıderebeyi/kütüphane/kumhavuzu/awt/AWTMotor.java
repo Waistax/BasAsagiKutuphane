@@ -66,9 +66,14 @@ public class AWTMotor {
 		tuval.createBufferStrategy(2);
 		tampon = tuval.getBufferStrategy();
 		çizer = (Graphics2D)tampon.getDrawGraphics();
-		çizer.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-		çizer.setRenderingHint(	RenderingHints.KEY_TEXT_ANTIALIASING,
-								RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+		çizer
+			.setRenderingHint(
+				RenderingHints.KEY_ANTIALIASING,
+				RenderingHints.VALUE_ANTIALIAS_ON);
+		çizer
+			.setRenderingHint(
+				RenderingHints.KEY_TEXT_ANTIALIASING,
+				RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 		this.güncelleyici = güncelleyici;
 	}
 	

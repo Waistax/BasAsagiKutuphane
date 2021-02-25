@@ -34,20 +34,26 @@ public abstract class Öğe {
 	}
 	
 	/** Verilen öğelerin içinde tanımlar. */
-	public Öğe(final Levha içerenLevha, final Pencere içerenPencere, final Ekran içerenEkran) {
+	public Öğe(
+		final Levha içerenLevha,
+		final Pencere içerenPencere,
+		final Ekran içerenEkran) {
 		alanı = new Dikdörtgen();
 		this.içerenLevha = içerenLevha;
 		if (içerenLevha == null)
 			yerleşikDikdörtgeni = new YerleşikDikdörtgen(null, alanı);
 		else {
-			yerleşikDikdörtgeni = new YerleşikDikdörtgen(içerenLevha.alanı, alanı);
+			yerleşikDikdörtgeni = new YerleşikDikdörtgen(
+				içerenLevha.alanı,
+				alanı);
 			içerenLevha.içerik.add(this);
 		}
 		this.içerenPencere = içerenPencere;
 		this.içerenEkran = içerenEkran;
 	}
 	
-	/** Öğenin açık olup olmadığını döndürür. Bu öğe açık olsa da üstü kapalıysa kapalı sayılır. */
+	/** Öğenin açık olup olmadığını döndürür. Bu öğe açık olsa da üstü kapalıysa
+	 * kapalı sayılır. */
 	public boolean açıkMı() {
 		return açıkOlması && içerenLevha.açıkMı();
 	}
@@ -64,8 +70,9 @@ public abstract class Öğe {
 	
 	/** Fare imlecinin öğenin üzerinde bulunup bulunmadığını hesaplar. */
 	protected void üzerindeBulunmasınıHesapla() {
-		if (imlecinAltındaOlması = alanı.içinde(içerenEkran.girdi.imlecininKonumu) &&
-									içerenEkran.girdi.imleçUygunMu(this))
+		if (imlecinAltındaOlması = alanı
+			.içinde(içerenEkran.girdi.imlecininKonumu) &&
+			içerenEkran.girdi.imleçUygunMu(this))
 			içerenEkran.girdi.imlecininHedefi = this;
 	}
 	

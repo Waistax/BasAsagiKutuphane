@@ -57,7 +57,9 @@ public class HızDeneme {
 		final long başlangıç = System.nanoTime();
 		for (int i = 0; i < N; i++)
 			HızDeneme.yerleşimVerisininKomşusunuAl();
-		System.out.println("Ortalama: " + (System.nanoTime() - başlangıç) / (double)N);
+		System.out
+			.println(
+				"Ortalama: " + (System.nanoTime() - başlangıç) / (double)N);
 	}
 	
 	/** Yerleşim verisinin karşısına ulaşma hızını ölçer. */

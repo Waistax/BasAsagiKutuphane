@@ -20,7 +20,10 @@ class DinleyiciBilgisi {
 	final Method yöntem;
 	
 	/** Kaydı tanımlar. */
-	DinleyiciBilgisi(final Object nesne, final Method yöntem, final boolean kaldırılmışlarıDinler) {
+	DinleyiciBilgisi(
+		final Object nesne,
+		final Method yöntem,
+		final boolean kaldırılmışlarıDinler) {
 		this.nesne = nesne;
 		this.yöntem = yöntem;
 		this.kaldırılmışlarıDinler = kaldırılmışlarıDinler;

@@ -21,7 +21,9 @@ public class GöreliKural extends YerleşimKuralı {
 	}
 	
 	/** Belirli bir uzaklıkla tanımlar. */
-	public GöreliKural(final DikdörtgenVerisi dikdörtgenVerisi, final float uzaklık) {
+	public GöreliKural(
+		final DikdörtgenVerisi dikdörtgenVerisi,
+		final float uzaklık) {
 		this(dikdörtgenVerisi);
 		yaz(uzaklık);
 	}

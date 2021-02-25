@@ -27,12 +27,13 @@ public class Dikdörtgen {
 		u = new Yöney2();
 	}
 	
-	/** Verilen dikdörtgenlerin aradeğerini buna yazar. Bu dikdörtgeni döndürür. Mesafelerin toplamının
-	 * bir olduğunu varsayar. */
-	public Dikdörtgen aradeğer(	final Dikdörtgen sol,
-								final Dikdörtgen sağ,
-								final float solaUzaklık,
-								final float sağaUzaklık) {
+	/** Verilen dikdörtgenlerin aradeğerini buna yazar. Bu dikdörtgeni döndürür.
+	 * Mesafelerin toplamının bir olduğunu varsayar. */
+	public Dikdörtgen aradeğer(
+		final Dikdörtgen sol,
+		final Dikdörtgen sağ,
+		final float solaUzaklık,
+		final float sağaUzaklık) {
 		k.aradeğerleriniBul(sol.k, sağ.k, solaUzaklık, sağaUzaklık);
 		b.aradeğerleriniBul(sol.b, sağ.b, solaUzaklık, sağaUzaklık);
 		o.aradeğerleriniBul(sol.o, sağ.o, solaUzaklık, sağaUzaklık);
@@ -40,9 +41,12 @@ public class Dikdörtgen {
 		return this;
 	}
 	
-	/** Verilen dikdörtgenle bu yöneyin aradeğerini buna yazar. Bu dikdörtgeni döndürür. Mesafelerin
-	 * toplamının bir olduğunu varsayar. */
-	public Dikdörtgen aradeğer(final Dikdörtgen ö, final float uzaklık, final float yakınlık) {
+	/** Verilen dikdörtgenle bu yöneyin aradeğerini buna yazar. Bu dikdörtgeni
+	 * döndürür. Mesafelerin toplamının bir olduğunu varsayar. */
+	public Dikdörtgen aradeğer(
+		final Dikdörtgen ö,
+		final float uzaklık,
+		final float yakınlık) {
 		return this.aradeğer(this, ö, uzaklık, yakınlık);
 	}
 	
@@ -53,15 +57,16 @@ public class Dikdörtgen {
 	
 	/** Dikdörtgeni dizeye ekler. */
 	public StringBuilder dize(final StringBuilder dize) {
-		return dize	.append('[')
-					.append(k)
-					.append(", ")
-					.append(b)
-					.append(", ")
-					.append(o)
-					.append(", ")
-					.append(u)
-					.append(']');
+		return dize
+			.append('[')
+			.append(k)
+			.append(", ")
+			.append(b)
+			.append(", ")
+			.append(o)
+			.append(", ")
+			.append(u)
+			.append(']');
 	}
 	
 	@Override
@@ -74,26 +79,27 @@ public class Dikdörtgen {
 	/** Verilen dikdörtgenin bu dikdörtgene eşit olup olmadığını hesaplar. */
 	public boolean eşittir(final Dikdörtgen ö) {
 		return k.eşitOlmalarınıBul(ö.k) &&
-				b.eşitOlmalarınıBul(ö.b) &&
-				o.eşitOlmalarınıBul(ö.o) &&
-				u.eşitOlmalarınıBul(ö.u);
+			b.eşitOlmalarınıBul(ö.b) &&
+			o.eşitOlmalarınıBul(ö.o) &&
+			u.eşitOlmalarınıBul(ö.u);
 	}
 	
 	/** Yöneyin dikdörtgenin içinde olup olmadığını hesaplar. */
 	public boolean içinde(final Yöney2 ö) {
 		return k.birinciBileşeni <= ö.birinciBileşeni &&
-				k.ikinciBileşeni <= ö.ikinciBileşeni &&
-				b.birinciBileşeni >= ö.birinciBileşeni &&
-				b.ikinciBileşeni >= ö.ikinciBileşeni;
+			k.ikinciBileşeni <= ö.ikinciBileşeni &&
+			b.birinciBileşeni >= ö.birinciBileşeni &&
+			b.ikinciBileşeni >= ö.ikinciBileşeni;
 	}
 	
-	/** Dikdörtgenin verilerini ayrı ayrı aşağı yuvarlar. Dikdörtgeni döndürür. */
+	/** Dikdörtgenin verilerini ayrı ayrı aşağı yuvarlar. Dikdörtgeni
+	 * döndürür. */
 	public Dikdörtgen taban() {
 		return this.taban(this);
 	}
 	
-	/** Verilen dikdörtgenin verilerini ayrı ayrı aşağı yuvarlayıp buna yazar. Bu dikdörtgeni
-	 * döndürür. */
+	/** Verilen dikdörtgenin verilerini ayrı ayrı aşağı yuvarlayıp buna yazar.
+	 * Bu dikdörtgeni döndürür. */
 	public Dikdörtgen taban(final Dikdörtgen ö) {
 		k.aşağıYuvarla(ö.k);
 		b.aşağıYuvarla(ö.b);
@@ -102,13 +108,14 @@ public class Dikdörtgen {
 		return this;
 	}
 	
-	/** Dikdörtgenin verilerini ayrı ayrı yukarı yuvarlar. Dikdörtgeni döndürür. */
+	/** Dikdörtgenin verilerini ayrı ayrı yukarı yuvarlar. Dikdörtgeni
+	 * döndürür. */
 	public Dikdörtgen tavan() {
 		return this.tavan(this);
 	}
 	
-	/** Verilen dikdörtgenin verilerini ayrı ayrı yukarı yuvarlayıp buna yazar. Bu dikdörtgeni
-	 * döndürür. */
+	/** Verilen dikdörtgenin verilerini ayrı ayrı yukarı yuvarlayıp buna yazar.
+	 * Bu dikdörtgeni döndürür. */
 	public Dikdörtgen tavan(final Dikdörtgen ö) {
 		k.yukarıYuvarla(ö.k);
 		b.yukarıYuvarla(ö.b);
@@ -156,7 +163,8 @@ public class Dikdörtgen {
 		return this.yuvarla(this);
 	}
 	
-	/** Verilen dikdörtgenin verilerini ayrı ayrı yuvarlayıp buna yazar. Bu dikdörtgeni döndürür. */
+	/** Verilen dikdörtgenin verilerini ayrı ayrı yuvarlayıp buna yazar. Bu
+	 * dikdörtgeni döndürür. */
 	public Dikdörtgen yuvarla(final Dikdörtgen ö) {
 		k.yuvarla(ö.k);
 		b.yuvarla(ö.b);

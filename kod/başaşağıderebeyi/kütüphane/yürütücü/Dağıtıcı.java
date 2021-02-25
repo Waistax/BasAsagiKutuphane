@@ -9,8 +9,8 @@ import java.util.*;
 
 /** Nesneleri takımlara eşit dağıtır ve onları aynı anda yürütür. */
 public class Dağıtıcı<T> {
-	/** Toplam dağıtılmış nesne sayısı. Bu sayı her takıma kaç eleman düşeceğini hesaplamada
-	 * kullanılır. */
+	/** Toplam dağıtılmış nesne sayısı. Bu sayı her takıma kaç eleman düşeceğini
+	 * hesaplamada kullanılır. */
 	private int nesneSayısı;
 	/** Nesneleri içeren takımlar. */
 	private final Set<Takım<T>> takımlar;
