@@ -66,7 +66,9 @@ public class Dikdörtgen {
 	
 	@Override
 	public boolean equals(final Object obj) {
-		return eşittir((Dikdörtgen)obj);
+		if (obj instanceof Dikdörtgen ö)
+			return eşittir(ö);
+		return false;
 	}
 	
 	/** Verilen dikdörtgenin bu dikdörtgene eşit olup olmadığını hesaplar. */
@@ -76,7 +78,10 @@ public class Dikdörtgen {
 	
 	/** Yöneyin dikdörtgenin içinde olup olmadığını hesaplar. */
 	public boolean içinde(final Yöney2 ö) {
-		return k.x <= ö.x && k.y <= ö.y && b.x >= ö.x && b.y >= ö.y;
+		return k.birinciBileşeni <= ö.birinciBileşeni &&
+				k.ikinciBileşeni <= ö.ikinciBileşeni &&
+				b.birinciBileşeni >= ö.birinciBileşeni &&
+				b.ikinciBileşeni >= ö.ikinciBileşeni;
 	}
 	
 	/** Dikdörtgenin verilerini ayrı ayrı aşağı yuvarlar. Dikdörtgeni döndürür. */

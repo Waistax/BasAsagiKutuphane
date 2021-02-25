@@ -24,9 +24,11 @@ public class Pencere extends Levha {
 	public Pencere(final Ekran ekran, final String başlık, final float genişlik, final float yükseklik) {
 		super(ekran, null, ekran);
 		this.başlık = başlık;
-		yerleşikDikdörtgeni.kurallar(	new SerbestKural(DikdörtgenVerisi.ORTA, ekran.alanı.o.x),
+		yerleşikDikdörtgeni.kurallar(	new SerbestKural(	DikdörtgenVerisi.ORTA,
+															ekran.alanı.o.birinciBileşeni),
 										new SerbestKural(DikdörtgenVerisi.UZUNLUK, genişlik),
-										new SerbestKural(DikdörtgenVerisi.ORTA, ekran.alanı.o.y),
+										new SerbestKural(	DikdörtgenVerisi.ORTA,
+															ekran.alanı.o.ikinciBileşeni),
 										new SerbestKural(DikdörtgenVerisi.UZUNLUK, yükseklik));
 		new PencereÇubuğu(this);
 		new Düğme(	this,

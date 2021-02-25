@@ -53,9 +53,18 @@ public class Yöney3 {
 							final Yöney3 sağ,
 							final float solaUzaklık,
 							final float sağaUzaklık) {
-		return bileşenleriDeğiştir(	Hesaplayıcı.aradeğer(sol.x, sağ.x, solaUzaklık, sağaUzaklık),
-									Hesaplayıcı.aradeğer(sol.y, sağ.y, solaUzaklık, sağaUzaklık),
-									Hesaplayıcı.aradeğer(sol.z, sağ.z, solaUzaklık, sağaUzaklık));
+		return bileşenleriDeğiştir(	MatematikAracı.aradeğerleriniBul(	sol.x,
+																		sağ.x,
+																		solaUzaklık,
+																		sağaUzaklık),
+									MatematikAracı.aradeğerleriniBul(	sol.y,
+																		sağ.y,
+																		solaUzaklık,
+																		sağaUzaklık),
+									MatematikAracı.aradeğerleriniBul(	sol.z,
+																		sağ.z,
+																		solaUzaklık,
+																		sağaUzaklık));
 	}
 	
 	/** Yöneyin bileşenlerini değiştirir. Yöneyi döndürür. */
@@ -80,9 +89,9 @@ public class Yöney3 {
 	
 	/** Verilen yöneylerin bileşenlerinden büyük olanlarını buna yazar. Bu yöneyi döndürür. */
 	public Yöney3 büyüktür(final Yöney3 sol, final Yöney3 sağ) {
-		return bileşenleriDeğiştir(	Hesaplayıcı.büyüktür(sol.x, sağ.x),
-									Hesaplayıcı.büyüktür(sol.y, sağ.y),
-									Hesaplayıcı.büyüktür(sol.z, sağ.z));
+		return bileşenleriDeğiştir(	MatematikAracı.büyüğüBul(sol.x, sağ.x),
+									MatematikAracı.büyüğüBul(sol.y, sağ.y),
+									MatematikAracı.büyüğüBul(sol.z, sağ.z));
 	}
 	
 	/** Yöneyi sayıyla çarpar. Yöneyi döndürür. */
@@ -138,7 +147,9 @@ public class Yöney3 {
 	
 	@Override
 	public boolean equals(final Object obj) {
-		return this.eşitMi((Yöney3)obj);
+		if (obj instanceof Yöney3 ö)
+			return eşitMi(ö);
+		return false;
 	}
 	
 	/** Verilen bileşenlerin yöneyinkilere eşitliğini hesaplar. */
@@ -158,9 +169,9 @@ public class Yöney3 {
 	
 	/** Verilen yöneylerin bileşenlerinden küçük olanlarını buna yazar. Bu yöneyi döndürür. */
 	public Yöney3 küçüktür(final Yöney3 sol, final Yöney3 sağ) {
-		return bileşenleriDeğiştir(	Hesaplayıcı.küçüktür(sol.x, sağ.x),
-									Hesaplayıcı.küçüktür(sol.y, sağ.y),
-									Hesaplayıcı.küçüktür(sol.z, sağ.z));
+		return bileşenleriDeğiştir(	MatematikAracı.küçüğüBul(sol.x, sağ.x),
+									MatematikAracı.küçüğüBul(sol.y, sağ.y),
+									MatematikAracı.küçüğüBul(sol.z, sağ.z));
 	}
 	
 	/** Verilen yöneyle bu yöneyin nokta çarpımını hesaplar. */
@@ -175,9 +186,9 @@ public class Yöney3 {
 	
 	/** Verilen yöneyin bileşenlerini ayrı ayrı sıkıştırıp buna yazar. Bu yöneyi döndürür. */
 	public Yöney3 sıkıştır(final Yöney3 ö, final Yöney3 alt, final Yöney3 üst) {
-		return bileşenleriDeğiştir(	Hesaplayıcı.sıkıştır(ö.x, alt.x, üst.x),
-									Hesaplayıcı.sıkıştır(ö.y, alt.y, üst.y),
-									Hesaplayıcı.sıkıştır(ö.z, alt.z, üst.z));
+		return bileşenleriDeğiştir(	MatematikAracı.sıkıştır(ö.x, alt.x, üst.x),
+									MatematikAracı.sıkıştır(ö.y, alt.y, üst.y),
+									MatematikAracı.sıkıştır(ö.z, alt.z, üst.z));
 	}
 	
 	/** Yöneyin bileşenlerini ayrı ayrı aşağı yuvarlar. Yöneyi döndürür. */
@@ -187,9 +198,9 @@ public class Yöney3 {
 	
 	/** Verilen yöneyin bileşenlerini ayrı ayrı aşağı yuvarlayıp buna yazar. Bu yöneyi döndürür. */
 	public Yöney3 taban(final Yöney3 ö) {
-		return bileşenleriDeğiştir(	Hesaplayıcı.taban(ö.x),
-									Hesaplayıcı.taban(ö.y),
-									Hesaplayıcı.taban(ö.z));
+		return bileşenleriDeğiştir(	MatematikAracı.aşağıYuvarla(ö.x),
+									MatematikAracı.aşağıYuvarla(ö.y),
+									MatematikAracı.aşağıYuvarla(ö.z));
 	}
 	
 	/** Yöneyin bileşenlerini ayrı ayrı yukarı yuvarlar. Yöneyi döndürür. */
@@ -199,9 +210,9 @@ public class Yöney3 {
 	
 	/** Verilen yöneyin bileşenlerini ayrı ayrı yukarı yuvarlayıp buna yazar. Bu yöneyi döndürür. */
 	public Yöney3 tavan(final Yöney3 ö) {
-		return bileşenleriDeğiştir(	Hesaplayıcı.tavan(ö.x),
-									Hesaplayıcı.tavan(ö.y),
-									Hesaplayıcı.tavan(ö.z));
+		return bileşenleriDeğiştir(	MatematikAracı.yukarıYuvarla(ö.x),
+									MatematikAracı.yukarıYuvarla(ö.y),
+									MatematikAracı.yukarıYuvarla(ö.z));
 	}
 	
 	/** Verilen yöneyi bu yöneye ekler. Bu yöneyi döndürür. */
@@ -226,7 +237,7 @@ public class Yöney3 {
 	
 	/** Yöneyin uzunluğu hesaplar. */
 	public float uzunluk() {
-		return Hesaplayıcı.kökü(uzunluğunKaresi());
+		return MatematikAracı.kökünüBul(uzunluğunKaresi());
 	}
 	
 	/** Yöneyin birinci bileşenini değiştirir. Yöneyi döndürür. */
@@ -248,9 +259,9 @@ public class Yöney3 {
 	
 	/** Verilen yöneyin bileşenlerini ayrı ayrı yuvarlayıp buna yazar. Bu yöneyi döndürür. */
 	public Yöney3 yuvarla(final Yöney3 ö) {
-		return bileşenleriDeğiştir(	Hesaplayıcı.yuvarla(ö.x),
-									Hesaplayıcı.yuvarla(ö.y),
-									Hesaplayıcı.yuvarla(ö.z));
+		return bileşenleriDeğiştir(	MatematikAracı.yuvarla(ö.x),
+									MatematikAracı.yuvarla(ö.y),
+									MatematikAracı.yuvarla(ö.z));
 	}
 	
 	/** Yöneyin üçüncü bileşenini değiştirir. Yöneyi döndürür. */

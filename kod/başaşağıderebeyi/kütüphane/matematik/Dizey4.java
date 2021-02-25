@@ -113,9 +113,9 @@ public class Dizey4 {
 											float a,
 											final float bx,
 											final float by) {
-		a = Hesaplayıcı.radyan(a);
-		final float sin = Hesaplayıcı.sin(a);
-		final float cos = Hesaplayıcı.cos(a);
+		a = MatematikAracı.radyanaÇevir(a);
+		final float sin = MatematikAracı.dikmeliğiniBul(a);
+		final float cos = MatematikAracı.eşdikmeliğiniBul(a);
 		
 		e[0] = cos * bx;
 		e[1] = sin * bx;
@@ -135,9 +135,9 @@ public class Dizey4 {
 									float a,
 									final float bx,
 									final float by) {
-		a = Hesaplayıcı.radyan(a);
-		final float sin = Hesaplayıcı.sin(a);
-		final float cos = Hesaplayıcı.cos(a);
+		a = MatematikAracı.radyanaÇevir(a);
+		final float sin = MatematikAracı.dikmeliğiniBul(a);
+		final float cos = MatematikAracı.eşdikmeliğiniBul(a);
 		
 		e[0] = cos * bx;
 		e[1] = sin * bx;

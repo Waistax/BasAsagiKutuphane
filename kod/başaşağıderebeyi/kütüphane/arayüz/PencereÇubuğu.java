@@ -28,8 +28,8 @@ public class PencereÇubuğu extends Öğe {
 	public void güncelle() {
 		if (imlecinAltındaOlması && içerenEkran.solTık.basılıOlmasınıEdin()) {
 			odakla();
-			((SerbestKural)içerenLevha.yerleşikDikdörtgeni.yatayKural()).ekle(içerenEkran.girdi.imlecininSürüklenmesi.x);
-			((SerbestKural)içerenLevha.yerleşikDikdörtgeni.dikeyKural()).ekle(içerenEkran.girdi.imlecininSürüklenmesi.y);
+			((SerbestKural)içerenLevha.yerleşikDikdörtgeni.yatayKural()).ekle(içerenEkran.girdi.imlecininSürüklenmesi.birinciBileşeni);
+			((SerbestKural)içerenLevha.yerleşikDikdörtgeni.dikeyKural()).ekle(içerenEkran.girdi.imlecininSürüklenmesi.ikinciBileşeni);
 			yerleştir();
 		}
 	}

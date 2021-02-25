@@ -28,21 +28,21 @@ public enum YerleşimVerisi {
 	public float al(final Dikdörtgen ö) {
 		switch (this) {
 		case KÜÇÜK_YATAY:
-			return ö.k.x;
+			return ö.k.birinciBileşeni;
 		case BÜYÜK_YATAY:
-			return ö.b.x;
+			return ö.b.birinciBileşeni;
 		case KÜÇÜK_DİKEY:
-			return ö.k.y;
+			return ö.k.ikinciBileşeni;
 		case BÜYÜK_DİKEY:
-			return ö.b.y;
+			return ö.b.ikinciBileşeni;
 		case ORTA_YATAY:
-			return ö.o.x;
+			return ö.o.birinciBileşeni;
 		case ORTA_DİKEY:
-			return ö.o.y;
+			return ö.o.ikinciBileşeni;
 		case UZUNLUK_YATAY:
-			return ö.u.x;
+			return ö.u.birinciBileşeni;
 		case UZUNLUK_DİKEY:
-			return ö.u.y;
+			return ö.u.ikinciBileşeni;
 		default:
 			return 0.0F;
 		}
@@ -82,28 +82,28 @@ public enum YerleşimVerisi {
 	public YerleşimVerisi yaz(final Dikdörtgen ö, final float o) {
 		switch (this) {
 		case KÜÇÜK_YATAY:
-			ö.k.x = o;
+			ö.k.birinciBileşeni = o;
 			return this;
 		case KÜÇÜK_DİKEY:
-			ö.k.y = o;
+			ö.k.ikinciBileşeni = o;
 			return this;
 		case BÜYÜK_YATAY:
-			ö.b.x = o;
+			ö.b.birinciBileşeni = o;
 			return this;
 		case BÜYÜK_DİKEY:
-			ö.b.y = o;
+			ö.b.ikinciBileşeni = o;
 			return this;
 		case ORTA_YATAY:
-			ö.o.x = o;
+			ö.o.birinciBileşeni = o;
 			return this;
 		case ORTA_DİKEY:
-			ö.o.y = o;
+			ö.o.ikinciBileşeni = o;
 			return this;
 		case UZUNLUK_YATAY:
-			ö.u.x = o;
+			ö.u.birinciBileşeni = o;
 			return this;
 		case UZUNLUK_DİKEY:
-			ö.u.y = o;
+			ö.u.ikinciBileşeni = o;
 			return this;
 		default:
 			return this;

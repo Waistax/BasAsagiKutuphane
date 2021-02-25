@@ -31,16 +31,16 @@ public enum DikdörtgenVerisi {
 			case KÜÇÜK:
 				return;
 			case BÜYÜK:
-				ö.o.y = (ö.k.y + ö.b.y) / 2.0F;
-				ö.u.y = ö.b.y - ö.k.y;
+				ö.o.ikinciBileşeni = (ö.k.ikinciBileşeni + ö.b.ikinciBileşeni) / 2.0F;
+				ö.u.ikinciBileşeni = ö.b.ikinciBileşeni - ö.k.ikinciBileşeni;
 				return;
 			case ORTA:
-				ö.b.y = 2.0F * ö.o.y - ö.k.y;
-				ö.u.y = (ö.o.y - ö.k.y) * 2.0F;
+				ö.b.ikinciBileşeni = 2.0F * ö.o.ikinciBileşeni - ö.k.ikinciBileşeni;
+				ö.u.ikinciBileşeni = (ö.o.ikinciBileşeni - ö.k.ikinciBileşeni) * 2.0F;
 				return;
 			case UZUNLUK:
-				ö.b.y = ö.k.y + ö.u.y;
-				ö.o.y = ö.k.y + ö.u.y / 2.0F;
+				ö.b.ikinciBileşeni = ö.k.ikinciBileşeni + ö.u.ikinciBileşeni;
+				ö.o.ikinciBileşeni = ö.k.ikinciBileşeni + ö.u.ikinciBileşeni / 2.0F;
 				return;
 			}
 		case BÜYÜK:
@@ -50,12 +50,12 @@ public enum DikdörtgenVerisi {
 			case BÜYÜK:
 				return;
 			case ORTA:
-				ö.k.y = 2.0F * ö.o.y - ö.b.y;
-				ö.u.y = (ö.b.y - ö.o.y) * 2.0F;
+				ö.k.ikinciBileşeni = 2.0F * ö.o.ikinciBileşeni - ö.b.ikinciBileşeni;
+				ö.u.ikinciBileşeni = (ö.b.ikinciBileşeni - ö.o.ikinciBileşeni) * 2.0F;
 				return;
 			case UZUNLUK:
-				ö.k.y = ö.b.y - ö.u.y;
-				ö.o.y = ö.b.y - ö.u.y / 2.0F;
+				ö.k.ikinciBileşeni = ö.b.ikinciBileşeni - ö.u.ikinciBileşeni;
+				ö.o.ikinciBileşeni = ö.b.ikinciBileşeni - ö.u.ikinciBileşeni / 2.0F;
 				return;
 			}
 		case ORTA:
@@ -66,8 +66,8 @@ public enum DikdörtgenVerisi {
 			case ORTA:
 				return;
 			case UZUNLUK:
-				ö.k.y = ö.o.y - ö.u.y / 2.0F;
-				ö.b.y = ö.o.y + ö.u.y / 2.0F;
+				ö.k.ikinciBileşeni = ö.o.ikinciBileşeni - ö.u.ikinciBileşeni / 2.0F;
+				ö.b.ikinciBileşeni = ö.o.ikinciBileşeni + ö.u.ikinciBileşeni / 2.0F;
 				return;
 			}
 		case UZUNLUK:
@@ -92,16 +92,16 @@ public enum DikdörtgenVerisi {
 			case KÜÇÜK:
 				return;
 			case BÜYÜK:
-				ö.o.x = (ö.k.x + ö.b.x) / 2.0F;
-				ö.u.x = ö.b.x - ö.k.x;
+				ö.o.birinciBileşeni = (ö.k.birinciBileşeni + ö.b.birinciBileşeni) / 2.0F;
+				ö.u.birinciBileşeni = ö.b.birinciBileşeni - ö.k.birinciBileşeni;
 				return;
 			case ORTA:
-				ö.b.x = 2.0F * ö.o.x - ö.k.x;
-				ö.u.x = (ö.o.x - ö.k.x) * 2.0F;
+				ö.b.birinciBileşeni = 2.0F * ö.o.birinciBileşeni - ö.k.birinciBileşeni;
+				ö.u.birinciBileşeni = (ö.o.birinciBileşeni - ö.k.birinciBileşeni) * 2.0F;
 				return;
 			case UZUNLUK:
-				ö.b.x = ö.k.x + ö.u.x;
-				ö.o.x = ö.k.x + ö.u.x / 2.0F;
+				ö.b.birinciBileşeni = ö.k.birinciBileşeni + ö.u.birinciBileşeni;
+				ö.o.birinciBileşeni = ö.k.birinciBileşeni + ö.u.birinciBileşeni / 2.0F;
 				return;
 			}
 		case BÜYÜK:
@@ -111,12 +111,12 @@ public enum DikdörtgenVerisi {
 			case BÜYÜK:
 				return;
 			case ORTA:
-				ö.k.x = 2.0F * ö.o.x - ö.b.x;
-				ö.u.x = (ö.b.x - ö.o.x) * 2.0F;
+				ö.k.birinciBileşeni = 2.0F * ö.o.birinciBileşeni - ö.b.birinciBileşeni;
+				ö.u.birinciBileşeni = (ö.b.birinciBileşeni - ö.o.birinciBileşeni) * 2.0F;
 				return;
 			case UZUNLUK:
-				ö.k.x = ö.b.x - ö.u.x;
-				ö.o.x = ö.b.x - ö.u.x / 2.0F;
+				ö.k.birinciBileşeni = ö.b.birinciBileşeni - ö.u.birinciBileşeni;
+				ö.o.birinciBileşeni = ö.b.birinciBileşeni - ö.u.birinciBileşeni / 2.0F;
 				return;
 			}
 		case ORTA:
@@ -127,8 +127,8 @@ public enum DikdörtgenVerisi {
 			case ORTA:
 				return;
 			case UZUNLUK:
-				ö.k.x = ö.o.x - ö.u.x / 2.0F;
-				ö.b.x = ö.o.x + ö.u.x / 2.0F;
+				ö.k.birinciBileşeni = ö.o.birinciBileşeni - ö.u.birinciBileşeni / 2.0F;
+				ö.b.birinciBileşeni = ö.o.birinciBileşeni + ö.u.birinciBileşeni / 2.0F;
 				return;
 			}
 		case UZUNLUK:
