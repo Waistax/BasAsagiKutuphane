@@ -34,8 +34,10 @@ public class ArayüzDeneme implements AWTGüncelleyici {
 	}
 	
 	/** Verilen dikdörtgeni ekrana kutu olarak çizer. */
-	private void
-		kutuÇiz(final Dikdörtgen d, final Color renk, final boolean kalın) {
+	private void kutuÇiz(
+		final Dikdörtgen d,
+		final Color renk,
+		final boolean kalın) {
 		motor.çizer.setColor(renk);
 		motor.çizer.setStroke(new BasicStroke(kalın ? 2.0F : 0.5F));
 		motor.çizer

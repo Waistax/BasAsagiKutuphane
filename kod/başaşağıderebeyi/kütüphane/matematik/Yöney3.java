@@ -184,8 +184,9 @@ public class Yöney3 {
 	/** Verilen yöneylerin karşılık gelen bileşenlerini karşılaştırır. Bu
 	 * yöneyin bileşenlerini içlerinden küçük olana değiştirir. Bu yöneyi
 	 * döndürür. */
-	public Yöney3
-		küçüğüBul(final Yöney3 soldakiYöney, final Yöney3 sağdakiYöney) {
+	public Yöney3 küçüğüBul(
+		final Yöney3 soldakiYöney,
+		final Yöney3 sağdakiYöney) {
 		return bileşenleriDeğiştir(
 			MatematikAracı
 				.küçüğüBul(
@@ -211,8 +212,9 @@ public class Yöney3 {
 	/** Verilen yöneylerin karşılık gelen bileşenlerini karşılaştırır. Bu
 	 * yöneyin bileşenlerini içlerinden büyük olana değiştirir. Bu yöneyi
 	 * döndürür. */
-	public Yöney3
-		büyüğüBul(final Yöney3 soldakiYöney, final Yöney3 sağdakiYöney) {
+	public Yöney3 büyüğüBul(
+		final Yöney3 soldakiYöney,
+		final Yöney3 sağdakiYöney) {
 		return bileşenleriDeğiştir(
 			MatematikAracı
 				.büyüğüBul(
@@ -328,8 +330,9 @@ public class Yöney3 {
 	
 	/** Bu yöneyi verilen yöneylerin çapraz çarpımına değiştirir. Bu yöneyi
 	 * döndürür. */
-	public Yöney3
-		çaprazÇarp(final Yöney3 soldakiYöney, final Yöney3 sağdakiYöney) {
+	public Yöney3 çaprazÇarp(
+		final Yöney3 soldakiYöney,
+		final Yöney3 sağdakiYöney) {
 		/* ixj=k, jxk=i, kxi=j -> (ai+bj+ck)x(xi+yj+zk) -> i=bz-yc, j=cx-za,
 		 * k=ay-xb */
 		
@@ -353,8 +356,8 @@ public class Yöney3 {
 	}
 	
 	/** Yöneyi verilen dize oluşturucusuna ekler. Oluşturucuyu döndürür. */
-	public StringBuilder
-		dizeOluşturucusunaYaz(final StringBuilder dizeOluşturucusu) {
+	public StringBuilder dizeOluşturucusunaYaz(
+		final StringBuilder dizeOluşturucusu) {
 		return dizeOluşturucusu
 			.append('(')
 			.append(birinciBileşeni)

@@ -21,8 +21,9 @@ public class MatematikAracı {
 	
 	/** Benek biriminden verilen iki sayının denk sayılıp sayılmadığını
 	 * döndürür. Denklik, tam olarak eşitlik değilse de aşırı yakınlıktır. */
-	public static boolean
-		denkSayılmalarınıBul(final float soldakiSayı, final float sağdakiSayı) {
+	public static boolean denkSayılmalarınıBul(
+		final float soldakiSayı,
+		final float sağdakiSayı) {
 		return Math.abs(soldakiSayı - sağdakiSayı) <= DENK_SAYILACAK_ÖZÜR_PAYI;
 	}
 	
@@ -37,14 +38,16 @@ public class MatematikAracı {
 	}
 	
 	/** Verilen iki ondalık sayıdan küçük olanı döndürür. */
-	public static float
-		küçüğüBul(final float soldakiSayı, final float sağdakiSayı) {
+	public static float küçüğüBul(
+		final float soldakiSayı,
+		final float sağdakiSayı) {
 		return soldakiSayı < sağdakiSayı ? soldakiSayı : sağdakiSayı;
 	}
 	
 	/** Verilen iki ondalık sayıdan büyük olanı döndürür. */
-	public static float
-		büyüğüBul(final float soldakiSayı, final float sağdakiSayı) {
+	public static float büyüğüBul(
+		final float soldakiSayı,
+		final float sağdakiSayı) {
 		return soldakiSayı > sağdakiSayı ? soldakiSayı : sağdakiSayı;
 	}
 	

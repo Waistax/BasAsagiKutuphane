@@ -52,8 +52,10 @@ public class Yöney4 {
 	
 	/** Verilen yöneyle bu yöneyin aradeğerini buna yazar. Bu yöneyi döndürür.
 	 * Mesafelerin toplamının bir olduğunu varsayar. */
-	public Yöney4
-		aradeğer(final Yöney4 ö, final float uzaklık, final float yakınlık) {
+	public Yöney4 aradeğer(
+		final Yöney4 ö,
+		final float uzaklık,
+		final float yakınlık) {
 		return this.aradeğer(this, ö, uzaklık, yakınlık);
 	}
 	
@@ -156,8 +158,8 @@ public class Yöney4 {
 	}
 	
 	/** Yöneyi verilen dize oluşturucusuna ekler. Oluşturucuyu döndürür. */
-	public StringBuilder
-		dizeOluşturucusunaYaz(final StringBuilder dizeOluşturucusu) {
+	public StringBuilder dizeOluşturucusunaYaz(
+		final StringBuilder dizeOluşturucusu) {
 		return dizeOluşturucusu
 			.append('(')
 			.append(x)
@@ -189,8 +191,11 @@ public class Yöney4 {
 	}
 	
 	/** Verilen bileşenlerin yöneyinkilere eşitliğini hesaplar. */
-	public boolean
-		eşitMi(final float x, final float y, final float z, final float w) {
+	public boolean eşitMi(
+		final float x,
+		final float y,
+		final float z,
+		final float w) {
 		return this.x == x && this.y == y && this.z == z && this.w == w;
 	}
 	

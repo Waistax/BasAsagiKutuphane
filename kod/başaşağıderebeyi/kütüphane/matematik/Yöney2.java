@@ -167,8 +167,9 @@ public class Yöney2 {
 	/** Verilen yöneylerin karşılık gelen bileşenlerini karşılaştırır. Bu
 	 * yöneyin bileşenlerini içlerinden küçük olana değiştirir. Bu yöneyi
 	 * döndürür. */
-	public Yöney2
-		küçüğüBul(final Yöney2 soldakiYöney, final Yöney2 sağdakiYöney) {
+	public Yöney2 küçüğüBul(
+		final Yöney2 soldakiYöney,
+		final Yöney2 sağdakiYöney) {
 		return bileşenleriDeğiştir(
 			MatematikAracı
 				.küçüğüBul(
@@ -190,8 +191,9 @@ public class Yöney2 {
 	/** Verilen yöneylerin karşılık gelen bileşenlerini karşılaştırır. Bu
 	 * yöneyin bileşenlerini içlerinden büyük olana değiştirir. Bu yöneyi
 	 * döndürür. */
-	public Yöney2
-		büyüğüBul(final Yöney2 soldakiYöney, final Yöney2 sağdakiYöney) {
+	public Yöney2 büyüğüBul(
+		final Yöney2 soldakiYöney,
+		final Yöney2 sağdakiYöney) {
 		return bileşenleriDeğiştir(
 			MatematikAracı
 				.büyüğüBul(
@@ -308,8 +310,8 @@ public class Yöney2 {
 	}
 	
 	/** Yöneyi verilen dize oluşturucusuna ekler. Oluşturucuyu döndürür. */
-	public StringBuilder
-		dizeOluşturucusunaEkle(final StringBuilder dizeOluşturucusu) {
+	public StringBuilder dizeOluşturucusunaEkle(
+		final StringBuilder dizeOluşturucusu) {
 		return dizeOluşturucusu
 			.append('(')
 			.append(birinciBileşeni)

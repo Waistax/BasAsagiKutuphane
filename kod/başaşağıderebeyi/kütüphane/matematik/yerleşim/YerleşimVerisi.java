@@ -20,8 +20,9 @@ public enum YerleşimVerisi {
 		UZUNLUK_YATAY;
 		
 	/** Dikdörtgen verisinden belli bir boyuttakini verir. */
-	public static YerleşimVerisi
-		al(final DikdörtgenVerisi veri, final boolean yatay) {
+	public static YerleşimVerisi al(
+		final DikdörtgenVerisi veri,
+		final boolean yatay) {
 		return YerleşimVerisi.values()[veri.ordinal() * 2 + (yatay ? 0 : 1)];
 	}
 	

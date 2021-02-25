@@ -76,8 +76,9 @@ public class YerleşikDikdörtgen {
 	}
 	
 	/** Kurallara yeni bir kuralı ekler. */
-	public YerleşikDikdörtgen
-		kuralEkle(final YerleşimKuralı kural, final boolean yatay) {
+	public YerleşikDikdörtgen kuralEkle(
+		final YerleşimKuralı kural,
+		final boolean yatay) {
 		kural.ana = ana;
 		kural.hedef = hedef;
 		kural.veri = YerleşimVerisi.al(kural.dikdörtgenVerisi, yatay);

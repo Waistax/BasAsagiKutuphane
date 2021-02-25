@@ -112,8 +112,8 @@ public class OlayYöneticisi implements OlayDağıtıcısı {
 		}
 	}
 	
-	private Map<Öncelik, Set<DinleyiciBilgisi>>
-		sınıfHaritasınıAl(final Class<? extends Olay> sınıf) {
+	private Map<Öncelik, Set<DinleyiciBilgisi>> sınıfHaritasınıAl(
+		final Class<? extends Olay> sınıf) {
 		Map<
 			Öncelik,
 			Set<DinleyiciBilgisi>> sınıfHaritası = dinleyiciler.get(sınıf);
