@@ -41,7 +41,7 @@ public class Pencere extends Levha {
 	
 	@Override
 	public void odakla() {
-		üstündekiEkranı.içerik.remove(this);
-		üstündekiEkranı.içerik.add(this);
+		içerenEkran.içerik.remove(this);
+		içerenEkran.içerik.add(this);
 	}
 }

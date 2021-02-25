@@ -15,7 +15,7 @@ import başaşağıderebeyi.kütüphane.matematik.yerleşim.*;
 public class PencereÇubuğu extends Öğe {
 	/** Pencerede tanımlar. */
 	public PencereÇubuğu(final Pencere pencere) {
-		super(pencere, pencere, pencere.üstündekiEkranı);
+		super(pencere, pencere, pencere.içerenEkran);
 		yerleşikDikdörtgeni.kurallar(	new GöreliKural(DikdörtgenVerisi.KÜÇÜK),
 										new TersGöreliKural(DikdörtgenVerisi.BÜYÜK,
 															Pencere.ÇARPI_GENİŞLİĞİ),
@@ -26,10 +26,10 @@ public class PencereÇubuğu extends Öğe {
 	
 	@Override
 	public void güncelle() {
-		if (imlecinAltındaOlması && üstündekiEkranı.solTık.basılıOlmasınıEdin()) {
+		if (imlecinAltındaOlması && içerenEkran.solTık.basılıOlmasınıEdin()) {
 			odakla();
-			((SerbestKural)üstündekiLevha.yerleşikDikdörtgeni.yatayKural()).ekle(üstündekiEkranı.girdi.imlecininSürüklenmesi.x);
-			((SerbestKural)üstündekiLevha.yerleşikDikdörtgeni.dikeyKural()).ekle(üstündekiEkranı.girdi.imlecininSürüklenmesi.y);
+			((SerbestKural)içerenLevha.yerleşikDikdörtgeni.yatayKural()).ekle(içerenEkran.girdi.imlecininSürüklenmesi.x);
+			((SerbestKural)içerenLevha.yerleşikDikdörtgeni.dikeyKural()).ekle(içerenEkran.girdi.imlecininSürüklenmesi.y);
 			yerleştir();
 		}
 	}

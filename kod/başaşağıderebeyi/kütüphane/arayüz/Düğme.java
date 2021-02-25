@@ -28,10 +28,10 @@ public class Düğme extends Öğe {
 			return;
 		
 		if (imlecinAltındaOlması) {
-			if (üstündekiEkranı.solTık.basılmasınıEdin()) {
+			if (içerenEkran.solTık.basılmasınıEdin()) {
 				odakla();
 				basılı = true;
-			} else if (basılı && üstündekiEkranı.solTık.salınmasınıEdin()) {
+			} else if (basılı && içerenEkran.solTık.salınmasınıEdin()) {
 				odakla();
 				çalıştırılabilir.run();
 				basılı = false;

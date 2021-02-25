@@ -13,9 +13,7 @@ import başaşağıderebeyi.kütüphane.matematik.yerleşim.*;
 
 /** Arayüzündeki her bir öğe. */
 public abstract class Öğe {
-	/** Öğenin kullanılabilir olup olmadığı. */
 	protected boolean açıkOlması;
-	/** Fare imlecinin öğenin üzerinde bulunup bulunmadığı. */
 	protected boolean imlecinAltındaOlması;
 	
 	/** Öğenin kapladığı alan. */
@@ -23,35 +21,35 @@ public abstract class Öğe {
 	/** Alanı anlık olarak tanımlayan nesne. */
 	public final YerleşikDikdörtgen yerleşikDikdörtgeni;
 	
-	/** Öğenin içinde bulunduğu ekran. */
-	public final Ekran üstündekiEkranı;
-	/** Öğenin içinde bulunduğu pencere. */
-	public final Pencere üstündekiPencere;
 	/** Öğenin içinde bulunduğu öğe. */
-	public final Levha üstündekiLevha;
+	public final Levha içerenLevha;
+	/** Öğenin içinde bulunduğu pencere. */
+	public final Pencere içerenPencere;
+	/** Öğenin içinde bulunduğu ekran. */
+	public final Ekran içerenEkran;
 	
-	/** Levhadan tanımlar. */
-	public Öğe(final Levha levha) {
-		this(levha, levha.üstündekiPencere, levha.üstündekiEkranı);
+	/** Levha ile aynı tanımlar. */
+	public Öğe(final Levha içerenLevha) {
+		this(içerenLevha, içerenLevha.içerenPencere, içerenLevha.içerenEkran);
 	}
 	
 	/** Verilen öğelerin içinde tanımlar. */
-	public Öğe(final Levha levha, final Pencere pencere, final Ekran ekran) {
+	public Öğe(final Levha içerenLevha, final Pencere içerenPencere, final Ekran içerenEkran) {
 		alanı = new Dikdörtgen();
-		üstündekiLevha = levha;
-		if (levha == null)
+		this.içerenLevha = içerenLevha;
+		if (içerenLevha == null)
 			yerleşikDikdörtgeni = new YerleşikDikdörtgen(null, alanı);
 		else {
-			yerleşikDikdörtgeni = new YerleşikDikdörtgen(levha.alanı, alanı);
-			levha.içerik.add(this);
+			yerleşikDikdörtgeni = new YerleşikDikdörtgen(içerenLevha.alanı, alanı);
+			içerenLevha.içerik.add(this);
 		}
-		üstündekiPencere = pencere;
-		üstündekiEkranı = ekran;
+		this.içerenPencere = içerenPencere;
+		this.içerenEkran = içerenEkran;
 	}
 	
 	/** Öğenin açık olup olmadığını döndürür. Bu öğe açık olsa da üstü kapalıysa kapalı sayılır. */
 	public boolean açıkMı() {
-		return açıkOlması && üstündekiLevha.açıkMı();
+		return açıkOlması && içerenLevha.açıkMı();
 	}
 	
 	/** Öğenin açık olup olmadığını değiştirir. */
@@ -66,14 +64,14 @@ public abstract class Öğe {
 	
 	/** Fare imlecinin öğenin üzerinde bulunup bulunmadığını hesaplar. */
 	protected void üzerindeBulunmasınıHesapla() {
-		if (imlecinAltındaOlması = alanı.içinde(üstündekiEkranı.girdi.imlecininKonumu) &&
-									üstündekiEkranı.girdi.imleçUygunMu(this))
-			üstündekiEkranı.girdi.imlecininHedefi = this;
+		if (imlecinAltındaOlması = alanı.içinde(içerenEkran.girdi.imlecininKonumu) &&
+									içerenEkran.girdi.imleçUygunMu(this))
+			içerenEkran.girdi.imlecininHedefi = this;
 	}
 	
 	/** Bu öğeyi odaklamak için istek belirtir. */
 	public void odakla() {
-		üstündekiLevha.odakla();
+		içerenLevha.odakla();
 	}
 	
 	/** Öğeyi levha dikdörtgenine yerleştirir. */

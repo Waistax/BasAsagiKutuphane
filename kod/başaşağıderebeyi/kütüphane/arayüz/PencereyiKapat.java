@@ -17,6 +17,6 @@ public class PencereyiKapat implements Runnable {
 	
 	@Override
 	public void run() {
-		pencere.üstündekiEkranı.içerik.remove(pencere);
+		pencere.içerenEkran.içerik.remove(pencere);
 	}
 }

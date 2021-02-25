@@ -58,7 +58,7 @@ public class ArayüzDeneme implements AWTGüncelleyici {
 		} else if (öğe instanceof PencereÇubuğu) {
 			kutuÇiz(öğe.alanı, Color.WHITE, false);
 			motor.çizer.setColor(Color.black);
-			motor.çizer.drawString(	öğe.üstündekiPencere.başlık,
+			motor.çizer.drawString(	öğe.içerenPencere.başlık,
 									öğe.alanı.k.x + ölçü.charWidth(' '),
 									(öğe.alanı.b.y + öğe.alanı.k.y + yazıSonu) / 2.0F);
 		}
