@@ -13,29 +13,17 @@ public class Yöney4 {
 	/** Uzunluğu ve bileşenleri sıfır olan yöney. */
 	public static final Yöney4 SIFIR = new Yöney4();
 	/** X eksenini temsil eden yöney. */
-	public static final Yöney4 BİRİNCİ_EKSEN = new Yöney4(
-		1.0F,
-		0.0F,
-		0.0F,
-		0.0F);
+	public static final Yöney4 BİRİNCİ_EKSEN =
+		new Yöney4(1.0F, 0.0F, 0.0F, 0.0F);
 	/** Y eksenini temsil eden yöney. */
-	public static final Yöney4 İKİNCİ_EKSEN = new Yöney4(
-		0.0F,
-		1.0F,
-		0.0F,
-		0.0F);
+	public static final Yöney4 İKİNCİ_EKSEN =
+		new Yöney4(0.0F, 1.0F, 0.0F, 0.0F);
 	/** Z eksenini temsil eden yöney. */
-	public static final Yöney4 ÜÇÜNCÜ_EKSEN = new Yöney4(
-		0.0F,
-		0.0F,
-		1.0F,
-		0.0F);
+	public static final Yöney4 ÜÇÜNCÜ_EKSEN =
+		new Yöney4(0.0F, 0.0F, 1.0F, 0.0F);
 	/** W eksenini temsil eden yöney. */
-	public static final Yöney4 DÖRDÜNCÜ_EKSEN = new Yöney4(
-		0.0F,
-		0.0F,
-		0.0F,
-		1.0F);
+	public static final Yöney4 DÖRDÜNCÜ_EKSEN =
+		new Yöney4(0.0F, 0.0F, 0.0F, 1.0F);
 	/** Her eksende bir uzunluğunda olan yöney. */
 	public static final Yöney4 BİR = new Yöney4()
 		.topla(BİRİNCİ_EKSEN)

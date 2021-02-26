@@ -52,9 +52,8 @@ public class OlayYöneticisi implements OlayDağıtıcısı {
 			Öncelik,
 			Set<DinleyiciBilgisi>> sınıfHaritası : dinleyiciler.values())
 			for (final Öncelik öncelik : Öncelik.values()) {
-				final Iterator<DinleyiciBilgisi> yineleyici = sınıfHaritası
-					.get(öncelik)
-					.iterator();
+				final Iterator<DinleyiciBilgisi> yineleyici =
+					sınıfHaritası.get(öncelik).iterator();
 				while (yineleyici.hasNext())
 					if (yineleyici.next().nesne == nesne)
 						yineleyici.remove();
@@ -84,18 +83,18 @@ public class OlayYöneticisi implements OlayDağıtıcısı {
 	
 	/** Olayı işler. */
 	private void olayıİşle(final Olay olay) {
-		final Map<Öncelik, Set<DinleyiciBilgisi>> sınıfHaritası = dinleyiciler
-			.get(olay.getClass());
+		final Map<Öncelik, Set<DinleyiciBilgisi>> sınıfHaritası =
+			dinleyiciler.get(olay.getClass());
 		
 		// Eklenmiş bir dinleyici yoksa atla.
 		if (sınıfHaritası == null)
 			return;
 		
 		for (final Öncelik öncelik : Öncelik.values()) {
-			final Set<
-				DinleyiciBilgisi> öncelikKümesi = sınıfHaritası.get(öncelik);
-			final Iterator<
-				DinleyiciBilgisi> yineleyici = öncelikKümesi.iterator();
+			final Set<DinleyiciBilgisi> öncelikKümesi =
+				sınıfHaritası.get(öncelik);
+			final Iterator<DinleyiciBilgisi> yineleyici =
+				öncelikKümesi.iterator();
 			
 			while (yineleyici.hasNext()) {
 				final DinleyiciBilgisi bilgi = yineleyici.next();
@@ -114,9 +113,8 @@ public class OlayYöneticisi implements OlayDağıtıcısı {
 	
 	private Map<Öncelik, Set<DinleyiciBilgisi>> sınıfHaritasınıAl(
 		final Class<? extends Olay> sınıf) {
-		Map<
-			Öncelik,
-			Set<DinleyiciBilgisi>> sınıfHaritası = dinleyiciler.get(sınıf);
+		Map<Öncelik, Set<DinleyiciBilgisi>> sınıfHaritası =
+			dinleyiciler.get(sınıf);
 		
 		// Olay sınıfı için harita yoksa yeni bir tane oluştur.
 		if (sınıfHaritası == null) {

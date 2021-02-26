@@ -17,7 +17,7 @@ public class OranlıKural extends YerleşimKuralı {
 	
 	/** Oranı sıfır olarak tanımlar. */
 	public OranlıKural() {
-		super(DikdörtgenVerisi.UZUNLUK, false, true);
+		super(DikdörtgenVerisi.UZUNLUKLARI, false, true);
 	}
 	
 	/** Belirli bir oranla tanımlar. */

@@ -30,21 +30,21 @@ public enum YerleşimVerisi {
 	public float al(final Dikdörtgen ö) {
 		switch (this) {
 		case KÜÇÜK_YATAY:
-			return ö.k.birinciBileşeni;
+			return ö.küçükKöşesi.birinciBileşeni;
 		case BÜYÜK_YATAY:
-			return ö.b.birinciBileşeni;
+			return ö.büyükKöşesi.birinciBileşeni;
 		case KÜÇÜK_DİKEY:
-			return ö.k.ikinciBileşeni;
+			return ö.küçükKöşesi.ikinciBileşeni;
 		case BÜYÜK_DİKEY:
-			return ö.b.ikinciBileşeni;
+			return ö.büyükKöşesi.ikinciBileşeni;
 		case ORTA_YATAY:
-			return ö.o.birinciBileşeni;
+			return ö.ortaNoktası.birinciBileşeni;
 		case ORTA_DİKEY:
-			return ö.o.ikinciBileşeni;
+			return ö.ortaNoktası.ikinciBileşeni;
 		case UZUNLUK_YATAY:
-			return ö.u.birinciBileşeni;
+			return ö.uzunlukları.birinciBileşeni;
 		case UZUNLUK_DİKEY:
-			return ö.u.ikinciBileşeni;
+			return ö.uzunlukları.ikinciBileşeni;
 		default:
 			return 0.0F;
 		}
@@ -52,8 +52,9 @@ public enum YerleşimVerisi {
 	
 	/** Aynı boyuttaki BÜYÜK veriyi verir. */
 	public YerleşimVerisi büyük() {
-		return YerleşimVerisi.values()[DikdörtgenVerisi.BÜYÜK.ordinal() * 2 +
-			ordinal() % 2];
+		return YerleşimVerisi
+			.values()[DikdörtgenVerisi.BÜYÜK_KÖŞESİ.ordinal() * 2 +
+				ordinal() % 2];
 	}
 	
 	/** Aynı boyuttaki karşı veriyi verir. */
@@ -69,48 +70,51 @@ public enum YerleşimVerisi {
 	
 	/** Aynı boyuttaki KÜÇÜK veriyi verir. */
 	public YerleşimVerisi küçük() {
-		return YerleşimVerisi.values()[DikdörtgenVerisi.KÜÇÜK.ordinal() * 2 +
-			ordinal() % 2];
+		return YerleşimVerisi
+			.values()[DikdörtgenVerisi.KÜÇÜK_KÖŞESİ.ordinal() * 2 +
+				ordinal() % 2];
 	}
 	
 	/** Aynı boyuttaki ORTA veriyi verir. */
 	public YerleşimVerisi orta() {
-		return YerleşimVerisi.values()[DikdörtgenVerisi.ORTA.ordinal() * 2 +
-			ordinal() % 2];
+		return YerleşimVerisi
+			.values()[DikdörtgenVerisi.ORTA_NOKTASI.ordinal() * 2 +
+				ordinal() % 2];
 	}
 	
 	/** Aynı boyuttaki UZUNLUK veriyi verir. */
 	public YerleşimVerisi uzunluk() {
-		return YerleşimVerisi.values()[DikdörtgenVerisi.UZUNLUK.ordinal() * 2 +
-			ordinal() % 2];
+		return YerleşimVerisi
+			.values()[DikdörtgenVerisi.UZUNLUKLARI.ordinal() * 2 +
+				ordinal() % 2];
 	}
 	
 	/** Yerleştirdiği veriyi değiştirir. */
 	public YerleşimVerisi yaz(final Dikdörtgen ö, final float o) {
 		switch (this) {
 		case KÜÇÜK_YATAY:
-			ö.k.birinciBileşeni = o;
+			ö.küçükKöşesi.birinciBileşeni = o;
 			return this;
 		case KÜÇÜK_DİKEY:
-			ö.k.ikinciBileşeni = o;
+			ö.küçükKöşesi.ikinciBileşeni = o;
 			return this;
 		case BÜYÜK_YATAY:
-			ö.b.birinciBileşeni = o;
+			ö.büyükKöşesi.birinciBileşeni = o;
 			return this;
 		case BÜYÜK_DİKEY:
-			ö.b.ikinciBileşeni = o;
+			ö.büyükKöşesi.ikinciBileşeni = o;
 			return this;
 		case ORTA_YATAY:
-			ö.o.birinciBileşeni = o;
+			ö.ortaNoktası.birinciBileşeni = o;
 			return this;
 		case ORTA_DİKEY:
-			ö.o.ikinciBileşeni = o;
+			ö.ortaNoktası.ikinciBileşeni = o;
 			return this;
 		case UZUNLUK_YATAY:
-			ö.u.birinciBileşeni = o;
+			ö.uzunlukları.birinciBileşeni = o;
 			return this;
 		case UZUNLUK_DİKEY:
-			ö.u.ikinciBileşeni = o;
+			ö.uzunlukları.ikinciBileşeni = o;
 			return this;
 		default:
 			return this;

@@ -5,6 +5,7 @@
  */
 package başaşağıderebeyi.kütüphane.kumhavuzu;
 
+import başaşağıderebeyi.kütüphane.matematik.*;
 import başaşağıderebeyi.kütüphane.olay.*;
 
 import java.util.*;
@@ -50,8 +51,27 @@ public class KodDeneme {
 			System.out.print(yineleyici.next());
 	}
 	
+	/** Dikdörtgen verilerinin birleşimlerini temsil eden tam sayıların
+	 * özgünlüğünü dener. */
+	private static void birleşimlerinÖzgünlüğününDenemesi() {
+		for (final DikdörtgenVerisi birincisi : DikdörtgenVerisi.values())
+			for (final DikdörtgenVerisi ikincisi : DikdörtgenVerisi.values())
+				System.out
+					.println(
+						"/* " +
+							DikdörtgenVerisi
+								.verilerinBirleşimleriniBul(
+									birincisi,
+									ikincisi) +
+							" -> " +
+							birincisi +
+							" ve " +
+							ikincisi +
+							" */");
+	}
+	
 	/** Denemenin başlangıcı. */
 	public static void main(final String[] args) {
-		olayDenemesi();
+		birleşimlerinÖzgünlüğününDenemesi();
 	}
 }

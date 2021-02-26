@@ -42,17 +42,21 @@ public class ArayüzDeneme implements AWTGüncelleyici {
 		motor.çizer.setStroke(new BasicStroke(kalın ? 2.0F : 0.5F));
 		motor.çizer
 			.fillRect(
-				(int)d.k.birinciBileşeni,
-				(int)d.k.ikinciBileşeni,
-				(int)(d.b.birinciBileşeni - d.k.birinciBileşeni),
-				(int)(d.b.ikinciBileşeni - d.k.ikinciBileşeni));
+				(int)d.küçükKöşesi.birinciBileşeni,
+				(int)d.küçükKöşesi.ikinciBileşeni,
+				(int)(d.büyükKöşesi.birinciBileşeni -
+					d.küçükKöşesi.birinciBileşeni),
+				(int)(d.büyükKöşesi.ikinciBileşeni -
+					d.küçükKöşesi.ikinciBileşeni));
 		motor.çizer.setColor(Color.black);
 		motor.çizer
 			.drawRect(
-				(int)d.k.birinciBileşeni,
-				(int)d.k.ikinciBileşeni,
-				(int)(d.b.birinciBileşeni - d.k.birinciBileşeni),
-				(int)(d.b.ikinciBileşeni - d.k.ikinciBileşeni));
+				(int)d.küçükKöşesi.birinciBileşeni,
+				(int)d.küçükKöşesi.ikinciBileşeni,
+				(int)(d.büyükKöşesi.birinciBileşeni -
+					d.küçükKöşesi.birinciBileşeni),
+				(int)(d.büyükKöşesi.ikinciBileşeni -
+					d.küçükKöşesi.ikinciBileşeni));
 	}
 	
 	/** Verilen öğeyi çizer. */
@@ -78,11 +82,11 @@ public class ArayüzDeneme implements AWTGüncelleyici {
 			motor.çizer
 				.drawString(
 					yazı,
-					(öğe.alanı.b.birinciBileşeni +
-						öğe.alanı.k.birinciBileşeni -
+					(öğe.alanı.büyükKöşesi.birinciBileşeni +
+						öğe.alanı.küçükKöşesi.birinciBileşeni -
 						ölçü.stringWidth(yazı)) / 2.0F,
-					(öğe.alanı.b.ikinciBileşeni +
-						öğe.alanı.k.ikinciBileşeni +
+					(öğe.alanı.büyükKöşesi.ikinciBileşeni +
+						öğe.alanı.küçükKöşesi.ikinciBileşeni +
 						yazıSonu) / 2.0F);
 		} else if (öğe instanceof PencereÇubuğu) {
 			kutuÇiz(öğe.alanı, Color.WHITE, false);
@@ -90,9 +94,9 @@ public class ArayüzDeneme implements AWTGüncelleyici {
 			motor.çizer
 				.drawString(
 					öğe.içerenPencere.başlık,
-					öğe.alanı.k.birinciBileşeni + ölçü.charWidth(' '),
-					(öğe.alanı.b.ikinciBileşeni +
-						öğe.alanı.k.ikinciBileşeni +
+					öğe.alanı.küçükKöşesi.birinciBileşeni + ölçü.charWidth(' '),
+					(öğe.alanı.büyükKöşesi.ikinciBileşeni +
+						öğe.alanı.küçükKöşesi.ikinciBileşeni +
 						yazıSonu) / 2.0F);
 		}
 	}

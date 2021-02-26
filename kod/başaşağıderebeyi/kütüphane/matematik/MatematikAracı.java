@@ -13,10 +13,10 @@ package başaşağıderebeyi.kütüphane.matematik;
  * döndüren yöntemlerin sonuçlarını floata çevirmektir. Buradaki yöntemlerin
  * hespi sınıfa aittir. Bu sınıfın nesnesi oluşturulmaz. */
 public class MatematikAracı {
-	private static final float RADYANA_ÇEVİREN_ÇARPAN = (float)(Math.PI /
-		180.0D);
-	private static final float DERECEYE_ÇEVİREN_ÇARPAN = 1.0F /
-		RADYANA_ÇEVİREN_ÇARPAN;
+	private static final float RADYANA_ÇEVİREN_ÇARPAN =
+		(float)(Math.PI / 180.0D);
+	private static final float DERECEYE_ÇEVİREN_ÇARPAN =
+		1.0F / RADYANA_ÇEVİREN_ÇARPAN;
 	private static final float DENK_SAYILACAK_ÖZÜR_PAYI = 0.1F;
 	
 	/** Benek biriminden verilen iki sayının denk sayılıp sayılmadığını

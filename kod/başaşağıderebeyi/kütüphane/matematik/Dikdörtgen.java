@@ -10,166 +10,218 @@ package başaşağıderebeyi.kütüphane.matematik;
 
 /** İki boyutlu bir dikdörtgen. Bileşenler ondalıklı sayılar olarak saklanır. */
 public class Dikdörtgen {
-	/** Konumunun değerleri büyük olan köşe. */
-	public final Yöney2 b;
-	/** Konumunun değerleri küçük olan köşe. */
-	public final Yöney2 k;
+	/** Konumunun değerleri küçük olan köşesi. */
+	public final Yöney2 küçükKöşesi;
+	/** Konumunun değerleri büyük olan köşesi. */
+	public final Yöney2 büyükKöşesi;
 	/** Orta noktası. */
-	public final Yöney2 o;
-	/** Kenarların uzunluklarını içeren yöney. */
-	public final Yöney2 u;
+	public final Yöney2 ortaNoktası;
+	/** Kenarlarının uzunluklarını içeren yöney. */
+	public final Yöney2 uzunlukları;
 	
 	/** Sıfır dikdörtgeni tanımlar. */
 	public Dikdörtgen() {
-		k = new Yöney2();
-		b = new Yöney2();
-		o = new Yöney2();
-		u = new Yöney2();
-	}
-	
-	/** Verilen dikdörtgenlerin aradeğerini buna yazar. Bu dikdörtgeni döndürür.
-	 * Mesafelerin toplamının bir olduğunu varsayar. */
-	public Dikdörtgen aradeğer(
-		final Dikdörtgen sol,
-		final Dikdörtgen sağ,
-		final float solaUzaklık,
-		final float sağaUzaklık) {
-		k.aradeğerleriniBul(sol.k, sağ.k, solaUzaklık, sağaUzaklık);
-		b.aradeğerleriniBul(sol.b, sağ.b, solaUzaklık, sağaUzaklık);
-		o.aradeğerleriniBul(sol.o, sağ.o, solaUzaklık, sağaUzaklık);
-		u.aradeğerleriniBul(sol.u, sağ.u, solaUzaklık, sağaUzaklık);
-		return this;
-	}
-	
-	/** Verilen dikdörtgenle bu yöneyin aradeğerini buna yazar. Bu dikdörtgeni
-	 * döndürür. Mesafelerin toplamının bir olduğunu varsayar. */
-	public Dikdörtgen aradeğer(
-		final Dikdörtgen ö,
-		final float uzaklık,
-		final float yakınlık) {
-		return this.aradeğer(this, ö, uzaklık, yakınlık);
-	}
-	
-	/** Dikdörtgeni dizeye çevirir. */
-	public String dize() {
-		return this.dize(new StringBuilder()).toString();
-	}
-	
-	/** Dikdörtgeni dizeye ekler. */
-	public StringBuilder dize(final StringBuilder dize) {
-		return dize
-			.append('[')
-			.append(k)
-			.append(", ")
-			.append(b)
-			.append(", ")
-			.append(o)
-			.append(", ")
-			.append(u)
-			.append(']');
+		küçükKöşesi = new Yöney2();
+		büyükKöşesi = new Yöney2();
+		ortaNoktası = new Yöney2();
+		uzunlukları = new Yöney2();
 	}
 	
 	@Override
-	public boolean equals(final Object obj) {
-		if (obj instanceof Dikdörtgen ö)
-			return eşittir(ö);
+	public boolean equals(final Object öbürü) {
+		if (öbürü instanceof Dikdörtgen öbürDikdörtgen)
+			return eşitOlmalarınıBul(öbürDikdörtgen);
 		return false;
 	}
 	
-	/** Verilen dikdörtgenin bu dikdörtgene eşit olup olmadığını hesaplar. */
-	public boolean eşittir(final Dikdörtgen ö) {
-		return k.eşitOlmalarınıBul(ö.k) &&
-			b.eşitOlmalarınıBul(ö.b) &&
-			o.eşitOlmalarınıBul(ö.o) &&
-			u.eşitOlmalarınıBul(ö.u);
+	/** Verilen dikdörtgenin bu dikdörtgene eşit olup olmadığını döndürür. */
+	public boolean eşitOlmalarınıBul(final Dikdörtgen öbürü) {
+		return küçükKöşesi.eşitOlmalarınıBul(öbürü.küçükKöşesi) &&
+			büyükKöşesi.eşitOlmalarınıBul(öbürü.büyükKöşesi) &&
+			ortaNoktası.eşitOlmalarınıBul(öbürü.ortaNoktası) &&
+			uzunlukları.eşitOlmalarınıBul(öbürü.uzunlukları);
 	}
 	
-	/** Yöneyin dikdörtgenin içinde olup olmadığını hesaplar. */
-	public boolean içinde(final Yöney2 ö) {
-		return k.birinciBileşeni <= ö.birinciBileşeni &&
-			k.ikinciBileşeni <= ö.ikinciBileşeni &&
-			b.birinciBileşeni >= ö.birinciBileşeni &&
-			b.ikinciBileşeni >= ö.ikinciBileşeni;
+	/** Verilen yöneyin dikdörtgenin içinde olup olmadığını döndürür. */
+	public boolean içindeOlmasınıBul(final Yöney2 yöney) {
+		return küçükKöşesi.birinciBileşeni <= yöney.birinciBileşeni &&
+			küçükKöşesi.ikinciBileşeni <= yöney.ikinciBileşeni &&
+			büyükKöşesi.birinciBileşeni >= yöney.birinciBileşeni &&
+			büyükKöşesi.ikinciBileşeni >= yöney.ikinciBileşeni;
+	}
+	
+	/** Dikdörtgenin verilerini ayrı ayrı yuvarlar. Dikdörtgeni döndürür. */
+	public Dikdörtgen yuvarla() {
+		return yuvarla(this);
+	}
+	
+	/** Bu dikdörtgeni verilen dikdörtgenin yuvarlanmışına değiştirir. Bu
+	 * dikdörtgeni döndürür. */
+	public Dikdörtgen yuvarla(final Dikdörtgen öbürü) {
+		küçükKöşesi.yuvarla(öbürü.küçükKöşesi);
+		büyükKöşesi.yuvarla(öbürü.büyükKöşesi);
+		ortaNoktası.yuvarla(öbürü.ortaNoktası);
+		uzunlukları.yuvarla(öbürü.uzunlukları);
+		return this;
 	}
 	
 	/** Dikdörtgenin verilerini ayrı ayrı aşağı yuvarlar. Dikdörtgeni
 	 * döndürür. */
-	public Dikdörtgen taban() {
-		return this.taban(this);
+	public Dikdörtgen aşağıYuvarla() {
+		return aşağıYuvarla(this);
 	}
 	
-	/** Verilen dikdörtgenin verilerini ayrı ayrı aşağı yuvarlayıp buna yazar.
-	 * Bu dikdörtgeni döndürür. */
-	public Dikdörtgen taban(final Dikdörtgen ö) {
-		k.aşağıYuvarla(ö.k);
-		b.aşağıYuvarla(ö.b);
-		o.aşağıYuvarla(ö.o);
-		u.aşağıYuvarla(ö.u);
+	/** Bu dikdörtgeni verilen dikdörtgenin aşağı yuvarlanmışına değiştirir. Bu
+	 * dikdörtgeni döndürür. */
+	public Dikdörtgen aşağıYuvarla(final Dikdörtgen öbürü) {
+		küçükKöşesi.aşağıYuvarla(öbürü.küçükKöşesi);
+		büyükKöşesi.aşağıYuvarla(öbürü.büyükKöşesi);
+		ortaNoktası.aşağıYuvarla(öbürü.ortaNoktası);
+		uzunlukları.aşağıYuvarla(öbürü.uzunlukları);
 		return this;
 	}
 	
 	/** Dikdörtgenin verilerini ayrı ayrı yukarı yuvarlar. Dikdörtgeni
 	 * döndürür. */
-	public Dikdörtgen tavan() {
-		return this.tavan(this);
+	public Dikdörtgen yukarıYuvarla() {
+		return yukarıYuvarla(this);
 	}
 	
-	/** Verilen dikdörtgenin verilerini ayrı ayrı yukarı yuvarlayıp buna yazar.
+	/** Bu dikdörtgeni verilen dikdörtgenin yukarı yuvarlanmışına değiştirir. Bu
+	 * dikdörtgeni döndürür. */
+	public Dikdörtgen yukarıYuvarla(final Dikdörtgen öbürü) {
+		küçükKöşesi.yukarıYuvarla(öbürü.küçükKöşesi);
+		büyükKöşesi.yukarıYuvarla(öbürü.büyükKöşesi);
+		ortaNoktası.yukarıYuvarla(öbürü.ortaNoktası);
+		uzunlukları.yukarıYuvarla(öbürü.uzunlukları);
+		return this;
+	}
+	
+	/** Bu dikdörtgeni verilen sondaki dikdörtgen olmak üzere, baştaki ve
+	 * sondaki dikdörtgenlerin verilen uzaklığa göre aradeğerlerine değiştirir.
 	 * Bu dikdörtgeni döndürür. */
-	public Dikdörtgen tavan(final Dikdörtgen ö) {
-		k.yukarıYuvarla(ö.k);
-		b.yukarıYuvarla(ö.b);
-		o.yukarıYuvarla(ö.o);
-		u.yukarıYuvarla(ö.u);
+	public Dikdörtgen aradeğerleriniBul(
+		final Dikdörtgen öbürü,
+		final float uzaklık) {
+		return aradeğerleriniBul(this, öbürü, uzaklık);
+	}
+	
+	/** Bu dikdörtgeni baştaki ve sondaki dikdörtgenlerin verilen uzaklığa göre
+	 * aradeğerlerine değiştirir. Bu dikdörtgeni döndürür. */
+	public Dikdörtgen aradeğerleriniBul(
+		final Dikdörtgen baştaki,
+		final Dikdörtgen sondaki,
+		final float uzaklık) {
+		küçükKöşesi
+			.aradeğerleriniBul(
+				baştaki.küçükKöşesi,
+				sondaki.küçükKöşesi,
+				uzaklık);
+		büyükKöşesi
+			.aradeğerleriniBul(
+				baştaki.büyükKöşesi,
+				sondaki.büyükKöşesi,
+				uzaklık);
+		ortaNoktası
+			.aradeğerleriniBul(
+				baştaki.ortaNoktası,
+				sondaki.ortaNoktası,
+				uzaklık);
+		uzunlukları
+			.aradeğerleriniBul(
+				baştaki.uzunlukları,
+				sondaki.uzunlukları,
+				uzaklık);
 		return this;
 	}
 	
 	@Override
 	public String toString() {
-		return this.dize();
+		return dizeyeÇevir();
 	}
 	
-	/** Verilen dikdörtgeni buna yazar. Bu dikdörtgeni döndürür. */
-	public Dikdörtgen yaz(final Dikdörtgen ö) {
-		return yazK(ö.k).yazB(ö.b).yazO(ö.o).yazU(ö.u);
+	/** Dikdörtgeni dize olarak döndürür. */
+	public String dizeyeÇevir() {
+		return dizeOluşturucusunaEkle(new StringBuilder()).toString();
 	}
 	
-	/** Büyük olan köşeyi değiştirir. Dikdörtgeni döndürür. */
-	public Dikdörtgen yazB(final Yöney2 b) {
-		this.b.değiştir(b);
+	/** Dikdörtgeni verilen dize oluşturucusuna ekler. Oluşturucuyu döndürür. */
+	public StringBuilder dizeOluşturucusunaEkle(
+		final StringBuilder dizeOluşturucusu) {
+		return dizeOluşturucusu
+			.append('[')
+			.append(küçükKöşesi)
+			.append(", ")
+			.append(büyükKöşesi)
+			.append(", ")
+			.append(ortaNoktası)
+			.append(", ")
+			.append(uzunlukları)
+			.append(']');
+	}
+	
+	/** Bu dikdörtgeni verilen dikdörtgene değiştirir. Bu dikdörtgeni
+	 * döndürür. */
+	public Dikdörtgen değiştir(final Dikdörtgen öbürü) {
+		return küçükKöşesiniDeğiştir(öbürü.küçükKöşesi)
+			.büyükKöşesiniDeğiştir(öbürü.büyükKöşesi)
+			.ortaNoktasınıDeğiştir(öbürü.ortaNoktası)
+			.uzunluklarınıDeğiştir(öbürü.uzunlukları);
+	}
+	
+	/** Küçük olan köşeyi değiştirir. Dikdörtgeni döndürür. */
+	public Dikdörtgen küçükKöşesiniDeğiştir(final Yöney2 küçükKöşe) {
+		küçükKöşesi.değiştir(küçükKöşe);
 		return this;
 	}
 	
 	/** Küçük olan köşeyi değiştirir. Dikdörtgeni döndürür. */
-	public Dikdörtgen yazK(final Yöney2 k) {
-		this.k.değiştir(k);
+	public Dikdörtgen küçükKöşesiniDeğiştir(
+		final float birinciBileşen,
+		final float ikinciBileşen) {
+		küçükKöşesi.bileşenleriniDeğiştir(birinciBileşen, ikinciBileşen);
+		return this;
+	}
+	
+	/** Büyük olan köşeyi değiştirir. Dikdörtgeni döndürür. */
+	public Dikdörtgen büyükKöşesiniDeğiştir(final Yöney2 büyükKöşe) {
+		büyükKöşesi.değiştir(büyükKöşe);
+		return this;
+	}
+	
+	/** Büyük olan köşeyi değiştirir. Dikdörtgeni döndürür. */
+	public Dikdörtgen büyükKöşesiniDeğiştir(
+		final float birinciBileşen,
+		final float ikinciBileşen) {
+		büyükKöşesi.bileşenleriniDeğiştir(birinciBileşen, ikinciBileşen);
 		return this;
 	}
 	
 	/** Orta noktayı değiştirir. Dikdörtgeni döndürür. */
-	public Dikdörtgen yazO(final Yöney2 o) {
-		this.o.değiştir(o);
+	public Dikdörtgen ortaNoktasınıDeğiştir(final Yöney2 ortaNokta) {
+		ortaNoktası.değiştir(ortaNokta);
+		return this;
+	}
+	
+	/** Orta noktayı değiştirir. Dikdörtgeni döndürür. */
+	public Dikdörtgen ortaNoktasınıDeğiştir(
+		final float birinciBileşen,
+		final float ikinciBileşen) {
+		ortaNoktası.bileşenleriniDeğiştir(birinciBileşen, ikinciBileşen);
 		return this;
 	}
 	
 	/** Uzunluğu değiştirir. Dikdörtgeni döndürür. */
-	public Dikdörtgen yazU(final Yöney2 u) {
-		this.u.değiştir(u);
+	public Dikdörtgen uzunluklarınıDeğiştir(final Yöney2 uzunluklar) {
+		uzunlukları.değiştir(uzunluklar);
 		return this;
 	}
 	
-	/** Dikdörtgenin verilerini ayrı ayrı yuvarlar. Dikdörtgeni döndürür. */
-	public Dikdörtgen yuvarla() {
-		return this.yuvarla(this);
-	}
-	
-	/** Verilen dikdörtgenin verilerini ayrı ayrı yuvarlayıp buna yazar. Bu
-	 * dikdörtgeni döndürür. */
-	public Dikdörtgen yuvarla(final Dikdörtgen ö) {
-		k.yuvarla(ö.k);
-		b.yuvarla(ö.b);
-		o.yuvarla(ö.o);
-		u.yuvarla(ö.u);
+	/** Uzunluğu değiştirir. Dikdörtgeni döndürür. */
+	public Dikdörtgen uzunluklarınıDeğiştir(
+		final float birinciBileşen,
+		final float ikinciBileşen) {
+		uzunlukları.bileşenleriniDeğiştir(birinciBileşen, ikinciBileşen);
 		return this;
 	}
 }

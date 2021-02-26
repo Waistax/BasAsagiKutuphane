@@ -38,7 +38,7 @@ public class YerleşikDikdörtgen {
 		kurallar[2].yerleştir();
 		kurallar[3].yerleştir();
 		DikdörtgenVerisi
-			.dikeyiHesapla(
+			.dikeyBileşenleriniBul(
 				kurallar[2].dikdörtgenVerisi,
 				kurallar[3].dikdörtgenVerisi,
 				hedef);
@@ -49,7 +49,7 @@ public class YerleşikDikdörtgen {
 		kurallar[0].yerleştir();
 		kurallar[1].yerleştir();
 		DikdörtgenVerisi
-			.yatayıHesapla(
+			.yatayBileşenleriniBul(
 				kurallar[0].dikdörtgenVerisi,
 				kurallar[1].dikdörtgenVerisi,
 				hedef);

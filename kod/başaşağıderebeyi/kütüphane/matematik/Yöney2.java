@@ -17,9 +17,8 @@ public class Yöney2 {
 	/** Y eksenini temsil eden yöney. */
 	public static final Yöney2 İKİNCİ_EKSEN = new Yöney2(0.0F, 1.0F);
 	/** Her eksende bir uzunluğunda olan yöney. */
-	public static final Yöney2 BİR = new Yöney2()
-		.topla(BİRİNCİ_EKSEN)
-		.topla(İKİNCİ_EKSEN);
+	public static final Yöney2 BİR =
+		new Yöney2().topla(BİRİNCİ_EKSEN).topla(İKİNCİ_EKSEN);
 	
 	/** Yöneyin birinci bileşeni. */
 	public float birinciBileşeni;

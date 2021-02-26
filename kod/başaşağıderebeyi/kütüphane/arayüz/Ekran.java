@@ -38,21 +38,21 @@ public class Ekran extends Levha {
 		// Verilen boyutları kullanarak ekranı yerleştir.
 		yerleşikDikdörtgeni
 			.kurallar(
-				new SerbestKural(DikdörtgenVerisi.ORTA, ortaX),
-				new SerbestKural(DikdörtgenVerisi.UZUNLUK, genişlik),
-				new SerbestKural(DikdörtgenVerisi.ORTA, ortaY),
-				new SerbestKural(DikdörtgenVerisi.UZUNLUK, yükseklik))
+				new SerbestKural(DikdörtgenVerisi.ORTA_NOKTASI, ortaX),
+				new SerbestKural(DikdörtgenVerisi.UZUNLUKLARI, genişlik),
+				new SerbestKural(DikdörtgenVerisi.ORTA_NOKTASI, ortaY),
+				new SerbestKural(DikdörtgenVerisi.UZUNLUKLARI, yükseklik))
 			.yerleştir();
 	}
 	
 	@Override
 	protected void üzerindeBulunmasınıHesapla() {
-		final ListIterator<
-			Öğe> tersineYineleme = içerik.listIterator(içerik.size());
+		final ListIterator<Öğe> tersineYineleme =
+			içerik.listIterator(içerik.size());
 		while (tersineYineleme.hasPrevious())
 			tersineYineleme.previous().üzerindeBulunmasınıHesapla();
 		
-		imlecinAltındaOlması = alanı.içinde(girdi.imlecininKonumu);
+		imlecinAltındaOlması = alanı.içindeOlmasınıBul(girdi.imlecininKonumu);
 	}
 	
 	@Override

@@ -31,23 +31,23 @@ public class Pencere extends Levha {
 		yerleşikDikdörtgeni
 			.kurallar(
 				new SerbestKural(
-					DikdörtgenVerisi.ORTA,
-					ekran.alanı.o.birinciBileşeni),
-				new SerbestKural(DikdörtgenVerisi.UZUNLUK, genişlik),
+					DikdörtgenVerisi.ORTA_NOKTASI,
+					ekran.alanı.ortaNoktası.birinciBileşeni),
+				new SerbestKural(DikdörtgenVerisi.UZUNLUKLARI, genişlik),
 				new SerbestKural(
-					DikdörtgenVerisi.ORTA,
-					ekran.alanı.o.ikinciBileşeni),
-				new SerbestKural(DikdörtgenVerisi.UZUNLUK, yükseklik));
+					DikdörtgenVerisi.ORTA_NOKTASI,
+					ekran.alanı.ortaNoktası.ikinciBileşeni),
+				new SerbestKural(DikdörtgenVerisi.UZUNLUKLARI, yükseklik));
 		new PencereÇubuğu(this);
 		new Düğme(this, "X", new PencereyiKapat(this)).yerleşikDikdörtgeni
 			.kurallar(
-				new TersGöreliKural(DikdörtgenVerisi.BÜYÜK),
+				new TersGöreliKural(DikdörtgenVerisi.BÜYÜK_KÖŞESİ),
 				new SerbestKural(
-					DikdörtgenVerisi.UZUNLUK,
+					DikdörtgenVerisi.UZUNLUKLARI,
 					Pencere.ÇARPI_GENİŞLİĞİ),
-				new GöreliKural(DikdörtgenVerisi.KÜÇÜK),
+				new GöreliKural(DikdörtgenVerisi.KÜÇÜK_KÖŞESİ),
 				new SerbestKural(
-					DikdörtgenVerisi.UZUNLUK,
+					DikdörtgenVerisi.UZUNLUKLARI,
 					Pencere.ÇUBUK_KALINLIĞI));
 	}
 	

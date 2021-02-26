@@ -14,7 +14,7 @@ import başaşağıderebeyi.kütüphane.matematik.*;
 public class OrtalıKural extends YerleşimKuralı {
 	/** Dikdörtgenin ORTA verisiyle tanımlar. */
 	public OrtalıKural() {
-		super(DikdörtgenVerisi.ORTA, false, false);
+		super(DikdörtgenVerisi.ORTA_NOKTASI, false, false);
 	}
 	
 	@Override
