@@ -101,7 +101,7 @@ public class ÇiğGirdi {
 	
 	/** Fare imlecinin eşzamansız olarak ekrandaki konumunu bildirir. */
 	public void imlecininKonumunuBildir(final float x, final float y) {
-		imlecininEşzamansızKonumu.bileşenleriDeğiştir(x, y);
+		imlecininEşzamansızKonumu.bileşenleriniDeğiştir(x, y);
 	}
 	
 	/** Fare imlecinin verilen nesne tarafından kullanılmaya uygun olup

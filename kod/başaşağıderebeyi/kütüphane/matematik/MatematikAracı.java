@@ -66,42 +66,56 @@ public class MatematikAracı {
 		return (float)Math.ceil(sayı);
 	}
 	
-	/** Verilen iki nesneden yakın olanı döndürür. */
+	/** Başlangıç ve bitiş nesnelerinin uzaklığa göre aradeğerini döndürür. Bu
+	 * nesnelerin sayısal olmadığını varsayar. */
 	public static <T> T aradeğerleriniBul(
-		final T soldakiNesne,
-		final T sağdakiNesne,
-		final float soldakineOlanUzaklık,
-		final float sağdakineOlanUzaklık) {
-		if (soldakineOlanUzaklık < sağdakineOlanUzaklık)
-			return soldakiNesne;
+		final T baştakiNesne,
+		final T sondakiNesne,
+		final float uzaklık) {
+		if (uzaklık < 0.5F)
+			return baştakiNesne;
 		else
-			return sağdakiNesne;
+			return sondakiNesne;
 	}
 	
-	/** Verilen iki tam sayının verilen mesafelere göre aradeğerini döndürür.
-	 * Mesafelerin toplamının bir olduğunu varsayar. */
+	/** Başlangıç ve bitiş tam sayılarının uzaklığa göre aradeğerini
+	 * döndürür. */
 	public static int aradeğerleriniBul(
-		final int soldakiTamSayı,
-		final int sağdakiTamSayı,
-		final float soldakineOlanUzaklık,
-		final float sağdakineOlanUzaklık) {
+		final int baştakiTamSayı,
+		final int sondakiTamSayı,
+		final float uzaklık) {
 		return yuvarla(
 			aradeğerleriniBul(
-				(float)soldakiTamSayı,
-				(float)sağdakiTamSayı,
-				soldakineOlanUzaklık,
-				sağdakineOlanUzaklık));
+				(float)baştakiTamSayı,
+				(float)sondakiTamSayı,
+				uzaklık));
 	}
 	
-	/** Verilen iki ondalık sayının verilen mesafelere göre aradeğerini
-	 * döndürür. Mesafelerin toplamının bir olduğunu varsayar. */
+	/** Başlangıç ve bitiş ondalık sayılarının uzaklığa göre aradeğerini
+	 * döndürür. */
 	public static float aradeğerleriniBul(
-		final float soldakiSayı,
-		final float sağdakiSayı,
-		final float soldakineOlanUzaklık,
-		final float sağdakineOlanUzaklık) {
-		return soldakiSayı * sağdakineOlanUzaklık +
-			sağdakiSayı * soldakineOlanUzaklık;
+		final float baştakiSayı,
+		final float sondakiSayı,
+		final float uzaklık) {
+		return baştakiSayı + (sondakiSayı - baştakiSayı) * uzaklık;
+	}
+	
+	/** Verilen hedef sayısalı başlangıç ve bitiş sayısallarının uzaklığa göre
+	 * aradeğerine değiştirir. Hedef sayısalı döndürür. */
+	public static <S extends Sayısal> S aradeğerleriniBul(
+		final S hedefSayısal,
+		final S baştakiSayısal,
+		final S sondakiSayısal,
+		final float uzaklık) {
+		/* aradeğer = baştakiSayısal+(sondakiSayısal-baştakiSayısal)*uzaklık */
+		hedefSayısal
+			.topla(
+				baştakiSayısal,
+				hedefSayısal
+					.çarp(
+						hedefSayısal.çıkar(sondakiSayısal, baştakiSayısal),
+						uzaklık));
+		return hedefSayısal;
 	}
 	
 	/** Verilen ondalık sayının karesini döndürür. */

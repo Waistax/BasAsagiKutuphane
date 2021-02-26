@@ -5,16 +5,19 @@
  */
 package başaşağıderebeyi.kütüphane.matematik;
 
-/** Sayı değeri olan, üstdüşüm ve doğrusallık kurallarına uyan bir nesne. Bu
- * nesnelerle hesaplama yapmanın az işlem ve bellek gerektiren bir yolu bulunana
- * kadar kullanımda olmayacak. Eğer bulunamazsa silinecek. */
-@Deprecated
+/** Sayı değeri olan, üstdüşüm ve doğrusallık kurallarına uyan bir nesne. */
 public interface Sayısal {
 	/** Bu sayısal nesneyi verilen sayısal nesnelerin üstdüşümlerine değiştirir.
 	 * Bu sayısal nesneyi döndürür. */
-	Sayısal üstdüşümleriniBul(Sayısal soldakiSayısal, Sayısal sağdakiSayısal);
+	Sayısal topla(Sayısal soldaki, Sayısal sağdaki);
+	
+	/** Sağdaki sayısalın -1 ile oranlanmışı ile kısa yoldan üstdüşümler. */
+	Sayısal çıkar(Sayısal soldaki, Sayısal sağdaki);
 	
 	/** Bu sayısal nesneyi verilen sayısal nesnenin doğrusal bir oranıyla
 	 * değiştirir. Bu sayısal nesneyi döndürür. */
-	Sayısal doğrusalOlarakOranla(Sayısal öbürü, float oran);
+	Sayısal çarp(Sayısal öbürü, float sayı);
+	
+	/** Verilen sayının tersi ile kısayoldan oranlar. */
+	Sayısal böl(Sayısal öbürü, float sayı);
 }
