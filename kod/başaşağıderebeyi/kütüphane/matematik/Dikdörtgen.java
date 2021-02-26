@@ -97,17 +97,9 @@ public class Dikdörtgen {
 		return this;
 	}
 	
-	/** Bu dikdörtgeni verilen sondaki dikdörtgen olmak üzere, baştaki ve
-	 * sondaki dikdörtgenlerin verilen uzaklığa göre aradeğerlerine değiştirir.
-	 * Bu dikdörtgeni döndürür. */
-	public Dikdörtgen aradeğerleriniBul(
-		final Dikdörtgen öbürü,
-		final float uzaklık) {
-		return aradeğerleriniBul(this, öbürü, uzaklık);
-	}
-	
 	/** Bu dikdörtgeni baştaki ve sondaki dikdörtgenlerin verilen uzaklığa göre
-	 * aradeğerlerine değiştirir. Bu dikdörtgeni döndürür. */
+	 * aradeğerlerine değiştirir. Verilen dikdörtgenlerin bu dikdörtgenden
+	 * farklı olduğunu varsayar. Bu dikdörtgeni döndürür. */
 	public Dikdörtgen aradeğerleriniBul(
 		final Dikdörtgen baştaki,
 		final Dikdörtgen sondaki,

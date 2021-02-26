@@ -101,7 +101,8 @@ public class MatematikAracı {
 	}
 	
 	/** Verilen hedef sayısalı başlangıç ve bitiş sayısallarının uzaklığa göre
-	 * aradeğerine değiştirir. Hedef sayısalı döndürür. */
+	 * aradeğerine değiştirir. Verilen sayısalların hedef sayısalından farklı
+	 * olduğunu varsayar. Hedef sayısalı döndürür. */
 	public static <S extends Sayısal> S aradeğerleriniBul(
 		final S hedefSayısal,
 		final S baştakiSayısal,

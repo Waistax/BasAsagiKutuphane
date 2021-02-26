@@ -229,25 +229,9 @@ public class Yöney2 {
 			MatematikAracı.yukarıYuvarla(öbürü.birinciBileşeni));
 	}
 	
-	/** Bu yöneyi verilen sondaki yöney olmak üzere, baştaki ve sondaki
-	 * yöneylerin verilen uzaklığa göre aradeğerlerine değiştirir. Bu yöneyi
-	 * döndürür. */
-	public Yöney2 aradeğerleriniBul(final Yöney2 öbürü, final float uzaklık) {
-		return bileşenleriniDeğiştir(
-			MatematikAracı
-				.aradeğerleriniBul(
-					birinciBileşeni,
-					öbürü.birinciBileşeni,
-					uzaklık),
-			MatematikAracı
-				.aradeğerleriniBul(
-					ikinciBileşeni,
-					öbürü.ikinciBileşeni,
-					uzaklık));
-	}
-	
 	/** Bu yöneyi baştaki ve sondaki yöneylerin verilen uzaklığa göre
-	 * aradeğerlerine değiştirir. Bu yöneyi döndürür. */
+	 * aradeğerlerine değiştirir. Verilen yöneylerin bu yöneyden farklı olduğunu
+	 * varsayar. Bu yöneyi döndürür. */
 	public Yöney2 aradeğerleriniBul(
 		final Yöney2 baştaki,
 		final Yöney2 sondaki,

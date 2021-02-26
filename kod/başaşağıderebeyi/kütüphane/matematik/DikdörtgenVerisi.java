@@ -64,52 +64,52 @@ public enum DikdörtgenVerisi {
 		switch (verilerinBirleşimleri) {
 		case 1, 4: // KÜÇÜK_KÖŞESİ ve BÜYÜK_KÖŞESİ.
 			dikdörtgen.ortaNoktası.birinciBileşeni =
-			(dikdörtgen.küçükKöşesi.birinciBileşeni +
+				(dikdörtgen.küçükKöşesi.birinciBileşeni +
 					dikdörtgen.büyükKöşesi.birinciBileşeni) / 2.0F;
-		dikdörtgen.uzunlukları.birinciBileşeni =
+			dikdörtgen.uzunlukları.birinciBileşeni =
 				dikdörtgen.büyükKöşesi.birinciBileşeni -
-				dikdörtgen.küçükKöşesi.birinciBileşeni;
-		return;
+					dikdörtgen.küçükKöşesi.birinciBileşeni;
+			return;
 		case 2, 8: // KÜÇÜK_KÖŞESİ ve ORTA_NOKTASI.
 			dikdörtgen.büyükKöşesi.birinciBileşeni =
-			2.0F * dikdörtgen.ortaNoktası.birinciBileşeni -
-			dikdörtgen.küçükKöşesi.birinciBileşeni;
-		dikdörtgen.uzunlukları.birinciBileşeni =
+				2.0F * dikdörtgen.ortaNoktası.birinciBileşeni -
+					dikdörtgen.küçükKöşesi.birinciBileşeni;
+			dikdörtgen.uzunlukları.birinciBileşeni =
 				(dikdörtgen.ortaNoktası.birinciBileşeni -
-						dikdörtgen.küçükKöşesi.birinciBileşeni) * 2.0F;
-		return;
+					dikdörtgen.küçükKöşesi.birinciBileşeni) * 2.0F;
+			return;
 		case 3, 12: // KÜÇÜK_KÖŞESİ ve UZUNLUKLARI.
 			dikdörtgen.büyükKöşesi.birinciBileşeni =
-			dikdörtgen.küçükKöşesi.birinciBileşeni +
-			dikdörtgen.uzunlukları.birinciBileşeni;
-		dikdörtgen.ortaNoktası.birinciBileşeni =
 				dikdörtgen.küçükKöşesi.birinciBileşeni +
-				dikdörtgen.uzunlukları.birinciBileşeni / 2.0F;
-		return;
+					dikdörtgen.uzunlukları.birinciBileşeni;
+			dikdörtgen.ortaNoktası.birinciBileşeni =
+				dikdörtgen.küçükKöşesi.birinciBileşeni +
+					dikdörtgen.uzunlukları.birinciBileşeni / 2.0F;
+			return;
 		case 6, 9: // BÜYÜK_KÖŞESİ ve ORTA_NOKTASI.
 			dikdörtgen.küçükKöşesi.birinciBileşeni =
-			2.0F * dikdörtgen.ortaNoktası.birinciBileşeni -
-			dikdörtgen.büyükKöşesi.birinciBileşeni;
-		dikdörtgen.uzunlukları.birinciBileşeni =
+				2.0F * dikdörtgen.ortaNoktası.birinciBileşeni -
+					dikdörtgen.büyükKöşesi.birinciBileşeni;
+			dikdörtgen.uzunlukları.birinciBileşeni =
 				(dikdörtgen.büyükKöşesi.birinciBileşeni -
-						dikdörtgen.ortaNoktası.birinciBileşeni) * 2.0F;
-		return;
+					dikdörtgen.ortaNoktası.birinciBileşeni) * 2.0F;
+			return;
 		case 7, 13: // BÜYÜK_KÖŞESİ ve UZUNLUKLARI.
 			dikdörtgen.küçükKöşesi.birinciBileşeni =
-			dikdörtgen.büyükKöşesi.birinciBileşeni -
-			dikdörtgen.uzunlukları.birinciBileşeni;
-		dikdörtgen.ortaNoktası.birinciBileşeni =
 				dikdörtgen.büyükKöşesi.birinciBileşeni -
-				dikdörtgen.uzunlukları.birinciBileşeni / 2.0F;
-		return;
+					dikdörtgen.uzunlukları.birinciBileşeni;
+			dikdörtgen.ortaNoktası.birinciBileşeni =
+				dikdörtgen.büyükKöşesi.birinciBileşeni -
+					dikdörtgen.uzunlukları.birinciBileşeni / 2.0F;
+			return;
 		case 11, 14: // ORTA_NOKTASI ve UZUNLUKLARI.
 			dikdörtgen.küçükKöşesi.birinciBileşeni =
-			dikdörtgen.ortaNoktası.birinciBileşeni -
-			dikdörtgen.uzunlukları.birinciBileşeni / 2.0F;
-		dikdörtgen.büyükKöşesi.birinciBileşeni =
+				dikdörtgen.ortaNoktası.birinciBileşeni -
+					dikdörtgen.uzunlukları.birinciBileşeni / 2.0F;
+			dikdörtgen.büyükKöşesi.birinciBileşeni =
 				dikdörtgen.ortaNoktası.birinciBileşeni +
-				dikdörtgen.uzunlukları.birinciBileşeni / 2.0F;
-		return;
+					dikdörtgen.uzunlukları.birinciBileşeni / 2.0F;
+			return;
 		default: // 0, 5, 10, 15: Aynı iki veri, geçersiz.
 			return;
 		}

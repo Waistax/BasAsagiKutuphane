@@ -256,30 +256,9 @@ public class Yöney3 {
 			MatematikAracı.yukarıYuvarla(öbürü.üçüncüBileşeni));
 	}
 	
-	/** Bu yöneyi verilen sondaki yöney olmak üzere, baştaki ve sondaki
-	 * yöneylerin verilen uzaklığa göre aradeğerlerine değiştirir. Bu yöneyi
-	 * döndürür. */
-	public Yöney3 aradeğerleriniBul(final Yöney3 öbürü, final float uzaklık) {
-		return bileşenleriniDeğiştir(
-			MatematikAracı
-				.aradeğerleriniBul(
-					birinciBileşeni,
-					öbürü.birinciBileşeni,
-					uzaklık),
-			MatematikAracı
-				.aradeğerleriniBul(
-					ikinciBileşeni,
-					öbürü.ikinciBileşeni,
-					uzaklık),
-			MatematikAracı
-				.aradeğerleriniBul(
-					üçüncüBileşeni,
-					öbürü.üçüncüBileşeni,
-					uzaklık));
-	}
-	
 	/** Bu yöneyi baştaki ve sondaki yöneylerin verilen uzaklığa göre
-	 * aradeğerlerine değiştirir. Bu yöneyi döndürür. */
+	 * aradeğerlerine değiştirir. Verilen yöneylerin bu yöneyden farklı olduğunu
+	 * varsayar. Bu yöneyi döndürür. */
 	public Yöney3 aradeğerleriniBul(
 		final Yöney3 baştaki,
 		final Yöney3 sondaki,
