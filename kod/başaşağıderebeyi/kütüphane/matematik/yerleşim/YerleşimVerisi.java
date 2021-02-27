@@ -9,115 +9,73 @@ import başaşağıderebeyi.kütüphane.matematik.*;
 
 /** Bir kuralın yerleştirdiği farklı verilerin sıralaması. */
 public enum YerleşimVerisi {
-		BÜYÜK_DİKEY,
-		BÜYÜK_YATAY,
-		KÜÇÜK_DİKEY,
-		/** Verilerin yatay ve dikey ile birleştirmeleri: */
-		KÜÇÜK_YATAY,
-		ORTA_DİKEY,
-		ORTA_YATAY,
-		UZUNLUK_DİKEY,
-		UZUNLUK_YATAY;
+		/** Köşelerden konumu küçük olanın birinci bileşeni. */
+		KÜÇÜK_KÖŞESİNİN_YATAYI,
+		/** Köşelerden konumu büyük olanın birinci bileşeni. */
+		BÜYÜK_KÖŞESİNİN_YATAYI,
+		/** Orta noktanın birinci bileşeni. */
+		ORTA_NOKTASININ_YATAYI,
+		/** Genişliği. */
+		GENİŞLİĞİ,
+		/** Köşelerden konumu küçük olanın ikinci bileşeni. */
+		KÜÇÜK_KÖŞESİNİN_DİKEYİ,
+		/** Köşelerden konumu büyük olanın ikinci bileşeni. */
+		BÜYÜK_KÖŞESİNİN_DİKEYİ,
+		/** Orta noktanın birinci ikinci. */
+		ORTA_NOKTASININ_DİKEYİ,
+		/** Yüksekliği. */
+		YÜKSEKLİĞİ;
 		
-	/** Dikdörtgen verisinden belli bir boyuttakini verir. */
-	public static YerleşimVerisi al(
-		final DikdörtgenVerisi veri,
-		final boolean yatay) {
-		return YerleşimVerisi.values()[veri.ordinal() * 2 + (yatay ? 0 : 1)];
+	/** Verilen dikdörtgen verisi ve boyut birleşimini döndürür. */
+	public static YerleşimVerisi yerleşimVerisiEdin(
+		final DikdörtgenVerisi dikdörtgenVerisi,
+		final boolean yatayOlması) {
+		return yerleşimVerisiEdin(dikdörtgenVerisi.ordinal(), yatayOlması);
 	}
 	
-	/** Yerleştirdiği veriyi verir. */
-	public float al(final Dikdörtgen ö) {
-		switch (this) {
-		case KÜÇÜK_YATAY:
-			return ö.küçükKöşesi.birinciBileşeni;
-		case BÜYÜK_YATAY:
-			return ö.büyükKöşesi.birinciBileşeni;
-		case KÜÇÜK_DİKEY:
-			return ö.küçükKöşesi.ikinciBileşeni;
-		case BÜYÜK_DİKEY:
-			return ö.büyükKöşesi.ikinciBileşeni;
-		case ORTA_YATAY:
-			return ö.ortaNoktası.birinciBileşeni;
-		case ORTA_DİKEY:
-			return ö.ortaNoktası.ikinciBileşeni;
-		case UZUNLUK_YATAY:
-			return ö.uzunlukları.birinciBileşeni;
-		case UZUNLUK_DİKEY:
-			return ö.uzunlukları.ikinciBileşeni;
-		default:
-			return 0.0F;
-		}
+	/** Verilen dikdörtgen verisi ve boyut birleşimini döndürür. */
+	public static YerleşimVerisi yerleşimVerisiEdin(
+		final int dikdörtgenVerisiSırası,
+		final boolean yatayOlması) {
+		return values()[dikdörtgenVerisiSırası + (yatayOlması ? 0 : 4)];
 	}
 	
-	/** Aynı boyuttaki BÜYÜK veriyi verir. */
-	public YerleşimVerisi büyük() {
-		return YerleşimVerisi
-			.values()[DikdörtgenVerisi.BÜYÜK_KÖŞESİ.ordinal() * 2 +
-				ordinal() % 2];
+	/** Diğer boyuttaki aynı veriyi döndürür. */
+	public YerleşimVerisi diğerBoyuttakiniEdin() {
+		return yerleşimVerisiEdin(ordinal() % 4, ordinal() < 4);
 	}
 	
-	/** Aynı boyuttaki karşı veriyi verir. */
-	public YerleşimVerisi karşı() {
-		return YerleşimVerisi.values()[ordinal() - ordinal() % 2 * 2 + 1];
+	/** Diğer boyuttaki farklı bir veriyi döndürür. */
+	public YerleşimVerisi diğerBoyuttakiniEdin(
+		final DikdörtgenVerisi dikdörtgenVerisi) {
+		return yerleşimVerisiEdin(dikdörtgenVerisi, ordinal() > 4);
 	}
 	
-	/** Diğer boyuttaki aynı veridir. */
-	public YerleşimVerisi komşu() {
-		return YerleşimVerisi
-			.values()[ordinal() - ordinal() % 2 + (ordinal() + 1) % 2];
+	/** Aynı boyuttaki farklı bir veriyi döndürür. */
+	public YerleşimVerisi aynıBoyuttakiniEdin(
+		final DikdörtgenVerisi dikdörtgenVerisi) {
+		return yerleşimVerisiEdin(dikdörtgenVerisi, ordinal() < 4);
 	}
 	
-	/** Aynı boyuttaki KÜÇÜK veriyi verir. */
-	public YerleşimVerisi küçük() {
-		return YerleşimVerisi
-			.values()[DikdörtgenVerisi.KÜÇÜK_KÖŞESİ.ordinal() * 2 +
-				ordinal() % 2];
+	/** Yerleştirdiği verinin değerini döndürür. */
+	public float değeriEdin(final Dikdörtgen dikdörtgen) {
+		final DikdörtgenVerisi verisi =
+			DikdörtgenVerisi.values()[ordinal() % 4];
+		return ordinal() < 4 ?
+			verisi.yatayBileşeniniEdin(dikdörtgen) :
+			verisi.dikeyBileşeniniEdin(dikdörtgen);
 	}
 	
-	/** Aynı boyuttaki ORTA veriyi verir. */
-	public YerleşimVerisi orta() {
-		return YerleşimVerisi
-			.values()[DikdörtgenVerisi.ORTA_NOKTASI.ordinal() * 2 +
-				ordinal() % 2];
-	}
-	
-	/** Aynı boyuttaki UZUNLUK veriyi verir. */
-	public YerleşimVerisi uzunluk() {
-		return YerleşimVerisi
-			.values()[DikdörtgenVerisi.UZUNLUKLARI.ordinal() * 2 +
-				ordinal() % 2];
-	}
-	
-	/** Yerleştirdiği veriyi değiştirir. */
-	public YerleşimVerisi yaz(final Dikdörtgen ö, final float o) {
-		switch (this) {
-		case KÜÇÜK_YATAY:
-			ö.küçükKöşesi.birinciBileşeni = o;
-			return this;
-		case KÜÇÜK_DİKEY:
-			ö.küçükKöşesi.ikinciBileşeni = o;
-			return this;
-		case BÜYÜK_YATAY:
-			ö.büyükKöşesi.birinciBileşeni = o;
-			return this;
-		case BÜYÜK_DİKEY:
-			ö.büyükKöşesi.ikinciBileşeni = o;
-			return this;
-		case ORTA_YATAY:
-			ö.ortaNoktası.birinciBileşeni = o;
-			return this;
-		case ORTA_DİKEY:
-			ö.ortaNoktası.ikinciBileşeni = o;
-			return this;
-		case UZUNLUK_YATAY:
-			ö.uzunlukları.birinciBileşeni = o;
-			return this;
-		case UZUNLUK_DİKEY:
-			ö.uzunlukları.ikinciBileşeni = o;
-			return this;
-		default:
-			return this;
-		}
+	/** Yerleştirdiği verinin değerini değiştirir. */
+	public YerleşimVerisi değeriDeğiştir(
+		final Dikdörtgen dikdörtgen,
+		final float değer) {
+		final DikdörtgenVerisi verisi =
+			DikdörtgenVerisi.values()[ordinal() % 4];
+		if (ordinal() < 4)
+			verisi.yatayBileşeniniDeğiştir(dikdörtgen, değer);
+		else
+			verisi.dikeyBileşeniniDeğiştir(dikdörtgen, değer);
+		return this;
 	}
 }

@@ -19,6 +19,9 @@ public class OrtalıKural extends YerleşimKuralı {
 	
 	@Override
 	protected void yerleştir() {
-		verisi.yaz(uygulanacağıDikdörtgen, verisi.al(içerenDikdörtgen));
+		verisi
+			.değeriDeğiştir(
+				uygulanacağıDikdörtgen,
+				verisi.değeriEdin(içerenDikdörtgen));
 	}
 }

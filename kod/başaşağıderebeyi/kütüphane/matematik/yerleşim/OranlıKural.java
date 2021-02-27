@@ -29,8 +29,11 @@ public class OranlıKural extends YerleşimKuralı {
 	@Override
 	protected void yerleştir() {
 		verisi
-			.yaz(
+			.değeriDeğiştir(
 				uygulanacağıDikdörtgen,
-				verisi.komşu().uzunluk().al(uygulanacağıDikdörtgen) * oranı);
+				verisi
+					.diğerBoyuttakiniEdin(DikdörtgenVerisi.UZUNLUKLARI)
+					.değeriEdin(uygulanacağıDikdörtgen) *
+					oranı);
 	}
 }

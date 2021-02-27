@@ -31,8 +31,11 @@ public class GöreliKural extends YerleşimKuralı {
 	@Override
 	protected void yerleştir() {
 		verisi
-			.yaz(
+			.değeriDeğiştir(
 				uygulanacağıDikdörtgen,
-				verisi.küçük().al(içerenDikdörtgen) + uzaklığı);
+				verisi
+					.aynıBoyuttakiniEdin(DikdörtgenVerisi.KÜÇÜK_KÖŞESİ)
+					.değeriEdin(içerenDikdörtgen) +
+					uzaklığı);
 	}
 }

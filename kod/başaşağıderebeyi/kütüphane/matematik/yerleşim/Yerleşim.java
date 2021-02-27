@@ -41,7 +41,8 @@ public class Yerleşim {
 			final YerleşimKuralı kural = kurallar[i];
 			kural.içerenDikdörtgen = içerenDikdörtgen;
 			kural.uygulanacağıDikdörtgen = uygulanacağıDikdörtgen;
-			kural.verisi = YerleşimVerisi.al(kural.uygulanacağıVeri, i < 2);
+			kural.verisi = YerleşimVerisi
+				.yerleşimVerisiEdin(kural.uygulanacağıVeri, i < 2);
 			kuralları[işaretçi++ % 4] = kural;
 		}
 	}

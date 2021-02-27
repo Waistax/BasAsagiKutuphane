@@ -30,6 +30,6 @@ public class SerbestKural extends YerleşimKuralı {
 	
 	@Override
 	protected void yerleştir() {
-		verisi.yaz(uygulanacağıDikdörtgen, değeri);
+		verisi.değeriDeğiştir(uygulanacağıDikdörtgen, değeri);
 	}
 }

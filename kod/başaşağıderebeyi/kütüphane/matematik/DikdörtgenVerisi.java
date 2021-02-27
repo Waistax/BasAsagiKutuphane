@@ -185,4 +185,56 @@ public enum DikdörtgenVerisi {
 			return;
 		}
 	}
+	
+	/** Verilen dikdörtgenin yataydaki verisini döndürür. */
+	public float yatayBileşeniniEdin(final Dikdörtgen dikdörtgen) {
+		return switch (this) {
+		case KÜÇÜK_KÖŞESİ -> dikdörtgen.küçükKöşesi.birinciBileşeni;
+		case BÜYÜK_KÖŞESİ -> dikdörtgen.büyükKöşesi.birinciBileşeni;
+		case ORTA_NOKTASI -> dikdörtgen.ortaNoktası.birinciBileşeni;
+		case UZUNLUKLARI -> dikdörtgen.uzunlukları.birinciBileşeni;
+		};
+	}
+	
+	/** Verilen dikdörtgenin dikeydeki verisini döndürür. */
+	public float dikeyBileşeniniEdin(final Dikdörtgen dikdörtgen) {
+		return switch (this) {
+		case KÜÇÜK_KÖŞESİ -> dikdörtgen.küçükKöşesi.ikinciBileşeni;
+		case BÜYÜK_KÖŞESİ -> dikdörtgen.büyükKöşesi.ikinciBileşeni;
+		case ORTA_NOKTASI -> dikdörtgen.ortaNoktası.ikinciBileşeni;
+		case UZUNLUKLARI -> dikdörtgen.uzunlukları.ikinciBileşeni;
+		};
+	}
+	
+	/** Verilen dikdörtgenin yataydaki verisini değiştirir. */
+	public void yatayBileşeniniDeğiştir(
+		final Dikdörtgen dikdörtgen,
+		final float değer) {
+		switch (this) {
+		case KÜÇÜK_KÖŞESİ -> dikdörtgen.küçükKöşesi
+			.birinciBileşeniniDeğiştir(değer);
+		case BÜYÜK_KÖŞESİ -> dikdörtgen.büyükKöşesi
+			.birinciBileşeniniDeğiştir(değer);
+		case ORTA_NOKTASI -> dikdörtgen.ortaNoktası
+			.birinciBileşeniniDeğiştir(değer);
+		case UZUNLUKLARI -> dikdörtgen.uzunlukları
+			.birinciBileşeniniDeğiştir(değer);
+		}
+	}
+	
+	/** Verilen dikdörtgenin dikeydeki verisini değiştirir. */
+	public void dikeyBileşeniniDeğiştir(
+		final Dikdörtgen dikdörtgen,
+		final float değer) {
+		switch (this) {
+		case KÜÇÜK_KÖŞESİ -> dikdörtgen.küçükKöşesi
+			.ikinciBileşeniniDeğiştir(değer);
+		case BÜYÜK_KÖŞESİ -> dikdörtgen.büyükKöşesi
+			.ikinciBileşeniniDeğiştir(değer);
+		case ORTA_NOKTASI -> dikdörtgen.ortaNoktası
+			.ikinciBileşeniniDeğiştir(değer);
+		case UZUNLUKLARI -> dikdörtgen.uzunlukları
+			.ikinciBileşeniniDeğiştir(değer);
+		}
+	}
 }

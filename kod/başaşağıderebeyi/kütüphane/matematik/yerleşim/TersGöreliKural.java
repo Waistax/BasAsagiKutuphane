@@ -31,8 +31,11 @@ public class TersGöreliKural extends YerleşimKuralı {
 	@Override
 	protected void yerleştir() {
 		verisi
-			.yaz(
+			.değeriDeğiştir(
 				uygulanacağıDikdörtgen,
-				verisi.büyük().al(içerenDikdörtgen) - uzaklığı);
+				verisi
+					.aynıBoyuttakiniEdin(DikdörtgenVerisi.BÜYÜK_KÖŞESİ)
+					.değeriEdin(içerenDikdörtgen) -
+					uzaklığı);
 	}
 }

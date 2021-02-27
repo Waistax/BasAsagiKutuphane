@@ -65,12 +65,12 @@ public class HızDeneme {
 	/** Yerleşim verisinin karşısına ulaşma hızını ölçer. */
 	@SuppressWarnings("unused")
 	private static void yerleşimVerisininKarşısınıAl() {
-		YerleşimVerisi.KÜÇÜK_DİKEY.karşı();
+		YerleşimVerisi.KÜÇÜK_KÖŞESİNİN_DİKEYİ.karşı();
 	}
 	
 	/** Yerleşim verisinin komşusuna ulaşma hızını ölçer. */
 	private static void yerleşimVerisininKomşusunuAl() {
-		YerleşimVerisi.KÜÇÜK_DİKEY.komşu();
+		YerleşimVerisi.KÜÇÜK_KÖŞESİNİN_DİKEYİ.diğerBoyuttakiniEdin();
 	}
 	
 	/** Denemenin başlangıcı. */
