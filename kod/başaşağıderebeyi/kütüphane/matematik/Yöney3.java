@@ -5,8 +5,13 @@
  */
 package başaşağıderebeyi.kütüphane.matematik;
 
+import java.io.*;
+
 /** Üç boyutlu bir yöney. Bileşenler ondalıklı sayılar olarak saklanır. */
-public class Yöney3 {
+public class Yöney3 implements Serializable {
+	@Serial
+	private static final long serialVersionUID = 7228645153036198411L;
+	
 	/** Uzunluğu ve bileşenleri sıfır olan yöney. */
 	public static final Yöney3 SIFIR = new Yöney3();
 	/** X eksenini temsil eden yöney. */

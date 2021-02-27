@@ -8,8 +8,13 @@
  */
 package başaşağıderebeyi.kütüphane.matematik;
 
+import java.io.*;
+
 /** Dört boyutlu bir yöney. Bileşenler ondalıklı sayılar olarak saklanır. */
-public class Yöney4 {
+public class Yöney4 implements Serializable {
+	@Serial
+	private static final long serialVersionUID = -5518252940893995896L;
+	
 	/** Uzunluğu ve bileşenleri sıfır olan yöney. */
 	public static final Yöney4 SIFIR = new Yöney4();
 	/** X eksenini temsil eden yöney. */

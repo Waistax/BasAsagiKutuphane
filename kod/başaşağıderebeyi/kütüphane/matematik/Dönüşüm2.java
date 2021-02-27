@@ -5,9 +5,14 @@
  */
 package başaşağıderebeyi.kütüphane.matematik;
 
+import java.io.*;
+
 /** İki boyutlu bir nesnenin üç boyutlu uzayın içindeki konumunu ve biçimini
  * temsil eden bir dönüşüm dizeyi. */
-public class Dönüşüm2 {
+public class Dönüşüm2 implements Serializable {
+	@Serial
+	private static final long serialVersionUID = 4327830090825281677L;
+	
 	/** Nesnenin üç boyutlu uzaydaki konumu. Üçüncü bileşeni, nesnenin ekranın
 	 * içine doğru olan derinliğidir. */
 	public final Yöney3 konumu;

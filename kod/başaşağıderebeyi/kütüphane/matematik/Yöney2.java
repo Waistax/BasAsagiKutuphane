@@ -8,8 +8,13 @@
  */
 package başaşağıderebeyi.kütüphane.matematik;
 
+import java.io.*;
+
 /** İki boyutlu bir yöney. Bileşenler ondalık sayılar olarak saklanır. */
-public class Yöney2 {
+public class Yöney2 implements Serializable {
+	@Serial
+	private static final long serialVersionUID = -6265176683741426652L;
+	
 	/** Uzunluğu ve bileşenleri sıfır olan yöney. */
 	public static final Yöney2 SIFIR = new Yöney2();
 	/** X eksenini temsil eden yöney. */

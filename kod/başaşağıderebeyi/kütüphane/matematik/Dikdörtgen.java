@@ -8,8 +8,13 @@
  */
 package başaşağıderebeyi.kütüphane.matematik;
 
+import java.io.*;
+
 /** İki boyutlu bir dikdörtgen. Bileşenler ondalıklı sayılar olarak saklanır. */
-public class Dikdörtgen {
+public class Dikdörtgen implements Serializable {
+	@Serial
+	private static final long serialVersionUID = -9071357228959382000L;
+	
 	/** Konumunun değerleri küçük olan köşesi. */
 	public final Yöney2 küçükKöşesi;
 	/** Konumunun değerleri büyük olan köşesi. */
