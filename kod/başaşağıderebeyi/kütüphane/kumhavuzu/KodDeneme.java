@@ -6,15 +6,12 @@
 package başaşağıderebeyi.kütüphane.kumhavuzu;
 
 import başaşağıderebeyi.kütüphane.kumhavuzu.olay.*;
-import başaşağıderebeyi.kütüphane.matematik.*;
-import başaşağıderebeyi.kütüphane.olay.*;
-
-import java.util.*;
 
 /** Farklı yöntemlerin çalışıp çalışmadığını dener. */
 public class KodDeneme {
 	/** Denemenin başlangıcı. */
 	public static void main(final String[] args) {
-		OlayBölümüDenemesi.olayDenemesi();
+		final Deney deney = new Deney();
+		OlayBölümüDenemesi.olayDenemesi(deney);
 	}
 }
