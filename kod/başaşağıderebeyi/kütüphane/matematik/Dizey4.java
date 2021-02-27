@@ -100,7 +100,7 @@ public class Dizey4 {
 	
 	/** Birim dizeyi ya da dönüşüm dizeyini verilen konum ve biçim ile
 	 * değiştirir. Biçimin son bileşeni, ekranın içine doğru olan eksende saat
-	 * yönünün tersine dönme açısıdır. Dizeyi döndürür. */
+	 * yönünün tersine dönmesinin açısıdır. Dizeyi döndürür. */
 	public Dizey4 dönüşümDizeyiniGüncelle(
 		final Yöney3 konumu,
 		final Yöney3 biçimi) {
@@ -109,8 +109,8 @@ public class Dizey4 {
 	
 	/** Birim dizeyi ya da dönüşüm dizeyini verilen konum ve biçim ile
 	 * değiştirir. Yatay ve dikey boyutları aynıdır. Biçimin son bileşeni,
-	 * ekranın içine doğru olan eksende saat yönünün tersine dönme açısıdır.
-	 * Dizeyi döndürür. */
+	 * ekranın içine doğru olan eksende saat yönünün tersine dönmesinin
+	 * açısıdır. Dizeyi döndürür. */
 	public Dizey4 dönüşümDizeyiniGüncelle(
 		final Yöney3 konumu,
 		final Yöney2 biçimi) {
@@ -167,7 +167,7 @@ public class Dizey4 {
 			biçimi.üçüncüBileşeni);
 	}
 	
-	/** Birim dizeyi ya da dönüşüm dizeyini verilen biçim ile değiştirir. Dönme
+	/** Birim dizeyi ya da dönüşüm dizeyini verilen biçim ile değiştirir. Dönüş
 	 * açısı, ekranın içine doğru olan eksende saat yönünün tersinedir ve radyan
 	 * birimindendir. Dizeyi döndürür. */
 	public Dizey4 biçimBölümünüGüncelle(
@@ -179,7 +179,7 @@ public class Dizey4 {
 			dönüşAçısı);
 	}
 	
-	/** Birim dizeyi ya da dönüşüm dizeyini verilen biçim ile değiştirir. Dönme
+	/** Birim dizeyi ya da dönüşüm dizeyini verilen biçim ile değiştirir. Dönüş
 	 * açısı, ekranın içine doğru olan eksende saat yönünün tersinedir ve radyan
 	 * birimindendir. Dizeyi döndürür. */
 	public Dizey4 biçimBölümünüGüncelle(
@@ -198,7 +198,8 @@ public class Dizey4 {
 	
 	/** Birim dizeyi ya da dönüşüm dizeyini verilen biçim ile günceller. Yatay
 	 * ve dikey boyutları aynıdır. Biçimin son bileşeni, ekranın içine doğru
-	 * olan eksende saat yönünün tersine dönme açısıdır. Dizeyi döndürür. */
+	 * olan eksende saat yönünün tersine dönmesinin açısıdır. Dizeyi
+	 * döndürür. */
 	public Dizey4 biçimBölümünüGüncelle(final Yöney2 biçimi) {
 		return biçimBölümünüGüncelle(
 			biçimi.birinciBileşeni,
@@ -206,7 +207,7 @@ public class Dizey4 {
 	}
 	
 	/** Birim dizeyi ya da dönüşüm dizeyini verilen biçim ile değiştirir. Yatay
-	 * ve dikey boyutları aynıdır. Dönme açısı, ekranın içine doğru olan eksende
+	 * ve dikey boyutları aynıdır. Dönüş açısı, ekranın içine doğru olan eksende
 	 * saat yönünün tersinedir ve radyan birimindendir. Dizeyi döndürür. */
 	public Dizey4 biçimBölümünüGüncelle(
 		final float boyutu,

@@ -11,17 +11,17 @@ public class Dönüşüm2 {
 	/** Nesnenin üç boyutlu uzaydaki konumu. Üçüncü bileşeni, nesnenin ekranın
 	 * içine doğru olan derinliğidir. */
 	public final Yöney3 konumu;
-	/** Nesnenin iki boyutlu uzaydaki biçimi. Üçüncü bileşeni dönme açısıdır.
-	 * Ekranın içine doğru olan eksende saat yönünün tersinedir ve radyan
-	 * birimindendir. */
-	public final Yöney3 biçimi;
+	/** Nesnenin iki boyutlu uzaydaki biçimi. İlk bileşeni nesnenin boyutu,
+	 * ikinci bileşeni dönüş açısıdır. Ekranın içine doğru olan eksende saat
+	 * yönünün tersinedir ve radyan birimindendir. */
+	public final Yöney2 biçimi;
 	/** Dönüşümü gerçekleştirecek dizey. */
 	public final Dizey4 dizeyi;
 	
 	/** Etkisiz tanımlar. */
 	public Dönüşüm2() {
 		konumu = new Yöney3();
-		biçimi = new Yöney3().bileşenleriniDeğiştir(1.0F, 1.0F, 0.0F);
+		biçimi = new Yöney2().bileşenleriniDeğiştir(1.0F, 0.0F);
 		dizeyi = new Dizey4().birimDizeyeÇevir();
 	}
 	
