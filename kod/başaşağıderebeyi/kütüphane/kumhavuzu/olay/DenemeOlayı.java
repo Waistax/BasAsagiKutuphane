@@ -1,19 +1,19 @@
 /**
- * başaşağıderebeyi.kütüphane.kumhavuzu.DenemeOlayı.java
+ * başaşağıderebeyi.kütüphane.kumhavuzu.olay.DenemeOlayı.java
  * 0.6 / 19 Oca 2021 / 09:30:09
  * Cem GEÇGEL (BaşAşağıDerebeyi)
  */
-package başaşağıderebeyi.kütüphane.kumhavuzu;
+package başaşağıderebeyi.kütüphane.kumhavuzu.olay;
 
 import başaşağıderebeyi.kütüphane.olay.*;
 
 /** Dağıtıcıyı denemek için oluşturulmuş olay. */
-public class DenemeOlayı extends Olay {
+class DenemeOlayı extends Olay {
 	/** Olayın iletisi. */
-	public final String ileti;
+	final String iletisi;
 	
 	/** Bir ileti ile tanımlar. */
-	public DenemeOlayı(final String ileti) {
-		this.ileti = ileti;
+	DenemeOlayı(final String ileti) {
+		iletisi = ileti;
 	}
 }
