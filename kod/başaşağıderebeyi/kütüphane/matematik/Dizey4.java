@@ -15,7 +15,7 @@ import java.io.*;
 public class Dizey4 implements Serializable {
 	@Serial
 	private static final long serialVersionUID = 8678752283053183894L;
-
+	
 	/** Çapraz olarak birlere sahip olan dizey. */
 	public static final Dizey4 BİRİM = new Dizey4().birimDizeyeÇevir();
 	/** Elemanlarının hepsi sıfır olan dizey. */

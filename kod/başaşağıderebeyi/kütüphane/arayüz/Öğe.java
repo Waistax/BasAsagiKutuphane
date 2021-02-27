@@ -19,7 +19,7 @@ public abstract class Öğe {
 	/** Öğenin kapladığı alan. */
 	public final Dikdörtgen alanı;
 	/** Alanı anlık olarak tanımlayan nesne. */
-	public final YerleşikDikdörtgen yerleşikDikdörtgeni;
+	public final Yerleşim yerleşikDikdörtgeni;
 	
 	/** Öğenin içinde bulunduğu öğe. */
 	public final Levha içerenLevha;
@@ -41,10 +41,9 @@ public abstract class Öğe {
 		alanı = new Dikdörtgen();
 		this.içerenLevha = içerenLevha;
 		if (içerenLevha == null)
-			yerleşikDikdörtgeni = new YerleşikDikdörtgen(null, alanı);
+			yerleşikDikdörtgeni = new Yerleşim(null, alanı);
 		else {
-			yerleşikDikdörtgeni =
-				new YerleşikDikdörtgen(içerenLevha.alanı, alanı);
+			yerleşikDikdörtgeni = new Yerleşim(içerenLevha.alanı, alanı);
 			içerenLevha.içerik.add(this);
 		}
 		this.içerenPencere = içerenPencere;

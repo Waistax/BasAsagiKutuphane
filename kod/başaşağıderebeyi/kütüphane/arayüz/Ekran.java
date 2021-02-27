@@ -37,7 +37,7 @@ public class Ekran extends Levha {
 		
 		// Verilen boyutları kullanarak ekranı yerleştir.
 		yerleşikDikdörtgeni
-			.kurallar(
+			.kurallarEkle(
 				new SerbestKural(DikdörtgenVerisi.ORTA_NOKTASI, ortaX),
 				new SerbestKural(DikdörtgenVerisi.UZUNLUKLARI, genişlik),
 				new SerbestKural(DikdörtgenVerisi.ORTA_NOKTASI, ortaY),

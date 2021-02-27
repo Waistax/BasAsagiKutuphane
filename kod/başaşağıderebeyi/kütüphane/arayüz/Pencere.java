@@ -29,7 +29,7 @@ public class Pencere extends Levha {
 		super(ekran, null, ekran);
 		this.başlık = başlık;
 		yerleşikDikdörtgeni
-			.kurallar(
+			.kurallarEkle(
 				new SerbestKural(
 					DikdörtgenVerisi.ORTA_NOKTASI,
 					ekran.alanı.ortaNoktası.birinciBileşeni),
@@ -40,7 +40,7 @@ public class Pencere extends Levha {
 				new SerbestKural(DikdörtgenVerisi.UZUNLUKLARI, yükseklik));
 		new PencereÇubuğu(this);
 		new Düğme(this, "X", new PencereyiKapat(this)).yerleşikDikdörtgeni
-			.kurallar(
+			.kurallarEkle(
 				new TersGöreliKural(DikdörtgenVerisi.BÜYÜK_KÖŞESİ),
 				new SerbestKural(
 					DikdörtgenVerisi.UZUNLUKLARI,

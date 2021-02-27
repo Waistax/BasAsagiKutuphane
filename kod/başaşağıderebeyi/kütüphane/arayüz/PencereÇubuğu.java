@@ -17,7 +17,7 @@ public class PencereÇubuğu extends Öğe {
 	public PencereÇubuğu(final Pencere pencere) {
 		super(pencere, pencere, pencere.içerenEkran);
 		yerleşikDikdörtgeni
-			.kurallar(
+			.kurallarEkle(
 				new GöreliKural(DikdörtgenVerisi.KÜÇÜK_KÖŞESİ),
 				new TersGöreliKural(
 					DikdörtgenVerisi.BÜYÜK_KÖŞESİ,
