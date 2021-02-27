@@ -13,34 +13,23 @@ import başaşağıderebeyi.kütüphane.matematik.*;
 /** Dikdörtgenin verisini serbestçe tanımlayan kural. */
 public class SerbestKural extends YerleşimKuralı {
 	/** Veriyi belirleyecek değer. */
-	public float değer;
+	public float değeri;
 	
 	/** Değeri sıfır olarak tanımlar. */
-	public SerbestKural(final DikdörtgenVerisi dikdörtgenVerisi) {
-		super(dikdörtgenVerisi, false);
+	public SerbestKural(final DikdörtgenVerisi uygulanacağıVeri) {
+		super(uygulanacağıVeri, false);
 	}
 	
 	/** Belirli bir değerle tanımlar. */
 	public SerbestKural(
-		final DikdörtgenVerisi dikdörtgenVerisi,
+		final DikdörtgenVerisi uygulanacağıVeri,
 		final float değer) {
-		this(dikdörtgenVerisi);
-		yaz(değer);
+		this(uygulanacağıVeri);
+		değeri = değer;
 	}
 	
 	@Override
 	protected void yerleştir() {
-		verisi.yaz(uygulanacağıDikdörtgen, değer);
-	}
-	
-	/** Değerin üzerine ekler. */
-	public SerbestKural ekle(final float o) {
-		return yaz(değer + o);
-	}
-	
-	/** Değeri değiştirir. */
-	public SerbestKural yaz(final float o) {
-		değer = o;
-		return this;
+		verisi.yaz(uygulanacağıDikdörtgen, değeri);
 	}
 }

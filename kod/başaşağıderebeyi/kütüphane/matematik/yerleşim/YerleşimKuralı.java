@@ -12,7 +12,7 @@ import başaşağıderebeyi.kütüphane.matematik.*;
 
 /** Yerleşimin nasıl yapılacağını belirleyen kural. */
 public abstract class YerleşimKuralı {
-	/** Dikdörtgenin yerleştirileceği üst dikdörtgen.*/
+	/** Dikdörtgenin yerleştirileceği üst dikdörtgen. */
 	protected Dikdörtgen içerenDikdörtgen;
 	/** Yerleştirilecek dikdörtgen. */
 	protected Dikdörtgen uygulanacağıDikdörtgen;

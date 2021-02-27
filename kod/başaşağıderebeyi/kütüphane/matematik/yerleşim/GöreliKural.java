@@ -13,11 +13,11 @@ import başaşağıderebeyi.kütüphane.matematik.*;
 /** Dikdörtgenin verisini üstün küçük verisine göre tanımlayan kural. */
 public class GöreliKural extends YerleşimKuralı {
 	/** Üst dikdörtgenin küçük verisine olan uzaklık. */
-	public float uzaklık;
+	public float uzaklığı;
 	
 	/** Uzaklığı sıfır olarak tanımlar. */
-	public GöreliKural(final DikdörtgenVerisi dikdörtgenVerisi) {
-		super(dikdörtgenVerisi, false);
+	public GöreliKural(final DikdörtgenVerisi uygulanacağıVeri) {
+		super(uygulanacağıVeri, false);
 	}
 	
 	/** Belirli bir uzaklıkla tanımlar. */
@@ -25,7 +25,7 @@ public class GöreliKural extends YerleşimKuralı {
 		final DikdörtgenVerisi dikdörtgenVerisi,
 		final float uzaklık) {
 		this(dikdörtgenVerisi);
-		yaz(uzaklık);
+		uzaklığı = uzaklık;
 	}
 	
 	@Override
@@ -33,17 +33,6 @@ public class GöreliKural extends YerleşimKuralı {
 		verisi
 			.yaz(
 				uygulanacağıDikdörtgen,
-				verisi.küçük().al(içerenDikdörtgen) + uzaklık);
-	}
-	
-	/** Uzaklığın üzerine ekler. */
-	public GöreliKural ekle(final float o) {
-		return yaz(uzaklık + o);
-	}
-	
-	/** Uzaklığı değiştirir. */
-	public GöreliKural yaz(final float o) {
-		uzaklık = o;
-		return this;
+				verisi.küçük().al(içerenDikdörtgen) + uzaklığı);
 	}
 }

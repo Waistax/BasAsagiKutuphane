@@ -13,19 +13,19 @@ import başaşağıderebeyi.kütüphane.matematik.*;
 /** Dikdörtgenin verisini üstün büyük verisine göre tanımlayan kural. */
 public class TersGöreliKural extends YerleşimKuralı {
 	/** Üst dikdörtgenin büyük verisine olan ters uzaklık. */
-	public float uzaklık;
+	public float uzaklığı;
 	
 	/** Uzaklığı sıfır olarak tanımlar. */
-	public TersGöreliKural(final DikdörtgenVerisi dikdörtgenVerisi) {
-		super(dikdörtgenVerisi, false);
+	public TersGöreliKural(final DikdörtgenVerisi uygulanacağıVeri) {
+		super(uygulanacağıVeri, false);
 	}
 	
 	/** Belirli bir uzaklıkla tanımlar. */
 	public TersGöreliKural(
-		final DikdörtgenVerisi dikdörtgenVerisi,
+		final DikdörtgenVerisi uygulanacağıVeri,
 		final float uzaklık) {
-		this(dikdörtgenVerisi);
-		yaz(uzaklık);
+		this(uygulanacağıVeri);
+		uzaklığı = uzaklık;
 	}
 	
 	@Override
@@ -33,17 +33,6 @@ public class TersGöreliKural extends YerleşimKuralı {
 		verisi
 			.yaz(
 				uygulanacağıDikdörtgen,
-				verisi.büyük().al(içerenDikdörtgen) - uzaklık);
-	}
-	
-	/** Uzaklığın üzerine ekler. */
-	public TersGöreliKural ekle(final float o) {
-		return yaz(uzaklık + o);
-	}
-	
-	/** Uzaklığı değiştirir. */
-	public TersGöreliKural yaz(final float o) {
-		uzaklık = o;
-		return this;
+				verisi.büyük().al(içerenDikdörtgen) - uzaklığı);
 	}
 }

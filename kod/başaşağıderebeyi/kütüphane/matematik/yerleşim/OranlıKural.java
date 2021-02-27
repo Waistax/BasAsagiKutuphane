@@ -13,7 +13,7 @@ import başaşağıderebeyi.kütüphane.matematik.*;
 /** Dikdörtgenin uzunluğunu komşu kenara oranla tanımlayan kural. */
 public class OranlıKural extends YerleşimKuralı {
 	/** Bu uzunluğun diğerine bölümü. */
-	public float oran;
+	public float oranı;
 	
 	/** Oranı sıfır olarak tanımlar. */
 	public OranlıKural() {
@@ -23,7 +23,7 @@ public class OranlıKural extends YerleşimKuralı {
 	/** Belirli bir oranla tanımlar. */
 	public OranlıKural(final float oran) {
 		this();
-		yaz(oran);
+		oranı = oran;
 	}
 	
 	@Override
@@ -31,12 +31,6 @@ public class OranlıKural extends YerleşimKuralı {
 		verisi
 			.yaz(
 				uygulanacağıDikdörtgen,
-				verisi.komşu().uzunluk().al(uygulanacağıDikdörtgen) * oran);
-	}
-	
-	/** Oranı değiştirir. */
-	public OranlıKural yaz(final float o) {
-		oran = o;
-		return this;
+				verisi.komşu().uzunluk().al(uygulanacağıDikdörtgen) * oranı);
 	}
 }
