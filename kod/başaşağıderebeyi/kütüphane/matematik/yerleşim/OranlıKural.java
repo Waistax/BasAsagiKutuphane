@@ -17,7 +17,7 @@ public class OranlıKural extends YerleşimKuralı {
 	
 	/** Oranı sıfır olarak tanımlar. */
 	public OranlıKural() {
-		super(DikdörtgenVerisi.UZUNLUKLARI, false, true);
+		super(DikdörtgenVerisi.UZUNLUKLARI, true);
 	}
 	
 	/** Belirli bir oranla tanımlar. */
@@ -28,7 +28,10 @@ public class OranlıKural extends YerleşimKuralı {
 	
 	@Override
 	protected void yerleştir() {
-		veri.yaz(hedef, veri.komşu().uzunluk().al(hedef) * oran);
+		verisi
+			.yaz(
+				uygulanacağıDikdörtgen,
+				verisi.komşu().uzunluk().al(uygulanacağıDikdörtgen) * oran);
 	}
 	
 	/** Oranı değiştirir. */

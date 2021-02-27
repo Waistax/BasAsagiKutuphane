@@ -10,34 +10,28 @@ package başaşağıderebeyi.kütüphane.matematik.yerleşim;
 
 import başaşağıderebeyi.kütüphane.matematik.*;
 
-/** Bir dikdörtgeni üstündekine göre tanımlayan kural. */
+/** Yerleşimin nasıl yapılacağını belirleyen kural. */
 public abstract class YerleşimKuralı {
-	/** Belirleyici, üst dikdörtgen. */
-	protected Dikdörtgen ana;
-	/** Eşinin yerleştirdiği veri ve boyut birleştirmesi. Eğer eşinin sıralaması
-	 * önemli değilse boş bırakılır. */
-	protected YerleşimVerisi birincilVeri;
+	/** Dikdörtgenin yerleştirileceği üst dikdörtgen.*/
+	protected Dikdörtgen içerenDikdörtgen;
 	/** Yerleştirilecek dikdörtgen. */
-	protected Dikdörtgen hedef;
+	protected Dikdörtgen uygulanacağıDikdörtgen;
 	/** Yerleştirdiği veri ve boyut birleştirmesi. */
-	protected YerleşimVerisi veri;
-	/** Diğer boyutun sonucuna bağlı olup olmadığı. */
-	final boolean bağımlı;
+	protected YerleşimVerisi verisi;
+	
 	/** Yerleştirdiği veri. */
-	final DikdörtgenVerisi dikdörtgenVerisi;
-	/** Eşinden sonra gelip gelmediği. */
-	final boolean ikincil;
+	final DikdörtgenVerisi uygulanacağıVeri;
+	/** Diğer boyutun sonucuna bağlı olup olmadığı. */
+	final boolean bağımlıOlması;
 	
 	/** Kuralı tanımlar. */
 	protected YerleşimKuralı(
-		final DikdörtgenVerisi dikdörtgenVerisi,
-		final boolean ikincil,
-		final boolean bağımlı) {
-		this.dikdörtgenVerisi = dikdörtgenVerisi;
-		this.ikincil = ikincil;
-		this.bağımlı = bağımlı;
+		final DikdörtgenVerisi uygulanacağıVeri,
+		final boolean bağımlıOlması) {
+		this.uygulanacağıVeri = uygulanacağıVeri;
+		this.bağımlıOlması = bağımlıOlması;
 	}
 	
-	/** Dikdörtgenin verisini hesaplar. */
+	/** Dikdörtgenin verisini bulur. */
 	protected abstract void yerleştir();
 }

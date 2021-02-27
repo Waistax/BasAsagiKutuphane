@@ -17,7 +17,7 @@ public class SerbestKural extends YerleşimKuralı {
 	
 	/** Değeri sıfır olarak tanımlar. */
 	public SerbestKural(final DikdörtgenVerisi dikdörtgenVerisi) {
-		super(dikdörtgenVerisi, false, false);
+		super(dikdörtgenVerisi, false);
 	}
 	
 	/** Belirli bir değerle tanımlar. */
@@ -30,7 +30,7 @@ public class SerbestKural extends YerleşimKuralı {
 	
 	@Override
 	protected void yerleştir() {
-		veri.yaz(hedef, değer);
+		verisi.yaz(uygulanacağıDikdörtgen, değer);
 	}
 	
 	/** Değerin üzerine ekler. */

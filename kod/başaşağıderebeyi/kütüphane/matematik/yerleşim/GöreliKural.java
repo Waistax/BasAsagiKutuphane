@@ -17,7 +17,7 @@ public class GöreliKural extends YerleşimKuralı {
 	
 	/** Uzaklığı sıfır olarak tanımlar. */
 	public GöreliKural(final DikdörtgenVerisi dikdörtgenVerisi) {
-		super(dikdörtgenVerisi, false, false);
+		super(dikdörtgenVerisi, false);
 	}
 	
 	/** Belirli bir uzaklıkla tanımlar. */
@@ -30,7 +30,10 @@ public class GöreliKural extends YerleşimKuralı {
 	
 	@Override
 	protected void yerleştir() {
-		veri.yaz(hedef, veri.küçük().al(ana) + uzaklık);
+		verisi
+			.yaz(
+				uygulanacağıDikdörtgen,
+				verisi.küçük().al(içerenDikdörtgen) + uzaklık);
 	}
 	
 	/** Uzaklığın üzerine ekler. */

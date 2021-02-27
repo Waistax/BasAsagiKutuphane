@@ -17,7 +17,7 @@ public class TersGöreliKural extends YerleşimKuralı {
 	
 	/** Uzaklığı sıfır olarak tanımlar. */
 	public TersGöreliKural(final DikdörtgenVerisi dikdörtgenVerisi) {
-		super(dikdörtgenVerisi, false, false);
+		super(dikdörtgenVerisi, false);
 	}
 	
 	/** Belirli bir uzaklıkla tanımlar. */
@@ -30,7 +30,10 @@ public class TersGöreliKural extends YerleşimKuralı {
 	
 	@Override
 	protected void yerleştir() {
-		veri.yaz(hedef, veri.büyük().al(ana) - uzaklık);
+		verisi
+			.yaz(
+				uygulanacağıDikdörtgen,
+				verisi.büyük().al(içerenDikdörtgen) - uzaklık);
 	}
 	
 	/** Uzaklığın üzerine ekler. */
