@@ -14,9 +14,9 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 public @interface Dinleyici {
-	/** Kaldırılmış olayları dinleyip dinlemediği. */
-	boolean kaldırılmışlarıDinler() default false;
+	/** Susturulmuş olayları dinleyip dinlemediği. */
+	boolean susturulmuşlarıDinlemesi() default false;
 	
 	/** Dinleyicinin öncelik sırası. */
-	Öncelik öncelik() default Öncelik.YÜZEY;
+	Öncelik önceliği() default Öncelik.YÜZEY;
 }

@@ -8,24 +8,22 @@
  */
 package başaşağıderebeyi.kütüphane.olay;
 
+import java.lang.invoke.*;
 import java.lang.reflect.*;
 
-/** Dinleyicinin kayıtlı bilgileri. */
+/** Dinleyicinin yöneticideki bilgileri. */
 class DinleyiciBilgisi {
-	/** Kaydedilen dinleyicinin kaldırılmış olayları dinleyip dinlemediği. */
-	final boolean kaldırılmışlarıDinler;
-	/** Kaydedilen nesne. */
-	final Object nesne;
-	/** Kaydedilen yöntem. */
-	final Method yöntem;
+	final Object nesnesi;
+	final MethodHandle çağırıcısı;
+	final boolean susturulmuşlarıDinlemesi;
 	
-	/** Kaydı tanımlar. */
 	DinleyiciBilgisi(
 		final Object nesne,
 		final Method yöntem,
-		final boolean kaldırılmışlarıDinler) {
-		this.nesne = nesne;
-		this.yöntem = yöntem;
-		this.kaldırılmışlarıDinler = kaldırılmışlarıDinler;
+		final boolean susturulmuşlarıDinlemesi)
+		throws IllegalAccessException {
+		nesnesi = nesne;
+		çağırıcısı = MethodHandles.lookup().unreflect(yöntem).bindTo(nesne);
+		this.susturulmuşlarıDinlemesi = susturulmuşlarıDinlemesi;
 	}
 }

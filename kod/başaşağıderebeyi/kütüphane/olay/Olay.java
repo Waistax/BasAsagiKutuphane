@@ -10,6 +10,6 @@ package başaşağıderebeyi.kütüphane.olay;
 
 /** Herhangi bir olay. */
 public class Olay {
-	/** Olayın dinleyici tarafından kaldırılıp kaldırılmadığı. */
-	public boolean kaldırılmış;
+	/** Olayın bir dinleyici tarafından susturulup susturulmadığı. */
+	public boolean susturulması;
 }

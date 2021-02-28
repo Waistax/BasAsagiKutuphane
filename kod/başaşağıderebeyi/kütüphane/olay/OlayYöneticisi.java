@@ -55,7 +55,7 @@ public class OlayYöneticisi implements OlayDağıtıcısı {
 				final Iterator<DinleyiciBilgisi> yineleyici =
 					sınıfHaritası.get(öncelik).iterator();
 				while (yineleyici.hasNext())
-					if (yineleyici.next().nesne == nesne)
+					if (yineleyici.next().nesnesi == nesne)
 						yineleyici.remove();
 			}
 	}
@@ -71,13 +71,20 @@ public class OlayYöneticisi implements OlayDağıtıcısı {
 				continue;
 			
 			final Dinleyici dinleyici = yöntem.getAnnotation(Dinleyici.class);
-			sınıfHaritasınıAl(sınıf)
-				.get(dinleyici.öncelik())
-				.add(
-					new DinleyiciBilgisi(
-						nesne,
+			try {
+				sınıfHaritasınıAl(sınıf)
+					.get(dinleyici.önceliği())
+					.add(
+						new DinleyiciBilgisi(
+							nesne,
+							yöntem,
+							dinleyici.susturulmuşlarıDinlemesi()));
+			} catch (IllegalAccessException hata) {
+				new Exception(
+					"Dinleyici yöntem işlenirken bir hata oluştu! Yöntem: " +
 						yöntem,
-						dinleyici.kaldırılmışlarıDinler()));
+					hata).printStackTrace();
+			}
 		}
 	}
 	
@@ -99,12 +106,12 @@ public class OlayYöneticisi implements OlayDağıtıcısı {
 			while (yineleyici.hasNext()) {
 				final DinleyiciBilgisi bilgi = yineleyici.next();
 				
-				// Kaldırılmadıysa dinleyen yöntemi çağır.
-				if (bilgi.kaldırılmışlarıDinler || !olay.kaldırılmış)
+				// Susturulmadıysa dinleyen yöntemi çağır.
+				if (bilgi.susturulmuşlarıDinlemesi || !olay.susturulması)
 					try {
-						bilgi.yöntem.invoke(bilgi.nesne, olay);
-					} catch (final Exception e) {
-						new Exception("Olay işlenirken bir hata oluştu!", e)
+						bilgi.çağırıcısı.invoke(olay);
+					} catch (final Throwable hata) {
+						new Exception("Olay işlenirken bir hata oluştu!", hata)
 							.printStackTrace();
 					}
 			}

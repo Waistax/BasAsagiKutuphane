@@ -24,20 +24,20 @@ class DenemeDinleyicisi {
 	
 	/** Yüzeysel seviyede deneme olaylarını dinler. Ayrıca kaldırılmış olayları
 	 * da dinler. */
-	@Dinleyici(kaldırılmışlarıDinler = true)
-	private void kaldırılmışDenemeOlayınıDinle(final DenemeOlayı olay) {
-		if (olay.kaldırılmış)
+	@Dinleyici(susturulmuşlarıDinlemesi = true)
+	private void susturulmuşDenemeOlayınıDinle(final DenemeOlayı olay) {
+		if (olay.susturulması)
 			çarpımı = 99.0F;
 	}
 	
 	/** Temel seviyede deneme olaylarını dinler. Olayları ilk alacak
 	 * dinleyicidir. */
-	@Dinleyici(öncelik = Öncelik.TEMEL)
+	@Dinleyici(önceliği = Öncelik.TEMEL)
 	private void temeldenDenemeOlayınıDinle(final DenemeOlayı olay) {
 		try {
 			Float.parseFloat(olay.iletisi);
 		} catch (final NumberFormatException hata) {
-			olay.kaldırılmış = true;
+			olay.susturulması = true;
 		}
 	}
 	
