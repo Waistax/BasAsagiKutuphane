@@ -40,6 +40,7 @@ public class Deney {
 					"/" +
 					denemelerininSayısı +
 					")");
+		System.out.flush();
 		if (!deneme)
 			System.err.println(Thread.currentThread().getStackTrace()[2]);
 	}

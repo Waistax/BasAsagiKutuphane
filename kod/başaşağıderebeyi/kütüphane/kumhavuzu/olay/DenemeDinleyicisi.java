@@ -8,7 +8,7 @@ package başaşağıderebeyi.kütüphane.kumhavuzu.olay;
 import başaşağıderebeyi.kütüphane.olay.*;
 
 /** Dağıtıcıyı denemek için oluşturulmuş dinleyici. */
-class DenemeDinleyicisi {
+public class DenemeDinleyicisi {
 	private float çarpımı;
 	
 	/** Bir başlangıç değeri ile tanımlar. */
@@ -18,14 +18,14 @@ class DenemeDinleyicisi {
 	
 	/** Yüzeysel seviyede deneme olaylarını dinler. */
 	@Dinleyici
-	private void denemeOlayınıDinle(final DenemeOlayı olay) {
+	public void denemeOlayınıDinle(final DenemeOlayı olay) {
 		çarpımı *= Float.parseFloat(olay.iletisi);
 	}
 	
 	/** Yüzeysel seviyede deneme olaylarını dinler. Ayrıca kaldırılmış olayları
 	 * da dinler. */
 	@Dinleyici(susturulmuşlarıDinlemesi = true)
-	private void susturulmuşDenemeOlayınıDinle(final DenemeOlayı olay) {
+	public void susturulmuşDenemeOlayınıDinle(final DenemeOlayı olay) {
 		if (olay.susturulması)
 			çarpımı = 99.0F;
 	}
@@ -33,7 +33,7 @@ class DenemeDinleyicisi {
 	/** Temel seviyede deneme olaylarını dinler. Olayları ilk alacak
 	 * dinleyicidir. */
 	@Dinleyici(önceliği = Öncelik.TEMEL)
-	private void temeldenDenemeOlayınıDinle(final DenemeOlayı olay) {
+	public void temeldenDenemeOlayınıDinle(final DenemeOlayı olay) {
 		try {
 			Float.parseFloat(olay.iletisi);
 		} catch (final NumberFormatException hata) {

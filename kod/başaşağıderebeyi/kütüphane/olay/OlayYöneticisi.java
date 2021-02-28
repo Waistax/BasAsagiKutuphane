@@ -35,9 +35,7 @@ public class OlayYöneticisi implements OlayDağıtıcısı {
 	@SuppressWarnings("unchecked")
 	private Class<? extends Olay> dinlediğiSınıfıBul(final Method yöntem) {
 		final Class<?> sınıf = yöntem.getParameterTypes()[0];
-		return sınıf.isInstance(Olay.class) ?
-			(Class<? extends Olay>)sınıf :
-			null;
+		return (Class<? extends Olay>)sınıf;
 	}
 	
 	private boolean dinleyenYöntemMi(final Method yöntem) {
