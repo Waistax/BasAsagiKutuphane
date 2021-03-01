@@ -41,8 +41,8 @@ public class DenemeDinleyicisi {
 		}
 	}
 	
-	/** Çarpımı dener. */
-	boolean çarpımıDene(final float beklenenÇarpım) {
-		return çarpımı == beklenenÇarpım;
+	/** Çarpımı döndürür. */
+	float çarpımınıEdin() {
+		return çarpımı;
 	}
 }

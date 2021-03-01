@@ -14,22 +14,35 @@ public class OlayBölümüDenemesi {
 	public static void olayDenemesi(final Deney deney) {
 		deney.başlat("Olay");
 		
-		final OlayYöneticisi dağıtıcı = new OlayYöneticisi();
+		final AnlıOlayDağıtıcısı anlıDağıtıcı = new AnlıOlayDağıtıcısı();
 		final DenemeDinleyicisi dinleyici = new DenemeDinleyicisi(1.0F);
-		dağıtıcı.dinleyiciEkle(dinleyici);
+		anlıDağıtıcı.dinleyicileriniEkle(dinleyici);
 		
-		dağıtıcı.olayEkle(new DenemeOlayı("3.14159"));
-		dağıtıcı.güncelle();
-		deney.dene(dinleyici.çarpımıDene(3.14159F));
+		anlıDağıtıcı.dağıt(new DenemeOlayı("3.14159"));
+		anlıDağıtıcı.güncelle();
+		deney.dene(dinleyici.çarpımınıEdin(), 3.14159F, 0.0001F);
 		
-		dağıtıcı.olayEkle(new DenemeOlayı("Bu Cem kötüdür!"));
-		dağıtıcı.güncelle();
-		deney.dene(dinleyici.çarpımıDene(99.0F));
+		anlıDağıtıcı.dağıt(new DenemeOlayı("Bu Cem kötüdür!"));
+		anlıDağıtıcı.güncelle();
+		deney.dene(dinleyici.çarpımınıEdin(), 99.0F, 0.0001F);
 		
-		dağıtıcı.dinleyiciÇıkar(dinleyici);
-		dağıtıcı.olayEkle(new DenemeOlayı("2.79"));
-		dağıtıcı.güncelle();
-		deney.dene(dinleyici.çarpımıDene(99.0F));
+		anlıDağıtıcı.dinleyicileriniÇıkar(dinleyici);
+		anlıDağıtıcı.dağıt(new DenemeOlayı("2.79"));
+		anlıDağıtıcı.güncelle();
+		deney.dene(dinleyici.çarpımınıEdin(), 99.0F, 0.0001F);
+		
+		final OlayDağıtıcısı dağıtıcı = new OlayDağıtıcısı();
+		dağıtıcı.dinleyicileriniEkle(dinleyici);
+		
+		dağıtıcı.dağıt(new DenemeOlayı("0.1"));
+		deney.dene(dinleyici.çarpımınıEdin(), 9.9F, 0.01F);
+		
+		dağıtıcı.dağıt(new DenemeOlayı("Cem çok iyi birisidir!"));
+		deney.dene(dinleyici.çarpımınıEdin(), 99.0F, 0.0001F);
+		
+		dağıtıcı.dinleyicileriniÇıkar(dinleyici);
+		dağıtıcı.dağıt(new DenemeOlayı("2.79"));
+		deney.dene(dinleyici.çarpımınıEdin(), 99.0F, 0.0001F);
 		
 		deney.bitir();
 	}

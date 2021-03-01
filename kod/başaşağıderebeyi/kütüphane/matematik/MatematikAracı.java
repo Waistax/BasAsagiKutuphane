@@ -24,7 +24,19 @@ public class MatematikAracı {
 	public static boolean denkSayılmalarınıBul(
 		final float soldakiSayı,
 		final float sağdakiSayı) {
-		return Math.abs(soldakiSayı - sağdakiSayı) <= DENK_SAYILACAK_ÖZÜR_PAYI;
+		return denkSayılmalarınıBul(
+			soldakiSayı,
+			sağdakiSayı,
+			DENK_SAYILACAK_ÖZÜR_PAYI);
+	}
+	
+	/** Verilen iki ondalık sayının denk sayılıp sayılmadığını döndürür.
+	 * Denklik, tam olarak eşitlik değilse de aşırı yakınlıktır. */
+	public static boolean denkSayılmalarınıBul(
+		final float soldakiSayı,
+		final float sağdakiSayı,
+		final float özürPayı) {
+		return Math.abs(soldakiSayı - sağdakiSayı) <= özürPayı;
 	}
 	
 	/** Verilen ondalık sayıyı aralıkta olacak şekilde döndürür. Sayı eğer

@@ -6,20 +6,16 @@
 package başaşağıderebeyi.kütüphane.olay;
 
 /** Olayları ve dinleyicileri yok sayar. */
-public class EtkisizOlayDağıtıcısı implements OlayDağıtıcısı {
+public class EtkisizOlayDağıtıcısı extends OlayDağıtıcısı {
 	@Override
-	public void dinleyiciÇıkar(final Object nesne) {
+	public void dağıt(final Olay olay) {
 	}
 	
 	@Override
-	public void dinleyiciEkle(final Object nesne) {
+	public void dinleyicileriniEkle(final Object nesne) {
 	}
 	
 	@Override
-	public void güncelle() {
-	}
-	
-	@Override
-	public void olayEkle(final Olay olay) {
+	public void dinleyicileriniÇıkar(final Object nesne) {
 	}
 }

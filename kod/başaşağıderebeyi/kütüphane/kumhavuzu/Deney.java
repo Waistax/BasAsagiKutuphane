@@ -5,6 +5,8 @@
  */
 package başaşağıderebeyi.kütüphane.kumhavuzu;
 
+import başaşağıderebeyi.kütüphane.matematik.*;
+
 /** Deneylerin başlangıç ve bitişlerini kaydeder. Denemelerin sonuçlarını teker
  * teker yazdırır. */
 public class Deney {
@@ -23,8 +25,17 @@ public class Deney {
 		geçilenDenemelerininSayısı = 0;
 	}
 	
-	/** Verilen denemenin sonucunu yazdırır. */
-	public void dene(final boolean deneme) {
+	/** Verilen denemenin sonucunu yazdırır. Denemeler bir ondalık sayı değer
+	 * oluşturmalıdırlar. Böylece bu değer ve beklenen değer verilen özür payı
+	 * ile karşılaştırılır. Çok yüksek özür payları sorunlu denemelerin
+	 * geçmesine sebep olurken, çok düşük özür payları geçmesi gereken
+	 * denemeleri geçirmez. */
+	public void dene(
+		final float değer,
+		final float beklenenDeğer,
+		final float özürPayı) {
+		final boolean deneme =
+			MatematikAracı.denkSayılmalarınıBul(değer, beklenenDeğer, özürPayı);
 		System.out.print((++denemelerininSayısı) + ". deneme ");
 		
 		if (deneme) {
@@ -35,14 +46,13 @@ public class Deney {
 		
 		System.out
 			.println(
-				" (" +
-					geçilenDenemelerininSayısı +
-					"/" +
-					denemelerininSayısı +
-					")");
+				" " + değer + " / " + beklenenDeğer + " (" + özürPayı + ")");
 		System.out.flush();
-		if (!deneme)
+		
+		if (!deneme) {
 			System.err.println(Thread.currentThread().getStackTrace()[2]);
+			System.err.flush();
+		}
 	}
 	
 	/** En son başlatılan deneyi bitirir. */
