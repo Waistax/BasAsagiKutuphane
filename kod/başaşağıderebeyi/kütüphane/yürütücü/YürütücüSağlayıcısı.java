@@ -19,4 +19,8 @@ public class YürütücüSağlayıcısı {
 	public static Yürütücü sağla() {
 		return YürütücüSağlayıcısı.yürütücü;
 	}
+	
+	/** Bu sınıfın bir nesnesini tanımlamayı engeller. */
+	private YürütücüSağlayıcısı() {
+	}
 }
