@@ -9,7 +9,6 @@
 package başaşağıderebeyi.kütüphane.girdi;
 
 import başaşağıderebeyi.kütüphane.matematik.*;
-import başaşağıderebeyi.kütüphane.yürütücü.*;
 
 import java.util.*;
 
@@ -19,7 +18,6 @@ import java.util.*;
 public class ÇiğGirdi {
 	private final Map<Integer, Tuş> klavyesininTuşları;
 	private final Map<Integer, Tuş> faresininTuşları;
-	private final Dağıtıcı<Tuş> tuşlarınınDağıtıcısı;
 	
 	private final Yöney2 imlecininEşzamansızKonumu;
 	
@@ -46,8 +44,6 @@ public class ÇiğGirdi {
 	public ÇiğGirdi() {
 		klavyesininTuşları = new HashMap<>();
 		faresininTuşları = new HashMap<>();
-		tuşlarınınDağıtıcısı = new Dağıtıcı<>();
-		tuşlarınınDağıtıcısı.yürütmeyiDeğiştir(Tuş::güncelle);
 		
 		imlecininKonumu = new Yöney2();
 		imlecininSürüklenmesi = new Yöney2();
@@ -56,7 +52,8 @@ public class ÇiğGirdi {
 	
 	/** Bütün girdilerin anlık durumunu günceller. */
 	public void güncelle() {
-		tuşlarınınDağıtıcısı.yürüt();
+		klavyesininTuşları.values().parallelStream().forEach(Tuş::güncelle);
+		faresininTuşları.values().parallelStream().forEach(Tuş::güncelle);
 		
 		imlecininSürüklenmesi.çıkar(imlecininEşzamansızKonumu, imlecininKonumu);
 		imlecininKonumu.değiştir(imlecininEşzamansızKonumu);
@@ -79,7 +76,6 @@ public class ÇiğGirdi {
 		if (!klavyesininTuşları.containsKey(tuşunKodu)) {
 			final Tuş tuş = new Tuş(tuşunKodu);
 			klavyesininTuşları.put(tuşunKodu, tuş);
-			tuşlarınınDağıtıcısı.dağıt(tuş);
 		}
 	}
 	
@@ -95,7 +91,6 @@ public class ÇiğGirdi {
 		if (!faresininTuşları.containsKey(tuşKodu)) {
 			final Tuş tuş = new Tuş(tuşKodu);
 			faresininTuşları.put(tuşKodu, tuş);
-			tuşlarınınDağıtıcısı.dağıt(tuş);
 		}
 	}
 	
