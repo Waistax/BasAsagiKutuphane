@@ -6,6 +6,7 @@
 package başaşağıderebeyi.kütüphane.yürütücü;
 
 /** Genel bir yürütücü sağlar. */
+@Deprecated
 public class YürütücüSağlayıcısı {
 	/** Genel yürütücü. */
 	private static Yürütücü yürütücü = new BoşYürütücü();

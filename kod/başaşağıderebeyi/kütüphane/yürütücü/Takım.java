@@ -8,6 +8,7 @@ package başaşağıderebeyi.kütüphane.yürütücü;
 import java.util.*;
 
 /** Bir takım nesneyi ard arda yürütür. */
+@Deprecated
 public class Takım<T> implements Runnable {
 	/** Takıma nesneleri dağıtan. */
 	private final Dağıtıcı<T> dağıtıcı;
@@ -26,7 +27,6 @@ public class Takım<T> implements Runnable {
 	public void run() {
 		// Bütün nesneleri yürüt.
 		yineleyici = nesneler.iterator();
-		while (yineleyici.hasNext())
-			dağıtıcı.yürüt(yineleyici.next());
+		yineleyici.forEachRemaining(dağıtıcı.yürütme);
 	}
 }

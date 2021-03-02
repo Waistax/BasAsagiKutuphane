@@ -7,6 +7,7 @@ package başaşağıderebeyi.kütüphane.yürütücü;
 
 import java.util.concurrent.*;
 
+@Deprecated
 public class İşlemliYürütücü implements Yürütücü {
 	private final int işlemSayısı;
 	private final ExecutorService yürütmeHizmeti;

@@ -6,8 +6,10 @@
 package başaşağıderebeyi.kütüphane.yürütücü;
 
 import java.util.*;
+import java.util.function.*;
 
 /** Nesneleri takımlara eşit dağıtır ve onları aynı anda yürütür. */
+@Deprecated
 public class Dağıtıcı<T> {
 	/** Toplam dağıtılmış nesne sayısı. Bu sayı her takıma kaç eleman düşeceğini
 	 * hesaplamada kullanılır. */
@@ -15,7 +17,7 @@ public class Dağıtıcı<T> {
 	/** Nesneleri içeren takımlar. */
 	private final Set<Takım<T>> takımlar;
 	/** Kullanılan yürütme. */
-	private Yürütme<T> yürütme;
+	protected Consumer<T> yürütme;
 	
 	/** Boş tanımlar. */
 	public Dağıtıcı() {
@@ -26,19 +28,15 @@ public class Dağıtıcı<T> {
 			takımlar.add(new Takım<>(this));
 	}
 	
-	/** Nesneyi eleman sayısını geçmemiş bir takıma ekler. */
-	private void ekle(final T nesne, final int elemanSayısı) {
-		// Ekleyene kadar bütün takımları gez.
-		for (final Takım<T> takım : takımlar)
-			if (takım.nesneler.size() <= elemanSayısı) {
-				takım.nesneler.add(nesne);
-				return;
-			}
+	/** Bütün takımları temizler. */
+	public void hepsiniÇıkar() {
+		nesneSayısı = 0;
+		takımlar.forEach(takım -> takım.nesneler.clear());
 	}
 	
-	/** Nesneyi yürüt. Bütün nesneler aynı anda yürütülür. */
-	protected void yürüt(final T nesne) {
-		yürütme.yürüt(nesne);
+	/** Varlarsa nesneleri takımlardan çıkarır. */
+	public void hepsiniÇıkar(final Collection<T> nesneler) {
+		nesneler.forEach(this::çıkar);
 	}
 	
 	/** Varsa nesneyi takımlardan çıkarır. */
@@ -61,11 +59,6 @@ public class Dağıtıcı<T> {
 		ekle(nesne, elemanSayısı);
 	}
 	
-	/** Varlarsa nesneleri takımlardan çıkarır. */
-	public void hepsiniÇıkar(final Collection<T> nesneler) {
-		nesneler.forEach(this::çıkar);
-	}
-	
 	/** Nesneleri takımlara dağıtır. */
 	public void hepsiniDağıt(final Collection<T> nesneler) {
 		// Yeni eleman sayısını hesapla.
@@ -73,12 +66,6 @@ public class Dağıtıcı<T> {
 		final int işlemSayısı = YürütücüSağlayıcısı.sağla().işlemSayısı();
 		final int elemanSayısı = nesneSayısı / işlemSayısı;
 		nesneler.forEach(nesne -> ekle(nesne, elemanSayısı));
-	}
-	
-	/** Bütün takımları temizler. */
-	public void temizle() {
-		nesneSayısı = 0;
-		takımlar.forEach(takım -> takım.nesneler.clear());
 	}
 	
 	/** Bütün takımları aynı anda yürütür. */
@@ -98,7 +85,17 @@ public class Dağıtıcı<T> {
 	}
 	
 	/** Kullanılan yürütmeyi değiştirir. */
-	public void yürütmeyiDeğiştir(final Yürütme<T> yürütme) {
+	public void yürütmeyiDeğiştir(final Consumer<T> yürütme) {
 		this.yürütme = yürütme;
+	}
+	
+	/** Nesneyi eleman sayısını geçmemiş bir takıma ekler. */
+	private void ekle(final T nesne, final int elemanSayısı) {
+		// Ekleyene kadar bütün takımları gez.
+		for (final Takım<T> takım : takımlar)
+			if (takım.nesneler.size() <= elemanSayısı) {
+				takım.nesneler.add(nesne);
+				return;
+			}
 	}
 }

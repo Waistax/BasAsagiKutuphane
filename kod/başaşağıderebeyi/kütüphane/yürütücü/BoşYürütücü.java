@@ -6,6 +6,7 @@
 package başaşağıderebeyi.kütüphane.yürütücü;
 
 /** Olmayan yürütücü. */
+@Deprecated
 public class BoşYürütücü implements Yürütücü {
 	@Override
 	public int işlemSayısı() {
