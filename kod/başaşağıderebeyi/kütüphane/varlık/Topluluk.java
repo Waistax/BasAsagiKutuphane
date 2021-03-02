@@ -10,28 +10,55 @@ package başaşağıderebeyi.kütüphane.varlık;
 
 import java.util.*;
 
+/** Varlıkların birleşmesiyle ortaya çıkan oluşum. */
 public class Topluluk {
-	public final Set<Soy> soylar;
-	public final Set<Varlık> varlıklar;
+	/** İçerdiği varlıklar. */
+	public final Set<Varlık> varlıkları;
+	/** İçerdiği soylar. */
+	public final Set<Soy> soyları;
 	
+	/** Boş topluluk tanımlar. */
 	public Topluluk() {
-		varlıklar = new HashSet<>();
-		soylar = new HashSet<>();
+		varlıkları = new HashSet<>();
+		soyları = new HashSet<>();
 	}
 	
-	public void çıkar(final Varlık varlık) {
-		if (varlıklar.remove(varlık))
-			for (final Soy soy : soylar)
-				soy.çıkar(varlık);
+	/** Verilen varlığı topluluktan çıkarır. */
+	public void varlığınıÇıkar(final Varlık varlığı) {
+		if (varlıkları.remove(varlığı))
+			soyları
+				.parallelStream()
+				.forEach(soyu -> soyu.varlığınıÇıkar(varlığı));
 	}
 	
-	public void çiz() {
-		for (final Soy soy : soylar)
-			soy.çiz();
+	/** Verilen soyu topluluktan çıkarır. */
+	public void soyunuÇıkar(final Soy soyu) {
+		soyları.remove(soyu);
 	}
 	
+	/** Topluluktaki bütün soyları günceller. */
 	public void güncelle() {
-		for (final Soy soy : soylar)
-			soy.güncelle();
+		soyları.forEach(Soy::güncelle);
+	}
+	
+	/** Topluluktaki bütün soyları çizer. */
+	public void çiz() {
+		soyları.forEach(Soy::çiz);
+	}
+	
+	void varlığınıTekrarSoylarınaEklemeyiDene(final Varlık varlığı) {
+		soyları
+			.parallelStream()
+			.filter(soyu -> !soyu.varlıkları.contains(varlığı))
+			.forEach(soyu -> soyu.varlığıEkle(varlığı));
+	}
+	
+	void varlığıEkle(final Varlık varlık) {
+		varlıkları.add(varlık);
+	}
+	
+	void soyuEkle(final Soy soy) {
+		if (soyları.add(soy))
+			varlıkları.forEach(soy::varlığıEkle);
 	}
 }

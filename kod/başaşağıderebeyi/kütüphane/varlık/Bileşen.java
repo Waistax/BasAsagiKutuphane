@@ -8,18 +8,14 @@
  */
 package başaşağıderebeyi.kütüphane.varlık;
 
+/** Bir varlığı tanımlayan ve oluşturan parçacık. */
 public abstract class Bileşen {
-	public final Varlık varlık;
+	/** Bileşenin tanımladığı varlık. */
+	public final Varlık içerenVarlık;
 	
-	@SuppressWarnings("unchecked")
-	public Bileşen(final Varlık varlık) {
-		this.varlık = varlık;
-		Class<? extends Bileşen> sınıf = this.getClass();
-		do {
-			varlık.bileşenler.put(sınıf, this);
-			sınıf = (Class<? extends Bileşen>)sınıf.getSuperclass();
-		} while (sınıf != Bileşen.class);
-		for (final Soy soy : varlık.topluluk.soylar)
-			soy.ekle(varlık);
+	/** Verilen varlığın içinde tanımlar. */
+	public Bileşen(final Varlık içerenVarlık) {
+		this.içerenVarlık = içerenVarlık;
+		içerenVarlık.bileşeniEkle(this);
 	}
 }

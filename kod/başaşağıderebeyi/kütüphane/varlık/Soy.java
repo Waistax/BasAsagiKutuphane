@@ -9,47 +9,57 @@
 package başaşağıderebeyi.kütüphane.varlık;
 
 import java.util.*;
+import java.util.function.*;
 
-public class Soy {
-	public final Class<? extends Bileşen>[] gerekliSınıflar;
-	public final Topluluk topluluk;
-	public final Set<Varlık> varlıklar;
+/** Belli birtakım bileşeni içeren varlıkların bütünü. */
+public abstract class Soy {
+	/** Soyun içinde bulunduğu topluluk. */
+	public final Topluluk içerenTopluluk;
+	/** Topluluktan bu soyun gerektirdiği bileşenleri sağlayan varlıklar. */
+	public final Set<Varlık> varlıkları;
 	
-	@SuppressWarnings("unchecked")
-	public Soy(final Topluluk topluluk, final Class<?>... gerekliSınıflar) {
-		this.topluluk = topluluk;
-		varlıklar = new HashSet<>();
-		this.gerekliSınıflar = (Class<? extends Bileşen>[])gerekliSınıflar;
-		topluluk.soylar.add(this);
-		for (final Varlık varlık : topluluk.varlıklar)
-			ekle(varlık);
+	private final Class<? extends Bileşen>[] gerekliSınıflar;
+	
+	/** Verilen topluluğun içinde, verilen bileşen sınıfları için tanımlar. */
+	@SafeVarargs
+	public Soy(
+		final Topluluk topluluk,
+		final Class<? extends Bileşen>... gerekliSınıflar) {
+		içerenTopluluk = topluluk;
+		varlıkları = new HashSet<>();
+		this.gerekliSınıflar = gerekliSınıflar;
+		topluluk.soyuEkle(this);
 	}
 	
-	public void çıkar(final Varlık varlık) {
-		if (varlıklar.remove(varlık))
-			çıkarıldı(varlık);
+	/** Soyu günceller. */
+	public abstract void güncelle();
+	
+	/** Soyu çizer. */
+	public abstract void çiz();
+	
+	/** Verilen varlığı soya ekler. Eğer varlık eklenebilirse true döndürür. Ama
+	 * eğer varlık gerekli bileşenleri sağlamıyorsa ya da zaten ekliyse false
+	 * döndürür. */
+	protected boolean varlığıEkle(final Varlık varlık) {
+		return varlığınGerekliBileşenleriSağlamasınıBul(varlık) &&
+			varlıkları.add(varlık);
 	}
 	
-	public void çıkarıldı(final Varlık varlık) {
+	/** Verilen varlığı soydan çıkarır. Eğer varlık çıkarilabilinirse true
+	 * döndürür. Ama eğer varlık zaten ekli değilse false döndürür. */
+	protected boolean varlığınıÇıkar(final Varlık varlığı) {
+		return varlıkları.remove(varlığı);
 	}
 	
-	public void çiz() {
+	/** Verilen yürütmeyi soydaki bütün varlıklar için aynı anda yürütür. */
+	protected void yürüt(final Consumer<Varlık> yürütme) {
+		varlıkları.parallelStream().forEach(yürütme);
 	}
 	
-	public void ekle(final Varlık varlık) {
-		if (karşılıyorMu(varlık) && varlıklar.add(varlık))
-			eklendi(varlık);
-	}
-	
-	public void eklendi(final Varlık varlık) {
-	}
-	
-	public void güncelle() {
-	}
-	
-	public boolean karşılıyorMu(final Varlık varlık) {
+	private boolean varlığınGerekliBileşenleriSağlamasınıBul(
+		final Varlık varlık) {
 		for (final Class<? extends Bileşen> sınıf : gerekliSınıflar)
-			if (varlık.bileşen(sınıf) == null)
+			if (varlık.bileşeniniEdin(sınıf) == null)
 				return false;
 		return true;
 	}
