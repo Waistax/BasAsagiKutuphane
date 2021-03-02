@@ -11,7 +11,7 @@ import başaşağıderebeyi.kütüphane.olay.*;
 /** Olay bölümünü dener. */
 public class OlayBölümüDenemesi {
 	/** Olayların ve dağıtıcının çalışmasını dener. */
-	public static void olayDenemesi(final Deney deney) {
+	public static void olayBölümünüDene(final Deney deney) {
 		deney.başlat("Olay");
 		
 		final AnlıOlayDağıtıcısı anlıDağıtıcı = new AnlıOlayDağıtıcısı();
@@ -33,7 +33,6 @@ public class OlayBölümüDenemesi {
 		
 		final OlayDağıtıcısı dağıtıcı = new OlayDağıtıcısı();
 		dağıtıcı.dinleyicileriniEkle(dinleyici);
-		
 		dağıtıcı.dağıt(new DenemeOlayı("0.1"));
 		deney.dene(dinleyici.çarpımınıEdin(), 9.9F, 0.01F);
 		

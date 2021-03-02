@@ -11,7 +11,6 @@ import başaşağıderebeyi.kütüphane.olay.*;
 public class DenemeDinleyicisi {
 	private float çarpımı;
 	
-	/** Bir başlangıç değeri ile tanımlar. */
 	DenemeDinleyicisi(final float çarpımınBaşlangıçDeğeri) {
 		çarpımı = çarpımınBaşlangıçDeğeri;
 	}
@@ -41,7 +40,6 @@ public class DenemeDinleyicisi {
 		}
 	}
 	
-	/** Çarpımı döndürür. */
 	float çarpımınıEdin() {
 		return çarpımı;
 	}

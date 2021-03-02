@@ -9,7 +9,6 @@
 package başaşağıderebeyi.kütüphane.varlık;
 
 import java.util.*;
-import java.util.function.*;
 
 /** Belli birtakım bileşeni içeren varlıkların bütünü. */
 public abstract class Soy {
@@ -49,11 +48,6 @@ public abstract class Soy {
 	 * döndürür. Ama eğer varlık zaten ekli değilse false döndürür. */
 	protected boolean varlığınıÇıkar(final Varlık varlığı) {
 		return varlıkları.remove(varlığı);
-	}
-	
-	/** Verilen yürütmeyi soydaki bütün varlıklar için aynı anda yürütür. */
-	protected void yürüt(final Consumer<Varlık> yürütme) {
-		varlıkları.parallelStream().forEach(yürütme);
 	}
 	
 	private boolean varlığınGerekliBileşenleriSağlamasınıBul(

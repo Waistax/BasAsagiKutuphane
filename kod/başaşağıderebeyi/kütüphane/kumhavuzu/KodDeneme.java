@@ -6,12 +6,14 @@
 package başaşağıderebeyi.kütüphane.kumhavuzu;
 
 import başaşağıderebeyi.kütüphane.kumhavuzu.olay.*;
+import başaşağıderebeyi.kütüphane.kumhavuzu.varlık.*;
 
 /** Farklı yöntemlerin çalışıp çalışmadığını dener. */
 public class KodDeneme {
 	/** Denemenin başlangıcı. */
 	public static void main(final String[] args) {
 		final Deney deney = new Deney();
-		OlayBölümüDenemesi.olayDenemesi(deney);
+		OlayBölümüDenemesi.olayBölümünüDene(deney);
+		VarlıkBölümüDenemesi.varlıkBölümüniDene(deney);
 	}
 }

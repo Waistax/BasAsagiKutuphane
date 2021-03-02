@@ -7,12 +7,9 @@ package başaşağıderebeyi.kütüphane.kumhavuzu.olay;
 
 import başaşağıderebeyi.kütüphane.olay.*;
 
-/** Dağıtıcıyı denemek için oluşturulmuş olay. */
 class DenemeOlayı extends Olay {
-	/** Olayın iletisi. */
 	final String iletisi;
 	
-	/** Bir ileti ile tanımlar. */
 	DenemeOlayı(final String ileti) {
 		iletisi = ileti;
 	}
