@@ -9,24 +9,25 @@ import java.io.*;
 
 /** İki boyutlu bir nesnenin üç boyutlu uzayın içindeki konumunu ve biçimini
  * temsil eden bir dönüşüm dizeyi. */
-public class Dönüşüm2 implements Serializable {
+public class Dönüşüm implements Serializable {
 	@Serial
 	private static final long serialVersionUID = 4327830090825281677L;
 	
 	/** Nesnenin üç boyutlu uzaydaki konumu. Üçüncü bileşeni, nesnenin ekranın
 	 * içine doğru olan derinliğidir. */
 	public final Yöney3 konumu;
-	/** Nesnenin iki boyutlu uzaydaki biçimi. İlk bileşeni nesnenin boyutu,
-	 * ikinci bileşeni dönüş açısıdır. Ekranın içine doğru olan eksende saat
-	 * yönünün tersinedir ve radyan birimindendir. */
-	public final Yöney2 biçimi;
+	/** Nesnenin iki boyutlu uzaydaki biçimi. İlk iki bileşeni nesnenin
+	 * yataydaki ve dikeydeki boyutu, üçüncü bileşeni dönüş açısıdır. Ekranın
+	 * içine doğru olan eksende saat yönünün tersinedir ve radyan
+	 * birimindendir. */
+	public final Yöney3 biçimi;
 	/** Dönüşümü gerçekleştirecek dizey. */
 	public final Dizey4 dizeyi;
 	
 	/** Etkisiz tanımlar. */
-	public Dönüşüm2() {
+	public Dönüşüm() {
 		konumu = new Yöney3();
-		biçimi = new Yöney2().bileşenleriniDeğiştir(1.0F, 0.0F);
+		biçimi = new Yöney3().bileşenleriniDeğiştir(1.0F, 1.0F, 0.0F);
 		dizeyi = new Dizey4().birimDizeyeÇevir();
 	}
 	
@@ -38,9 +39,9 @@ public class Dönüşüm2 implements Serializable {
 	/** Bu dönüşümü baştaki ve sondaki dönüşümlerin verilen uzaklığa göre
 	 * aradeğerlerine değiştirir. Verilen dönüşümlerin bu dönüşümden farklı
 	 * olduğunu varsayar. Bu dönüşümü döndürür. */
-	public Dönüşüm2 aradeğerleriniBul(
-		final Dönüşüm2 baştaki,
-		final Dönüşüm2 sondaki,
+	public Dönüşüm aradeğerleriniBul(
+		final Dönüşüm baştaki,
+		final Dönüşüm sondaki,
 		final float uzaklık) {
 		konumu.aradeğerleriniBul(baştaki.konumu, sondaki.konumu, uzaklık);
 		biçimi.aradeğerleriniBul(baştaki.biçimi, sondaki.biçimi, uzaklık);
@@ -48,7 +49,7 @@ public class Dönüşüm2 implements Serializable {
 	}
 	
 	/** Bu dönüşümü verilen dönüşüme değiştirir. Bu dönüşümü döndürür. */
-	public Dönüşüm2 değiştir(final Dönüşüm2 öbürü) {
+	public Dönüşüm değiştir(final Dönüşüm öbürü) {
 		konumu.değiştir(öbürü.konumu);
 		biçimi.değiştir(öbürü.biçimi);
 		return this;
