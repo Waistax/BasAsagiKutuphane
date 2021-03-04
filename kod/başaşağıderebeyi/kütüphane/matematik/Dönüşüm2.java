@@ -46,4 +46,11 @@ public class Dönüşüm2 implements Serializable {
 		biçimi.aradeğerleriniBul(baştaki.biçimi, sondaki.biçimi, uzaklık);
 		return this;
 	}
+	
+	/** Bu dönüşümü verilen dönüşüme değiştirir. Bu dönüşümü döndürür. */
+	public Dönüşüm2 değiştir(final Dönüşüm2 öbürü) {
+		konumu.değiştir(öbürü.konumu);
+		biçimi.değiştir(öbürü.biçimi);
+		return this;
+	}
 }

@@ -14,8 +14,8 @@ public class VarlıkBölümüDenemesi {
 	public static void varlıkBölümüniDene(final Deney deney) {
 		deney.başlat("Varlık");
 		
-		Topluluk topluluk = new Topluluk();
-		DenemeSoyu soy = new DenemeSoyu(topluluk, 1.0F);
+		final Topluluk topluluk = new Topluluk();
+		final DenemeSoyu soy = new DenemeSoyu(topluluk, 1.0F);
 		topluluk.güncelle();
 		deney.dene(soy.çarpımınıEdin(), 1.0F, 0.001F);
 		deney.dene(soy.eşzamanlıÇarpımınıEdin(), 1.0F, 0.001F);
