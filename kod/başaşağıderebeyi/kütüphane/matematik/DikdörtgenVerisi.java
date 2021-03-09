@@ -21,27 +21,15 @@ public enum DikdörtgenVerisi {
 		/** Kenar uzunluğu. */
 		UZUNLUKLARI;
 		
-	/** Eldeki verilerin birleştirmelerinden çıkan özgün bir sayı döndürür. */
-	public static int verilerinBirleşimleriniBul(
+	/** Bilinen verileri kullanarak, dikdörtgenin diğer verilerini hesaplar. */
+	public static void bileşenleriniBul(
 		final DikdörtgenVerisi birincisi,
-		final DikdörtgenVerisi ikincisi) {
-		/* 0 -> KÜÇÜK_KÖŞESİ ve KÜÇÜK_KÖŞESİ */
-		/* 1 -> KÜÇÜK_KÖŞESİ ve BÜYÜK_KÖŞESİ */
-		/* 2 -> KÜÇÜK_KÖŞESİ ve ORTA_NOKTASI */
-		/* 3 -> KÜÇÜK_KÖŞESİ ve UZUNLUKLARI */
-		/* 4 -> BÜYÜK_KÖŞESİ ve KÜÇÜK_KÖŞESİ */
-		/* 5 -> BÜYÜK_KÖŞESİ ve BÜYÜK_KÖŞESİ */
-		/* 6 -> BÜYÜK_KÖŞESİ ve ORTA_NOKTASI */
-		/* 7 -> BÜYÜK_KÖŞESİ ve UZUNLUKLARI */
-		/* 8 -> ORTA_NOKTASI ve KÜÇÜK_KÖŞESİ */
-		/* 9 -> ORTA_NOKTASI ve BÜYÜK_KÖŞESİ */
-		/* 10 -> ORTA_NOKTASI ve ORTA_NOKTASI */
-		/* 11 -> ORTA_NOKTASI ve UZUNLUKLARI */
-		/* 12 -> UZUNLUKLARI ve KÜÇÜK_KÖŞESİ */
-		/* 13 -> UZUNLUKLARI ve BÜYÜK_KÖŞESİ */
-		/* 14 -> UZUNLUKLARI ve ORTA_NOKTASI */
-		/* 15 -> UZUNLUKLARI ve UZUNLUKLARI */
-		return birincisi.ordinal() * 4 + ikincisi.ordinal();
+		final DikdörtgenVerisi ikincisi,
+		final Dikdörtgen dikdörtgen) {
+		final int birleşimleri =
+			verilerinBirleşimleriniBul(birincisi, ikincisi);
+		yatayBileşenleriniBul(birleşimleri, dikdörtgen);
+		dikeyBileşenleriniBul(birleşimleri, dikdörtgen);
 	}
 	
 	/** Bilinen verileri kullanarak, dikdörtgenin yataydaki diğer verilerini
@@ -184,6 +172,29 @@ public enum DikdörtgenVerisi {
 		default: // 0, 5, 10, 15: Aynı iki veri, geçersiz.
 			return;
 		}
+	}
+	
+	/** Eldeki verilerin birleştirmelerinden çıkan özgün bir sayı döndürür. */
+	public static int verilerinBirleşimleriniBul(
+		final DikdörtgenVerisi birincisi,
+		final DikdörtgenVerisi ikincisi) {
+		/* 0 -> KÜÇÜK_KÖŞESİ ve KÜÇÜK_KÖŞESİ */
+		/* 1 -> KÜÇÜK_KÖŞESİ ve BÜYÜK_KÖŞESİ */
+		/* 2 -> KÜÇÜK_KÖŞESİ ve ORTA_NOKTASI */
+		/* 3 -> KÜÇÜK_KÖŞESİ ve UZUNLUKLARI */
+		/* 4 -> BÜYÜK_KÖŞESİ ve KÜÇÜK_KÖŞESİ */
+		/* 5 -> BÜYÜK_KÖŞESİ ve BÜYÜK_KÖŞESİ */
+		/* 6 -> BÜYÜK_KÖŞESİ ve ORTA_NOKTASI */
+		/* 7 -> BÜYÜK_KÖŞESİ ve UZUNLUKLARI */
+		/* 8 -> ORTA_NOKTASI ve KÜÇÜK_KÖŞESİ */
+		/* 9 -> ORTA_NOKTASI ve BÜYÜK_KÖŞESİ */
+		/* 10 -> ORTA_NOKTASI ve ORTA_NOKTASI */
+		/* 11 -> ORTA_NOKTASI ve UZUNLUKLARI */
+		/* 12 -> UZUNLUKLARI ve KÜÇÜK_KÖŞESİ */
+		/* 13 -> UZUNLUKLARI ve BÜYÜK_KÖŞESİ */
+		/* 14 -> UZUNLUKLARI ve ORTA_NOKTASI */
+		/* 15 -> UZUNLUKLARI ve UZUNLUKLARI */
+		return birincisi.ordinal() * 4 + ikincisi.ordinal();
 	}
 	
 	/** Verilen dikdörtgenin yataydaki verisini döndürür. */
