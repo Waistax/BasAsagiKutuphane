@@ -7,12 +7,18 @@ package başaşağıderebeyi.kütüphane.kumhavuzu;
 
 /** Bir değerin farklı örneklerinin ortalaması. */
 public class Ortalama {
-	private int sayısı;
+	private int sayacı;
 	private float değeri;
+	
+	/** Değerini sıfırlar. */
+	public void sıfırla() {
+		sayacı = 0;
+		değeri = 0.0F;
+	}
 	
 	/** Yeni bir örnek ekler. */
 	public void ekle(float örnek) {
-		değeri = (değeri * sayısı + örnek) / +sayısı;
+		değeri = (değeri * sayacı + örnek) / ++sayacı;
 	}
 	
 	/** Eklenen örneklerin ortalamasını döndürür. */
