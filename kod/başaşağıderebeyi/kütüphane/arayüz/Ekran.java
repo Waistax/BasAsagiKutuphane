@@ -16,8 +16,6 @@ import java.util.*;
 
 /** Arayüzün içinde bulunduğu ekran. */
 public class Ekran extends Levha {
-	/** Önceki güncellemede fare sol tuşunun hedefi. */
-	private Object öncekiİmleçHedefi;
 	/** Arayüzün girdisi. */
 	final ÇiğGirdi girdi;
 	/** Sol fare tuşu. */
@@ -35,28 +33,26 @@ public class Ekran extends Levha {
 		this.girdi = girdi;
 		this.solTık = girdi.faresininTuşunuEdin(solTık);
 		
-		// Verilen boyutları kullanarak ekranı yerleştir.
-		yerleşikDikdörtgeni
+		yerleşimi
 			.kurallarıDeğiştir(
 				new SerbestKural(DikdörtgenVerisi.ORTA_NOKTASI, ortaX),
 				new SerbestKural(DikdörtgenVerisi.UZUNLUKLARI, genişlik),
 				new SerbestKural(DikdörtgenVerisi.ORTA_NOKTASI, ortaY),
-				new SerbestKural(DikdörtgenVerisi.UZUNLUKLARI, yükseklik))
-			.yerleştir();
+				new SerbestKural(DikdörtgenVerisi.UZUNLUKLARI, yükseklik));
 	}
 	
 	@Override
-	protected void üzerindeBulunmasınıHesapla() {
-		final ListIterator<Öğe> tersineYineleme =
-			içerik.listIterator(içerik.size());
-		while (tersineYineleme.hasPrevious())
-			tersineYineleme.previous().üzerindeBulunmasınıHesapla();
+	protected void imleçtenİlgiGörmesiniBul() {
+		for (final ListIterator<Öğe> tersineYineleme =
+			içeriği.listIterator(içeriği.size()); tersineYineleme
+				.hasPrevious();)
+			tersineYineleme.previous().imleçtenİlgiGörmesiniBul();
 		
-		imlecinAltındaOlması = alanı.içindeOlmasınıBul(girdi.imlecininKonumu);
+		imleçtenİlgiGörmesi = alanı.içindeOlmasınıBul(girdi.imlecininKonumu);
 	}
 	
 	@Override
-	public boolean açıkMı() {
+	public boolean açıkOlmasınıEdin() {
 		// Ekranın üstü yok.
 		return açıkOlması;
 	}
@@ -64,17 +60,7 @@ public class Ekran extends Levha {
 	@Override
 	public void güncelle() {
 		yerleştir();
-		
-		if (girdi.imlecininHedefi == null && solTık.basılıOlmasınıEdin())
-			girdi.imlecininHedefi = öncekiİmleçHedefi;
-		
-		üzerindeBulunmasınıHesapla();
-		
-		öncekiİmleçHedefi = girdi.imlecininHedefi;
-		
-		if (!(öncekiİmleçHedefi instanceof Öğe))
-			öncekiİmleçHedefi = null;
-		
+		imleçtenİlgiGörmesiniBul();
 		super.güncelle();
 	}
 	
@@ -85,9 +71,9 @@ public class Ekran extends Levha {
 	
 	/** Verilen pencerenin en üstte olup olmadığını döndürür. */
 	public boolean üstteMi(final Öğe öğe) {
-		if (içerik.size() == 0)
+		if (içeriği.size() == 0)
 			return false;
 		
-		return içerik.get(içerik.size() - 1).equals(öğe);
+		return içeriği.get(içeriği.size() - 1).equals(öğe);
 	}
 }

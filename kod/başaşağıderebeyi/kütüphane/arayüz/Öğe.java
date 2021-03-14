@@ -13,13 +13,15 @@ import başaşağıderebeyi.kütüphane.matematik.yerleşim.*;
 
 /** Arayüzündeki her bir öğe. */
 public abstract class Öğe {
+	/** Öğenin kullanılabilir olup olmadığı. */
 	protected boolean açıkOlması;
-	protected boolean imlecinAltındaOlması;
+	/** Fare imlecinin öğeyle ilgilenip ilgilenmediği. */
+	protected boolean imleçtenİlgiGörmesi;
 	
 	/** Öğenin kapladığı alan. */
 	public final Dikdörtgen alanı;
 	/** Alanı anlık olarak tanımlayan nesne. */
-	public final Yerleşim yerleşikDikdörtgeni;
+	public final Yerleşim yerleşimi;
 	
 	/** Öğenin içinde bulunduğu öğe. */
 	public final Levha içerenLevha;
@@ -41,10 +43,10 @@ public abstract class Öğe {
 		alanı = new Dikdörtgen();
 		this.içerenLevha = içerenLevha;
 		if (içerenLevha == null)
-			yerleşikDikdörtgeni = new Yerleşim(null, alanı);
+			yerleşimi = new Yerleşim(null, alanı);
 		else {
-			yerleşikDikdörtgeni = new Yerleşim(içerenLevha.alanı, alanı);
-			içerenLevha.içerik.add(this);
+			yerleşimi = new Yerleşim(içerenLevha.alanı, alanı);
+			içerenLevha.içeriği.add(this);
 		}
 		this.içerenPencere = içerenPencere;
 		this.içerenEkran = içerenEkran;
@@ -52,8 +54,8 @@ public abstract class Öğe {
 	
 	/** Öğenin açık olup olmadığını döndürür. Bu öğe açık olsa da üstü kapalıysa
 	 * kapalı sayılır. */
-	public boolean açıkMı() {
-		return açıkOlması && içerenLevha.açıkMı();
+	public boolean açıkOlmasınıEdin() {
+		return açıkOlması && içerenLevha.açıkOlmasınıEdin();
 	}
 	
 	/** Öğenin açık olup olmadığını değiştirir. */
@@ -62,26 +64,26 @@ public abstract class Öğe {
 	}
 	
 	/** Fare imlecinin öğenin üzerinde olup olmadığını döndürür. */
-	public boolean üzerindeMi() {
-		return imlecinAltındaOlması;
+	public boolean imleçtenİlgiGörümesiniEdin() {
+		return imleçtenİlgiGörmesi;
 	}
 	
-	/** Fare imlecinin öğenin üzerinde bulunup bulunmadığını hesaplar. */
-	protected void üzerindeBulunmasınıHesapla() {
-		if (imlecinAltındaOlması =
+	/** Fare imlecinin öğenin üzerinde olup olmadığını bulur. */
+	protected void imleçtenİlgiGörmesiniBul() {
+		imleçtenİlgiGörmesi =
 			alanı.içindeOlmasınıBul(içerenEkran.girdi.imlecininKonumu) &&
-				içerenEkran.girdi.imleçUygunMu(this))
-			içerenEkran.girdi.imlecininHedefi = this;
+				içerenEkran.solTık.kullanmayıDene(this);
 	}
 	
-	/** Bu öğeyi odaklamak için istek belirtir. */
+	/** Bu öğeyi ve üst öğelerini öne getirir. */
 	public void odakla() {
 		içerenLevha.odakla();
 	}
 	
-	/** Öğeyi levha dikdörtgenine yerleştirir. */
+	/** Öğeyi levha dikdörtgenine yerleştirir. Öğenin alanını ve konumunu
+	 * yeniden bulur. */
 	public void yerleştir() {
-		yerleşikDikdörtgeni.yerleştir();
+		yerleşimi.yerleştir();
 	}
 	
 	/** Öğeyi günceller. */

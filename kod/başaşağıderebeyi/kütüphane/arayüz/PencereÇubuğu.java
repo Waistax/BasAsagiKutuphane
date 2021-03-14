@@ -16,7 +16,7 @@ public class PencereÇubuğu extends Öğe {
 	/** Pencerede tanımlar. */
 	public PencereÇubuğu(final Pencere pencere) {
 		super(pencere, pencere, pencere.içerenEkran);
-		yerleşikDikdörtgeni
+		yerleşimi
 			.kurallarıDeğiştir(
 				new GöreliKural(DikdörtgenVerisi.KÜÇÜK_KÖŞESİ),
 				new TersGöreliKural(
@@ -30,13 +30,13 @@ public class PencereÇubuğu extends Öğe {
 	
 	@Override
 	public void güncelle() {
-		if (imlecinAltındaOlması && içerenEkran.solTık.basılıOlmasınıEdin()) {
+		if (imleçtenİlgiGörmesi && içerenEkran.solTık.basılıOlmasınıEdin()) {
 			odakla();
-			((SerbestKural)içerenLevha.yerleşikDikdörtgeni.yatayKural())
-				.ekle(içerenEkran.girdi.imlecininSürüklenmesi.birinciBileşeni);
-			((SerbestKural)içerenLevha.yerleşikDikdörtgeni.dikeyKural())
-				.ekle(içerenEkran.girdi.imlecininSürüklenmesi.ikinciBileşeni);
-			yerleştir();
+			içerenPencere.yatayKonumununKuralı.değeri +=
+				içerenEkran.girdi.imlecininSürüklenmesi.birinciBileşeni;
+			içerenPencere.dikeyKonumununKuralı.değeri +=
+				içerenEkran.girdi.imlecininSürüklenmesi.ikinciBileşeni;
+			içerenPencere.yerleştir();
 		}
 	}
 }

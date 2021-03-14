@@ -19,6 +19,10 @@ public class Pencere extends Levha {
 	public static final float ÇUBUK_KALINLIĞI = 30.0F;
 	/** Pencerenin başlığı. */
 	public final String başlık;
+	/** Pencerenin orta noktasının yatay konumunu belirleyen kural. */
+	public final SerbestKural yatayKonumununKuralı;
+	/** Pencerenin orta noktasının dikey konumunu belirleyen kural. */
+	public final SerbestKural dikeyKonumununKuralı;
 	
 	/** Ekranın en üstünde tanımlar. */
 	public Pencere(
@@ -28,18 +32,18 @@ public class Pencere extends Levha {
 		final float yükseklik) {
 		super(ekran, null, ekran);
 		this.başlık = başlık;
-		yerleşikDikdörtgeni
+		yerleşimi
 			.kurallarıDeğiştir(
-				new SerbestKural(
+				yatayKonumununKuralı = new SerbestKural(
 					DikdörtgenVerisi.ORTA_NOKTASI,
 					ekran.alanı.ortaNoktası.birinciBileşeni),
 				new SerbestKural(DikdörtgenVerisi.UZUNLUKLARI, genişlik),
-				new SerbestKural(
+				dikeyKonumununKuralı = new SerbestKural(
 					DikdörtgenVerisi.ORTA_NOKTASI,
 					ekran.alanı.ortaNoktası.ikinciBileşeni),
 				new SerbestKural(DikdörtgenVerisi.UZUNLUKLARI, yükseklik));
 		new PencereÇubuğu(this);
-		new Düğme(this, "X", new PencereyiKapat(this)).yerleşikDikdörtgeni
+		new Düğme(this, "X", new PencereyiKapat(this)).yerleşimi
 			.kurallarıDeğiştir(
 				new TersGöreliKural(DikdörtgenVerisi.BÜYÜK_KÖŞESİ),
 				new SerbestKural(
@@ -53,7 +57,7 @@ public class Pencere extends Levha {
 	
 	@Override
 	public void odakla() {
-		içerenEkran.içerik.remove(this);
-		içerenEkran.içerik.add(this);
+		içerenEkran.içeriği.remove(this);
+		içerenEkran.içeriği.add(this);
 	}
 }

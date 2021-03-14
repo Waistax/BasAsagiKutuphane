@@ -21,7 +21,7 @@ public class Tuş {
 	/** Tuşun girdisini kullanan (dinleyen ve işleyen) nesne. Tuş girdisini
 	 * kullanmadan önce uygun olup olmadığına bakılmalı ve kullanıldıktan sonra
 	 * bu nesne değiştirilmelidir. */
-	public Object hedefi;
+	public Object ilgilendiğiNesne;
 	
 	public Tuş(final int kodu) {
 		this.kodu = kodu;
@@ -36,7 +36,7 @@ public class Tuş {
 		basılıOlması = sonrakiDurumdaBasılıOlması;
 		
 		if (salınması)
-			hedefi = null;
+			ilgilendiğiNesne = null;
 	}
 	
 	/** Tuşun eşzamansız olarak basılı olup olmadığını bildirir. */
@@ -63,11 +63,11 @@ public class Tuş {
 	 * döndürür. Uygunsa tuşun hedefini verilen nesneyle değiştirirek tuşu
 	 * kullanılmış olarak işaretler. */
 	public boolean kullanmayıDene(final Object nesne) {
-		if (hedefi == null) {
-			hedefi = nesne;
+		if (ilgilendiğiNesne == null) {
+			ilgilendiğiNesne = nesne;
 			return true;
 		}
 		
-		return hedefi == nesne;
+		return ilgilendiğiNesne == nesne;
 	}
 }

@@ -9,58 +9,61 @@
 package başaşağıderebeyi.kütüphane.arayüz;
 
 import java.util.*;
-import java.util.function.*;
 
 /** İçinde öğe barındırabilen öğe. */
 public class Levha extends Öğe {
 	/** İçindeki öğeler. */
-	protected final List<Öğe> içerik;
+	protected final List<Öğe> içeriği;
+	/** Fare imlecinin içerdiği öğelerden birinin ya da kendisinin üzerinde olup
+	 * olmadığıdır. */
+	protected boolean içeriğininİmleçtenİlgiGörmesi;
 	
 	/** Levhanın içinde tanımlar. */
 	public Levha(final Levha levha) {
 		super(levha);
-		içerik = new ArrayList<>();
+		içeriği = new ArrayList<>();
 	}
 	
 	/** Verilen öğelerin içinde tanımlar. */
 	public Levha(final Levha levha, final Pencere pencere, final Ekran ekran) {
 		super(levha, pencere, ekran);
-		içerik = new ArrayList<>();
+		içeriği = new ArrayList<>();
 	}
 	
 	@Override
-	protected void üzerindeBulunmasınıHesapla() {
-		final ListIterator<Öğe> yineleme = içerik.listIterator(içerik.size());
-		while (yineleme.hasPrevious())
-			yineleme.previous().üzerindeBulunmasınıHesapla();
-		super.üzerindeBulunmasınıHesapla();
+	protected void imleçtenİlgiGörmesiniBul() {
+		içeriğininİmleçtenİlgiGörmesi = false;
+		
+		for (final ListIterator<Öğe> yineleme =
+			içeriği.listIterator(içeriği.size()); yineleme.hasPrevious();) {
+			final Öğe içeriği = yineleme.previous();
+			içeriği.imleçtenİlgiGörmesiniBul();
+			içeriğininİmleçtenİlgiGörmesi =
+				içeriğininİmleçtenİlgiGörmesi || içeriği.imleçtenİlgiGörmesi;
+		}
+		
+		super.imleçtenİlgiGörmesiniBul();
+		içeriğininİmleçtenİlgiGörmesi =
+			içeriğininİmleçtenİlgiGörmesi || imleçtenİlgiGörmesi;
 	}
 	
-	@Override
-	public void güncelle() {
-		final ListIterator<Öğe> yineleme = içerik.listIterator(içerik.size());
-		while (yineleme.hasPrevious())
-			yineleme.previous().güncelle();
-	}
-	
-	/** Her öğe için verilen görevi yapar. */
-	public void herÖğeİçin(final Consumer<Öğe> görev) {
-		içerik.forEach(görev);
-	}
-	
-	/** Fare imlecinin bu öğenin ya da alt öğelerinden birinin üzerinde olup
-	 * olmadığını döndürür. */
-	public boolean üzerindekindenMi() {
-		for (final Öğe öğe : içerik)
-			if (öğe instanceof Levha && ((Levha)öğe).üzerindekindenMi())
-				return true;
-		return imlecinAltındaOlması;
+	/** Fare imlecinin içerdiği öğelerden birinin ya da kendisinin üzerinde olup
+	 * olmadığıdır. */
+	public boolean içeriğininİmleçtenİlgiGörmesiniEdin() {
+		return içeriğininİmleçtenİlgiGörmesi;
 	}
 	
 	@Override
 	public void yerleştir() {
 		super.yerleştir();
-		for (final Öğe öğe : içerik)
+		for (final Öğe öğe : içeriği)
 			öğe.yerleştir();
+	}
+	
+	@Override
+	public void güncelle() {
+		for (final ListIterator<Öğe> yineleme =
+			içeriği.listIterator(içeriği.size()); yineleme.hasPrevious();)
+			yineleme.previous().güncelle();
 	}
 }

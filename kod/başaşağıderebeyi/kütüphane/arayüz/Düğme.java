@@ -27,19 +27,14 @@ public class Düğme extends Öğe {
 	
 	@Override
 	public void güncelle() {
-		if (!açıkMı())
+		if (!açıkOlmasınıEdin() || !imleçtenİlgiGörmesi)
 			return;
 		
-		if (imlecinAltındaOlması) {
-			if (içerenEkran.solTık.basılmasınıEdin()) {
-				odakla();
-				basılı = true;
-			} else if (basılı && içerenEkran.solTık.salınmasınıEdin()) {
-				odakla();
-				çalıştırılabilir.run();
-				basılı = false;
-			}
-		} else
-			basılı = false;
+		if (içerenEkran.solTık.basılmasınıEdin())
+			odakla();
+		else if (içerenEkran.solTık.salınmasınıEdin()) {
+			odakla();
+			çalıştırılabilir.run();
+		}
 	}
 }
