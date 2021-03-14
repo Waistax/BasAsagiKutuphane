@@ -13,7 +13,7 @@ import java.util.*;
 /** İçinde öğe barındırabilen öğe. */
 public class Levha extends Öğe {
 	/** İçindeki öğeler. */
-	protected final List<Öğe> içeriği;
+	public final List<Öğe> içeriği;
 	/** Fare imlecinin içerdiği öğelerden birinin ya da kendisinin üzerinde olup
 	 * olmadığıdır. */
 	protected boolean içeriğininİmleçtenİlgiGörmesi;
