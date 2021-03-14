@@ -35,7 +35,8 @@ public class Tuş {
 		salınması = basılıOlması && !sonrakiDurumdaBasılıOlması;
 		basılıOlması = sonrakiDurumdaBasılıOlması;
 		
-		hedefi = null;
+		if (salınması)
+			hedefi = null;
 	}
 	
 	/** Tuşun eşzamansız olarak basılı olup olmadığını bildirir. */

@@ -11,6 +11,7 @@ package başaşağıderebeyi.kütüphane.girdi;
 import başaşağıderebeyi.kütüphane.matematik.*;
 
 import java.util.*;
+import java.util.stream.*;
 
 /** Bilgisayara veri girmede kullanılan farklı türlerde girdilerin,
  * anlamlandırılmadan işlenmeye hazır hale getirilmesini sağlayan bir
@@ -20,26 +21,15 @@ public class ÇiğGirdi {
 	private final Map<Integer, Tuş> faresininTuşları;
 	
 	private final Yöney2 imlecininEşzamansızKonumu;
-	
-	/** Bu girdiye sağlanan imlecin ekrandaki konumu. */
+	/** Fare imlecinin şu andaki konumu. */
 	public final Yöney2 imlecininKonumu;
-	
-	/** Bu girdiye sağlanan imlecin konumundaki değişim. */
+	/** Fare imlecinin konumunun bir önceki an ile şu an arasındaki değişimi. */
 	public final Yöney2 imlecininSürüklenmesi;
 	
-	/** Bu girdiye sağlanan fare imlecinin girdisini kullanan (dinleyen ve
-	 * işleyen) nesne. İmlecin girdisini kullanmadan önce uygun olup olmadığına
-	 * bakılmalı ve kullanıldıktan sonra bu nesne değiştirilmelidir. */
-	public Object imlecininHedefi;
-	
 	private volatile int tekerleğininEşzamansızDevirlerininToplamı;
-	private int tekerleğininDevri;
-	
-	/** Bu girdiye sağlanan fare tekerleğinin girdisini kullanan (dinleyen ve
-	 * işleyen) nesne. Tekerleğin girdisini kullanmadan önce uygun olup
-	 * olmadığına bakılmalı ve kullanıldıktan sonra bu nesne
-	 * değiştirilmelidir. */
-	public Object tekerleğininHedefi;
+	/** Fare tekerleğinin bir önceki an ile şu an arasındaki toplam döndüğü
+	 * devir. */
+	public int tekerleğininDevri;
 	
 	public ÇiğGirdi() {
 		klavyesininTuşları = new HashMap<>();
@@ -52,16 +42,17 @@ public class ÇiğGirdi {
 	
 	/** Bütün girdilerin anlık durumunu günceller. */
 	public void güncelle() {
-		klavyesininTuşları.values().parallelStream().forEach(Tuş::güncelle);
-		faresininTuşları.values().parallelStream().forEach(Tuş::güncelle);
+		Stream
+			.concat(
+				klavyesininTuşları.values().parallelStream(),
+				faresininTuşları.values().parallelStream())
+			.forEach(Tuş::güncelle);
 		
 		imlecininSürüklenmesi.çıkar(imlecininEşzamansızKonumu, imlecininKonumu);
 		imlecininKonumu.değiştir(imlecininEşzamansızKonumu);
-		imlecininHedefi = null;
 		
 		tekerleğininDevri = tekerleğininEşzamansızDevirlerininToplamı;
 		tekerleğininEşzamansızDevirlerininToplamı = 0;
-		tekerleğininHedefi = null;
 	}
 	
 	/** Verilen tuş koduna denk gelen klavye tuşunu döndürür. Eğer denk bir tuş
@@ -99,18 +90,6 @@ public class ÇiğGirdi {
 		imlecininEşzamansızKonumu.bileşenleriniDeğiştir(x, y);
 	}
 	
-	/** Fare imlecinin verilen nesne tarafından kullanılmaya uygun olup
-	 * olmadığını döndürür. Uygunsa imlecin hedefini verilen nesneyle
-	 * değiştirirek imleci kullanılmış olarak işaretler. */
-	public boolean imleciniKullanmayıDene(final Object nesne) {
-		if (imlecininHedefi == null) {
-			imlecininHedefi = nesne;
-			return true;
-		}
-		
-		return imlecininHedefi == nesne;
-	}
-	
 	/** Fare tekerleğinin eşzamansız olarak ekrandaki konumunu bildirir. */
 	public void tekerleğininDevriniBildir(final int tekerleğininDevri) {
 		tekerleğininEşzamansızDevirlerininToplamı += tekerleğininDevri;
@@ -119,17 +98,5 @@ public class ÇiğGirdi {
 	/** Fare tekerleğinin şu andaki devrini döndürür. */
 	public int tekerleğininDevriniEdin() {
 		return tekerleğininDevri;
-	}
-	
-	/** Fare tekerleğinin verilen nesne tarafından kullanılmaya uygun olup
-	 * olmadığını döndürür. Uygunsa tekerleğin hedefini verilen nesneyle
-	 * değiştirirek tekerleği kullanılmış olarak işaretler. */
-	public boolean tekerleğiniKullanmayıDene(final Object nesne) {
-		if (tekerleğininHedefi == null) {
-			tekerleğininHedefi = nesne;
-			return true;
-		}
-		
-		return tekerleğininHedefi == nesne;
 	}
 }
