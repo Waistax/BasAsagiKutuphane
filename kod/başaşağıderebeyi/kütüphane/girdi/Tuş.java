@@ -35,7 +35,7 @@ public class Tuş {
 		salınması = basılıOlması && !sonrakiDurumdaBasılıOlması;
 		basılıOlması = sonrakiDurumdaBasılıOlması;
 		
-		if (salınması)
+		if (!basılıOlması)
 			ilgilendiğiNesne = null;
 	}
 	

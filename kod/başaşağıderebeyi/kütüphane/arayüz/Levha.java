@@ -56,8 +56,7 @@ public class Levha extends Öğe {
 	@Override
 	public void yerleştir() {
 		super.yerleştir();
-		for (final Öğe öğe : içeriği)
-			öğe.yerleştir();
+		içeriği.forEach(Öğe::yerleştir);
 	}
 	
 	@Override

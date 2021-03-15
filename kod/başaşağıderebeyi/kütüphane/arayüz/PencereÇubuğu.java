@@ -30,7 +30,8 @@ public class PencereÇubuğu extends Öğe {
 	
 	@Override
 	public void güncelle() {
-		if (imleçtenİlgiGörmesi && içerenEkran.solTık.basılıOlmasınıEdin()) {
+		if (içerenEkran.solTık.ilgilendiğiNesne == this &&
+			içerenEkran.solTık.basılıOlmasınıEdin()) {
 			odakla();
 			içerenPencere.yatayKonumununKuralı.değeri +=
 				içerenEkran.girdi.imlecininSürüklenmesi.birinciBileşeni;
