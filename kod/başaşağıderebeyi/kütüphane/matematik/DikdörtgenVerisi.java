@@ -26,8 +26,7 @@ public enum DikdörtgenVerisi {
 		final DikdörtgenVerisi birincisi,
 		final DikdörtgenVerisi ikincisi,
 		final Dikdörtgen dikdörtgen) {
-		final int birleşimleri =
-			verilerinBirleşimleriniBul(birincisi, ikincisi);
+		final int birleşimleri = verilerinBirleşiminiBul(birincisi, ikincisi);
 		yatayBileşenleriniBul(birleşimleri, dikdörtgen);
 		dikeyBileşenleriniBul(birleşimleri, dikdörtgen);
 	}
@@ -39,7 +38,7 @@ public enum DikdörtgenVerisi {
 		final DikdörtgenVerisi ikincisi,
 		final Dikdörtgen dikdörtgen) {
 		yatayBileşenleriniBul(
-			verilerinBirleşimleriniBul(birincisi, ikincisi),
+			verilerinBirleşiminiBul(birincisi, ikincisi),
 			dikdörtgen);
 	}
 	
@@ -110,7 +109,7 @@ public enum DikdörtgenVerisi {
 		final DikdörtgenVerisi ikincisi,
 		final Dikdörtgen dikdörtgen) {
 		dikeyBileşenleriniBul(
-			verilerinBirleşimleriniBul(birincisi, ikincisi),
+			verilerinBirleşiminiBul(birincisi, ikincisi),
 			dikdörtgen);
 	}
 	
@@ -175,7 +174,7 @@ public enum DikdörtgenVerisi {
 	}
 	
 	/** Eldeki verilerin birleştirmelerinden çıkan özgün bir sayı döndürür. */
-	public static int verilerinBirleşimleriniBul(
+	public static int verilerinBirleşiminiBul(
 		final DikdörtgenVerisi birincisi,
 		final DikdörtgenVerisi ikincisi) {
 		/* 0 -> KÜÇÜK_KÖŞESİ ve KÜÇÜK_KÖŞESİ */

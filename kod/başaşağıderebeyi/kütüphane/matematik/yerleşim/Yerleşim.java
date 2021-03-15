@@ -8,14 +8,18 @@
  */
 package başaşağıderebeyi.kütüphane.matematik.yerleşim;
 
+import static başaşağıderebeyi.kütüphane.matematik.DikdörtgenVerisi.*;
+
 import başaşağıderebeyi.kütüphane.matematik.*;
+
+import java.util.*;
 
 /** Bir dikdörtgeni diğer bir dikdörtgenin içine verilen kurallar ile
  * yerleştirmeye yarayan araç. */
 public class Yerleşim {
 	private final Dikdörtgen içerenDikdörtgen;
 	private final Dikdörtgen uygulanacağıDikdörtgen;
-	private final YerleşimKuralı[] kuralları;
+	private final List<Runnable> yerleşimKomutları;
 	
 	/** Verilen dikdörtgenler için tanımlar. */
 	public Yerleşim(
@@ -23,27 +27,56 @@ public class Yerleşim {
 		final Dikdörtgen uygulanacağıDikdörtgen) {
 		this.içerenDikdörtgen = içerenDikdörtgen;
 		this.uygulanacağıDikdörtgen = uygulanacağıDikdörtgen;
-		kuralları = new YerleşimKuralı[4];
+		yerleşimKomutları = new ArrayList<>(6);
 	}
 	
-	/** Yerleşimi uygular. */
+	/** Yerleşim kurallarını uygular. */
 	public void yerleştir() {
-		for (final YerleşimKuralı kuralı : kuralları)
-			kuralı.yerleştir();
+		yerleşimKomutları.forEach(Runnable::run);
 	}
 	
 	/** Yerleşim kurallarını verilenler ile değiştirir. İlk iki kural yatay,
 	 * diğer iki kural ise dikey veriler için olmalıdır. */
 	public void kurallarıDeğiştir(final YerleşimKuralı... kurallar) {
-		int işaretçi =
-			kurallar[0].bağımlıOlması || kurallar[1].bağımlıOlması ? 2 : 0;
 		for (int i = 0; i < 4; i++) {
 			final YerleşimKuralı kural = kurallar[i];
 			kural.içerenDikdörtgen = içerenDikdörtgen;
 			kural.uygulanacağıDikdörtgen = uygulanacağıDikdörtgen;
 			kural.verisi = YerleşimVerisi
 				.yerleşimVerisiEdin(kural.uygulanacağıVeri, i < 2);
-			kuralları[işaretçi++ % 4] = kural;
 		}
+		
+		yerleşimKomutları.clear();
+		final int kaçıklığı =
+			kurallar[0].bağımlıOlması || kurallar[1].bağımlıOlması ? 2 : 0;
+		yerleşimKomutlarınıEkle(kaçıklığı, kurallar);
+		yerleşimKomutlarınıEkle((kaçıklığı + 2) % 4, kurallar);
+	}
+	
+	private void yerleşimKomutlarınıEkle(
+		final int kaçıklığı,
+		final YerleşimKuralı[] kurallar) {
+		final YerleşimKuralı birincilKural = kurallar[kaçıklığı];
+		final YerleşimKuralı ikincilKural = kurallar[kaçıklığı + 1];
+		
+		final int birleşimi = verilerinBirleşiminiBul(
+			birincilKural.uygulanacağıVeri,
+			ikincilKural.uygulanacağıVeri);
+		
+		yerleşimKomutları.add(() -> birincilKural.yerleştir());
+		yerleşimKomutları.add(() -> ikincilKural.yerleştir());
+		
+		if (kaçıklığı > 1)
+			yerleşimKomutları
+				.add(
+					() -> dikeyBileşenleriniBul(
+						birleşimi,
+						uygulanacağıDikdörtgen));
+		else
+			yerleşimKomutları
+				.add(
+					() -> yatayBileşenleriniBul(
+						birleşimi,
+						uygulanacağıDikdörtgen));
 	}
 }

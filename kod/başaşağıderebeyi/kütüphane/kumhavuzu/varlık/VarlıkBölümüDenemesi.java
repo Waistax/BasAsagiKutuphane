@@ -11,7 +11,7 @@ import başaşağıderebeyi.kütüphane.varlık.*;
 /** Varlık bölümünü dener. */
 public class VarlıkBölümüDenemesi {
 	/** Bütün varlık bölümünün çalışmasını dener. */
-	public static void varlıkBölümüniDene(final Deney deney) {
+	public static void varlıkBölümünüDene(final Deney deney) {
 		deney.başlat("Varlık");
 		
 		final Topluluk topluluk = new Topluluk();
