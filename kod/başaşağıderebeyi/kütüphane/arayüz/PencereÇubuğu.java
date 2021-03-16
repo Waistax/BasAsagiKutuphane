@@ -8,7 +8,8 @@
  */
 package başaşağıderebeyi.kütüphane.arayüz;
 
-import başaşağıderebeyi.kütüphane.matematik.*;
+import static başaşağıderebeyi.kütüphane.matematik.DikdörtgenVerisi.*;
+
 import başaşağıderebeyi.kütüphane.matematik.yerleşim.*;
 
 /** Pencerenin üstündeki şerit. */
@@ -18,20 +19,15 @@ public class PencereÇubuğu extends Öğe {
 		super(pencere, pencere, pencere.içerenEkran);
 		yerleşimi
 			.kurallarıDeğiştir(
-				new GöreliKural(DikdörtgenVerisi.KÜÇÜK_KÖŞESİ),
-				new TersGöreliKural(
-					DikdörtgenVerisi.BÜYÜK_KÖŞESİ,
-					Pencere.ÇARPI_GENİŞLİĞİ),
-				new TersGöreliKural(DikdörtgenVerisi.BÜYÜK_KÖŞESİ),
-				new SerbestKural(
-					DikdörtgenVerisi.UZUNLUKLARI,
-					Pencere.ÇUBUK_KALINLIĞI));
+				new GöreliKural(KÜÇÜK_KÖŞESİ),
+				new TersGöreliKural(BÜYÜK_KÖŞESİ, Pencere.ÇARPI_GENİŞLİĞİ),
+				new TersGöreliKural(BÜYÜK_KÖŞESİ),
+				new SerbestKural(UZUNLUKLARI, Pencere.ÇUBUK_KALINLIĞI));
 	}
 	
 	@Override
 	public void güncelle() {
-		if (içerenEkran.solTık.ilgilendiğiNesne == this &&
-			içerenEkran.solTık.basılıOlmasınıEdin()) {
+		if (sürüklenmesiniBul()) {
 			odakla();
 			içerenPencere.yatayKonumununKuralı.değeri +=
 				içerenEkran.girdi.imlecininSürüklenmesi.birinciBileşeni;

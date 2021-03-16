@@ -8,7 +8,8 @@
  */
 package başaşağıderebeyi.kütüphane.arayüz;
 
-import başaşağıderebeyi.kütüphane.matematik.*;
+import static başaşağıderebeyi.kütüphane.matematik.DikdörtgenVerisi.*;
+
 import başaşağıderebeyi.kütüphane.matematik.yerleşim.*;
 
 /** Ekranda bağımsız bir öğe. */
@@ -17,42 +18,43 @@ public class Pencere extends Levha {
 	public static final float ÇARPI_GENİŞLİĞİ = 50.0F;
 	/** Pencerenin üstündeki çubuğun kalınlığı. */
 	public static final float ÇUBUK_KALINLIĞI = 30.0F;
-	/** Pencerenin başlığı. */
-	public final String başlık;
+	
 	/** Pencerenin orta noktasının yatay konumunu belirleyen kural. */
 	public final SerbestKural yatayKonumununKuralı;
 	/** Pencerenin orta noktasının dikey konumunu belirleyen kural. */
 	public final SerbestKural dikeyKonumununKuralı;
 	
+	/** Pencerenin başlığı. */
+	public String başlığı;
+	
 	/** Ekranın en üstünde tanımlar. */
 	public Pencere(
 		final Ekran ekran,
-		final String başlık,
 		final float genişlik,
 		final float yükseklik) {
 		super(ekran, null, ekran);
-		this.başlık = başlık;
+		
 		yerleşimi
 			.kurallarıDeğiştir(
 				yatayKonumununKuralı = new SerbestKural(
-					DikdörtgenVerisi.ORTA_NOKTASI,
+					ORTA_NOKTASI,
 					ekran.alanı.ortaNoktası.birinciBileşeni),
-				new SerbestKural(DikdörtgenVerisi.UZUNLUKLARI, genişlik),
+				new SerbestKural(UZUNLUKLARI, genişlik),
 				dikeyKonumununKuralı = new SerbestKural(
-					DikdörtgenVerisi.ORTA_NOKTASI,
+					ORTA_NOKTASI,
 					ekran.alanı.ortaNoktası.ikinciBileşeni),
-				new SerbestKural(DikdörtgenVerisi.UZUNLUKLARI, yükseklik));
+				new SerbestKural(UZUNLUKLARI, yükseklik));
 		new PencereÇubuğu(this);
-		new Düğme(this, "X", () -> içerenLevha.içeriği.remove(this)).yerleşimi
+		
+		final Düğme kapatmaDüğmesi = new Düğme(this);
+		kapatmaDüğmesi.yerleşimi
 			.kurallarıDeğiştir(
-				new TersGöreliKural(DikdörtgenVerisi.BÜYÜK_KÖŞESİ),
-				new SerbestKural(
-					DikdörtgenVerisi.UZUNLUKLARI,
-					Pencere.ÇARPI_GENİŞLİĞİ),
-				new TersGöreliKural(DikdörtgenVerisi.BÜYÜK_KÖŞESİ),
-				new SerbestKural(
-					DikdörtgenVerisi.UZUNLUKLARI,
-					Pencere.ÇUBUK_KALINLIĞI));
+				new TersGöreliKural(BÜYÜK_KÖŞESİ),
+				new SerbestKural(UZUNLUKLARI, Pencere.ÇARPI_GENİŞLİĞİ),
+				new TersGöreliKural(BÜYÜK_KÖŞESİ),
+				new SerbestKural(UZUNLUKLARI, Pencere.ÇUBUK_KALINLIĞI));
+		kapatmaDüğmesi.çalıştıracağı = () -> içerenLevha.içeriği.remove(this);
+		kapatmaDüğmesi.yazısı = "X";
 	}
 	
 	@Override

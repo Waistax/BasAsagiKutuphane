@@ -8,6 +8,8 @@
  */
 package başaşağıderebeyi.kütüphane.matematik.yerleşim;
 
+import static başaşağıderebeyi.kütüphane.matematik.DikdörtgenVerisi.*;
+
 import başaşağıderebeyi.kütüphane.matematik.*;
 
 /** Dikdörtgenin verisini üstün büyük verisine göre tanımlayan kural. */
@@ -34,7 +36,7 @@ public class TersGöreliKural extends YerleşimKuralı {
 			.değeriDeğiştir(
 				uygulanacağıDikdörtgen,
 				verisi
-					.aynıBoyuttakiniEdin(DikdörtgenVerisi.BÜYÜK_KÖŞESİ)
+					.aynıBoyuttakiniEdin(BÜYÜK_KÖŞESİ)
 					.değeriEdin(içerenDikdörtgen) -
 					uzaklığı);
 	}

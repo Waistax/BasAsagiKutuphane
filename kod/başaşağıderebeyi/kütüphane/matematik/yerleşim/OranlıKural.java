@@ -8,7 +8,7 @@
  */
 package başaşağıderebeyi.kütüphane.matematik.yerleşim;
 
-import başaşağıderebeyi.kütüphane.matematik.*;
+import static başaşağıderebeyi.kütüphane.matematik.DikdörtgenVerisi.*;
 
 /** Dikdörtgenin uzunluğunu komşu kenara oranla tanımlayan kural. */
 public class OranlıKural extends YerleşimKuralı {
@@ -17,7 +17,7 @@ public class OranlıKural extends YerleşimKuralı {
 	
 	/** Oranı sıfır olarak tanımlar. */
 	public OranlıKural() {
-		super(DikdörtgenVerisi.UZUNLUKLARI, true);
+		super(UZUNLUKLARI, true);
 	}
 	
 	/** Belirli bir oranla tanımlar. */
@@ -32,7 +32,7 @@ public class OranlıKural extends YerleşimKuralı {
 			.değeriDeğiştir(
 				uygulanacağıDikdörtgen,
 				verisi
-					.diğerBoyuttakiniEdin(DikdörtgenVerisi.UZUNLUKLARI)
+					.diğerBoyuttakiniEdin(UZUNLUKLARI)
 					.değeriEdin(uygulanacağıDikdörtgen) *
 					oranı);
 	}

@@ -11,18 +11,13 @@ package başaşağıderebeyi.kütüphane.arayüz;
 /** Sol fare tuşuyla basılabilen öğe. */
 public class Düğme extends Öğe {
 	/** Düğmenin çalıştırdığı kod. */
-	private final Runnable çalıştırılabilir;
+	public Runnable çalıştıracağı;
 	/** Düğmenin yazısı. */
-	public final String yazı;
+	public String yazısı;
 	
-	/** Tanımlar. */
-	public Düğme(
-		final Levha levha,
-		final String yazı,
-		final Runnable çalıştırılabilir) {
+	/** Verilen levhanın içinde tanımlar. */
+	public Düğme(final Levha levha) {
 		super(levha);
-		this.yazı = yazı;
-		this.çalıştırılabilir = çalıştırılabilir;
 	}
 	
 	@Override
@@ -34,7 +29,7 @@ public class Düğme extends Öğe {
 			odakla();
 		else if (içerenEkran.solTık.salınmasınıEdin()) {
 			odakla();
-			çalıştırılabilir.run();
+			çalıştıracağı.run();
 		}
 	}
 }

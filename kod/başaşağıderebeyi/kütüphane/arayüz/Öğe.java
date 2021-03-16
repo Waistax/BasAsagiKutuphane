@@ -76,6 +76,12 @@ public abstract class Öğe {
 				içerenEkran.solTık.kullanmayıDene(this);
 	}
 	
+	/** Fare imlecinin öğeyi sürükleyip sürüklemediğini bulur. */
+	protected boolean sürüklenmesiniBul() {
+		return içerenEkran.solTık.ilgilendiğiNesne == this &&
+			içerenEkran.solTık.basılıOlmasınıEdin();
+	}
+	
 	/** Bu öğeyi ve üst öğelerini öne getirir. */
 	public void odakla() {
 		içerenLevha.odakla();

@@ -8,8 +8,9 @@
  */
 package başaşağıderebeyi.kütüphane.arayüz;
 
+import static başaşağıderebeyi.kütüphane.matematik.DikdörtgenVerisi.*;
+
 import başaşağıderebeyi.kütüphane.girdi.*;
-import başaşağıderebeyi.kütüphane.matematik.*;
 import başaşağıderebeyi.kütüphane.matematik.yerleşim.*;
 
 import java.util.*;
@@ -35,10 +36,10 @@ public class Ekran extends Levha {
 		
 		yerleşimi
 			.kurallarıDeğiştir(
-				new SerbestKural(DikdörtgenVerisi.ORTA_NOKTASI, ortaX),
-				new SerbestKural(DikdörtgenVerisi.UZUNLUKLARI, genişlik),
-				new SerbestKural(DikdörtgenVerisi.ORTA_NOKTASI, ortaY),
-				new SerbestKural(DikdörtgenVerisi.UZUNLUKLARI, yükseklik));
+				new SerbestKural(ORTA_NOKTASI, ortaX),
+				new SerbestKural(UZUNLUKLARI, genişlik),
+				new SerbestKural(ORTA_NOKTASI, ortaY),
+				new SerbestKural(UZUNLUKLARI, yükseklik));
 	}
 	
 	@Override

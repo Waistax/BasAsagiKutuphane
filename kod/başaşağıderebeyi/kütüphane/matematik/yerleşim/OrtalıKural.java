@@ -8,13 +8,13 @@
  */
 package başaşağıderebeyi.kütüphane.matematik.yerleşim;
 
-import başaşağıderebeyi.kütüphane.matematik.*;
+import static başaşağıderebeyi.kütüphane.matematik.DikdörtgenVerisi.*;
 
 /** Dikdörtgenin orta noktasını üstününkine tanımlayan kural. */
 public class OrtalıKural extends YerleşimKuralı {
 	/** Dikdörtgenin ORTA verisiyle tanımlar. */
 	public OrtalıKural() {
-		super(DikdörtgenVerisi.ORTA_NOKTASI, false);
+		super(ORTA_NOKTASI, false);
 	}
 	
 	@Override
