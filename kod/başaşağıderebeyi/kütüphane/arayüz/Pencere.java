@@ -43,13 +43,13 @@ public class Pencere extends Levha {
 					ekran.alanı.ortaNoktası.ikinciBileşeni),
 				new SerbestKural(DikdörtgenVerisi.UZUNLUKLARI, yükseklik));
 		new PencereÇubuğu(this);
-		new Düğme(this, "X", new PencereyiKapat(this)).yerleşimi
+		new Düğme(this, "X", () -> içerenLevha.içeriği.remove(this)).yerleşimi
 			.kurallarıDeğiştir(
 				new TersGöreliKural(DikdörtgenVerisi.BÜYÜK_KÖŞESİ),
 				new SerbestKural(
 					DikdörtgenVerisi.UZUNLUKLARI,
 					Pencere.ÇARPI_GENİŞLİĞİ),
-				new GöreliKural(DikdörtgenVerisi.KÜÇÜK_KÖŞESİ),
+				new TersGöreliKural(DikdörtgenVerisi.BÜYÜK_KÖŞESİ),
 				new SerbestKural(
 					DikdörtgenVerisi.UZUNLUKLARI,
 					Pencere.ÇUBUK_KALINLIĞI));

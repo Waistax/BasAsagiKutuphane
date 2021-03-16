@@ -7,5 +7,5 @@ package başaşağıderebeyi.kütüphane;
 
 public class Kütüphane {
 	/** Kütüphanenin sürümü. */
-	public static final String SÜRÜM = "0.12";
+	public static final String SÜRÜM = "0.12.1";
 }

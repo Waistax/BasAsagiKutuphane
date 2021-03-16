@@ -22,7 +22,7 @@ public class PencereÇubuğu extends Öğe {
 				new TersGöreliKural(
 					DikdörtgenVerisi.BÜYÜK_KÖŞESİ,
 					Pencere.ÇARPI_GENİŞLİĞİ),
-				new GöreliKural(DikdörtgenVerisi.KÜÇÜK_KÖŞESİ),
+				new TersGöreliKural(DikdörtgenVerisi.BÜYÜK_KÖŞESİ),
 				new SerbestKural(
 					DikdörtgenVerisi.UZUNLUKLARI,
 					Pencere.ÇUBUK_KALINLIĞI));

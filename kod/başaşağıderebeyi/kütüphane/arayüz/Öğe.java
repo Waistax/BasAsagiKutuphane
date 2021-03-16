@@ -40,6 +40,7 @@ public abstract class Öğe {
 		final Levha içerenLevha,
 		final Pencere içerenPencere,
 		final Ekran içerenEkran) {
+		açıkOlması = true;
 		alanı = new Dikdörtgen();
 		this.içerenLevha = içerenLevha;
 		if (içerenLevha == null)
