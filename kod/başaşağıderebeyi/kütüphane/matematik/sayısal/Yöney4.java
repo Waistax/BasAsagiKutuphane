@@ -11,6 +11,8 @@ import başaşağıderebeyi.kütüphane.matematik.*;
 
 import java.io.*;
 
+import org.hsluv.*;
+
 /** Dört boyutlu bir yöney. Bileşenler ondalıklı sayılar olarak saklanır. */
 public class Yöney4 implements Serializable {
 	@Serial
@@ -325,6 +327,50 @@ public class Yöney4 implements Serializable {
 			ikinciBileşeni * öbürü.ikinciBileşeni +
 			üçüncüBileşeni * öbürü.üçüncüBileşeni +
 			dördüncüBileşeni * öbürü.dördüncüBileşeni;
+	}
+	
+	/** RGB renk uzayındaki yöneyi HSLuv renk uzayındaki dengine değiştirir.
+	 * Yöneyi döndürür. */
+	public Yöney4 rgbdenHsluva() {
+		return rgbdenHsluva(this);
+	}
+	
+	/** Bu yöneyi RGB renk uzayında verilen yöneyin HSLuv renk uzayındaki
+	 * dengine değiştirir. Bu yöneyi döndürür. */
+	public Yöney4 rgbdenHsluva(Yöney4 öbürü) {
+		double[] dizisi = HUSLColorConverter
+			.rgbToHsluv(
+				new double[] {
+					öbürü.birinciBileşeni,
+					öbürü.ikinciBileşeni,
+					öbürü.üçüncüBileşeni });
+		return bileşenleriniDeğiştir(
+			(float)dizisi[0],
+			(float)dizisi[1],
+			(float)dizisi[2],
+			öbürü.dördüncüBileşeni);
+	}
+	
+	/** HSLuv renk uzayındaki yöneyi RGB renk uzayındaki dengine değiştirir.
+	 * Yöneyi döndürür. */
+	public Yöney4 hsluvdanRgbye() {
+		return hsluvdanRgbye(this);
+	}
+	
+	/** Bu yöneyi HSLuv renk uzayında verilen yöneyin RGB renk uzayındaki
+	 * dengine değiştirir. Bu yöneyi döndürür. */
+	public Yöney4 hsluvdanRgbye(Yöney4 öbürü) {
+		double[] dizisi = HUSLColorConverter
+			.hsluvToRgb(
+				new double[] {
+					öbürü.birinciBileşeni,
+					öbürü.ikinciBileşeni,
+					öbürü.üçüncüBileşeni });
+		return bileşenleriniDeğiştir(
+			(float)dizisi[0],
+			(float)dizisi[1],
+			(float)dizisi[2],
+			öbürü.dördüncüBileşeni);
 	}
 	
 	@Override
