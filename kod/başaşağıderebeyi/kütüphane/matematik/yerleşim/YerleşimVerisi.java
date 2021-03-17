@@ -1,11 +1,10 @@
 /**
- * başaşağıderebeyi.kütüphane.matematik.yerleşim.YerleşimVerisi.java
- * 0.4 / 17 Oca 2021 / 13:55:22
  * Cem GEÇGEL (BaşAşağıDerebeyi)
+ * 0.4 / 17 Oca 2021 / 13:55:22
  */
 package başaşağıderebeyi.kütüphane.matematik.yerleşim;
 
-import başaşağıderebeyi.kütüphane.matematik.*;
+import başaşağıderebeyi.kütüphane.matematik.dikdörtgen.*;
 
 /** Bir kuralın yerleştirdiği farklı verilerin sıralaması. */
 public enum YerleşimVerisi {

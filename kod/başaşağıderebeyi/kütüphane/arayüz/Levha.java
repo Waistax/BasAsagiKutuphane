@@ -1,7 +1,6 @@
 /**
- * başaşağıderebeyi.kütüphane.arayüz.Levha.java
- * 0.7 / 19 Oca 2021 / 12:50:09
  * Cem GEÇGEL (BaşAşağıDerebeyi)
+ * 0.7 / 19 Oca 2021 / 12:50:09
  * 
  * BaşAşağıMotor'dan alındı.
  * 0.16 / 14 Eyl 2020 / 16:51:55

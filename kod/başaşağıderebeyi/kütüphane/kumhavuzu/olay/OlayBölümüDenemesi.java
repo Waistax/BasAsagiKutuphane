@@ -1,7 +1,6 @@
 /**
- * başaşağıderebeyi.kütüphane.kumhavuzu.olay.OlayBölümüDenemesi.java
- * 0.10 / 27 Şub 2021 / 19:10:45
  * Cem GEÇGEL (BaşAşağıDerebeyi)
+ * 0.10 / 27 Şub 2021 / 19:10:45
  */
 package başaşağıderebeyi.kütüphane.kumhavuzu.olay;
 

@@ -1,16 +1,15 @@
 /**
- * başaşağıderebeyi.kütüphane.matematik.yerleşim.YerleşikDikdörtgen.java
- * 0.4 / 17 Oca 2021 / 16:19:40
  * Cem GEÇGEL (BaşAşağıDerebeyi)
+ * 0.4 / 17 Oca 2021 / 16:19:40
  *
  * BaşAşağıMotor'dan alındı.
  * 0.24 / 7 Kas 2020 / 15:28:16
  */
 package başaşağıderebeyi.kütüphane.matematik.yerleşim;
 
-import static başaşağıderebeyi.kütüphane.matematik.DikdörtgenVerisi.*;
+import static başaşağıderebeyi.kütüphane.matematik.dikdörtgen.DikdörtgenVerisi.*;
 
-import başaşağıderebeyi.kütüphane.matematik.*;
+import başaşağıderebeyi.kütüphane.matematik.dikdörtgen.*;
 
 import java.util.*;
 

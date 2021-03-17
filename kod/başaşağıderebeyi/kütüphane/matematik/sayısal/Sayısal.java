@@ -1,9 +1,8 @@
 /**
- * başaşağıderebeyi.kütüphane.matematik.Sayısal.java
- * 0.9 / 25 Şub 2021 / 18:29:37
  * Cem GEÇGEL (BaşAşağıDerebeyi)
+ * 0.9 / 25 Şub 2021 / 18:29:37
  */
-package başaşağıderebeyi.kütüphane.matematik;
+package başaşağıderebeyi.kütüphane.matematik.sayısal;
 
 /** Sayı değeri olan, üstdüşüm ve doğrusallık kurallarına uyan bir nesne. */
 public interface Sayısal {

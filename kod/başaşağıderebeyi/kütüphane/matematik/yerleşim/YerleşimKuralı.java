@@ -1,14 +1,13 @@
 /**
- * başaşağıderebeyi.kütüphane.matematik.yerleşim.YerleşimKuralı.java
- * 0.4 / 17 Oca 2021 / 13:18:29
  * Cem GEÇGEL (BaşAşağıDerebeyi)
+ * 0.4 / 17 Oca 2021 / 13:18:29
  *
  * BaşAşağıMotor'dan alındı.
  * 0.16 / 13 Eyl 2020 / 17:46:57
  */
 package başaşağıderebeyi.kütüphane.matematik.yerleşim;
 
-import başaşağıderebeyi.kütüphane.matematik.*;
+import başaşağıderebeyi.kütüphane.matematik.dikdörtgen.*;
 
 /** Yerleşimin nasıl yapılacağını belirleyen kural. */
 public abstract class YerleşimKuralı {

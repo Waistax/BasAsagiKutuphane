@@ -1,12 +1,13 @@
 /**
- * başaşağıderebeyi.kütüphane.matematik.Matris.java
- * 0.3 / 16 Oca 2021 / 20:31:28
  * Cem GEÇGEL (BaşAşağıDerebeyi)
+ * 0.3 / 16 Oca 2021 / 20:31:28
  *
  * Waistax Framework'den biraz alındı.
  * ? / ? / ?
  */
-package başaşağıderebeyi.kütüphane.matematik;
+package başaşağıderebeyi.kütüphane.matematik.sayısal;
+
+import başaşağıderebeyi.kütüphane.matematik.*;
 
 import java.io.*;
 

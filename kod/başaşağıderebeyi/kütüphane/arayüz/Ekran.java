@@ -1,14 +1,13 @@
 /**
- * başaşağıderebeyi.kütüphane.arayüz.Ekran.java
- * 0.7 / 19 Oca 2021 / 12:49:54
  * Cem GEÇGEL (BaşAşağıDerebeyi)
+ * 0.7 / 19 Oca 2021 / 12:49:54
  * 
  * BaşAşağıMotor'dan alındı.
  * 0.16 / 14 Eyl 2020 / 13:29:10
  */
 package başaşağıderebeyi.kütüphane.arayüz;
 
-import static başaşağıderebeyi.kütüphane.matematik.DikdörtgenVerisi.*;
+import static başaşağıderebeyi.kütüphane.matematik.dikdörtgen.DikdörtgenVerisi.*;
 
 import başaşağıderebeyi.kütüphane.girdi.*;
 import başaşağıderebeyi.kütüphane.matematik.yerleşim.*;

@@ -1,7 +1,6 @@
 /**
- * başaşağıderebeyi.kütüphane.girdi.Tuş.java
- * 0.5 / 18 Oca 2021 / 10:38:21
  * Cem GEÇGEL (BaşAşağıDerebeyi)
+ * 0.5 / 18 Oca 2021 / 10:38:21
  *
  * BaşAşağıMotor'dan alındı.
  * 0.20 / 1 Kas 2020 / 16:42:13

@@ -1,15 +1,14 @@
 /**
- * başaşağıderebeyi.kütüphane.arayüz.KaydırmaÇubuğu.java
- * 0.12.2 / 16 Mar 2021 / 18:20:01
  * Cem GEÇGEL (BaşAşağıDerebeyi)
+ * 0.12.2 / 16 Mar 2021 / 18:20:01
  * 
  * BaşAşağıMotor'dan alındı.
  * 0.17 / 15 Eyl 2020 / 18:03:11
  */
 package başaşağıderebeyi.kütüphane.arayüz;
 
-import static başaşağıderebeyi.kütüphane.matematik.DikdörtgenVerisi.*;
 import static başaşağıderebeyi.kütüphane.matematik.MatematikAracı.*;
+import static başaşağıderebeyi.kütüphane.matematik.dikdörtgen.DikdörtgenVerisi.*;
 
 import başaşağıderebeyi.kütüphane.matematik.yerleşim.*;
 

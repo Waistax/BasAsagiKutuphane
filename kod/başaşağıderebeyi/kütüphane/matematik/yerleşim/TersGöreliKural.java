@@ -1,16 +1,15 @@
 /**
- * başaşağıderebeyi.kütüphane.matematik.yerleşim.TersGöreliKural.java
- * 0.4 / 18 Oca 2021 / 08:16:39
  * Cem GEÇGEL (BaşAşağıDerebeyi)
+ * 0.4 / 18 Oca 2021 / 08:16:39
  *
  * BaşAşağıMotor'dan alındı.
  * 0.16 / 13 Eyl 2020 / 18:52:31
  */
 package başaşağıderebeyi.kütüphane.matematik.yerleşim;
 
-import static başaşağıderebeyi.kütüphane.matematik.DikdörtgenVerisi.*;
+import static başaşağıderebeyi.kütüphane.matematik.dikdörtgen.DikdörtgenVerisi.*;
 
-import başaşağıderebeyi.kütüphane.matematik.*;
+import başaşağıderebeyi.kütüphane.matematik.dikdörtgen.*;
 
 /** Dikdörtgenin verisini üstün büyük verisine göre tanımlayan kural. */
 public class TersGöreliKural extends YerleşimKuralı {

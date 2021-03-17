@@ -1,12 +1,13 @@
 /**
- * başaşağıderebeyi.kütüphane.matematik.Hesaplayıcı.java
- * 0.1 / 16 Oca 2021 / 12:49:52
  * Cem GEÇGEL (BaşAşağıDerebeyi)
+ * 0.1 / 16 Oca 2021 / 12:49:52
  *
  * BaşAşağıMotor'dan alındı.
  * 0.24 / 6 Kas 2020 / 11:15:43
  */
 package başaşağıderebeyi.kütüphane.matematik;
+
+import başaşağıderebeyi.kütüphane.matematik.sayısal.*;
 
 /** Ondalıklı ve tam sayıların aritmetiğiyle ilgili yardımcı yöntemler sağlar.
  * İkinci işlevi Java'nın Math sınıfındaki methodlardan float alıp da double

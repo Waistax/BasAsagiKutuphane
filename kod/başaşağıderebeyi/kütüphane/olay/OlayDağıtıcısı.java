@@ -1,7 +1,6 @@
 /**
- * başaşağıderebeyi.kütüphane.olay.OlayDağıtıcısı.java
- * 0.7 / 19 Oca 2021 / 12:28:25
  * Cem GEÇGEL (BaşAşağıDerebeyi)
+ * 0.7 / 19 Oca 2021 / 12:28:25
  * 
  * BaşAşağıMotor'dan biraz alındı.
  * 0.28 / 9 Kas 2020 / 15:27:51

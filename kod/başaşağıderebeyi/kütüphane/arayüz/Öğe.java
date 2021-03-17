@@ -1,14 +1,13 @@
 /**
- * başaşağıderebeyi.kütüphane.arayüz.Öğe.java
- * 0.7 / 19 Oca 2021 / 11:41:20
  * Cem GEÇGEL (BaşAşağıDerebeyi)
+ * 0.7 / 19 Oca 2021 / 11:41:20
  *
  * BaşAşağıMotor'dan alındı.
  * 0.16 / 13 Eyl 2020 / 17:43:42
  */
 package başaşağıderebeyi.kütüphane.arayüz;
 
-import başaşağıderebeyi.kütüphane.matematik.*;
+import başaşağıderebeyi.kütüphane.matematik.dikdörtgen.*;
 import başaşağıderebeyi.kütüphane.matematik.yerleşim.*;
 
 /** Arayüzündeki her bir öğe. */

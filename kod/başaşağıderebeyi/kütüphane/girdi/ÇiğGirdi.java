@@ -1,14 +1,13 @@
 /**
- * başaşağıderebeyi.kütüphane.girdi.ÇiğGirdi.java
- * 0.5 / 18 Oca 2021 / 10:51:20
  * Cem GEÇGEL (BaşAşağıDerebeyi)
+ * 0.5 / 18 Oca 2021 / 10:51:20
  *
  * BaşAşağıMotor'dan alındı.
  * 0.4 / 29 Ağu 2020 / 00:26:39
  */
 package başaşağıderebeyi.kütüphane.girdi;
 
-import başaşağıderebeyi.kütüphane.matematik.*;
+import başaşağıderebeyi.kütüphane.matematik.sayısal.*;
 
 import java.util.*;
 import java.util.stream.*;

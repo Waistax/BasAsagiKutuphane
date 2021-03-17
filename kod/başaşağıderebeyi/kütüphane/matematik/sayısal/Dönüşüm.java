@@ -1,9 +1,8 @@
 /**
- * başaşağıderebeyi.kütüphane.matematik.Dönüşüm2.java
- * 0.9 / 27 Şub 2021 / 00:16:01
  * Cem GEÇGEL (BaşAşağıDerebeyi)
+ * 0.9 / 27 Şub 2021 / 00:16:01
  */
-package başaşağıderebeyi.kütüphane.matematik;
+package başaşağıderebeyi.kütüphane.matematik.sayısal;
 
 import java.io.*;
 

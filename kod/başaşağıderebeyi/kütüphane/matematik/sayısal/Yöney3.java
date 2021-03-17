@@ -1,9 +1,10 @@
 /**
- * başaşağıderebeyi.kütüphane.matematik.Yöney3.java
- * 0.3 / 16 Oca 2021 / 20:20:09
  * Cem GEÇGEL (BaşAşağıDerebeyi)
+ * 0.3 / 16 Oca 2021 / 20:20:09
  */
-package başaşağıderebeyi.kütüphane.matematik;
+package başaşağıderebeyi.kütüphane.matematik.sayısal;
+
+import başaşağıderebeyi.kütüphane.matematik.*;
 
 import java.io.*;
 

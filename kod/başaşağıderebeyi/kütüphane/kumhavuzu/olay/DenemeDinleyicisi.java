@@ -1,7 +1,6 @@
 /**
- * başaşağıderebeyi.kütüphane.kumhavuzu.olay.DenemeDinleyicisi.java
- * 0.6 / 19 Oca 2021 / 09:31:30
  * Cem GEÇGEL (BaşAşağıDerebeyi)
+ * 0.6 / 19 Oca 2021 / 09:31:30
  */
 package başaşağıderebeyi.kütüphane.kumhavuzu.olay;
 

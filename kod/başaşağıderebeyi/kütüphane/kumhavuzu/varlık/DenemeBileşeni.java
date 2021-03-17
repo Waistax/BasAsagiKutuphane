@@ -1,7 +1,6 @@
 /**
- * başaşağıderebeyi.kütüphane.kumhavuzu.varlık.DenemeBileşeni.java
- * 0.11 / 2 Mar 2021 / 18:59:41
  * Cem GEÇGEL (BaşAşağıDerebeyi)
+ * 0.11 / 2 Mar 2021 / 18:59:41
  */
 package başaşağıderebeyi.kütüphane.kumhavuzu.varlık;
 

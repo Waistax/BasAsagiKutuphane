@@ -1,16 +1,15 @@
 /**
- * başaşağıderebeyi.kütüphane.matematik.yerleşim.GöreliKural.java
- * 0.4 / 18 Oca 2021 / 08:10:04
  * Cem GEÇGEL (BaşAşağıDerebeyi)
+ * 0.4 / 18 Oca 2021 / 08:10:04
  *
  * BaşAşağıMotor'dan alındı.
  * 0.16 / 13 Eyl 2020 / 18:48:35
  */
 package başaşağıderebeyi.kütüphane.matematik.yerleşim;
 
-import static başaşağıderebeyi.kütüphane.matematik.DikdörtgenVerisi.*;
+import static başaşağıderebeyi.kütüphane.matematik.dikdörtgen.DikdörtgenVerisi.*;
 
-import başaşağıderebeyi.kütüphane.matematik.*;
+import başaşağıderebeyi.kütüphane.matematik.dikdörtgen.*;
 
 /** Dikdörtgenin verisini üstün küçük verisine göre tanımlayan kural. */
 public class GöreliKural extends YerleşimKuralı {

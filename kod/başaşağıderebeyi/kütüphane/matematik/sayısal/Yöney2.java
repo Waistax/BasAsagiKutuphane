@@ -1,12 +1,13 @@
 /**
- * başaşağıderebeyi.kütüphane.matematik.Yöney2.java
- * 0.2 / 16 Oca 2021 / 13:07:13
  * Cem GEÇGEL (BaşAşağıDerebeyi)
+ * 0.2 / 16 Oca 2021 / 13:07:13
  *
  * BaşAşağıMotor'dan alındı.
  * 0.13 / 8 Eyl 2020 / 09:16:17
  */
-package başaşağıderebeyi.kütüphane.matematik;
+package başaşağıderebeyi.kütüphane.matematik.sayısal;
+
+import başaşağıderebeyi.kütüphane.matematik.*;
 
 import java.io.*;
 

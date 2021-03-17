@@ -1,7 +1,6 @@
 /**
- * başaşağıderebeyi.kütüphane.arayüz.Düğme.java
- * 0.7 / 27 Oca 2021 / 11:05:54
  * Cem GEÇGEL (BaşAşağıDerebeyi)
+ * 0.7 / 27 Oca 2021 / 11:05:54
  * 
  * BaşAşağıMotor'dan alındı.
  * 0.16 / 14 Eyl 2020 / 00:35:13

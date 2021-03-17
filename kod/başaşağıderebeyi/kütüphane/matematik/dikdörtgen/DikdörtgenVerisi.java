@@ -1,12 +1,11 @@
 /**
- * başaşağıderebeyi.kütüphane.matematik.DikdörtgenVerisi.java
- * 0.4 / 17 Oca 2021 / 12:07:23
  * Cem GEÇGEL (BaşAşağıDerebeyi)
+ * 0.4 / 17 Oca 2021 / 12:07:23
  *
  * BaşAşağıMotor'dan alındı.
  * 0.24 / 7 Kas 2020 / 11:15:24
  */
-package başaşağıderebeyi.kütüphane.matematik;
+package başaşağıderebeyi.kütüphane.matematik.dikdörtgen;
 
 /** Dikdörtgeni tanımlarken kullanılan farklı verilerinin sıralaması. Bu veriler
  * bir nokta ya da bir uzunluk olabilir. Her boyut başına dikdörtgenin iki

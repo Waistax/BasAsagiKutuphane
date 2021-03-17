@@ -1,14 +1,13 @@
 /**
- * başaşağıderebeyi.kütüphane.kumhavuzu.yerleşim.YerleşimBölümüDenemesi.java
- * 0.12 / 15 Mar 2021 / 11:07:37
  * Cem GEÇGEL (BaşAşağıDerebeyi)
+ * 0.12 / 15 Mar 2021 / 11:07:37
  */
 package başaşağıderebeyi.kütüphane.kumhavuzu.yerleşim;
 
-import static başaşağıderebeyi.kütüphane.matematik.DikdörtgenVerisi.*;
+import static başaşağıderebeyi.kütüphane.matematik.dikdörtgen.DikdörtgenVerisi.*;
 
 import başaşağıderebeyi.kütüphane.kumhavuzu.*;
-import başaşağıderebeyi.kütüphane.matematik.*;
+import başaşağıderebeyi.kütüphane.matematik.dikdörtgen.*;
 import başaşağıderebeyi.kütüphane.matematik.yerleşim.*;
 
 /** Yerleşim bölümünü dener. */

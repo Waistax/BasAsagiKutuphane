@@ -1,12 +1,13 @@
 /**
- * başaşağıderebeyi.kütüphane.matematik.Dikdörtgen.java
- * 0.4 / 17 Oca 2021 / 12:08:18
  * Cem GEÇGEL (BaşAşağıDerebeyi)
+ * 0.4 / 17 Oca 2021 / 12:08:18
  *
  * BaşAşağıMotor'dan alındı.
  * 0.13 / 8 Eyl 2020 / 09:37:00
  */
-package başaşağıderebeyi.kütüphane.matematik;
+package başaşağıderebeyi.kütüphane.matematik.dikdörtgen;
+
+import başaşağıderebeyi.kütüphane.matematik.sayısal.*;
 
 import java.io.*;
 

@@ -1,14 +1,13 @@
 /**
- * başaşağıderebeyi.kütüphane.arayüz.PencereÇubuğu.java
- * 0.7 / 26 Oca 2021 / 21:05:26
  * Cem GEÇGEL (BaşAşağıDerebeyi)
+ * 0.7 / 26 Oca 2021 / 21:05:26
  * 
  * BaşAşağıMotor'dan alındı.
  * 0.16 / 13 Eyl 2020 / 21:58:50
  */
 package başaşağıderebeyi.kütüphane.arayüz;
 
-import static başaşağıderebeyi.kütüphane.matematik.DikdörtgenVerisi.*;
+import static başaşağıderebeyi.kütüphane.matematik.dikdörtgen.DikdörtgenVerisi.*;
 
 import başaşağıderebeyi.kütüphane.matematik.yerleşim.*;
 

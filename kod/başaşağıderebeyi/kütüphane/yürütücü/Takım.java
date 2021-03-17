@@ -1,7 +1,6 @@
 /**
- * başaşağıderebeyi.kütüphane.yürütücü.Takım.java
- * 0.8 / 21 Şub 2021 / 12:24:06
  * Cem GEÇGEL (BaşAşağıDerebeyi)
+ * 0.8 / 21 Şub 2021 / 12:24:06
  */
 package başaşağıderebeyi.kütüphane.yürütücü;
 

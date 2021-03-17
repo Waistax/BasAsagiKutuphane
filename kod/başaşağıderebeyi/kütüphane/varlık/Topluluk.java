@@ -1,7 +1,6 @@
 /**
- * başaşağıderebeyi.kütüphane.varlık.Topluluk.java
- * 0.8 / 17 Şub 2021 / 10:54:36
  * Cem GEÇGEL (BaşAşağıDerebeyi)
+ * 0.8 / 17 Şub 2021 / 10:54:36
  * 
  * BaşAşağıMotor'dan alındı.
  * 0.22 / 4 Kas 2020 / 18:47:22

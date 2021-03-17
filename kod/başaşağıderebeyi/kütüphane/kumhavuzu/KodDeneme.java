@@ -1,7 +1,6 @@
 /**
- * başaşağıderebeyi.kütüphane.kumhavuzu.KodDeneme.java
- * 0.6 / 19 Oca 2021 / 08:09:17
  * Cem GEÇGEL (BaşAşağıDerebeyi)
+ * 0.6 / 19 Oca 2021 / 08:09:17
  */
 package başaşağıderebeyi.kütüphane.kumhavuzu;
 

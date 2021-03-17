@@ -1,7 +1,6 @@
 /**
- * başaşağıderebeyi.kütüphane.arayüz.Etiket.java
- * 0.12.2 / 16 Mar 2021 / 17:52:24
  * Cem GEÇGEL (BaşAşağıDerebeyi)
+ * 0.12.2 / 16 Mar 2021 / 17:52:24
  * 
  * BaşAşağıMotor'dan biraz alındı.
  * 0.16 / 13 Eyl 2020 / 22:06:18

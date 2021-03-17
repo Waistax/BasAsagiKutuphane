@@ -1,9 +1,8 @@
 /**
- * başaşağıderebeyi.kütüphane.matematik.Ortalama.java
- * 0.11 / 11 Mar 2021 / 21:38:41
  * Cem GEÇGEL (BaşAşağıDerebeyi)
+ * 0.11 / 11 Mar 2021 / 21:38:41
  */
-package başaşağıderebeyi.kütüphane.matematik;
+package başaşağıderebeyi.kütüphane.matematik.ortalama;
 
 /** Bir değerin farklı örneklerinin ortalaması. */
 public class Ortalama {

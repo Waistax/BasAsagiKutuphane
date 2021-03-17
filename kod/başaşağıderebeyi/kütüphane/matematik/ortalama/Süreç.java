@@ -1,12 +1,11 @@
 /**
- * başaşağıderebeyi.kütüphane.matematik.Süreç.java
- * 0.1 / 19 Oca 2021 / 10:44:55
  * Cem GEÇGEL (BaşAşağıDerebeyi)
+ * 0.1 / 19 Oca 2021 / 10:44:55
  * 
  * BaşAşağıMotor'dan alındı.
  * 0.7 / 29 Ağu 2020 / 19:23:14
  */
-package başaşağıderebeyi.kütüphane.matematik;
+package başaşağıderebeyi.kütüphane.matematik.ortalama;
 
 /** Bir işlemin bir saniyede her tık başına aldığı ortalama süreyi bulmaya
  * yarayan araç. */
