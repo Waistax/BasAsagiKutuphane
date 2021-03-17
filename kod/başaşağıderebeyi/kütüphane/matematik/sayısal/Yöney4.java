@@ -337,8 +337,8 @@ public class Yöney4 implements Serializable {
 	
 	/** Bu yöneyi RGB renk uzayında verilen yöneyin HSLuv renk uzayındaki
 	 * dengine değiştirir. Bu yöneyi döndürür. */
-	public Yöney4 rgbdenHsluva(Yöney4 öbürü) {
-		double[] dizisi = HUSLColorConverter
+	public Yöney4 rgbdenHsluva(final Yöney4 öbürü) {
+		final double[] dizisi = HUSLColorConverter
 			.rgbToHsluv(
 				new double[] {
 					öbürü.birinciBileşeni,
@@ -359,8 +359,8 @@ public class Yöney4 implements Serializable {
 	
 	/** Bu yöneyi HSLuv renk uzayında verilen yöneyin RGB renk uzayındaki
 	 * dengine değiştirir. Bu yöneyi döndürür. */
-	public Yöney4 hsluvdanRgbye(Yöney4 öbürü) {
-		double[] dizisi = HUSLColorConverter
+	public Yöney4 hsluvdanRgbye(final Yöney4 öbürü) {
+		final double[] dizisi = HUSLColorConverter
 			.hsluvToRgb(
 				new double[] {
 					öbürü.birinciBileşeni,

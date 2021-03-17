@@ -93,9 +93,4 @@ public class ÇiğGirdi {
 	public void tekerleğininDevriniBildir(final int tekerleğininDevri) {
 		tekerleğininEşzamansızDevirlerininToplamı += tekerleğininDevri;
 	}
-	
-	/** Fare tekerleğinin şu andaki devrini döndürür. */
-	public int tekerleğininDevriniEdin() {
-		return tekerleğininDevri;
-	}
 }
