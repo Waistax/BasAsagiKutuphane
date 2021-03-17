@@ -30,7 +30,7 @@ public class DenemeDinleyicisi {
 	
 	/** Temel seviyede deneme olaylarını dinler. Olayları ilk alacak
 	 * dinleyicidir. */
-	@Dinleyici(önceliği = Öncelik.TEMEL)
+	@Dinleyici(önceliği = Öncelik.ÇOK_ÖNCE)
 	public void temeldenDenemeOlayınıDinle(final DenemeOlayı olay) {
 		try {
 			Float.parseFloat(olay.iletisi);

@@ -8,7 +8,7 @@
 package başaşağıderebeyi.kütüphane.olay;
 
 /** Herhangi bir olay. */
-public class Olay {
+public abstract class Olay {
 	/** Olayın bir dinleyici tarafından susturulup susturulmadığı. */
 	public boolean susturulması;
 }

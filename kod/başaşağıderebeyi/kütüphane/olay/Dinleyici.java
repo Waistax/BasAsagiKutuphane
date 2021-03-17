@@ -17,5 +17,5 @@ public @interface Dinleyici {
 	boolean susturulmuşlarıDinlemesi() default false;
 	
 	/** Dinleyicinin öncelik sırası. */
-	Öncelik önceliği() default Öncelik.YÜZEY;
+	Öncelik önceliği() default Öncelik.VARSAYILAN;
 }
