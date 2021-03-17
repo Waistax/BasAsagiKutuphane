@@ -9,9 +9,9 @@ public class Kütüphane {
 	/** Ana sürümü. */
 	public static final int ANA_SÜRÜMÜ = 0;
 	/** Ara sürümü. */
-	public static final int ARA_SÜRÜMÜ = 12;
+	public static final int ARA_SÜRÜMÜ = 13;
 	/** Yaması. */
-	public static final int YAMASI = 4;
+	public static final int YAMASI = 0;
 	/** Bütün sürümü. */
 	public static final String SÜRÜM =
 		ANA_SÜRÜMÜ + "." + ARA_SÜRÜMÜ + "." + YAMASI;
