@@ -64,11 +64,11 @@ public class KayanLevha extends Levha {
 	
 	@Override
 	public void yerleştir() {
-		konumu.çıkar(içerenEkran.alanı.uzunlukları, alanı.uzunlukları);
-		yatayKonumununKuralı.uzaklığı =
-			konumu.birinciBileşeni * kayması.birinciBileşeni;
-		dikeyKonumununKuralı.uzaklığı =
-			konumu.ikinciBileşeni * kayması.ikinciBileşeni;
+		konumu
+			.çıkar(içerenLevha.alanı.uzunlukları, alanı.uzunlukları)
+			.çarp(kayması);
+		yatayKonumununKuralı.uzaklığı = konumu.birinciBileşeni;
+		dikeyKonumununKuralı.uzaklığı = konumu.ikinciBileşeni;
 		super.yerleştir();
 	}
 }

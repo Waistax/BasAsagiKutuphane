@@ -123,6 +123,20 @@ public class Yöney2 implements Serializable {
 			öbürü.ikinciBileşeni * sayı);
 	}
 	
+	/** Bu yöneyin bileşenlerini verilen yöneyin bileşenleriyle ayrı ayrı
+	 * çarpımlarına değiştirir. Bu yöneyi döndürür. */
+	public Yöney2 çarp(final Yöney2 öbürü) {
+		return çarp(this, öbürü);
+	}
+	
+	/** Bu yöneyin bileşenlerini verilen yöneylerin bileşenlerinin ayrı ayrı
+	 * çarpımlarına değiştirir. Bu yöneyi döndürür. */
+	public Yöney2 çarp(final Yöney2 soldaki, final Yöney2 sağdaki) {
+		return bileşenleriniDeğiştir(
+			soldaki.birinciBileşeni * sağdaki.birinciBileşeni,
+			soldaki.ikinciBileşeni * sağdaki.ikinciBileşeni);
+	}
+	
 	/** Yöneyi verilen sayıya böler. Yöneyi döndürür. */
 	public Yöney2 böl(final float sayı) {
 		return böl(this, sayı);
@@ -134,6 +148,20 @@ public class Yöney2 implements Serializable {
 		return bileşenleriniDeğiştir(
 			öbürü.birinciBileşeni / sayı,
 			öbürü.ikinciBileşeni / sayı);
+	}
+	
+	/** Bu yöneyin bileşenlerini verilen yöneyin bileşenleriyle ayrı ayrı
+	 * bölümlerine değiştirir. Bu yöneyi döndürür. */
+	public Yöney2 böl(final Yöney2 öbürü) {
+		return böl(this, öbürü);
+	}
+	
+	/** Bu yöneyin bileşenlerini verilen yöneylerin bileşenlerinin ayrı ayrı
+	 * bölümlerine değiştirir. Bu yöneyi döndürür. */
+	public Yöney2 böl(final Yöney2 soldaki, final Yöney2 sağdaki) {
+		return bileşenleriniDeğiştir(
+			soldaki.birinciBileşeni / sağdaki.birinciBileşeni,
+			soldaki.ikinciBileşeni / sağdaki.ikinciBileşeni);
 	}
 	
 	/** Bu yöneyin bileşenlerini ayrı ayrı sıkıştırır. Bu yöneyi döndürür. */

@@ -16,7 +16,7 @@ module başaşağıderebeyi.kütüphane {
 	exports başaşağıderebeyi.kütüphane.matematik.ortalama;
 	exports başaşağıderebeyi.kütüphane.matematik.sayısal;
 	exports başaşağıderebeyi.kütüphane.matematik.yerleşim;
-
+	
 	exports başaşağıderebeyi.kütüphane.olay;
 	exports başaşağıderebeyi.kütüphane.varlık;
 	
