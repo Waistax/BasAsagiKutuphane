@@ -7,13 +7,13 @@ package başaşağıderebeyi.kütüphane.kumhavuzu.varlık;
 import başaşağıderebeyi.kütüphane.varlık.*;
 
 class DenemeSoyu extends Soy {
-	private float çarpımı;
-	private volatile float eşzamanlıÇarpımı;
+	private float sıralıÇarpımı;
+	private volatile float paralelÇarpımı;
 	
 	DenemeSoyu(final Topluluk topluluk, final float çarpımınBaşlangıçDeğeri) {
 		super(topluluk, DenemeBileşeni.class);
-		çarpımı = çarpımınBaşlangıçDeğeri;
-		eşzamanlıÇarpımı = çarpımınBaşlangıçDeğeri;
+		sıralıÇarpımı = çarpımınBaşlangıçDeğeri;
+		paralelÇarpımı = çarpımınBaşlangıçDeğeri;
 	}
 	
 	@Override
@@ -22,23 +22,23 @@ class DenemeSoyu extends Soy {
 			.stream()
 			.map(varlığı -> varlığı.bileşeniniEdin(DenemeBileşeni.class))
 			.forEach(
-				varlığınınBileşeni -> çarpımı *= varlığınınBileşeni.çarpanı);
+				varlığınınBileşeni -> sıralıÇarpımı *=
+					varlığınınBileşeni.çarpanı);
 		varlıkları
-			.stream()
-			.parallel()
+			.parallelStream()
 			.map(varlığı -> varlığı.bileşeniniEdin(DenemeBileşeni.class))
-			.forEach(bileşeni -> eşzamanlıÇarpımı *= bileşeni.çarpanı);
+			.forEach(bileşeni -> paralelÇarpımı *= bileşeni.çarpanı);
 	}
 	
 	@Override
 	public void çiz() {
 	}
 	
-	float çarpımınıEdin() {
-		return çarpımı;
+	float sıralıÇarpımınıEdin() {
+		return sıralıÇarpımı;
 	}
 	
-	float eşzamanlıÇarpımınıEdin() {
-		return eşzamanlıÇarpımı;
+	float paralelÇarpımınıEdin() {
+		return paralelÇarpımı;
 	}
 }

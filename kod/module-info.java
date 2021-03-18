@@ -19,7 +19,6 @@ module başaşağıderebeyi.kütüphane {
 
 	exports başaşağıderebeyi.kütüphane.olay;
 	exports başaşağıderebeyi.kütüphane.varlık;
-	exports başaşağıderebeyi.kütüphane.yürütücü;
 	
 	exports org.hsluv;
 }
