@@ -9,7 +9,7 @@ import başaşağıderebeyi.kütüphane.kumhavuzu.varlık.*;
 import başaşağıderebeyi.kütüphane.kumhavuzu.yerleşim.*;
 
 /** Farklı yöntemlerin çalışıp çalışmadığını dener. */
-public class KodDeneme {
+class KodDeneme {
 	/** Denemenin başlangıcı. */
 	public static void main(final String[] args) {
 		final Deney deney = new Deney();
