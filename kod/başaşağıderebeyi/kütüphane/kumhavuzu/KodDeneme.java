@@ -7,6 +7,7 @@ package başaşağıderebeyi.kütüphane.kumhavuzu;
 import başaşağıderebeyi.kütüphane.kumhavuzu.olay.*;
 import başaşağıderebeyi.kütüphane.kumhavuzu.varlık.*;
 import başaşağıderebeyi.kütüphane.kumhavuzu.yerleşim.*;
+import başaşağıderebeyi.kütüphane.kumhavuzu.yürütücü.*;
 
 /** Farklı yöntemlerin çalışıp çalışmadığını dener. */
 class KodDeneme {
@@ -16,5 +17,6 @@ class KodDeneme {
 		OlayBölümüDenemesi.olayBölümünüDene(deney);
 		VarlıkBölümüDenemesi.varlıkBölümünüDene(deney);
 		YerleşimBölümüDenemesi.yerleşimBölümünüDene(deney);
+		YürütücüBölümüDenemesi.yürütücüBölümünüDene();
 	}
 }
