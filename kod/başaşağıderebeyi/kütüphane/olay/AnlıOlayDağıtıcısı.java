@@ -38,16 +38,19 @@ public class AnlıOlayDağıtıcısı extends OlayDağıtıcısı {
 	}
 	
 	@Override
-	public void dinleyicileriniEkle(final Object nesne) {
+	public <T extends Olay> void dinleyiciyiEkle(
+		DinleyiciBilgisi<T> dinleyiciBilgisi) {
 		synchronized (bekleyenİşlemler) {
-			bekleyenİşlemler.add(() -> super.dinleyicileriniEkle(nesne));
+			bekleyenİşlemler.add(() -> super.dinleyiciyiEkle(dinleyiciBilgisi));
 		}
 	}
 	
 	@Override
-	public void dinleyicileriniÇıkar(final Object nesne) {
+	public <T extends Olay> void dinleyiciyiÇıkar(
+		DinleyiciBilgisi<T> dinleyiciBilgisi) {
 		synchronized (bekleyenİşlemler) {
-			bekleyenİşlemler.add(() -> super.dinleyicileriniÇıkar(nesne));
+			bekleyenİşlemler
+				.add(() -> super.dinleyiciyiÇıkar(dinleyiciBilgisi));
 		}
 	}
 }

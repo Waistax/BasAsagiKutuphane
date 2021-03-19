@@ -11,10 +11,12 @@ public class EtkisizOlayDağıtıcısı extends OlayDağıtıcısı {
 	}
 	
 	@Override
-	public void dinleyicileriniEkle(final Object nesne) {
+	public <T extends Olay> void dinleyiciyiEkle(
+		DinleyiciBilgisi<T> dinleyiciBilgisi) {
 	}
 	
 	@Override
-	public void dinleyicileriniÇıkar(final Object nesne) {
+	public <T extends Olay> void dinleyiciyiÇıkar(
+		DinleyiciBilgisi<T> dinleyiciBilgisi) {
 	}
 }

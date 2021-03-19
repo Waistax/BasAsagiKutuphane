@@ -1,28 +1,38 @@
 /**
  * Cem GEÇGEL (BaşAşağıDerebeyi)
  * 0.6 / 19 Oca 2021 / 07:56:58
- *
- * BaşAşağıMotor'dan alındı.
- * 0.28 / 11 Kas 2020 / 21:35:37
+ * 
+ * BaşAşağıMotor'dan biraz alındı.
+ * 0.28 / 9 Kas 2020 / 15:35:12
  */
 package başaşağıderebeyi.kütüphane.olay;
 
-import java.lang.invoke.*;
-import java.lang.reflect.*;
+import java.util.function.*;
 
 /** Dinleyicinin yöneticideki bilgileri. */
-class DinleyiciBilgisi {
-	final Object nesnesi;
-	final MethodHandle çağırıcısı;
-	final boolean susturulmuşlarıDinlemesi;
+public class DinleyiciBilgisi<T extends Olay> {
+	final Class<T> dinlediğiOlay;
+	final Consumer<T> dinleyicisi;
+	boolean susturulmuşlarıDinlemesi;
+	Öncelik önceliği;
 	
-	DinleyiciBilgisi(
-		final Object nesne,
-		final Method yöntem,
-		final boolean susturulmuşlarıDinlemesi)
-		throws IllegalAccessException {
-		nesnesi = nesne;
-		çağırıcısı = MethodHandles.lookup().unreflect(yöntem).bindTo(nesne);
+	/** Verilen dinleyiciyle tanımlar. */
+	public DinleyiciBilgisi(Class<T> dinlediğiOlay, Consumer<T> dinleyicisi) {
+		this.dinlediğiOlay = dinlediğiOlay;
+		this.dinleyicisi = dinleyicisi;
+		önceliği = Öncelik.VARSAYILAN;
+	}
+	
+	/** Dinleyicinin susturulmuş olayları dinleyip dinlemediğini değiştirir. */
+	public DinleyiciBilgisi<T> susturulmuşlarıDinlemesiniDeğiştir(
+		boolean susturulmuşlarıDinlemesi) {
 		this.susturulmuşlarıDinlemesi = susturulmuşlarıDinlemesi;
+		return this;
+	}
+	
+	/** Dinleyicinin öncelik sırasını değiştirir. */
+	public DinleyiciBilgisi<T> önceliğiniDeğiştir(Öncelik önceliği) {
+		this.önceliği = önceliği;
+		return this;
 	}
 }

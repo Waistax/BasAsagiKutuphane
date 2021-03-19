@@ -15,7 +15,24 @@ public class OlayBölümüDenemesi {
 		
 		final AnlıOlayDağıtıcısı anlıDağıtıcı = new AnlıOlayDağıtıcısı();
 		final DenemeDinleyicisi dinleyici = new DenemeDinleyicisi(1.0F);
-		anlıDağıtıcı.dinleyicileriniEkle(dinleyici);
+		
+		DinleyiciBilgisi<DenemeOlayı> birinciDinleyici = new DinleyiciBilgisi<>(
+			DenemeOlayı.class,
+			olay -> dinleyici.denemeOlayınıDinle(olay));
+		
+		DinleyiciBilgisi<DenemeOlayı> ikinciDinleyici = new DinleyiciBilgisi<>(
+			DenemeOlayı.class,
+			olay -> dinleyici.susturulmuşDenemeOlayınıDinle(olay))
+				.susturulmuşlarıDinlemesiniDeğiştir(true);
+		
+		DinleyiciBilgisi<DenemeOlayı> üçüncüDinleyici = new DinleyiciBilgisi<>(
+			DenemeOlayı.class,
+			olay -> dinleyici.temeldenDenemeOlayınıDinle(olay))
+				.önceliğiniDeğiştir(Öncelik.ÇOK_ÖNCE);
+		
+		anlıDağıtıcı.dinleyiciyiEkle(birinciDinleyici);
+		anlıDağıtıcı.dinleyiciyiEkle(ikinciDinleyici);
+		anlıDağıtıcı.dinleyiciyiEkle(üçüncüDinleyici);
 		
 		anlıDağıtıcı.dağıt(new DenemeOlayı("3.14159"));
 		anlıDağıtıcı.güncelle();
@@ -25,20 +42,29 @@ public class OlayBölümüDenemesi {
 		anlıDağıtıcı.güncelle();
 		deney.dene(dinleyici.çarpımınıEdin(), 99.0F, 0.0001F);
 		
-		anlıDağıtıcı.dinleyicileriniÇıkar(dinleyici);
+		anlıDağıtıcı.dinleyiciyiÇıkar(birinciDinleyici);
+		anlıDağıtıcı.dinleyiciyiÇıkar(ikinciDinleyici);
+		anlıDağıtıcı.dinleyiciyiÇıkar(üçüncüDinleyici);
+		
 		anlıDağıtıcı.dağıt(new DenemeOlayı("2.79"));
 		anlıDağıtıcı.güncelle();
 		deney.dene(dinleyici.çarpımınıEdin(), 99.0F, 0.0001F);
 		
 		final OlayDağıtıcısı dağıtıcı = new OlayDağıtıcısı();
-		dağıtıcı.dinleyicileriniEkle(dinleyici);
+		dağıtıcı.dinleyiciyiEkle(birinciDinleyici);
+		dağıtıcı.dinleyiciyiEkle(ikinciDinleyici);
+		dağıtıcı.dinleyiciyiEkle(üçüncüDinleyici);
+		
 		dağıtıcı.dağıt(new DenemeOlayı("0.1"));
 		deney.dene(dinleyici.çarpımınıEdin(), 9.9F, 0.01F);
 		
 		dağıtıcı.dağıt(new DenemeOlayı("Cem çok iyi birisidir!"));
 		deney.dene(dinleyici.çarpımınıEdin(), 99.0F, 0.0001F);
 		
-		dağıtıcı.dinleyicileriniÇıkar(dinleyici);
+		dağıtıcı.dinleyiciyiÇıkar(birinciDinleyici);
+		dağıtıcı.dinleyiciyiÇıkar(ikinciDinleyici);
+		dağıtıcı.dinleyiciyiÇıkar(üçüncüDinleyici);
+		
 		dağıtıcı.dağıt(new DenemeOlayı("2.79"));
 		deney.dene(dinleyici.çarpımınıEdin(), 99.0F, 0.0001F);
 		

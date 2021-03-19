@@ -4,8 +4,6 @@
  */
 package başaşağıderebeyi.kütüphane.kumhavuzu.olay;
 
-import başaşağıderebeyi.kütüphane.olay.*;
-
 /** Dağıtıcıyı denemek için oluşturulmuş dinleyici. */
 public class DenemeDinleyicisi {
 	private float çarpımı;
@@ -15,14 +13,12 @@ public class DenemeDinleyicisi {
 	}
 	
 	/** Yüzeysel seviyede deneme olaylarını dinler. */
-	@Dinleyici
 	public void denemeOlayınıDinle(final DenemeOlayı olay) {
 		çarpımı *= Float.parseFloat(olay.iletisi);
 	}
 	
 	/** Yüzeysel seviyede deneme olaylarını dinler. Ayrıca kaldırılmış olayları
 	 * da dinler. */
-	@Dinleyici(susturulmuşlarıDinlemesi = true)
 	public void susturulmuşDenemeOlayınıDinle(final DenemeOlayı olay) {
 		if (olay.susturulması)
 			çarpımı = 99.0F;
@@ -30,7 +26,6 @@ public class DenemeDinleyicisi {
 	
 	/** Temel seviyede deneme olaylarını dinler. Olayları ilk alacak
 	 * dinleyicidir. */
-	@Dinleyici(önceliği = Öncelik.ÇOK_ÖNCE)
 	public void temeldenDenemeOlayınıDinle(final DenemeOlayı olay) {
 		try {
 			Float.parseFloat(olay.iletisi);

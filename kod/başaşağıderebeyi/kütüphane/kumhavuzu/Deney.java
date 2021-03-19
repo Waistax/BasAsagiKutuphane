@@ -46,12 +46,9 @@ public class Deney {
 		System.out
 			.println(
 				" " + değer + " / " + beklenenDeğer + " (" + özürPayı + ")");
-		System.out.flush();
 		
-		if (!deneme) {
-			System.err.println(Thread.currentThread().getStackTrace()[2]);
-			System.err.flush();
-		}
+		if (!deneme)
+			System.out.println(Thread.currentThread().getStackTrace()[2]);
 	}
 	
 	/** En son başlatılan deneyi bitirir. */
