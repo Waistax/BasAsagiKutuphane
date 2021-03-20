@@ -17,7 +17,9 @@ public class DinleyiciBilgisi<T extends Olay> {
 	Öncelik önceliği;
 	
 	/** Verilen dinleyiciyle tanımlar. */
-	public DinleyiciBilgisi(Class<T> dinlediğiOlay, Consumer<T> dinleyicisi) {
+	public DinleyiciBilgisi(
+		final Class<T> dinlediğiOlay,
+		final Consumer<T> dinleyicisi) {
 		this.dinlediğiOlay = dinlediğiOlay;
 		this.dinleyicisi = dinleyicisi;
 		önceliği = Öncelik.VARSAYILAN;
@@ -25,13 +27,13 @@ public class DinleyiciBilgisi<T extends Olay> {
 	
 	/** Dinleyicinin susturulmuş olayları dinleyip dinlemediğini değiştirir. */
 	public DinleyiciBilgisi<T> susturulmuşlarıDinlemesiniDeğiştir(
-		boolean susturulmuşlarıDinlemesi) {
+		final boolean susturulmuşlarıDinlemesi) {
 		this.susturulmuşlarıDinlemesi = susturulmuşlarıDinlemesi;
 		return this;
 	}
 	
 	/** Dinleyicinin öncelik sırasını değiştirir. */
-	public DinleyiciBilgisi<T> önceliğiniDeğiştir(Öncelik önceliği) {
+	public DinleyiciBilgisi<T> önceliğiniDeğiştir(final Öncelik önceliği) {
 		this.önceliği = önceliği;
 		return this;
 	}

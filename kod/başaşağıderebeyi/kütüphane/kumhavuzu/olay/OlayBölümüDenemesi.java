@@ -16,19 +16,22 @@ public class OlayBölümüDenemesi {
 		final AnlıOlayDağıtıcısı anlıDağıtıcı = new AnlıOlayDağıtıcısı();
 		final DenemeDinleyicisi dinleyici = new DenemeDinleyicisi(1.0F);
 		
-		DinleyiciBilgisi<DenemeOlayı> birinciDinleyici = new DinleyiciBilgisi<>(
-			DenemeOlayı.class,
-			olay -> dinleyici.denemeOlayınıDinle(olay));
+		final DinleyiciBilgisi<DenemeOlayı> birinciDinleyici =
+			new DinleyiciBilgisi<>(
+				DenemeOlayı.class,
+				olay -> dinleyici.denemeOlayınıDinle(olay));
 		
-		DinleyiciBilgisi<DenemeOlayı> ikinciDinleyici = new DinleyiciBilgisi<>(
-			DenemeOlayı.class,
-			olay -> dinleyici.susturulmuşDenemeOlayınıDinle(olay))
-				.susturulmuşlarıDinlemesiniDeğiştir(true);
+		final DinleyiciBilgisi<DenemeOlayı> ikinciDinleyici =
+			new DinleyiciBilgisi<>(
+				DenemeOlayı.class,
+				olay -> dinleyici.susturulmuşDenemeOlayınıDinle(olay))
+					.susturulmuşlarıDinlemesiniDeğiştir(true);
 		
-		DinleyiciBilgisi<DenemeOlayı> üçüncüDinleyici = new DinleyiciBilgisi<>(
-			DenemeOlayı.class,
-			olay -> dinleyici.temeldenDenemeOlayınıDinle(olay))
-				.önceliğiniDeğiştir(Öncelik.ÇOK_ÖNCE);
+		final DinleyiciBilgisi<DenemeOlayı> üçüncüDinleyici =
+			new DinleyiciBilgisi<>(
+				DenemeOlayı.class,
+				olay -> dinleyici.temeldenDenemeOlayınıDinle(olay))
+					.önceliğiniDeğiştir(Öncelik.ÇOK_ÖNCE);
 		
 		anlıDağıtıcı.dinleyiciyiEkle(birinciDinleyici);
 		anlıDağıtıcı.dinleyiciyiEkle(ikinciDinleyici);

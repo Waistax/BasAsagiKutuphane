@@ -16,18 +16,22 @@ import java.util.*;
  * güncellendiğinde sıradaki olayları dağıtır. */
 public class AnlıOlayDağıtıcısı extends OlayDağıtıcısı {
 	private final List<Runnable> bekleyenİşlemler;
+	private final List<Runnable> yapılacakİşlemler;
 	
 	/** Boş dağıtıcı tanımlar. */
 	public AnlıOlayDağıtıcısı() {
 		bekleyenİşlemler = new ArrayList<>();
+		yapılacakİşlemler = new ArrayList<>();
 	}
 	
 	/** Bu anın olaylarını dağıtır ve dinleyicilerini ekler veya çıkarır. */
 	public void güncelle() {
 		synchronized (bekleyenİşlemler) {
-			bekleyenİşlemler.forEach(Runnable::run);
+			yapılacakİşlemler.addAll(bekleyenİşlemler);
 			bekleyenİşlemler.clear();
 		}
+		yapılacakİşlemler.forEach(Runnable::run);
+		yapılacakİşlemler.clear();
 	}
 	
 	@Override
@@ -39,7 +43,7 @@ public class AnlıOlayDağıtıcısı extends OlayDağıtıcısı {
 	
 	@Override
 	public <T extends Olay> void dinleyiciyiEkle(
-		DinleyiciBilgisi<T> dinleyiciBilgisi) {
+		final DinleyiciBilgisi<T> dinleyiciBilgisi) {
 		synchronized (bekleyenİşlemler) {
 			bekleyenİşlemler.add(() -> super.dinleyiciyiEkle(dinleyiciBilgisi));
 		}
@@ -47,7 +51,7 @@ public class AnlıOlayDağıtıcısı extends OlayDağıtıcısı {
 	
 	@Override
 	public <T extends Olay> void dinleyiciyiÇıkar(
-		DinleyiciBilgisi<T> dinleyiciBilgisi) {
+		final DinleyiciBilgisi<T> dinleyiciBilgisi) {
 		synchronized (bekleyenİşlemler) {
 			bekleyenİşlemler
 				.add(() -> super.dinleyiciyiÇıkar(dinleyiciBilgisi));

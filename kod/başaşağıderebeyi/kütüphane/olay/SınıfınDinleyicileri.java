@@ -16,22 +16,22 @@ class SınıfınDinleyicileri<T extends Olay> {
 			öncelikKümeleri.add(new HashSet<>(1));
 	}
 	
-	void dağıt(T olay) {
-		for (Öncelik öncelik : Öncelik.values())
-			for (DinleyiciBilgisi<T> dinleyiciBilgisi : öncelikKümeleri
+	void dağıt(final T olay) {
+		for (final Öncelik öncelik : Öncelik.values())
+			for (final DinleyiciBilgisi<T> dinleyiciBilgisi : öncelikKümeleri
 				.get(öncelik.ordinal()))
 				if (dinleyiciBilgisi.susturulmuşlarıDinlemesi ||
 					!olay.susturulması)
 					dinleyiciBilgisi.dinleyicisi.accept(olay);
 	}
 	
-	void ekle(DinleyiciBilgisi<T> dinleyiciBilgisi) {
+	void ekle(final DinleyiciBilgisi<T> dinleyiciBilgisi) {
 		öncelikKümeleri
 			.get(dinleyiciBilgisi.önceliği.ordinal())
 			.add(dinleyiciBilgisi);
 	}
 	
-	void çıkar(DinleyiciBilgisi<T> dinleyiciBilgisi) {
+	void çıkar(final DinleyiciBilgisi<T> dinleyiciBilgisi) {
 		öncelikKümeleri
 			.get(dinleyiciBilgisi.önceliği.ordinal())
 			.remove(dinleyiciBilgisi);

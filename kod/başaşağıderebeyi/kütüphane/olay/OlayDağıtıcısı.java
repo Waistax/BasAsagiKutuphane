@@ -26,7 +26,7 @@ public class OlayDağıtıcısı {
 	/** Verilen olayı dağıtır. */
 	@SuppressWarnings("unchecked")
 	public <T extends Olay> void dağıt(final T olay) {
-		SınıfınDinleyicileri<? extends Olay> sınıfınDinleyicileri =
+		final SınıfınDinleyicileri<? extends Olay> sınıfınDinleyicileri =
 			sınıflarınDinleyicileri.get(olay.getClass());
 		
 		if (sınıfınDinleyicileri == null)
@@ -38,7 +38,7 @@ public class OlayDağıtıcısı {
 	/** Verilen dinleyiciyi ekler. */
 	@SuppressWarnings("unchecked")
 	public <T extends Olay> void dinleyiciyiEkle(
-		DinleyiciBilgisi<T> dinleyiciBilgisi) {
+		final DinleyiciBilgisi<T> dinleyiciBilgisi) {
 		SınıfınDinleyicileri<? extends Olay> sınıfınDinleyicileri =
 			sınıflarınDinleyicileri.get(dinleyiciBilgisi.dinlediğiOlay);
 		
@@ -54,8 +54,8 @@ public class OlayDağıtıcısı {
 	/** Verilen dinleyiciyi çıkarır. */
 	@SuppressWarnings("unchecked")
 	public <T extends Olay> void dinleyiciyiÇıkar(
-		DinleyiciBilgisi<T> dinleyiciBilgisi) {
-		SınıfınDinleyicileri<? extends Olay> sınıfınDinleyicileri =
+		final DinleyiciBilgisi<T> dinleyiciBilgisi) {
+		final SınıfınDinleyicileri<? extends Olay> sınıfınDinleyicileri =
 			sınıflarınDinleyicileri.get(dinleyiciBilgisi.dinlediğiOlay);
 		
 		if (sınıfınDinleyicileri == null)
